@@ -8,10 +8,10 @@ Frontend mobile do projeto Conecta Ensina.
 
 ## Dependências
 
-- git
-- yarn
-- react-native-cli
-- Android Studio
+- [git](https://git-scm.com/)
+- [yarn](https://yarnpkg.com/)
+- [react-native-cli](https://reactnative.dev/docs/0.8/getting-started)
+- [Android Studio](https://developer.android.com/studio)
 
 Recomenda-se seguir o [tutorial](https://react-native.rocketseat.dev/) de configuração de ambiente da Rocketseat.
 
@@ -26,7 +26,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
-Existe um [erro](https://github.com/facebook/react-native/issues/23306) de Gradlew que pode ser resolvido com:
+Existe um [erro](https://github.com/facebook/react-native/issues/23306) de Gradlew que pode ser resolvido no Linux com:
 ```
 chmod 755 android/gradlew
 ```
