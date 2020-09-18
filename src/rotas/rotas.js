@@ -1,25 +1,22 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import Materias from '../pages/Materias';
-import Filtros from '../pages/Filtros';
+import Materias from '../paginas/Materias';
+import Home from '../paginas/Home';
 
 const StackRotas = createStackNavigator();
 
-function rotas() {
+function Rotas(){
   return (
-    <StackRotas.Navigator>
+    <StackRotas.Navigator initialRouteName = "Home">
       <StackRotas.Screen
         name="Materias"
         component={Materias}
-        options={{headerShown: false}}
       />
       <StackRotas.Screen
-        name="Filtros"
-        component={Filtros}
-        options={{headerShown: false}}
+        name="Home"
+        component={Home}
       />
     </StackRotas.Navigator>
   );
 }
-
-export default rotas;
+export default Rotas;

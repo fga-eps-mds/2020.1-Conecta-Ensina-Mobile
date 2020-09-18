@@ -3,8 +3,7 @@ import {View} from 'react-native';
 
 // import { Container } from './styles';
 
-const Materias = () => {
+export default function Materias(){
   return <View />;
 };
 
-export default Materias;
