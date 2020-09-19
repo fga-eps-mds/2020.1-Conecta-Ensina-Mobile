@@ -11,6 +11,7 @@ function Rotas(){
       <StackRotas.Screen
         name="Materias"
         component={Materias}
+        options={{headerShown: false}}
       />
       <StackRotas.Screen
         name="Home"
