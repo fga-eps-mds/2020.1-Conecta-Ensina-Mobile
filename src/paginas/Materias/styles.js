@@ -39,7 +39,7 @@ export const BotaoMateria = styled.TouchableOpacity `
     border-radius: 10px;
     margin: 11.5px;
     align-items: center;
-`
+`;
 export const TextoMateria = styled.Text `
     font-weight: 700;
     font-size: 12px;
