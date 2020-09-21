@@ -6,13 +6,12 @@ export const LoginContainer = styled.View`
   height: 230px;
   width: 300px;
   border-radius: 15px;
-  position: absolute;
-  align-self: center;
-  top: 210px;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ButtonAluno = styled(ButtonGeral)`
-  margin-top: 160px;
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,4 +29,30 @@ export const ButtonProfessor = styled(ButtonGeral)`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const Container = styled.View`
+  align-items: center;
+  margin-bottom: 300px;
+`;
+
+export const ButtonEntrar = styled(ButtonGeral)`
+  align-items: center;
+`;
+
+export const Link = styled.TouchableOpacity`
+margin-bottom: 30px;
+`;
+
+export const LinkTexto = styled.Text`
+  font-family: Roboto;
+  font-size: 20px;
+  color: #FFF;
+  text-shadow: -1.5px 1.5px 4px #184E79;
+`;
+
+export const Logo = styled.Image`
+  width: 201px;
+  height: 208px;
+  margin-bottom: 10px;
 `;

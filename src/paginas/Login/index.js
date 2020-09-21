@@ -3,23 +3,36 @@ import Theme from '../../../Theme';
 import {
   WhiteContainer,
   BlueContainer,
-} from '../../components/styleBackground2/styles';
+} from '../../components/StyleBackground2/styles';
 
-import {LoginContainer, ButtonAluno, Texto, ButtonProfessor} from './styles';
+import {LoginContainer, ButtonAluno, Texto, ButtonProfessor, Container, ButtonEntrar, Link, LinkTexto, Logo} from './styles';
 
 export default function Login() {
   return (
     <Theme>
-      <BlueContainer />
-      <WhiteContainer>
-        <ButtonAluno>
-          <Texto>Aluno</Texto>
-        </ButtonAluno>
-        <ButtonProfessor>
-          <Texto>Professor</Texto>
-        </ButtonProfessor>
-      </WhiteContainer>
-      <LoginContainer />
+      <BlueContainer>
+        <WhiteContainer>
+        <Logo source={require("../../assets/logo.png")} />
+        <Container>
+          <LoginContainer>
+            <Link>
+              <LinkTexto>Registre-se</LinkTexto>
+            </Link>
+            <ButtonEntrar>
+              <Texto>Entrar</Texto>
+            </ButtonEntrar>
+          </LoginContainer>  
+          <ButtonAluno>
+            <Texto>Aluno</Texto>
+          </ButtonAluno>
+          <ButtonProfessor>
+            <Texto>Professor</Texto>
+          </ButtonProfessor> 
+        </Container>
+
+        </WhiteContainer>
+      </BlueContainer>
+     
     </Theme>
   );
 }
