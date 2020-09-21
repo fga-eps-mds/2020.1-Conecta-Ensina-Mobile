@@ -14,9 +14,13 @@ const theme = {
   },
   font: 'Roboto',
   fontSizes: {
-    small: '1em',
-    medium: '2em',
-    large: '3em',
+    smaller: '12px',
+    small: '14px',
+    bigSmall: '16px',
+    smallMedium: '20px',
+    medium: '25px',
+    bigMedium: '30px',
+    big: '45px',
   },
 };
 

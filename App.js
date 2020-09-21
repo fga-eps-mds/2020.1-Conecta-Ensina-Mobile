@@ -1,7 +1,7 @@
 import React from 'react';
-import Background1 from './src/components/background1/';
+import Login from './src/paginas/Login/';
 
 const App = () => {
-  return <Background1 />;
+  return <Login />;
 };
 export default App;
