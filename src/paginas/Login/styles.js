@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {ButtonGeral} from '../../components/buttonGeral/styles';
+import {ButtonGeral} from '../../components/ButtonGeral/styles';
 
 export const LoginContainer = styled.View`
   background-color: ${(props) => props.theme.colors.cinzaClaro};
@@ -45,7 +45,7 @@ margin-bottom: 30px;
 `;
 
 export const LinkTexto = styled.Text`
-  font-family: Roboto;
+  font-family: ${(props) => props.theme.font};
   font-size: 20px;
   color: #FFF;
   text-shadow: -1.5px 1.5px 4px #184E79;
@@ -54,5 +54,13 @@ export const LinkTexto = styled.Text`
 export const Logo = styled.Image`
   width: 201px;
   height: 208px;
+  margin-bottom: 10px;
+`;
+
+export const UserConatiner = styled.View`
+  width: 58px;
+  height: 58px;
+  border-radius: 100px;
+  background-color: ${(props) => props.theme.colors.fundoAzul};
   margin-bottom: 10px;
 `;

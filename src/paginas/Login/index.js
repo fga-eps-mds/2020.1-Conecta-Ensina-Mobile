@@ -5,7 +5,7 @@ import {
   BlueContainer,
 } from '../../components/StyleBackground2/styles';
 
-import {LoginContainer, ButtonAluno, Texto, ButtonProfessor, Container, ButtonEntrar, Link, LinkTexto, Logo} from './styles';
+import {LoginContainer, ButtonAluno, Texto, ButtonProfessor, Container, ButtonEntrar, Link, LinkTexto, Logo, UserConatiner } from './styles';
 
 export default function Login() {
   return (
@@ -15,6 +15,8 @@ export default function Login() {
         <Logo source={require("../../assets/logo.png")} />
         <Container>
           <LoginContainer>
+            <UserConatiner>
+            </UserConatiner>
             <Link>
               <LinkTexto>Registre-se</LinkTexto>
             </Link>
@@ -29,10 +31,8 @@ export default function Login() {
             <Texto>Professor</Texto>
           </ButtonProfessor> 
         </Container>
-
         </WhiteContainer>
-      </BlueContainer>
-     
+      </BlueContainer> 
     </Theme>
   );
 }

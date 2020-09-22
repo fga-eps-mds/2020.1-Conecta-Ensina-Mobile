@@ -1,16 +1,5 @@
 import styled from 'styled-components'
 
-export const BlueContainer = styled.View `
-    flex: 1;
-    background-color: #184E79;
-    flex-direction: row-reverse;
-    align-items: center;
-`;
-export const WhiteContainer = styled.View `
-    flex: 3;
-    background-color: #ffffff;
-`;
-
 export const ContainerUser = styled.View `
     width: 95px;
     height: 95px;
