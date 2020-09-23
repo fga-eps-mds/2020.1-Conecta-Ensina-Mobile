@@ -1,38 +1,42 @@
 import React from 'react';
 import Theme from '../../../Theme';
+import Background2 from '../../components/Background2';
 import {
-  WhiteContainer,
-  BlueContainer,
-} from '../../components/StyleBackground2/styles';
-
-import {LoginContainer, ButtonAluno, Texto, ButtonProfessor, Container, ButtonEntrar, Link, LinkTexto, Logo, UserConatiner } from './styles';
+  LoginContainer,
+  ButtonAluno,
+  Texto,
+  ButtonProfessor,
+  Container,
+  ButtonEntrar,
+  Link,
+  LinkTexto,
+  Logo,
+  UserConatiner,
+} from './styles';
 
 export default function Login() {
   return (
     <Theme>
-      <BlueContainer>
-        <WhiteContainer>
-        <Logo source={require("../../assets/logo.png")} />
+      <Background2>
+        <Logo source={require('../../assets/logo.png')} />
         <Container>
           <LoginContainer>
-            <UserConatiner>
-            </UserConatiner>
+            <UserConatiner />
             <Link>
               <LinkTexto>Registre-se</LinkTexto>
             </Link>
             <ButtonEntrar>
               <Texto>Entrar</Texto>
             </ButtonEntrar>
-          </LoginContainer>  
+          </LoginContainer>
           <ButtonAluno>
             <Texto>Aluno</Texto>
           </ButtonAluno>
           <ButtonProfessor>
             <Texto>Professor</Texto>
-          </ButtonProfessor> 
+          </ButtonProfessor>
         </Container>
-        </WhiteContainer>
-      </BlueContainer> 
+      </Background2>
     </Theme>
   );
 }

@@ -36,4 +36,3 @@ export const UserAvatar = styled.View`
   margin-left: 30px;
   margin-right: 10px;
 `;
-

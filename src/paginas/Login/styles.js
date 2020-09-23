@@ -41,14 +41,14 @@ export const ButtonEntrar = styled(ButtonGeral)`
 `;
 
 export const Link = styled.TouchableOpacity`
-margin-bottom: 30px;
+  margin-bottom: 30px;
 `;
 
 export const LinkTexto = styled.Text`
   font-family: ${(props) => props.theme.font};
   font-size: 20px;
-  color: #FFF;
-  text-shadow: -1.5px 1.5px 4px #184E79;
+  color: #fff;
+  text-shadow: -1.5px 1.5px 4px #184e79;
 `;
 
 export const Logo = styled.Image`
