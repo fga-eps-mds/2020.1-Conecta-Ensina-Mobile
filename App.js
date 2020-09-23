@@ -1,7 +1,7 @@
 import React from 'react';
-import Home from './src/paginas/Home';
+import Materias from './src/paginas/Materias';
 
 const App = () => {
-  return <Home />;
+  return <Materias />;
 };
 export default App;
