@@ -11,7 +11,7 @@ import {
   Link,
   LinkTexto,
   Logo,
-  UserConatiner,
+  UserContainer,
 } from './styles';
 
 export default function Login({navigation}) {
@@ -21,7 +21,7 @@ export default function Login({navigation}) {
         <Logo source={require('../../assets/logo.png')} />
         <Container>
           <LoginContainer>
-            <UserConatiner />
+            <UserContainer />
             <Link>
               <LinkTexto>Registre-se</LinkTexto>
             </Link>

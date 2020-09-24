@@ -8,8 +8,8 @@ export const BlueContainer = styled.View`
 `;
 
 export const WhiteContainer = styled.View`
-  background-color: #fff;
-  flex: 1;
+  background-color: ${(props) => props.theme.colors.branco};
+  flex: 77;
   display: flex;
   justify-content: center;
   border-top-left-radius: 20px;
@@ -18,21 +18,30 @@ export const WhiteContainer = styled.View`
 
 export const Usercontainer = styled.View`
   flex-direction: row-reverse;
-  margin-bottom: 75px;
-  margin-top: 10px;
+  flex: 23;
+  margin-left: 30px;
   align-items: center;
 `;
 
 export const UserTexto = styled.Text`
   font-size: 25px;
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.branco};
+  margin-bottom: 40px;
+  margin-right: 35px;
 `;
 
 export const UserAvatar = styled.View`
   width: 58px;
   height: 58px;
   border-radius: 1000px;
-  background-color: #ffffff;
-  margin-left: 30px;
-  margin-right: 10px;
+  background-color: ${(props) => props.theme.colors.branco};
+  margin-left: 40px;
+  margin-bottom: 30px;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const UserImage = styled.Image`
+  width: 33px;
+  height: 38px;
 `;

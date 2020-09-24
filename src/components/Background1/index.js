@@ -6,6 +6,7 @@ import {
   Usercontainer,
   UserTexto,
   UserAvatar,
+  UserImage,
 } from './styles';
 
 export default function Background1({children}) {
@@ -13,7 +14,9 @@ export default function Background1({children}) {
     <Theme>
       <BlueContainer>
         <Usercontainer>
-          <UserAvatar />
+          <UserAvatar>
+            <UserImage source={require('../../assets/user_blue.png')} />
+          </UserAvatar>
           <UserTexto>Nome do Aluno</UserTexto>
         </Usercontainer>
         <WhiteContainer>{children}</WhiteContainer>

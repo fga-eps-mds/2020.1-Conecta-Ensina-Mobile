@@ -1,8 +1,9 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import Materias from '../pages/Materias';
-import Home from '../pages/Home';
 import Login from '../pages/Login';
+import Home from '../pages/Home';
+import Materias from '../pages/Materias';
+import Professores from '../pages/Professores';
 
 const StackRoutes = createStackNavigator();
 
@@ -22,6 +23,11 @@ function Routes(){
       <StackRoutes.Screen
         name="Materias"
         component={Materias}
+        options={{headerShown: false}}
+      />
+      <StackRoutes.Screen
+        name="Professores"
+        component={Professores}
         options={{headerShown: false}}
       />
     </StackRoutes.Navigator>
