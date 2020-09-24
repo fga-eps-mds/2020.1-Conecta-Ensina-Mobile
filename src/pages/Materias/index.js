@@ -5,7 +5,7 @@ import ButtonContinuar from '../../components/ButtonContinuar'
 import Background1 from '../../components/Background1';
 import {ListMaterias, Container} from './styles';
 
-export default function Home() {
+export default function Materias({navigation}) {
   const [materias] = useState([
     {key: '1', nome: 'Português', img: require('../../assets/books.png')},
     {key: '2', nome: 'Matemática', img: require('../../assets/books.png')},
@@ -36,12 +36,23 @@ export default function Home() {
             numColumns={3}
             data={materias}
             keyExtractor={(item) => item.key}
-            renderItem={({item}) => <SquareButton data={item} />}
+            renderItem={({item}) => <SquareButton data={item} onPress = {() => navigation.navigate('Home')}/>}
             />
-            
         </Container>
         <ButtonContinuar />
       </Background1>
     </Theme>
   );
 }
+
+/*useEffect(() => {
+    async function loadFiltro(){
+
+      const storageFiltro = await AsyncStorage.getItem('filtros');
+      
+      if(storageFiltro){
+        setFiltros(JSON.parse(storageFiltro));
+      }
+    }
+    loadFiltro();
+  },[]);*/
