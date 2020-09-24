@@ -1,7 +1,7 @@
 import React from 'react';
-import Professores from './src/paginas/Professores';
+import Home from './src/paginas/Home';
 
 const App = () => {
-  return <Professores />;
+  return <Home />;
 };
 export default App;
