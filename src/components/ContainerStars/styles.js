@@ -11,11 +11,12 @@ export const Container = styled.TouchableOpacity`
 `;
 
 export const Imagem = styled.Image`
-  height: 50px;
-  width: 60px;
+  margin-top: 6px;
+  height: 48px;
+  width: 40px;
 `;
 
 export const Nome = styled.Text`
-  padding-top: 10px;
+  padding-top: 3px;
   font-size: 12px;
 `;

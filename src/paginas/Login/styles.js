@@ -20,7 +20,7 @@ export const ButtonAluno = styled(ButtonGeral)`
 export const Texto = styled.Text`
   font-family: ${(props) => props.theme.font};
   font-size: ${(props) => props.theme.fontSizes.medium};
-  color: #fff;
+  color: ${(props) => props.theme.colors.branco};
 `;
 
 export const ButtonProfessor = styled(ButtonGeral)`
@@ -47,7 +47,7 @@ export const Link = styled.TouchableOpacity`
 export const LinkTexto = styled.Text`
   font-family: ${(props) => props.theme.font};
   font-size: 20px;
-  color: #fff;
+  color: ${(props) => props.theme.colors.branco};
   text-shadow: -1.5px 1.5px 4px #184e79;
 `;
 
