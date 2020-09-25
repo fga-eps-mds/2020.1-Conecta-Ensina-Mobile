@@ -1,23 +1,12 @@
 import React, {useState} from 'react';
 
-import {ContainerCinza,ContainerAzul, Imagem, Nome} from './styles';
+import {ButtonContainer, Imagem, Nome} from './styles';
 
-export default function SquareButton({data}) {
-  const [click,setClick]= useState(data.clicked);
-  if(click === false){
-    return (
-      <ContainerCinza onPress={() => {setClick(true)}}>
-        <Imagem source={data.img} />
-        <Nome>{data.nome}</Nome>
-      </ContainerCinza>
-    );
-  }
-  else{
-    return(
-      <ContainerAzul onPress={() => {setClick(false)}}>
+export default function SquareButton({data,onPress,style}) {
+  return (
+    <ButtonContainer onPress={onPress} style={[style]}>
       <Imagem source={data.img} />
       <Nome>{data.nome}</Nome>
-    </ContainerAzul>
-    );
-  }
+    </ButtonContainer>
+  );
 }
