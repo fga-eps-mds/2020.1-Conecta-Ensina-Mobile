@@ -8,25 +8,19 @@ export const LoginContainer = styled.View`
   border-radius: 15px;
   align-items: center;
   justify-content: center;
-  margin-top: 200px;
+  margin-top: 55.5%;
 `;
 
 export const ButtonAluno = styled(ButtonGeral)`
-  margin-top: 40px;
+  margin-top: 11.2%;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-export const Texto = styled.Text`
-  font-family: ${(props) => props.theme.font};
-  font-size: ${(props) => props.theme.fontSizes.medium};
-  color: ${(props) => props.theme.colors.branco};
-`;
-
 export const ButtonProfessor = styled(ButtonGeral)`
   align-self: center;
-  margin-top: 40px;
+  margin-top: 11.2%
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,7 +28,7 @@ export const ButtonProfessor = styled(ButtonGeral)`
 
 export const Container = styled.View`
   align-items: center;
-  margin-bottom: 300px;
+  margin-bottom: 83.5%;
 `;
 
 export const ButtonEntrar = styled(ButtonGeral)`
@@ -42,25 +36,25 @@ export const ButtonEntrar = styled(ButtonGeral)`
 `;
 
 export const Link = styled.TouchableOpacity`
-  margin-bottom: 30px;
+  margin-bottom: 10%;
 `;
 
 export const LinkTexto = styled.Text`
   font-family: ${(props) => props.theme.font};
-  font-size: 20px;
+  font-size: ${(props) => props.theme.fontSizes.smallMedium};
   color: ${(props) => props.theme.colors.branco};
-  text-shadow: -1.5px 1.5px 4px #184e79;
+  text-shadow: -1px 1px 8px ${(props) => props.theme.colors.fundoAzul};
 `;
 
 export const Logo = styled.Image`
-  width: 201px;
-  height: 208px;
-  margin-bottom: 50px;
+  width: 50%;
+  height: 76.5%;
+  margin-bottom: 14%;
 `;
 
 export const UserContatiner = styled.View`
-  width: 58px;
-  height: 58px;
+  width: 19.5%;
+  height: 25.5%;
   border-radius: 100px;
   background-color: ${(props) => props.theme.colors.fundoAzul};
   margin-bottom: 10px;

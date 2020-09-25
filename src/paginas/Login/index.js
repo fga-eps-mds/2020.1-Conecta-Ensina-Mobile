@@ -5,7 +5,6 @@ import CustomText from '../../components/CustomText';
 import {
   LoginContainer,
   ButtonAluno,
-  Texto,
   ButtonProfessor,
   Container,
   ButtonEntrar,

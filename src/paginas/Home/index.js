@@ -4,11 +4,14 @@ import SquareButton from '../../components/SquareButton';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
 import {
-  Icon,
-  ListFiltro,
+  BigTextContainer,
   ButtonAulaUrgente,
   ButtonMarcarAula,
   ContainerButtons,
+  ContainerAula,
+  ContainerHorizontal,
+  Icon,
+  ListFiltro,
 } from './styles';
 
 export default function Home() {
@@ -29,6 +32,19 @@ export default function Home() {
           keyExtractor={(item) => item.key}
           renderItem={({item}) => <SquareButton data={item} />}
         />
+        <ContainerAula>
+          <ContainerHorizontal>
+            <Icon source={require('../../assets/books.png')} />
+            <CustomText bigSmall>Proxima Aula</CustomText>
+          </ContainerHorizontal>
+          <BigTextContainer>
+            <CustomText big>12 Jun</CustomText>
+          </BigTextContainer>
+          <ContainerHorizontal>
+            <CustomText bigSmall>16 - 18 Horas</CustomText>
+            <CustomText bigSmall>Matemática</CustomText>
+          </ContainerHorizontal>
+        </ContainerAula>
         <ContainerButtons>
           <ButtonAulaUrgente>
             <Icon source={require('../../assets/books.png')} />

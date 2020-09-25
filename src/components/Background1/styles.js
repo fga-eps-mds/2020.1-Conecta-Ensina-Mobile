@@ -9,23 +9,21 @@ export const BlueContainer = styled.View`
 
 export const WhiteContainer = styled.View`
   background-color: ${(props) => props.theme.colors.branco};
-  flex: 77;
+  flex: 78;
   display: flex;
   justify-content: center;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 `;
 
-export const Usercontainer = styled.View`
+export const UserContainer = styled.View`
   flex-direction: row-reverse;
-  flex: 23;
+  flex: 22;
   margin-left: 30px;
   align-items: center;
 `;
 
-export const UserTexto = styled.Text`
-  font-size: 25px;
-  color: ${(props) => props.theme.colors.branco};
+export const TextoContainer = styled.View`
   margin-bottom: 40px;
   margin-right: 35px;
 `;

@@ -13,9 +13,9 @@ export const Container = styled.TouchableOpacity`
 export const Imagem = styled.Image`
   height: 50px;
   width: 60px;
+  margin-top: 8px;
 `;
 
-export const Nome = styled.Text`
+export const Nome = styled.View`
   padding-top: 10px;
-  font-size: 12px;
 `;

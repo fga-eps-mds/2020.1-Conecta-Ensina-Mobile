@@ -9,10 +9,7 @@ export const RedContainer = styled.View`
   align-items: center;
 `;
 
-export const Texto = styled.Text`
-  padding-left: 10px;
+export const ContainerTexto = styled.View`
   padding-top: 4px;
-  font-family: ${(props) => props.theme.font};
-  font-size: ${(props) => props.theme.fontSizes.small};
-  color: ${(props) => props.theme.colors.branco};
+  padding-left: 10px;
 `;

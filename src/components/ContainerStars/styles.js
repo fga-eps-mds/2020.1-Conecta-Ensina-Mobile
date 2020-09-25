@@ -16,7 +16,7 @@ export const Imagem = styled.Image`
   width: 40px;
 `;
 
-export const Nome = styled.Text`
+export const ContainerTexto = styled.View`
   padding-top: 3px;
   font-size: 12px;
 `;

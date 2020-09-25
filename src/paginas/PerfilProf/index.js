@@ -6,15 +6,15 @@ import RedContainerTextBig from '../../components/RedContainerTextBig';
 import RedContainerTextMedium from '../../components/RedContainerTextMedium';
 import CustomText from '../../components/CustomText';
 import {
-  BlackTexto,
-  ContainerW,
+  BlackTextContainer,
   ContainerB,
-  Logo,
-  UserContatiner,
-  ContainerTexto,
-  Icon,
-  MiniContainer,
   ContainerFooter,
+  ContainerW,
+  Icon,
+  Logo,
+  MiniContainer,
+  UserContatiner,
+  WhiteTextContainer,
 } from './styles';
 
 export default function Login() {
@@ -27,35 +27,51 @@ export default function Login() {
             <UserContatiner>
               <Icon source={require('../../assets/user_blue.png')} />
             </UserContatiner>
-            <ContainerTexto>
+            <WhiteTextContainer>
               <CustomText white smallMedium>
                 João Marcelo da Silva
               </CustomText>
-            </ContainerTexto>
+            </WhiteTextContainer>
           </ContainerB>
         }
         white={
           <ContainerW>
             <MiniContainer>
-              <BlackTexto>Disciplina</BlackTexto>
+              <BlackTextContainer>
+                <CustomText black smallMedium>
+                  Disciplina
+                </CustomText>
+              </BlackTextContainer>
             </MiniContainer>
             <MiniContainer>
               <RedContainerTextMedium>Matemática</RedContainerTextMedium>
             </MiniContainer>
             <MiniContainer>
-              <BlackTexto>Formação</BlackTexto>
+              <BlackTextContainer>
+                <CustomText black smallMedium>
+                  Formação
+                </CustomText>
+              </BlackTextContainer>
             </MiniContainer>
             <MiniContainer>
               <RedContainerTextMedium>Mestre</RedContainerTextMedium>
             </MiniContainer>
             <MiniContainer>
-              <BlackTexto>Universidade</BlackTexto>
+              <BlackTextContainer>
+                <CustomText black smallMedium>
+                  Universidade
+                </CustomText>
+              </BlackTextContainer>
             </MiniContainer>
             <MiniContainer>
               <RedContainerTextMedium>UCB</RedContainerTextMedium>
             </MiniContainer>
             <MiniContainer>
-              <BlackTexto>Especialidade</BlackTexto>
+              <BlackTextContainer>
+                <CustomText black smallMedium>
+                  Especialidade
+                </CustomText>
+              </BlackTextContainer>
             </MiniContainer>
             <MiniContainer>
               <RedContainerTextBig>

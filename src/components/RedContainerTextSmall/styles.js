@@ -8,9 +8,3 @@ export const RedContainer = styled.View`
   justify-content: center;
   align-items: center;
 `;
-
-export const Texto = styled.Text`
-  font-family: ${(props) => props.theme.font};
-  font-size: ${(props) => props.theme.fontSizes.smallMedium};
-  color: ${(props) => props.theme.colors.branco};
-`;

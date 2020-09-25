@@ -1,41 +1,59 @@
 import styled from 'styled-components';
+import {ButtonGeral} from '../../components/ButtonGeral/styles';
 
 export const ListFiltro = styled.FlatList`
-  padding-bottom: 500px;
+  padding-bottom: 135%;
   position: absolute;
   align-self: center;
 `;
 
-export const ButtonMarcarAula = styled.TouchableOpacity`
-  margin-top: 27px;
-  background-color: #184e79;
-  width: 204px;
-  height: 49px;
-  border-radius: 15px;
+export const ButtonMarcarAula = styled(ButtonGeral)`
+  margin-top: 7.3%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
 `;
 
-export const ButtonAulaUrgente = styled.TouchableOpacity`
-  background-color: #e46270;
-  width: 204px;
-  height: 49px;
-  border-radius: 15px;
+export const ButtonAulaUrgente = styled(ButtonGeral)`
+  background-color: ${(props) => props.theme.colors.vermelho};
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
+`;
+
+export const ContainerAula = styled.View`
+  background-color: ${(props) => props.theme.colors.cinzaClaro};
+  width: 78%;
+  height: 33%;
+  align-self: center;
+  margin-bottom: 15%;
+  margin-top: 15%;
+  border-radius: 20px;
 `;
 
 export const ContainerButtons = styled.View`
-  height: 125px;
+  height: 25%;
   align-items: center;
   justify-content: center;
+  align-self: center;
+`;
+
+export const ContainerHorizontal = styled.View`
+  flex-direction: row;
+  padding-top: 4%;
+  padding-left: 6%;
+  padding-bottom: 4%;
 `;
 
 export const Icon = styled.Image`
+  margin-right: 3%;
   width: 36px;
   height: 30px;
+`;
+
+export const BigTextContainer = styled.View`
+  padding-left: 7%;
+  padding-bottom: 3%;
 `;

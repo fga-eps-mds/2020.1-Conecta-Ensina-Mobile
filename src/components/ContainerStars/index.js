@@ -1,7 +1,8 @@
 import React from 'react';
 
-import {Container, Imagem, Nome} from './styles';
+import {Container, Imagem, ContainerTexto} from './styles';
 import {Rating} from 'react-native-ratings';
+import CustomText from '../CustomText';
 
 export default function SquareButton({data}) {
   return (
@@ -14,7 +15,11 @@ export default function SquareButton({data}) {
         style={{paddingTop: 8}}
         tintColor={'#D9D9D9'}
       />
-      <Nome>{data.nome}</Nome>
+      <ContainerTexto>
+        <CustomText smaller black>
+          {data.nome}
+        </CustomText>
+      </ContainerTexto>
     </Container>
   );
 }

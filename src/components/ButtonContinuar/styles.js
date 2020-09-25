@@ -10,7 +10,3 @@ export const Container = styled.TouchableOpacity`
   margin-top: 440px;
   align-self: center;
 `;
-export const Texto = styled.Text`
-  font-size: ${(props) => props.theme.fontSizes.bigSmall};
-  color: ${(props) => props.theme.colors.branco};
-`;
