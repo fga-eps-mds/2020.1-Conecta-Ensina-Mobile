@@ -35,12 +35,6 @@ export const ContainerButtons = styled.View`
   justify-content: center;
 `;
 
-export const Texto = styled.Text`
-  font-family: ${(props) => props.theme.font};
-  font-size: ${(props) => props.theme.fontSizes.medium};
-  color: ${(props) => props.theme.colors.branco};
-`;
-
 export const Icon = styled.Image`
   width: 36px;
   height: 30px;

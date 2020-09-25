@@ -1,6 +1,7 @@
 import React from 'react';
 import Theme from '../../../Theme';
 import Background2 from '../../components/Background2';
+import CustomText from '../../components/CustomText';
 import {
   LoginContainer,
   ButtonAluno,
@@ -30,14 +31,20 @@ export default function Login() {
                 <LinkTexto>Registre-se</LinkTexto>
               </Link>
               <ButtonEntrar>
-                <Texto>Entrar</Texto>
+                <CustomText white medium>
+                  Entrar
+                </CustomText>
               </ButtonEntrar>
             </LoginContainer>
             <ButtonAluno>
-              <Texto>Aluno</Texto>
+              <CustomText white medium>
+                Aluno
+              </CustomText>
             </ButtonAluno>
             <ButtonProfessor>
-              <Texto>Professor</Texto>
+              <CustomText white medium>
+                Professor
+              </CustomText>
             </ButtonProfessor>
           </Container>
         }

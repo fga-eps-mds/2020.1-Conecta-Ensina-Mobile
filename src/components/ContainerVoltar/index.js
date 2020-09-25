@@ -1,15 +1,22 @@
 import React from 'react';
-import {Container, Texto, Voltar, Continuar} from './styles';
-
-export default function ContainerVoltar({children}) {
+import {Container, Voltar, Continuar} from './styles';
+import CustomText from '../CustomText';
+import Theme from '../../../Theme';
+export default function ContainerVoltar(props) {
   return (
-    <Container>
-      <Voltar>
-        <Texto>Voltar</Texto>
-      </Voltar>
-      <Continuar>
-        <Texto>{children}</Texto>
-      </Continuar>
-    </Container>
+    <Theme>
+      <Container>
+        <Voltar>
+          <CustomText white small>
+            Voltar
+          </CustomText>
+        </Voltar>
+        <Continuar>
+          <CustomText white small>
+            Continuar
+          </CustomText>
+        </Continuar>
+      </Container>
+    </Theme>
   );
 }

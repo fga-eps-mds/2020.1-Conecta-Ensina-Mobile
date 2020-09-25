@@ -18,12 +18,6 @@ export const ButtonAluno = styled(ButtonGeral)`
   align-items: center;
 `;
 
-export const Texto = styled.Text`
-  font-family: ${(props) => props.theme.font};
-  font-size: ${(props) => props.theme.fontSizes.smallMedium};
-  color: ${(props) => props.theme.colors.branco};
-`;
-
 export const ButtonProfessor = styled(ButtonGeral)`
   align-self: center;
   margin-top: 40px;

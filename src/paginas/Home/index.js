@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import Theme from '../../../Theme';
 import SquareButton from '../../components/SquareButton';
 import Background1 from '../../components/Background1';
+import CustomText from '../../components/CustomText';
 import {
   Icon,
   ListFiltro,
   ButtonAulaUrgente,
   ButtonMarcarAula,
   ContainerButtons,
-  Texto,
 } from './styles';
 
 export default function Home() {
@@ -32,11 +32,15 @@ export default function Home() {
         <ContainerButtons>
           <ButtonAulaUrgente>
             <Icon source={require('../../assets/books.png')} />
-            <Texto> Aula Urgente</Texto>
+            <CustomText white medium>
+              Aula Urgente
+            </CustomText>
           </ButtonAulaUrgente>
           <ButtonMarcarAula>
             <Icon source={require('../../assets/books.png')} />
-            <Texto> Marcar Aula</Texto>
+            <CustomText white medium>
+              Marcar Aula
+            </CustomText>
           </ButtonMarcarAula>
         </ContainerButtons>
       </Background1>

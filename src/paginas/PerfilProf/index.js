@@ -4,8 +4,8 @@ import Background2 from '../../components/Background2';
 import ContainerVoltar from '../../components/ContainerVoltar';
 import RedContainerTextBig from '../../components/RedContainerTextBig';
 import RedContainerTextMedium from '../../components/RedContainerTextMedium';
+import CustomText from '../../components/CustomText';
 import {
-  Texto,
   BlackTexto,
   ContainerW,
   ContainerB,
@@ -28,7 +28,9 @@ export default function Login() {
               <Icon source={require('../../assets/user_blue.png')} />
             </UserContatiner>
             <ContainerTexto>
-              <Texto>João Marcelo da Silva</Texto>
+              <CustomText white smallMedium>
+                João Marcelo da Silva
+              </CustomText>
             </ContainerTexto>
           </ContainerB>
         }
