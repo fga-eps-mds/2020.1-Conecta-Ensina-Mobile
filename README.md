@@ -1,10 +1,8 @@
-<p align="center">
-    <img src="https://raw.githubusercontent.com/fga-eps-mds/2020.1-Conecta-Ensina-Mobile/readme/github/conecta-logo.png" alt="logo">
-</p>
+![logo](github/conecta-logo.png)
 
-<h1 align="center">Conecta Ensina - Frontend Mobile</h1>
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-Frontend mobile do projeto Conecta Ensina.
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/fga-eps-mds/2020.1-Conecta-Ensina-Mobile.svg)](http://isitmaintained.com/project/fga-eps-mds/2020.1-Conecta-Ensina-Mobile "Percentage of issues still open")
 
 ## Dependências
 
