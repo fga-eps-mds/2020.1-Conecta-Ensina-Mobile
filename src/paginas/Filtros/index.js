@@ -9,9 +9,9 @@ import SwitchFiltro from '../../components/SwitchFiltro';
 import {ListMaterias, Container, ContainerFiltros} from './styles';
 
 export default function Filtros() {
-  const [type, setType] = useState('')
-  const [duration, setDuration] = useState('')
-  const [horario, setHorario] = useState('')
+  const [type, setType] = useState('');
+  const [duration, setDuration] = useState('');
+  const [horario, setHorario] = useState('');
 
   return (
     <Theme>
@@ -19,7 +19,7 @@ export default function Filtros() {
         <Container>
           <ContainerFiltros>
             <SwitchFiltro onChange={setType} />
-            <DurationPicker onChange={setDuration} />  
+            <DurationPicker onChange={setDuration} />
           </ContainerFiltros>
           <HorarioPicker onChange={setHorario} />
         </Container>

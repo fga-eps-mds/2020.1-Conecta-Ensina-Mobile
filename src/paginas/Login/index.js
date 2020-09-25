@@ -11,32 +11,37 @@ import {
   Link,
   LinkTexto,
   Logo,
-  UserConatiner,
+  UserContatiner,
+  Icon,
 } from './styles';
 
 export default function Login() {
   return (
     <Theme>
-      <Background2>
-        <Logo source={require('../../assets/logo.png')} />
-        <Container>
-          <LoginContainer>
-            <UserConatiner />
-            <Link>
-              <LinkTexto>Registre-se</LinkTexto>
-            </Link>
-            <ButtonEntrar>
-              <Texto>Entrar</Texto>
-            </ButtonEntrar>
-          </LoginContainer>
-          <ButtonAluno>
-            <Texto>Aluno</Texto>
-          </ButtonAluno>
-          <ButtonProfessor>
-            <Texto>Professor</Texto>
-          </ButtonProfessor>
-        </Container>
-      </Background2>
+      <Background2
+        blue={<Logo source={require('../../assets/logo.png')} />}
+        white={
+          <Container>
+            <LoginContainer>
+              <UserContatiner>
+                <Icon source={require('../../assets/user_white.png')} />
+              </UserContatiner>
+              <Link>
+                <LinkTexto>Registre-se</LinkTexto>
+              </Link>
+              <ButtonEntrar>
+                <Texto>Entrar</Texto>
+              </ButtonEntrar>
+            </LoginContainer>
+            <ButtonAluno>
+              <Texto>Aluno</Texto>
+            </ButtonAluno>
+            <ButtonProfessor>
+              <Texto>Professor</Texto>
+            </ButtonProfessor>
+          </Container>
+        }
+      />
     </Theme>
   );
 }

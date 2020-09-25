@@ -12,6 +12,7 @@ const theme = {
     verdeEscuro: '#2D9D49',
     botãoLoginNaoApertado: '#8B99A5',
     branco: '#ffffff',
+    preto: 'black',
   },
   font: 'Roboto',
   fontSizes: {

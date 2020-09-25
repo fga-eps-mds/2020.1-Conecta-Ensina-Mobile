@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.View`
+  position: absolute;
   flex-direction: row;
-  margin-top: 440px;
+  align-self: center;
   justify-content: center;
   align-items: flex-start;
+  top: 0;
+  left: 0;
 `;
 export const Voltar = styled.TouchableOpacity`
   background-color: ${(props) => props.theme.colors.vermelho};

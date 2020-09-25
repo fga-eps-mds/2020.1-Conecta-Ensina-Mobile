@@ -8,7 +8,7 @@ export const ListFiltro = styled.FlatList`
 
 export const ButtonMarcarAula = styled.TouchableOpacity`
   margin-top: 27px;
-  background-color: #184E79;
+  background-color: #184e79;
   width: 204px;
   height: 49px;
   border-radius: 15px;
@@ -19,7 +19,7 @@ export const ButtonMarcarAula = styled.TouchableOpacity`
 `;
 
 export const ButtonAulaUrgente = styled.TouchableOpacity`
-  background-color: #E46270;
+  background-color: #e46270;
   width: 204px;
   height: 49px;
   border-radius: 15px;
