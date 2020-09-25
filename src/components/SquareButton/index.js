@@ -1,15 +1,23 @@
-import React from 'react';
-import { Container,Imagem, Nome} from './styles'
-import { useNavigation } from '@react-navigation/native'
+import React, {useState} from 'react';
 
-export default function SquareButton({ data }) {
+import {ContainerCinza,ContainerAzul, Imagem, Nome} from './styles';
 
-const navigation = useNavigation();
-
- return (
-   <Container onPress = {() => navigation.navigate(data.path)}>
-       <Imagem source={data.img} />
-       <Nome>{data.nome}</Nome>
-   </Container>
-  );
+export default function SquareButton({data}) {
+  const [click,setClick]= useState(data.clicked);
+  if(click === false){
+    return (
+      <ContainerCinza onPress={() => {setClick(true)}}>
+        <Imagem source={data.img} />
+        <Nome>{data.nome}</Nome>
+      </ContainerCinza>
+    );
+  }
+  else{
+    return(
+      <ContainerAzul onPress={() => {setClick(false)}}>
+      <Imagem source={data.img} />
+      <Nome>{data.nome}</Nome>
+    </ContainerAzul>
+    );
+  }
 }
