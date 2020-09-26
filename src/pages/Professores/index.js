@@ -4,7 +4,7 @@ import SquareButton from '../../components/ContainerStars';
 import ContainerVoltar from '../../components/ContainerVoltar';
 
 import Background1 from '../../components/Background1';
-import {ListMaterias, Container} from './styles';
+import {ListMaterias, Container, ContainerFooter} from './styles';
 
 export default function Professores() {
   const [usuario] = useState([
@@ -40,7 +40,9 @@ export default function Professores() {
             renderItem={({item}) => <SquareButton data={item} />}
           />
         </Container>
-        <ContainerVoltar />
+        <ContainerFooter>
+          <ContainerVoltar>Continuar</ContainerVoltar>
+        </ContainerFooter>
       </Background1>
     </Theme>
   );

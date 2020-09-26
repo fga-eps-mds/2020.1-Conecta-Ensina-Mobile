@@ -1,9 +1,11 @@
 import React from 'react';
 
-import {Container, Imagem, Nome} from './styles';
+import {Container, Imagem, ContainerTexto} from './styles';
 import {Rating} from 'react-native-ratings';
+import CustomText from '../CustomText';
+import {withTheme} from 'styled-components';
 
-export default function ContainerStars({data}) {
+function ContainerStars({data, theme}) {
   return (
     <Container>
       <Imagem source={data.img} />
@@ -12,9 +14,15 @@ export default function ContainerStars({data}) {
         ratingCount={5}
         imageSize={9}
         style={{paddingTop: 8}}
-        tintColor={'#D9D9D9'}
+        tintColor={theme.colors.cinzaClaro}
       />
-      <Nome>{data.nome}</Nome>
+      <ContainerTexto>
+        <CustomText smaller black>
+          {data.nome}
+        </CustomText>
+      </ContainerTexto>
     </Container>
   );
 }
+
+export default withTheme(ContainerStars);

@@ -1,11 +1,11 @@
 import React from 'react';
+import {BlueContainer, WhiteContainer, Container} from './styles';
 
-import {BlueContainer, WhiteContainer} from './styles';
-
-export default function Background2({children}) {
+export default function Background2(props) {
   return (
-    <BlueContainer>
-      <WhiteContainer>{children}</WhiteContainer>
-    </BlueContainer>
+    <Container>
+      <BlueContainer>{props.blue}</BlueContainer>
+      <WhiteContainer>{props.white}</WhiteContainer>
+    </Container>
   );
 }

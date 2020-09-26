@@ -1,12 +1,16 @@
-import React, {useState} from 'react';
-
-import {ButtonContainer, Imagem, Nome} from './styles';
+import React from 'react';
+import CustomText from '../CustomText';
+import {Container, Imagem, Nome} from './styles';
 
 export default function SquareButton({data,onPress,style}) {
   return (
-    <ButtonContainer onPress={onPress} style={[style]}>
+    <Container onPress={onPress} style={[style]}>
       <Imagem source={data.img} />
-      <Nome>{data.nome}</Nome>
-    </ButtonContainer>
+      <Nome>
+        <CustomText black smaller>
+          {data.nome}
+        </CustomText>
+      </Nome>
+    </Container>
   );
 }

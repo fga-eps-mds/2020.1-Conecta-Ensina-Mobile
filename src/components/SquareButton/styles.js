@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-export const ButtonContainer = styled.TouchableOpacity`
-  background-color: #D9D9D9;
+export const Container = styled.TouchableOpacity`
   width: 95px;
   height: 95px;
   border-radius: 10px;
@@ -13,9 +12,9 @@ export const ButtonContainer = styled.TouchableOpacity`
 export const Imagem = styled.Image`
   height: 50px;
   width: 60px;
+  margin-top: 8px;
 `;
 
-export const Nome = styled.Text`
+export const Nome = styled.View`
   padding-top: 10px;
-  font-size: 12px;
 `;
