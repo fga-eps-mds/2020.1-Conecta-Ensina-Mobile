@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import RNPickerSelect from 'react-native-picker-select';
-import {Container, PickerView, Texto} from './styles';
+import {Container, PickerView} from './styles';
 import CustomText from '../CustomText';
+import {withTheme} from 'styled-components';
 
-export default function DurationPicker({onChange}) {
+function DurationPicker({onChange, theme}) {
   return (
     <Container>
       <CustomText black smallMedium>
@@ -13,12 +14,26 @@ export default function DurationPicker({onChange}) {
         <RNPickerSelect
           onValueChange={(tipo) => onChange(tipo)}
           items={[
-            {label: '1 Hora', value: '1', color: '#596C7C'},
-            {label: '2 Horas', value: '2', color: '#596C7C'},
-            {label: '3 Horas', value: '3', color: '#596C7C'},
+            {
+              label: '1 Hora',
+              value: '1',
+              color: theme.colors.cinzaEscuro,
+            },
+            {
+              label: '2 Horas',
+              value: '2',
+              color: theme.colors.cinzaEscuro,
+            },
+            {
+              label: '3 Horas',
+              value: '3',
+              color: theme.colors.cinzaEscuro,
+            },
           ]}
         />
       </PickerView>
     </Container>
   );
 }
+
+export default withTheme(DurationPicker);

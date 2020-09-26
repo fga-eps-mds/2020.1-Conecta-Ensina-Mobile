@@ -3,8 +3,9 @@ import React from 'react';
 import {Container, Imagem, ContainerTexto} from './styles';
 import {Rating} from 'react-native-ratings';
 import CustomText from '../CustomText';
+import {withTheme} from 'styled-components';
 
-export default function SquareButton({data}) {
+function ContainerStars({data, theme}) {
   return (
     <Container>
       <Imagem source={data.img} />
@@ -13,7 +14,7 @@ export default function SquareButton({data}) {
         ratingCount={5}
         imageSize={9}
         style={{paddingTop: 8}}
-        tintColor={'#D9D9D9'}
+        tintColor={theme.colors.cinzaClaro}
       />
       <ContainerTexto>
         <CustomText smaller black>
@@ -23,3 +24,5 @@ export default function SquareButton({data}) {
     </Container>
   );
 }
+
+export default withTheme(ContainerStars);

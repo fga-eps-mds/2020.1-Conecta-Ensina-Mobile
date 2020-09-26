@@ -2,8 +2,9 @@ import React from 'react';
 import RNPickerSelect from 'react-native-picker-select';
 import {Container, PickerView} from './styles';
 import CustomText from '../CustomText';
+import {withTheme} from 'styled-components';
 
-export default function HorarioPicker({onChange}) {
+function HorarioPicker({onChange, theme}) {
   return (
     <Container>
       <CustomText black smallMedium>
@@ -13,12 +14,14 @@ export default function HorarioPicker({onChange}) {
         <RNPickerSelect
           onValueChange={(tipo) => onChange(tipo)}
           items={[
-            {label: '19', value: '1', color: '#596C7C'},
-            {label: '18', value: '2', color: '#596C7C'},
-            {label: '17', value: '3', color: '#596C7C'},
+            {label: '19', value: '1', color: theme.colors.cinzaEscuro},
+            {label: '18', value: '2', color: theme.colors.cinzaEscuro},
+            {label: '17', value: '3', color: theme.colors.cinzaEscuro},
           ]}
         />
       </PickerView>
     </Container>
   );
 }
+
+export default withTheme(HorarioPicker);

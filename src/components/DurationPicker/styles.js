@@ -8,7 +8,7 @@ export const Container = styled.View`
 `;
 
 export const PickerView = styled.View`
-  background-color: #d9d9d9;
+  background-color: ${(props) => props.theme.colors.cinzaClaro};
   border-radius: 3px;
   align-items: center;
   width: 97px;

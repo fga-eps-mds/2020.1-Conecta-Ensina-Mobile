@@ -6,6 +6,7 @@ export default function CustomText(props) {
     <Texto
       white={props.white}
       black={props.black}
+      blue={props.blue}
       smaller={props.smaller}
       small={props.small}
       bigSmall={props.bigSmall}
