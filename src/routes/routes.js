@@ -3,13 +3,14 @@ import React from 'react';
 import Login from '../pages/Login';
 import Home from '../pages/Home';
 import Materias from '../pages/Materias';
+import Filtros from '../pages/Filtros';
 import Professores from '../pages/Professores';
 
 const StackRoutes = createStackNavigator();
 
-function Routes(){
+function Routes() {
   return (
-    <StackRoutes.Navigator initialRouteName = "Login">
+    <StackRoutes.Navigator initialRouteName="Login">
       <StackRoutes.Screen
         name="Login"
         component={Login}
@@ -23,6 +24,11 @@ function Routes(){
       <StackRoutes.Screen
         name="Materias"
         component={Materias}
+        options={{headerShown: false}}
+      />
+      <StackRoutes.Screen
+        name="Filtros"
+        component={Filtros}
         options={{headerShown: false}}
       />
       <StackRoutes.Screen
