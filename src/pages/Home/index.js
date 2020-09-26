@@ -54,7 +54,8 @@ export default function Home({navigation}) {
             <Texto> Aula Urgente</Texto>
           </ButtonAulaUrgente>
           <ButtonMarcarAula 
-          onPress={() => {navigation.navigate('Materias', {params})}}
+          onPress={() => {
+            navigation.navigate('Materias', {params})/*}catch(error){}*/}}
           >
             <Icon source={require('../../assets/books.png')}/>
             <Texto> Marcar Aula</Texto>
