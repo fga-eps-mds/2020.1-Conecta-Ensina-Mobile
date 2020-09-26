@@ -6,7 +6,7 @@
 
 [![codecov](https://codecov.io/gh/fga-eps-mds/2020.1-Conecta-Ensina-Mobile/branch/master/graph/badge.svg)](https://codecov.io/gh/fga-eps-mds/2020.1-Conecta-Ensina-Mobile)
 
-![travis](https://travis-ci.com/fga-eps-mds/2020.1-Conecta-Ensina-Mobile.svg?branch=44_badges)
+![travis](https://travis-ci.com/fga-eps-mds/2020.1-Conecta-Ensina-Mobile.svg?branch=master)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/1f978234241b543cce95/maintainability)](https://codeclimate.com/github/fga-eps-mds/2020.1-Conecta-Ensina-Mobile/maintainability)
 
