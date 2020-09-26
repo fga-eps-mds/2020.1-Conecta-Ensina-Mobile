@@ -4,6 +4,8 @@
 
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/fga-eps-mds/2020.1-Conecta-Ensina-Mobile.svg)](http://isitmaintained.com/project/fga-eps-mds/2020.1-Conecta-Ensina-Mobile "Percentage of issues still open")
 
+[![codecov](https://codecov.io/gh/fga-eps-mds/2020.1-Conecta-Ensina-Mobile/branch/master/graph/badge.svg)](https://codecov.io/gh/fga-eps-mds/2020.1-Conecta-Ensina-Mobile)
+
 ## Dependências
 
 - [git](https://git-scm.com/)
