@@ -16,3 +16,19 @@ export const ContainerFiltros = styled.View`
   justify-content: space-between;
   margin-right: 10px;
 `;
+
+export const DataButton = styled.TouchableOpacity`
+background-color: #184E79;
+width: 290px;
+height: 50px;
+border-radius: 5px;
+align-self: center;
+margin-bottom: 50px;
+align-items: center;
+justify-content: center;
+`;
+
+export const Texto = styled.Text`
+color: white;
+font-size: 20;
+`;

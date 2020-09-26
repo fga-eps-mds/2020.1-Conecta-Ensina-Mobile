@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import RNPickerSelect from 'react-native-picker-select';
 import {Container, PickerView, Texto} from './styles';
-import {CustomText} from '../CustomText';
+import CustomText from '../CustomText';
 
 export default function DurationPicker({onChange}) {
   return (

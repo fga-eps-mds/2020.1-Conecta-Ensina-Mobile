@@ -1,7 +1,7 @@
 import React from 'react';
 import RNPickerSelect from 'react-native-picker-select';
 import {Container, PickerView} from './styles';
-import {CustomText} from '../CustomText';
+import CustomText from '../CustomText';
 
 export default function HorarioPicker({onChange}) {
   return (

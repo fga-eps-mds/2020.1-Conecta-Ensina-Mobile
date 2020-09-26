@@ -1,7 +1,7 @@
 import React from 'react';
-import Materias from './src/paginas/Materias';
+import Filtros from './src/paginas/Filtros';
 
 const App = () => {
-  return <Materias />;
+  return <Filtros />
 };
 export default App;

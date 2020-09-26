@@ -8,6 +8,8 @@ target 'conectaApp' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'RNDateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker'
+
   target 'conectaAppTests' do
     inherit! :complete
     # Pods for testing

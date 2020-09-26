@@ -5,8 +5,7 @@ import {Container} from './styles';
 export default function SwitchFiltro({onChange}) {
   const estiloOptions = [
     {label: 'Online', value: 'Online'},
-    {label: 'Presencial', value: 'Presencial'},
-    ,
+    {label: 'Presencial', value: 'Presencial'}
   ];
 
   return (
