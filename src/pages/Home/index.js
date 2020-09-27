@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import Theme from '../../../Theme';
+import Theme, {theme} from '../../../Theme';
 import SquareButton from '../../components/SquareButton';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
@@ -36,7 +36,7 @@ export default function Home({navigation}) {
     },[selectedId])
   
     const renderItem = ({ item })=>{
-      const backgroundColor = item.id === selectedId ? "#297FB8": "#D9D9D9";
+      const backgroundColor = item.id === selectedId ? theme.colors.azulClaro: theme.colors.cinzaClaro;
       return (
         <Item
           item={item}
