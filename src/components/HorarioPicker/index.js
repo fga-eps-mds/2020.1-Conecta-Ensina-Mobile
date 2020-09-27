@@ -18,6 +18,11 @@ function HorarioPicker({onChange, theme}) {
             {label: '18', value: '2', color: theme.colors.cinzaEscuro},
             {label: '17', value: '3', color: theme.colors.cinzaEscuro},
           ]}
+          style={{
+            inputAndroid: {
+              color: theme.colors.cinzaClaro
+            }
+          }}
         />
       </PickerView>
     </Container>

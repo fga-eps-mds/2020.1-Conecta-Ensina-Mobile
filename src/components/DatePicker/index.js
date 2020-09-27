@@ -15,7 +15,7 @@ function DatePicker({theme, date, onClose, onChange}) {
         onChange={(e, d) => {
           const currentDate = d || dateNow;
           setDateNow(currentDate);
-          onChange(currentDate);
+          onChange(currentDate)
         }}
         style={{backgroundColor: theme.colors.fundoAzul}}
       />

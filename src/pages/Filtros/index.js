@@ -44,7 +44,6 @@ export default function Filtros() {
           </DataButton>
           {show && (
             <DatePicker
-              onClose={handleClose}
               date={newDate}
               onChange={onChange}
             />
