@@ -3,7 +3,7 @@ import React from 'react';
 import {Container, Imagem, ContainerTexto} from './styles';
 import {Rating} from 'react-native-ratings';
 import CustomText from '../CustomText';
-import {withTheme} from 'styled-components';
+import {withTheme} from 'styled-components/native';
 
 function ContainerStars({data, theme}) {
   return (

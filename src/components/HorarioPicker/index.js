@@ -2,7 +2,7 @@ import React from 'react';
 import RNPickerSelect from 'react-native-picker-select';
 import {Container, PickerView} from './styles';
 import CustomText from '../CustomText';
-import {withTheme} from 'styled-components';
+import {withTheme} from 'styled-components/native';
 
 function HorarioPicker({onChange, theme}) {
   return (
@@ -18,6 +18,11 @@ function HorarioPicker({onChange, theme}) {
             {label: '18', value: '2', color: theme.colors.cinzaEscuro},
             {label: '17', value: '3', color: theme.colors.cinzaEscuro},
           ]}
+          style={{
+            inputAndroid: {
+              color: theme.colors.cinzaClaro
+            }
+          }}
         />
       </PickerView>
     </Container>

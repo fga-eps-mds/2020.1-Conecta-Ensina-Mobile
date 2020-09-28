@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {Container} from './styles';
-import {withTheme} from 'styled-components';
+import {withTheme} from 'styled-components/native';
 
 function DatePicker({theme, date, onClose, onChange}) {
   const [dateNow, setDateNow] = useState(new Date(date));
@@ -15,7 +15,7 @@ function DatePicker({theme, date, onClose, onChange}) {
         onChange={(e, d) => {
           const currentDate = d || dateNow;
           setDateNow(currentDate);
-          onChange(currentDate);
+          onChange(currentDate)
         }}
         style={{backgroundColor: theme.colors.fundoAzul}}
       />

@@ -1,7 +1,7 @@
 import React from 'react';
 import SwitchSelector from 'react-native-switch-selector';
 import {Container} from './styles';
-import {withTheme} from 'styled-components';
+import {withTheme} from 'styled-components/native';
 
 function SwitchFiltro({theme, onChange}) {
   const estiloOptions = [
