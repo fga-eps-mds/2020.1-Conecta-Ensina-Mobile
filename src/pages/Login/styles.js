@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import {ButtonGeral} from '../../components/ButtonGeral/styles';
 
 export const LoginContainer = styled.View`

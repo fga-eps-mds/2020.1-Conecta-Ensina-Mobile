@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 export const ListMaterias = styled.FlatList`
   align-self: center;
   left: 2.8%;
