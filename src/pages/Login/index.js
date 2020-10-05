@@ -1,7 +1,9 @@
-import React from 'react';
-import Theme from '../../../Theme';
+import React,{useState, useEffect} from 'react';
+import Theme,{theme} from '../../../Theme';
 import Background2 from '../../components/Background2';
 import CustomText from '../../components/CustomText';
+import Routes from '../../routes/routes';
+import AlunoRoutes from '../../routes/aluno.routes';
 import {
   LoginContainer,
   ButtonAluno,
@@ -15,7 +17,27 @@ import {
   Icon,
 } from './styles';
 
+
 export default function Login({navigation}) {
+  const [selectedButton,setSelectedButton] = useState(null);
+  const [background1,setBackground1] = useState(null);
+  const [background2,setBackground2] = useState(null);
+
+  useEffect(()=>{
+    if(selectedButton === 'Aluno'){
+      setBackground1(theme.colors.cinzaClaro);
+      setBackground2(theme.colors.fundoAzul);
+    }
+    else if(selectedButton === 'Professor'){
+      setBackground1(theme.colors.fundoAzul);
+      setBackground2(theme.colors.cinzaClaro);
+    }
+    else if(selectedButton === null){
+      setBackground1(theme.colors.fundoAzul);
+      setBackground2(theme.colors.fundoAzul);
+    }
+  }, [selectedButton])
+  
   return (
     <Theme>
       <Background2
@@ -29,20 +51,18 @@ export default function Login({navigation}) {
               <Link>
                 <LinkTexto>Registre-se</LinkTexto>
               </Link>
-              <ButtonEntrar
-                onPress={()=>navigation.navigate('Home')}
-              >
+              <ButtonEntrar onPress={()=> {<AlunoRoutes/>}}>
                 <CustomText white medium>
                   Entrar
                 </CustomText>
               </ButtonEntrar>
             </LoginContainer>
-            <ButtonAluno>
+            <ButtonAluno onPress={() => {setSelectedButton('Aluno')}} style={{backgroundColor: background1}}>
               <CustomText white medium>
                 Aluno
               </CustomText>
             </ButtonAluno>
-            <ButtonProfessor>
+            <ButtonProfessor onPress={() => {setSelectedButton('Professor')}} style={{backgroundColor: background2}}>
               <CustomText white medium>
                 Professor
               </CustomText>
