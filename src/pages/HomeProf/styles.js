@@ -1,10 +1,14 @@
 import styled from 'styled-components/native';
 import {ButtonGeral} from '../../components/ButtonGeral/styles';
 
-export const ListAula = styled.FlatList`
+
+
+export const ContainerFuncoes = styled.View`
   padding-bottom: 120%;
   position: absolute;
   align-self: center;
+  flex-direction:row;
+  
 `;
 
 export const ButtonMarcarAula = styled(ButtonGeral)`

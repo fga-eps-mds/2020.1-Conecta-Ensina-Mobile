@@ -8,7 +8,7 @@ import {
   ContainerAula,
   ContainerHorizontal,
   Icon,
-  ListAula,
+  ContainerFuncoes,
 } from './styles';
 
 export default function HomeProf({navigation}){
@@ -19,24 +19,28 @@ export default function HomeProf({navigation}){
     {id: '103', nome: 'Aulas Realizadas', img: require('../../assets/books.png')},
   ]);
 
-  const renderItem = ({ item })=>{
-    return (
-      <SquareButton
-        data={item}
-        style={{ backgroundColor: theme.colors.cinzaClaro }}
-      />
-    );
-  }  
+
 
   return (
     <Theme>
       <Background1>
-        <ListAula
-            horizontal
-            data={func}
-            keyExtractor={(item) => item.id}
-            renderItem={renderItem}
-        />
+        <ContainerFuncoes>
+          <SquareButton
+          data={func}
+          onPress={()=> navigation.navigate('AulaMarcada')}
+          style={{ backgroundColor: theme.colors.cinzaClaro }}
+          />
+          <SquareButton
+          data={func}
+          onPress={()=> navigation.navigate('AulaPendente')}
+          style={{ backgroundColor: theme.colors.cinzaClaro }}
+          />
+          <SquareButton
+          data={func}
+          onPress={()=> navigation.navigate(func.prox)}
+          style={{ backgroundColor: theme.colors.cinzaClaro }}
+          />
+        </ContainerFuncoes>
         <ContainerAula>
             <ContainerHorizontal>
               <Icon source={require('../../assets/books.png')} />
