@@ -9,7 +9,7 @@ export const UserContatiner = styled.View`
   align-items: center;
   justify-content: center;
   margin-top: 5.7%;
-  margin-bottom: 7.14%;
+  margin-bottom: 10%;
 `;
 
 export const Icon = styled.Image`
@@ -17,13 +17,26 @@ export const Icon = styled.Image`
   height: 55%;
 `;
 
-export const RegsContainer = styled.View`
-  align-items: center;
-  justify-content: space-between;
+export const RegsContainer = styled.ScrollView.attrs(() => ({
+  contentContainerStyle: {
+    alignItems: 'center',
+  },
+}))`
+  width: 100%;
   height: 64.28%;
+  border: 4px solid ${(props) => props.theme.colors.fundoAzul};
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 `;
 
 export const ButtonContinuar = styled(Button)`
   position: absolute;
   margin-top: 480px;
+`;
+
+export const ContainerRowFlex = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5%;
+  width: 87.5%;
 `;
