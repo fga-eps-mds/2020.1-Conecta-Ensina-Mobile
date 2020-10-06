@@ -1,7 +1,7 @@
 import React from 'react';
-import Filtros from './src/pages/Filtros';
+import RegistroUser from './src/pages/RegistroUser';
 
 const App = () => {
-  return <Filtros />;
+  return <RegistroUser />;
 };
 export default App;

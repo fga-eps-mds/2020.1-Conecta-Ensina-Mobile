@@ -42,12 +42,7 @@ export default function Filtros() {
           <DataButton onPress={handlerShowPicker}>
             <Texto>Data</Texto>
           </DataButton>
-          {show && (
-            <DatePicker
-              date={newDate}
-              onChange={onChange}
-            />
-          )}
+          {show && <DatePicker date={newDate} onChange={onChange} />}
           <ContainerFiltros>
             <SwitchFiltro onChange={setType} />
             <DurationPicker onChange={setDuration} />
