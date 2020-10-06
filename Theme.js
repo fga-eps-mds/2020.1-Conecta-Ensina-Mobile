@@ -1,7 +1,7 @@
 import React from 'react';
 import {ThemeProvider} from 'styled-components/native';
 
-const theme = {
+export const theme = {
   colors: {
     fundoAzul: '#184E79',
     cinzaClaro: '#D9D9D9',

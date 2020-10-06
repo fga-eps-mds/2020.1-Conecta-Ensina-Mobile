@@ -15,7 +15,7 @@ import {
   Icon,
 } from './styles';
 
-export default function Login() {
+export default function Login({navigation}) {
   return (
     <Theme>
       <Background2
@@ -29,7 +29,9 @@ export default function Login() {
               <Link>
                 <LinkTexto>Registre-se</LinkTexto>
               </Link>
-              <ButtonEntrar>
+              <ButtonEntrar
+                onPress={()=>navigation.navigate('Home')}
+              >
                 <CustomText white medium>
                   Entrar
                 </CustomText>

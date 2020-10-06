@@ -5,10 +5,11 @@ export const Container = styled.View`
   flex-direction: row;
   align-self: center;
   justify-content: center;
-  align-items: flex-start;
-  top: 0;
-  left: 0;
+  align-items: center;
+  margin-left: -2px;
+
 `;
+
 export const Voltar = styled.TouchableOpacity`
   background-color: ${(props) => props.theme.colors.vermelho};
   width: 73px;
@@ -25,7 +26,16 @@ export const Continuar = styled.TouchableOpacity`
   border-radius: 8px;
   align-items: center;
   justify-content: center;
-  margin-right: 97px;
+  margin-right: 20px;
+`;
+export const Pular = styled.TouchableOpacity`
+  background-color: ${(props) => props.theme.colors.vermelho};
+  width: 73px;
+  height: 31px;
+  border-radius: 7px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
 `;
 export const Texto = styled.Text`
   font-size: ${(props) => props.theme.fontSizes.bigSmall};
