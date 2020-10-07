@@ -1,14 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Theme from '../../../Theme';
+import {Formik} from 'formik';
+import * as yup from 'yup';
 import {
   UserContatiner,
   Icon,
   RegsContainer,
-  ButtonContinuar,
+  ButtonRegistrar,
   ContainerRowFlex,
+  Container,
 } from './styles';
 
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
 
 import Background3 from '../../components/Background3';
 import RegFieldBig from '../../components/RegFieldBig';
@@ -17,105 +20,137 @@ import RegFieldSmall from '../../components/RegFieldSmall';
 import CustomText from '../../components/CustomText';
 
 export default function RegistroAluno() {
-  const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [grade, setGrade] = useState('');
-  const [school, setSchool] = useState('');
-  const [adulthood, setAdulthood] = useState('');
-  const [cpf, setCpf] = useState('');
-  const [cep, setCep] = useState('');
-  const [num, setNum] = useState('');
-  const [details, setDetails] = useState('');
-  const [special, setSpecial] = useState('');
-
-  //useEffect(() => console.log(password), [password]);
-
   return (
     <Theme>
       <Background3>
         <UserContatiner>
           <Icon source={require('../../assets/user_white.png')} />
         </UserContatiner>
-        <RegsContainer>
-          <View>
-            <RegFieldBig
-              placeholder="Nome"
-              onChangeText={(name) => setName(name)}
-            />
-          </View>
-          <View>
-            <RegFieldBig
-              placeholder="Sobrenome"
-              onChangeText={(surname) => setSurname(surname)}
-            />
-          </View>
-          <View>
-            <RegFieldBig
-              placeholder="Email"
-              autoCapitalize="none"
-              onChangeText={(email) => setEmail(email)}
-            />
-          </View>
-          <View>
-            <RegFieldBig
-              placeholder="Senha"
-              autoCapitalize="none"
-              onChangeText={(password) => setPassword(password)}
-            />
-          </View>
-          <ContainerRowFlex>
-            <RegFieldSmall
-              placeholder="Serie"
-              autoCapitalize="none"
-              onChangeText={(grade) => setGrade(grade)}
-            />
-            <RegFieldMedium
-              placeholder="Instituição"
-              autoCapitalize="none"
-              onChangeText={(school) => setSchool(school)}
-            />
-          </ContainerRowFlex>
-          <ContainerRowFlex>
-            <RegFieldSmall
-              placeholder="Adulto?"
-              onChangeText={(adulthood) => setAdulthood(adulthood)}
-            />
-            <RegFieldMedium
-              placeholder="CPF"
-              onChangeText={(cpf) => setCpf(cpf)}
-            />
-          </ContainerRowFlex>
-          <ContainerRowFlex>
-            <RegFieldMedium
-              placeholder="CEP"
-              onChangeText={(cep) => setCep(cep)}
-            />
-            <RegFieldSmall
-              placeholder="Nº"
-              onChangeText={(num) => setNum(num)}
-            />
-          </ContainerRowFlex>
-          <View>
-            <RegFieldBig
-              placeholder="Complemento"
-              onChangeText={(details) => setDetails(details)}
-            />
-          </View>
-          <View>
-            <RegFieldBig
-              placeholder="Necessidades Especiais"
-              autoCapitalize="none"
-              onChangeText={(special) => setSpecial(special)}
-            />
-          </View>
-        </RegsContainer>
-        <ButtonContinuar>
-          <CustomText white bigSmall>
-            Continuar
-          </CustomText>
-        </ButtonContinuar>
+        <Formik
+          initialValues={{
+            name: '',
+            surname: '',
+            email: '',
+            password: '',
+            grade: '',
+            school: '',
+            adulthood: '',
+            cpf: '',
+            cep: '',
+            num: '',
+            details: '',
+            special: '',
+          }}
+          onSubmit={(values) => console.log(values)}
+          validationSchema={yup.object().shape({
+            name: yup.string().required('Required'),
+            surname: yup.string().required('Required'),
+            email: yup.string().email().required('Required'),
+            password: yup.string().min(8).required('Required'),
+            grade: yup.number().required('Required'),
+            school: yup.string().required('Required'),
+            adulthood: yup.boolean().required('Required'),
+            cpf: yup.number().required('Required'),
+            cep: yup.number().required('Required'),
+            num: yup.number().required('Required'),
+            details: yup.string().required('Required'),
+            special: yup.string(),
+          })}>
+          {({handleChange, handleBlur, handleSubmit, values}) => (
+            <Container>
+              <RegsContainer>
+                <View>
+                  <RegFieldBig
+                    placeholder="Nome"
+                    value={values.name}
+                    onChangeText={handleChange('name')}
+                  />
+                </View>
+                <View>
+                  <RegFieldBig
+                    placeholder="Sobrenome"
+                    value={values.surname}
+                    onChangeText={handleChange('surname')}
+                  />
+                </View>
+                <View>
+                  <RegFieldBig
+                    placeholder="Email"
+                    autoCapitalize="none"
+                    value={values.email}
+                    onChangeText={handleChange('email')}
+                  />
+                </View>
+                <View>
+                  <RegFieldBig
+                    placeholder="Senha"
+                    autoCapitalize="none"
+                    value={values.password}
+                    onChangeText={handleChange('password')}
+                  />
+                </View>
+                <ContainerRowFlex>
+                  <RegFieldSmall
+                    placeholder="Serie"
+                    autoCapitalize="none"
+                    value={values.grade}
+                    onChangeText={handleChange('grade')}
+                  />
+                  <RegFieldMedium
+                    placeholder="Instituição"
+                    autoCapitalize="none"
+                    value={values.school}
+                    onChangeText={handleChange('school')}
+                  />
+                </ContainerRowFlex>
+                <ContainerRowFlex>
+                  <RegFieldSmall
+                    placeholder="Adulto?"
+                    value={values.adulthood}
+                    onChangeText={handleChange('adulthood')}
+                  />
+                  <RegFieldMedium
+                    placeholder="CPF"
+                    value={values.cpf}
+                    onChangeText={handleChange('cpf')}
+                  />
+                </ContainerRowFlex>
+                <ContainerRowFlex>
+                  <RegFieldMedium
+                    placeholder="CEP"
+                    value={values.cep}
+                    onChangeText={handleChange('cep')}
+                  />
+                  <RegFieldSmall
+                    placeholder="Nº"
+                    value={values.num}
+                    onChangeText={handleChange('num')}
+                  />
+                </ContainerRowFlex>
+                <View>
+                  <RegFieldBig
+                    placeholder="Complemento"
+                    value={values.details}
+                    onChangeText={handleChange('details')}
+                  />
+                </View>
+                <View>
+                  <RegFieldBig
+                    placeholder="Necessidades Especiais"
+                    autoCapitalize="none"
+                    value={values.special}
+                    onChangeText={handleChange('special')}
+                  />
+                </View>
+              </RegsContainer>
+              <ButtonRegistrar onPress={handleSubmit}>
+                <CustomText white bigSmall>
+                  Continuar
+                </CustomText>
+              </ButtonRegistrar>
+            </Container>
+          )}
+        </Formik>
       </Background3>
     </Theme>
   );

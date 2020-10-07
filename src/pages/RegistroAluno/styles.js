@@ -3,7 +3,7 @@ import {Button} from '../../components/ButtonContinuar/styles';
 
 export const UserContatiner = styled.View`
   width: 18.2%;
-  height: 13%;
+  height: 12%;
   border-radius: 100px;
   background-color: ${(props) => props.theme.colors.fundoAzul};
   align-items: center;
@@ -29,14 +29,19 @@ export const RegsContainer = styled.ScrollView.attrs(() => ({
   border-top-right-radius: 20px;
 `;
 
-export const ButtonContinuar = styled(Button)`
-  position: absolute;
-  margin-top: 480px;
-`;
+export const ButtonRegistrar = styled.Button.attrs((props) => ({
+  title: 'registrar',
+  color: props.theme.colors.azulClaro,
+}))``;
 
 export const ContainerRowFlex = styled.View`
   flex-direction: row;
   justify-content: space-between;
   margin-top: 5%;
   width: 87.5%;
+`;
+
+export const Container = styled.View`
+  flex: 1;
+  width: 100%;
 `;

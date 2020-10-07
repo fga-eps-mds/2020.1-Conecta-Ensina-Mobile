@@ -10,7 +10,7 @@ export const BlueContainer = styled.View`
 export const WhiteContainer = styled.View`
   background-color: ${(props) => props.theme.colors.branco};
   align-items: center;
-  height: 65.6%;
+  height: 72%;
   width: 88.88%;
   border-radius: 20px;
   margin-top: 1.5%;

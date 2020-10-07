@@ -13,12 +13,14 @@
   "dependencies": {
     "@react-native-community/datetimepicker": "^3.0.2",
     "@react-native-community/picker": "^1.8.0",
+    "formik": "^2.1.7",
     "react": "16.13.1",
     "react-native": "0.63.2",
     "react-native-picker-select": "^8.0.0",
     "react-native-ratings": "^7.3.0",
     "react-native-switch-selector": "^2.0.6",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.0",
+    "yup": "^0.29.3"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
