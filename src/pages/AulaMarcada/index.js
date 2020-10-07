@@ -24,6 +24,7 @@ export default function AulaMarcada(){
                     <DataButton onPress={handlerShowPicker}>
                         <Texto>Data</Texto>
                     </DataButton>
+
                         {show && (
                         <DatePicker
                             date={newDate}
