@@ -13,10 +13,6 @@ export default function AulaMarcada(){
         setShow(true);
       }
     
-      function handleClose() {
-        setShow(false);
-      }
-    
       const onChange = (date) => {
         setNewDate(date);
         setShow(false);

@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import HomeProf from '../pages/HomeProf'
 import AulaMarcada from '../pages/AulaMarcada'
 import AulaPendente from '../pages/AulaPendente'
+import AulaRealizada from '../pages/AulaRealizada'
 
 // import { Container } from './styles';
 const ProfStack = createStackNavigator();
@@ -22,6 +23,10 @@ function ProfRoutes(){
         <ProfStack.Screen 
           name="AulaPendente"
           component={AulaPendente}
+          options={{headerShown: false}}/>
+        <ProfStack.Screen 
+          name="AulaRealizada"
+          component={AulaRealizada}
           options={{headerShown: false}}/>
     </ProfStack.Navigator>
 

@@ -1,9 +1,8 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect, useContext} from 'react';
 import Theme,{theme} from '../../../Theme';
 import Background2 from '../../components/Background2';
 import CustomText from '../../components/CustomText';
-import Routes from '../../routes/routes';
-import AlunoRoutes from '../../routes/aluno.routes';
+import {AuthContext} from '../../contexts/auth'
 import {
   LoginContainer,
   ButtonAluno,
@@ -22,6 +21,8 @@ export default function Login({navigation}) {
   const [selectedButton,setSelectedButton] = useState(null);
   const [background1,setBackground1] = useState(null);
   const [background2,setBackground2] = useState(null);
+  const {userSelected} = useContext(AuthContext);
+
 
   useEffect(()=>{
     if(selectedButton === 'Aluno'){
@@ -51,7 +52,7 @@ export default function Login({navigation}) {
               <Link>
                 <LinkTexto>Registre-se</LinkTexto>
               </Link>
-              <ButtonEntrar onPress={()=> {<AlunoRoutes/>}}>
+              <ButtonEntrar onPress={() => userSelected(selectedButton)}>
                 <CustomText white medium>
                   Entrar
                 </CustomText>

@@ -10,28 +10,26 @@ const AlunoStack = createStackNavigator();
 function AlunoRoutes(){
   return(
     <AlunoStack.Navigator>
-     <AlunoRoutes.Navigator>
-      <AlunoRoutes.Screen
+      <AlunoStack.Screen
         name="Home"
         component={Home}
         options={{headerShown: false}}
       />
-      <AlunoRoutes.Screen
+      <AlunoStack.Screen
         name="Materias"
         component={Materias}
         options={{headerShown: false}}
       />
-      <AlunoRoutes.Screen
+      <AlunoStack.Screen
         name="Filtros"
         component={Filtros}
         options={{headerShown: false}}
       />
-      <AlunoRoutes.Screen
+      <AlunoStack.Screen
         name="Professores"
         component={Professores}
         options={{headerShown: false}}
       />
-      </AlunoRoutes.Navigator>
     </AlunoStack.Navigator>
   );
 }

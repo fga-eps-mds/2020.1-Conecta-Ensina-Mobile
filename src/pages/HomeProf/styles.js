@@ -3,7 +3,7 @@ import {ButtonGeral} from '../../components/ButtonGeral/styles';
 
 
 
-export const ContainerFuncoes = styled.View`
+export const ListFuncoes = styled.FlatList`
   padding-bottom: 120%;
   position: absolute;
   align-self: center;
