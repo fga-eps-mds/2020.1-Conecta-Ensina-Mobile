@@ -7,6 +7,7 @@ export default function RegFieldSmall(props) {
       placeholder={props.placeholder}
       autoCapitalize={props.autoCapitalize}
       onChangeText={props.onChangeText}
+      onBlur={props.onBlur}
     />
   );
 }

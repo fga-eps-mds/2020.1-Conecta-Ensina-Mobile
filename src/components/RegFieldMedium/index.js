@@ -7,6 +7,7 @@ export default function RegFieldMedium(props) {
       placeholder={props.placeholder}
       autoCapitalize={props.autoCapitalize}
       onChangeText={props.onChangeText}
+      onBlur={props.onBlur}
     />
   );
 }
