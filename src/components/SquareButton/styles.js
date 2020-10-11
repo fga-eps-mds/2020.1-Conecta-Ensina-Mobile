@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.TouchableOpacity`
-  background-color: ${(props) => props.theme.colors.cinzaClaro};
   width: 95px;
   height: 95px;
   border-radius: 10px;

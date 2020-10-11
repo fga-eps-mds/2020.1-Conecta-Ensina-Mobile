@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import {ButtonGeral} from '../../components/ButtonGeral/styles';
 
 export const ListFiltro = styled.FlatList`
-  padding-bottom: 135%;
+  padding-bottom: 120%;
   position: absolute;
   align-self: center;
 `;

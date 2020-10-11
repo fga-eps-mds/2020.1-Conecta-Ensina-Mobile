@@ -1,7 +1,12 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import RegistroAluno from './src/pages/RegistroAluno';
+import {NavigationContainer} from '@react-navigation/native';
+import Routes from './src/routes/routes';
 
-const App = () => {
-  return <RegistroAluno />;
-};
-export default App;
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Routes />
+    </NavigationContainer>
+  );
+}

@@ -6,28 +6,46 @@ import ButtonContinuar from '../../components/ButtonContinuar';
 import Background1 from '../../components/Background1';
 import {ListMaterias, Container} from './styles';
 
-export default function Materias() {
+const Item = ({item, onPress, style}) => (
+  <SquareButton data={item} onPress={onPress} style={[style]} />
+);
+
+export default function Materias({route, navigation}) {
   const [materias] = useState([
-    {key: '1', nome: 'Português', img: require('../../assets/books.png')},
-    {key: '2', nome: 'Matemática', img: require('../../assets/books.png')},
-    {key: '3', nome: 'História', img: require('../../assets/books.png')},
-    {key: '4', nome: 'Geografia', img: require('../../assets/books.png')},
-    {key: '5', nome: 'Ciência', img: require('../../assets/books.png')},
-    {key: '6', nome: 'Química', img: require('../../assets/books.png')},
-    {key: '7', nome: 'Física', img: require('../../assets/books.png')},
-    {key: '8', nome: 'Biologia', img: require('../../assets/books.png')},
-    {key: '9', nome: 'Redação', img: require('../../assets/books.png')},
-    {key: '10', nome: 'Artes', img: require('../../assets/books.png')},
-    {key: '11', nome: 'Inglês', img: require('../../assets/books.png')},
-    {key: '12', nome: 'Espanhol', img: require('../../assets/books.png')},
-    {key: '13', nome: 'História', img: require('../../assets/books.png')},
-    {key: '14', nome: 'Geografia', img: require('../../assets/books.png')},
-    {key: '15', nome: 'Ciência', img: require('../../assets/books.png')},
-    {key: '16', nome: 'Química', img: require('../../assets/books.png')},
-    {key: '17', nome: 'Física', img: require('../../assets/books.png')},
-    {key: '18', nome: 'Biologia', img: require('../../assets/books.png')},
-    {key: '19', nome: 'Redação', img: require('../../assets/books.png')},
+    {id: '1', nome: 'Português', img: require('../../assets/books.png')},
+    {id: '2', nome: 'Matemática', img: require('../../assets/books.png')},
+    {id: '3', nome: 'História', img: require('../../assets/books.png')},
+    {id: '4', nome: 'Geografia', img: require('../../assets/books.png')},
+    {id: '5', nome: 'Ciência', img: require('../../assets/books.png')},
+    {id: '6', nome: 'Química', img: require('../../assets/books.png')},
+    {id: '7', nome: 'Física', img: require('../../assets/books.png')},
+    {id: '8', nome: 'Biologia', img: require('../../assets/books.png')},
+    {id: '9', nome: 'Redação', img: require('../../assets/books.png')},
+    {id: '10', nome: 'Artes', img: require('../../assets/books.png')},
+    {id: '11', nome: 'Inglês', img: require('../../assets/books.png')},
+    {id: '12', nome: 'Espanhol', img: require('../../assets/books.png')},
+    {id: '13', nome: 'História', img: require('../../assets/books.png')},
+    {id: '14', nome: 'Geografia', img: require('../../assets/books.png')},
+    {id: '15', nome: 'Ciência', img: require('../../assets/books.png')},
+    {id: '16', nome: 'Química', img: require('../../assets/books.png')},
+    {id: '17', nome: 'Física', img: require('../../assets/books.png')},
+    {id: '18', nome: 'Biologia', img: require('../../assets/books.png')},
+    {id: '19', nome: 'Redação', img: require('../../assets/books.png')},
   ]);
+
+  const [selectedId, setSelectedId] = useState(null);
+  const {params} = route.params;
+
+  const renderItem = ({item}) => {
+    const backgroundColor = item.id === selectedId ? '#297FB8' : '#D9D9D9';
+    return (
+      <Item
+        item={item}
+        onPress={() => setSelectedId(item.id)}
+        style={{backgroundColor}}
+      />
+    );
+  };
 
   return (
     <Theme>
@@ -36,11 +54,12 @@ export default function Materias() {
           <ListMaterias
             numColumns={3}
             data={materias}
-            keyExtractor={(item) => item.key}
-            renderItem={({item}) => <SquareButton data={item} />}
+            extraData={selectedId}
+            keyExtractor={(item) => item.id}
+            renderItem={renderItem}
           />
         </Container>
-        <ButtonContinuar />
+        <ButtonContinuar onPress={() => navigation.navigate('Filtros')} />
       </Background1>
     </Theme>
   );

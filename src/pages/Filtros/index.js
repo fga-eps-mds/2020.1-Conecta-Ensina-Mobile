@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Theme from '../../../Theme';
+import Theme, {theme} from '../../../Theme';
 import Background1 from '../../components/Background1';
 import ButtonContinuar from '../../components/ButtonContinuar';
 import DurationPicker from '../../components/DurationPicker';
@@ -15,7 +15,7 @@ import {
   Texto,
 } from './styles';
 
-export default function Filtros() {
+export default function Filtros({navigation}) {
   const [type, setType] = useState('');
   const [duration, setDuration] = useState('');
   const [horario, setHorario] = useState('');
@@ -32,7 +32,7 @@ export default function Filtros() {
 
   const onChange = (date) => {
     setNewDate(date);
-    console.log(date);
+    setShow(false);
   };
 
   return (
@@ -49,7 +49,7 @@ export default function Filtros() {
           </ContainerFiltros>
           <HorarioPicker onChange={setHorario} />
         </Container>
-        <ButtonContinuar />
+        <ButtonContinuar onPress={()=>navigation.navigate('Professores')} />
       </Background1>
     </Theme>
   );
