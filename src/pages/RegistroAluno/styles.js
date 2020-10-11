@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import {Button} from '../../components/ButtonContinuar/styles';
 
 export const UserContatiner = styled.View`
   width: 18.2%;

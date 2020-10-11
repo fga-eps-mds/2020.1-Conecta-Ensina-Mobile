@@ -22,6 +22,76 @@ import SwitchAdulthood from '../../components/SwitchAdulthood';
 import SeriePicker from '../../components/SeriePicker';
 
 export default function RegistroAluno() {
+  const handleSubmit = async (values, {setStatus, isSubmitting}) => {
+    var ok = false;
+    const settings = {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstName: values.name,
+        lastName: values.surname,
+        email: values.email,
+        password: values.password,
+      }),
+    };
+    const fetchResponse1 = await fetch(
+      'http://192.168.0.8:3333/api/users/create',
+      settings,
+    );
+    try {
+      const data = await fetchResponse1.json();
+      console.log('Success:', data);
+      if (data.message) {
+        if (data.message === 'Usuário criado com sucesso!') {
+          ok = true;
+        } else if (data.message.name) {
+          if (
+            data.message.name === 'SequelizeUniqueConstraintError' &&
+            data.message.fields.email
+          ) {
+            setStatus({email: 'Email já foi registrado'});
+          }
+        }
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+
+    if (ok === true) {
+      const settings1 = {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          grade: values.grade,
+          institution: values.school,
+          cpf: values.cpf,
+          cep: values.cep,
+          number: values.num,
+          details: values.details,
+          description: values.description,
+          adulthood: values.adulthood,
+          special: values.special,
+        }),
+      };
+      const fetchResponse2 = await fetch(
+        'http://192.168.0.8:3333/api/students/create',
+        settings1,
+      );
+      try {
+        const data = await fetchResponse2.json();
+        console.log('Success:', data);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+  };
+
   return (
     <Theme>
       <Background3>
@@ -46,65 +116,7 @@ export default function RegistroAluno() {
           }}
           validateOnChange={false}
           validateOnBlur={false}
-          onSubmit={(values) => {
-            fetch('http://192.168.0.8:3333/api/users/create', {
-              method: 'POST',
-              headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                firstName: values.name,
-                lastName: values.surname,
-                email: values.email,
-                password: values.password,
-              }),
-            })
-              .then((response) => response.text())
-              .then((data) => {
-                console.log('Success:', data);
-              })
-              .catch((error) => {
-                console.error('Error:', error);
-              });
-            console.log(
-              JSON.stringify({
-                institution: values.school,
-                cpf: values.cpf,
-                cep: values.cep,
-                number: values.num,
-                details: values.details,
-                description: values.description,
-                adulthood: values.adulthood,
-                special: values.special,
-              }),
-            );
-            fetch('http://192.168.0.8:3333/api/students/create', {
-              method: 'POST',
-              headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                grade: values.grade,
-                institution: values.school,
-                cpf: values.cpf,
-                cep: values.cep,
-                number: values.num,
-                details: values.details,
-                description: values.description,
-                adulthood: values.adulthood,
-                special: values.special,
-              }),
-            })
-              .then((response) => response.text())
-              .then((data) => {
-                console.log('Success:', data);
-              })
-              .catch((error) => {
-                console.error('Error:', error);
-              });
-          }}
+          onSubmit={handleSubmit}
           validationSchema={yup.object().shape({
             name: yup
               .string('Nome deve ser um texto')
@@ -128,10 +140,14 @@ export default function RegistroAluno() {
               .boolean()
               .required('É necessário indicar maioridade'),
             cpf: yup
-              .number('CPF deve ser um numero')
+              .string()
+              .length(11, 'CPF deve ter 11 números')
+              .matches(/^\d+$/, 'CPF deve ser um número')
               .required('É necessário indicar um CPF'),
             cep: yup
-              .number('CEP deve ser um numero')
+              .string()
+              .length(8, 'CPF deve ter 8 números')
+              .matches(/^\d+$/, 'CEP deve ser um número')
               .required('É necessário indicar um CEP'),
             num: yup
               .number('Número do endereço deve ser um numero')
@@ -143,12 +159,12 @@ export default function RegistroAluno() {
           })}>
           {({
             handleChange,
-            handleBlur,
             handleSubmit,
             setFieldValue,
             values,
-            setFieldTouched,
             errors,
+            status,
+            touched,
           }) => (
             <Container>
               <RegsContainer>
@@ -159,7 +175,7 @@ export default function RegistroAluno() {
                     onChangeText={handleChange('name')}
                   />
                 </View>
-                {errors.name && (
+                {errors.name && touched.name && (
                   <CustomText black small>
                     {errors.name}
                   </CustomText>
@@ -171,7 +187,7 @@ export default function RegistroAluno() {
                     onChangeText={handleChange('surname')}
                   />
                 </View>
-                {errors.surname && (
+                {errors.surname && touched.surname && (
                   <CustomText black small>
                     {errors.surname}
                   </CustomText>
@@ -184,7 +200,12 @@ export default function RegistroAluno() {
                     onChangeText={handleChange('email')}
                   />
                 </View>
-                {errors.email && (
+                {!!status && status.email && touched.email && (
+                  <CustomText black small>
+                    {status.email}
+                  </CustomText>
+                )}
+                {errors.email && touched.email && (
                   <CustomText black small>
                     {errors.email}
                   </CustomText>
@@ -205,7 +226,7 @@ export default function RegistroAluno() {
                 <ContainerRowFlex>
                   <SeriePicker
                     value={values.grade}
-                    onChange={(value) => setFieldValue('grade', value, true)}
+                    onChange={(value) => setFieldValue('grade', value, false)}
                   />
                   <RegFieldMedium
                     placeholder="Instituição"
@@ -228,7 +249,7 @@ export default function RegistroAluno() {
                   <SwitchAdulthood
                     value={values.adulthood}
                     onChange={(value) =>
-                      setFieldValue('adulthood', value, true)
+                      setFieldValue('adulthood', value, false)
                     }
                   />
                   <RegFieldMedium
