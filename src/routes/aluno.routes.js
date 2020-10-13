@@ -5,6 +5,7 @@ import Materias from '../pages/Materias';
 import Filtros from '../pages/Filtros';
 import Professores from '../pages/Professores';
 
+
 const AlunoStack = createStackNavigator();
 
 function AlunoRoutes(){
