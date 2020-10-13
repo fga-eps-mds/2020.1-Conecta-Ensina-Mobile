@@ -33,6 +33,7 @@ export const Container = styled.View`
 
 export const ButtonEntrar = styled(ButtonGeral)`
   align-items: center;
+  justify-content: center;
 `;
 
 export const Link = styled.TouchableOpacity`
