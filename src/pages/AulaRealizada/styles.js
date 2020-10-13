@@ -1,4 +1,4 @@
-import styled from  'styled-components'
+import styled from  'styled-components/native'
 
 export const ContainerVisualAula = styled.View`
     background-color: ${(props) => props.theme.colors.cinzaClaro};
