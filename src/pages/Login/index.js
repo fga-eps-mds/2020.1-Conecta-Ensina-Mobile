@@ -27,11 +27,11 @@ export default function Login({navigation}) {
                 <Icon source={require('../../assets/user_white.png')} />
               </UserContatiner>
               <Link>
-                <LinkTexto>Registre-se</LinkTexto>
+                <LinkTexto onPress={() => navigation.navigate('RegistroAluno')}>
+                  Registre-se
+                </LinkTexto>
               </Link>
-              <ButtonEntrar
-                onPress={()=>navigation.navigate('Home')}
-              >
+              <ButtonEntrar onPress={() => navigation.navigate('Home')}>
                 <CustomText white medium>
                   Entrar
                 </CustomText>

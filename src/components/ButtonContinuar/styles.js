@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.TouchableOpacity`
+export const Button = styled.TouchableOpacity`
   background-color: ${(props) => props.theme.colors.azulClaro};
   width: 138px;
   height: 31px;
