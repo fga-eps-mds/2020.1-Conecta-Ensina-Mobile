@@ -4,7 +4,7 @@ import CustomText from '../CustomText';
 
 export default function ButtonContinuar({onPress}) {
   return (
-    <Button>
+    <Button onPress={onPress}>
       <CustomText white bigSmall>
         Continuar
       </CustomText>
