@@ -5,6 +5,7 @@ import Home from '../pages/Home';
 import Materias from '../pages/Materias';
 import Filtros from '../pages/Filtros';
 import Professores from '../pages/Professores';
+import RegistroAluno from '../pages/RegistroAluno';
 
 const StackRoutes = createStackNavigator();
 
@@ -14,6 +15,11 @@ function Routes() {
       <StackRoutes.Screen
         name="Login"
         component={Login}
+        options={{headerShown: false}}
+      />
+      <StackRoutes.Screen
+        name="RegistroAluno"
+        component={RegistroAluno}
         options={{headerShown: false}}
       />
       <StackRoutes.Screen

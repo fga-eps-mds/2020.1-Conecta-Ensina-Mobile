@@ -5,8 +5,7 @@ import CustomText from '../CustomText';
 import {withTheme} from 'styled-components/native';
 
 function DurationPicker({onChange, theme}) {
-  const placeholder = {
-  };
+  const placeholder = {};
 
   return (
     <Container>
@@ -32,12 +31,11 @@ function DurationPicker({onChange, theme}) {
               value: '3',
               color: theme.colors.cinzaEscuro,
             },
-            
           ]}
           style={{
             inputAndroid: {
-              color: theme.colors.preto
-            }
+              color: theme.colors.preto,
+            },
           }}
         />
       </PickerView>

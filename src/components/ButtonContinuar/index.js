@@ -1,13 +1,13 @@
 import React from 'react';
-import {Container} from './styles';
+import {Button} from './styles';
 import CustomText from '../CustomText';
 
 export default function ButtonContinuar({onPress}) {
   return (
-    <Container onPress={onPress}>
+    <Button>
       <CustomText white bigSmall>
         Continuar
       </CustomText>
-    </Container>
+    </Button>
   );
 }
