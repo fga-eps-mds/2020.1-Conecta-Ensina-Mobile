@@ -14,6 +14,7 @@ import {
   Logo,
   UserContatiner,
   Icon,
+  ButtonAdm,
 } from './styles';
 
 
@@ -30,6 +31,10 @@ export default function Login({navigation}) {
       setBackground2(theme.colors.fundoAzul);
     }
     else if(selectedButton === 'Professor'){
+      setBackground1(theme.colors.fundoAzul);
+      setBackground2(theme.colors.cinzaClaro);
+    }
+    else if(selectedButton === 'Adm'){
       setBackground1(theme.colors.fundoAzul);
       setBackground2(theme.colors.cinzaClaro);
     }
@@ -70,6 +75,11 @@ export default function Login({navigation}) {
                 Professor
               </CustomText>
             </ButtonProfessor>
+            <ButtonAdm onPress={() => {setSelectedButton('Adm')}} style={{backgroundColor: background2}}>
+              <CustomText white medium>
+                Adm
+              </CustomText>
+            </ButtonAdm>
           </Container>
         }
       />

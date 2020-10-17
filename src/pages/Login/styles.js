@@ -12,7 +12,7 @@ export const LoginContainer = styled.View`
 `;
 
 export const ButtonAluno = styled(ButtonGeral)`
-  margin-top: 11.2%;
+  margin-top: 8%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +20,15 @@ export const ButtonAluno = styled(ButtonGeral)`
 
 export const ButtonProfessor = styled(ButtonGeral)`
   align-self: center;
-  margin-top: 11.2%
+  margin-top: 8%
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ButtonAdm = styled(ButtonGeral)`
+  align-self: center;
+  margin-top: 8%
   display: flex;
   justify-content: center;
   align-items: center;
