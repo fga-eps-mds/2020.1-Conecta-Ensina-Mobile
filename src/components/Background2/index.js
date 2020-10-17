@@ -1,11 +1,14 @@
 import React from 'react';
 import {BlueContainer, WhiteContainer, Container} from './styles';
+import Theme from '../../../Theme';
 
 export default function Background2(props) {
   return (
-    <Container>
-      <BlueContainer>{props.blue}</BlueContainer>
-      <WhiteContainer>{props.white}</WhiteContainer>
-    </Container>
+    <Theme>
+      <Container>
+        <BlueContainer>{props.blue}</BlueContainer>
+        <WhiteContainer>{props.white}</WhiteContainer>
+      </Container>
+    </Theme>
   );
 }

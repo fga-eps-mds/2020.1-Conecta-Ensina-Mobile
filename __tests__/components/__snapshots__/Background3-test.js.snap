@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#184E79",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "width": "100%",
+      },
+    ]
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/assets/logo.png",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "height": "17.8%",
+          "marginTop": "1.25%",
+          "width": "31.6%",
+        },
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 20,
+          "height": "72%",
+          "marginTop": "1.5%",
+          "width": "88.88%",
+        },
+      ]
+    }
+  />
+</View>
+`;
