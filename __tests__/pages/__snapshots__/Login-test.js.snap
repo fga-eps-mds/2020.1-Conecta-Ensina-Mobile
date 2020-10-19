@@ -1,0 +1,286 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing Login page should be match snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#184E79",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+  testID="background"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#184E79",
+          "flexBasis": 0,
+          "flexGrow": 0.7,
+          "flexShrink": 1,
+          "justifyContent": "center",
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/assets/logo.png",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "height": "76.5%",
+            "marginBottom": "14%",
+            "width": "50%",
+          },
+        ]
+      }
+      testID="Logo"
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderTopLeftRadius": 20,
+          "borderTopRightRadius": 20,
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "marginBottom": "83.5%",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#D9D9D9",
+              "borderRadius": 15,
+              "height": 230,
+              "justifyContent": "center",
+              "marginTop": "55.5%",
+              "width": 300,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#184E79",
+                "borderRadius": 100,
+                "height": "25.5%",
+                "justifyContent": "center",
+                "marginBottom": 10,
+                "width": "19.5%",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../src/assets/user_white.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": "63%",
+                  "width": "52%",
+                },
+              ]
+            }
+            testID="Icon"
+          />
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "marginBottom": "10%",
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 20,
+                  "textShadowColor": "#184E79",
+                  "textShadowOffset": Object {
+                    "height": 1,
+                    "width": -1,
+                  },
+                  "textShadowRadius": 8,
+                },
+              ]
+            }
+          >
+            Registre-se
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#184E79",
+              "borderRadius": 10,
+              "height": 50,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": 200,
+            }
+          }
+        >
+          <Text
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                },
+              ]
+            }
+            white={true}
+          >
+            Entrar
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#184E79",
+            "borderRadius": 10,
+            "display": "flex",
+            "height": 50,
+            "justifyContent": "center",
+            "marginTop": "11.2%",
+            "opacity": 1,
+            "width": 200,
+          }
+        }
+      >
+        <Text
+          medium={true}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Roboto",
+                "fontSize": 25,
+              },
+            ]
+          }
+          white={true}
+        >
+          Aluno
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "backgroundColor": "#184E79",
+            "borderRadius": 10,
+            "display": "flex",
+            "height": 50,
+            "justifyContent": "center",
+            "marginTop": "11.2%",
+            "opacity": 1,
+            "width": 200,
+          }
+        }
+      >
+        <Text
+          medium={true}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Roboto",
+                "fontSize": 25,
+              },
+            ]
+          }
+          white={true}
+        >
+          Professor
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

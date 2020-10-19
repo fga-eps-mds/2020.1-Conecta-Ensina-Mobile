@@ -19,6 +19,8 @@ import {
 
 export default function Login({navigation}) {
   const [selectedButton,setSelectedButton] = useState(null);
+
+  //Only for change color buttons when pressed
   const [background1,setBackground1] = useState(null);
   const [background2,setBackground2] = useState(null);
   const {userSelected} = useContext(AuthContext);
@@ -40,17 +42,17 @@ export default function Login({navigation}) {
   }, [selectedButton])
   
   return (
-    <Theme>
+    <Theme testID = 'theme'>
       <Background2
-        blue={<Logo source={require('../../assets/logo.png')} />}
+        blue={<Logo testID = 'Logo' source={require('../../assets/logo.png')} />}
         white={
           <Container>
             <LoginContainer>
               <UserContatiner>
-                <Icon source={require('../../assets/user_white.png')} />
+                <Icon testID = 'Icon' source={require('../../assets/user_white.png')} />
               </UserContatiner>
-              <Link>
-                <LinkTexto onPress={() => navigation.navigate('RegistroAluno')}>
+              <Link onPress={() => navigation.navigate('RegistroAluno')}>
+                <LinkTexto>
                   Registre-se
                 </LinkTexto>
               </Link>
