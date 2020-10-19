@@ -42,7 +42,7 @@ export default function Login({navigation}) {
   }, [selectedButton])
   
   return (
-    <Theme testID = 'theme'>
+    <Theme>
       <Background2
         blue={<Logo testID = 'Logo' source={require('../../assets/logo.png')} />}
         white={
