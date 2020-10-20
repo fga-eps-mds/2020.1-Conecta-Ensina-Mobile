@@ -4,6 +4,7 @@ import SquareButton from '../../components/ContainerStars';
 import ContainerVoltar from '../../components/ContainerVoltar';
 import {Button} from 'react-native';
 
+import CustomText from '../../components/CustomText';
 import Background1 from '../../components/Background1';
 import {ListMaterias, Container, ContainerFooter} from './styles';
 
@@ -30,7 +31,6 @@ export default function ProfessoresPendentes({navigation}) {
     {id: '19', nome: 'Redação', img: require('../../assets/user_blue.png')},
   ]);*/
 
-
   /*getProfessorList = async() =>{
     try{
       const response = await api.get('http://localhost:3333/api/teachers/status/0');
@@ -43,27 +43,34 @@ export default function ProfessoresPendentes({navigation}) {
     }
   };*/
 
-  /*const getProfessorList = async  () => {
-    return (await fetch('192.168.0.12:3333/api/teachers/status/0'));
+  const getProfessorList = async () => {
+    const fetchResponse = await fetch(
+      'http://192.168.0.12:3333/api/teachers/status/0',
+    );
     try {
       const data = await fetchResponse.json();
-      console.log(data);
+      console.log(data.data.teacher);
+      setTeachers(data.data.teacher);
       return data;
     } catch (error) {
       return error;
     }
-  }*/
-
-
+  };
+  const [teachers, setTeachers] = useState('');
   return (
     <Theme>
       <Background1>
         <Container>
-          <Button onPress = {/*getProfessorList*/} title = "texto"></Button>
+          <Button onPress={getProfessorList} title="texto" />
+          <ListMaterias
+            numColumns={3}
+            data={setTeachers}
+            keyExtractor={(item) => item.id}
+            renderItem={({item}) => <SquareButton data={item.id} />}
+          />
         </Container>
         <ContainerFooter>
-          <ContainerVoltar onPressVoltar={()=>navigation.push('Login')} >
-          </ContainerVoltar>
+          <ContainerVoltar onPressVoltar={() => navigation.push('HomeAdm')} />
         </ContainerFooter>
       </Background1>
     </Theme>
