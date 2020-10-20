@@ -48,8 +48,9 @@ export default function Home({navigation}) {
 
   return (
     <Theme>
-      <Background1>
+      <Background1 >
         <ListFiltro
+          testID = 'listFiltro'
           horizontal
           data={filtros}
           extraData={selectedId}
