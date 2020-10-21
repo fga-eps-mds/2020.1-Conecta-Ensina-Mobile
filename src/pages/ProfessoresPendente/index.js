@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import Theme from '../../../Theme';
-import SquareButton from '../../components/ContainerStars';
+import SquareButton from '../../components/ContainerTeacher';
 import ContainerVoltar from '../../components/ContainerVoltar';
-import {Button} from 'react-native';
+import {Button, Text} from 'react-native';
 
 import CustomText from '../../components/CustomText';
 import Background1 from '../../components/Background1';
@@ -63,10 +63,10 @@ export default function ProfessoresPendentes({navigation}) {
         <Container>
           <Button onPress={getProfessorList} title="texto" />
           <ListMaterias
-            numColumns={3}
-            data={setTeachers}
+            numColumns={2}
+            data={teachers}
             keyExtractor={(item) => item.id}
-            renderItem={({item}) => <SquareButton data={item.id} />}
+            renderItem={({item}) =>  <SquareButton data={item} />}
           />
         </Container>
         <ContainerFooter>
