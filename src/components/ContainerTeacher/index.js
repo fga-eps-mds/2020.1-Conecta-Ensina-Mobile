@@ -4,9 +4,9 @@ import {Container, Imagem, ContainerTexto} from './styles';
 import CustomText from '../CustomText';
 import {withTheme} from 'styled-components/native';
 
-function ContainerTeacher({data, theme}) {
+function ContainerTeacher({data, onPressProf}) {
   return (
-    <Container>
+    <Container onPress={onPressProf}>
       <Imagem source={data.photo} />
       <ContainerTexto>
         <CustomText smaller black>

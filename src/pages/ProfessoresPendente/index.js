@@ -8,6 +8,7 @@ import CustomText from '../../components/CustomText';
 import Background1 from '../../components/Background1';
 import {ListMaterias, Container, ContainerFooter} from './styles';
 
+
 export default function ProfessoresPendentes({navigation}) {
   /*const [usuario] = useState([
     {id: '1', nome: 'Carlos', img: require('../../assets/user_blue.png')},
@@ -31,17 +32,6 @@ export default function ProfessoresPendentes({navigation}) {
     {id: '19', nome: 'Redação', img: require('../../assets/user_blue.png')},
   ]);*/
 
-  /*getProfessorList = async() =>{
-    try{
-      const response = await api.get('http://localhost:3333/api/teachers/status/0');
-
-      const { professores } = response.data;
-
-      this.setState({ professores });
-    }catch(response){
-      this.setState({ errorMessage: response.data.error});
-    }
-  };*/
 
   const getProfessorList = async () => {
     const fetchResponse = await fetch(
@@ -56,6 +46,7 @@ export default function ProfessoresPendentes({navigation}) {
       return error;
     }
   };
+  
   const [teachers, setTeachers] = useState('');
   return (
     <Theme>
@@ -66,7 +57,11 @@ export default function ProfessoresPendentes({navigation}) {
             numColumns={2}
             data={teachers}
             keyExtractor={(item) => item.id}
-            renderItem={({item}) =>  <SquareButton data={item} />}
+            renderItem={({item}) =>  
+              <SquareButton 
+                data={item} 
+                onPressProf={() => navigation.navigate('HomeAdm')}
+              />}
           />
         </Container>
         <ContainerFooter>
