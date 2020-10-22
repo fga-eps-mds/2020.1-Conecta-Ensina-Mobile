@@ -22,6 +22,7 @@ export default function Login({navigation}) {
   const [selectedButton,setSelectedButton] = useState(null);
   const [background1,setBackground1] = useState(null);
   const [background2,setBackground2] = useState(null);
+  const [background3,setBackground3] = useState(null);
   const {userSelected} = useContext(AuthContext);
 
 
@@ -29,18 +30,23 @@ export default function Login({navigation}) {
     if(selectedButton === 'Aluno'){
       setBackground1(theme.colors.cinzaClaro);
       setBackground2(theme.colors.fundoAzul);
+      setBackground3(theme.colors.fundoAzul);
     }
     else if(selectedButton === 'Professor'){
       setBackground1(theme.colors.fundoAzul);
       setBackground2(theme.colors.cinzaClaro);
+      setBackground3(theme.colors.fundoAzul);
     }
     else if(selectedButton === 'Adm'){
       setBackground1(theme.colors.fundoAzul);
-      setBackground2(theme.colors.cinzaClaro);
+      setBackground2(theme.colors.fundoAzul);
+      setBackground3(theme.colors.cinzaClaro);
+
     }
     else if(selectedButton === null){
       setBackground1(theme.colors.fundoAzul);
       setBackground2(theme.colors.fundoAzul);
+      setBackground3(theme.colors.fundoAzul);
     }
   }, [selectedButton])
   
@@ -75,7 +81,7 @@ export default function Login({navigation}) {
                 Professor
               </CustomText>
             </ButtonProfessor>
-            <ButtonAdm onPress={() => {setSelectedButton('Adm')}} style={{backgroundColor: background2}}>
+            <ButtonAdm onPress={() => {setSelectedButton('Adm')}} style={{backgroundColor: background3}}>
               <CustomText white medium>
                 Adm
               </CustomText>

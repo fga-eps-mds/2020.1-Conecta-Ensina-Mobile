@@ -5,7 +5,7 @@ import ContainerVoltar from '../../components/ContainerVoltar';
 import {Button, Text} from 'react-native';
 
 import CustomText from '../../components/CustomText';
-import Background1 from '../../components/Background1';
+import Background4 from '../../components/Background4';
 import {ListMaterias, Container, ContainerFooter} from './styles';
 
 
@@ -15,7 +15,7 @@ export default function ProfessoresPendentes({route, navigation}) {
   
   return (
     <Theme>
-      <Background1>
+      <Background4>
         <Container>
           <ListMaterias
             numColumns={2}
@@ -28,10 +28,7 @@ export default function ProfessoresPendentes({route, navigation}) {
               />}
           />
         </Container>
-        <ContainerFooter>
-          <ContainerVoltar onPressVoltar={() => navigation.push('HomeAdm')} />
-        </ContainerFooter>
-      </Background1>
+      </Background4>
     </Theme>
   );
 }
