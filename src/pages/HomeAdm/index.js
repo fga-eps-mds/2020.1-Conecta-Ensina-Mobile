@@ -23,6 +23,23 @@ export default function HomeAdm({navigation}){
 
   const [selectedId,setSelectedId] = useState(null);
 
+  const getProfessorList = async () => {
+    const fetchResponse = await fetch(
+      'http://192.168.0.12:3333/api/teachers/status/0',
+    );
+    try {
+      const data = await fetchResponse.json();
+      console.log(data.data.teacher);
+      setTeachers(data.data.teacher);
+      return data;
+    } catch (error) {
+      return error;
+    }
+  };
+
+  const [teachers, setTeachers] = useState(getProfessorList);
+
+
   const renderItem = ({ item })=>{
     var nextScreen;
 
@@ -36,7 +53,7 @@ export default function HomeAdm({navigation}){
     return (
       <Item
         item={item}
-        onPress={() => navigation.navigate(nextScreen)}
+        onPress={() => navigation.navigate(nextScreen, {teachers})}
         style={{ backgroundColor: theme.colors.cinzaClaro }}
       />
     );
