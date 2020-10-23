@@ -7,6 +7,7 @@ import {Button, Text} from 'react-native';
 import CustomText from '../../components/CustomText';
 import Background1 from '../../components/Background1';
 import {ListMaterias, Container, ContainerFooter} from './styles';
+import ButtonContinuar from '../../components/ButtonContinuar';
 
 
 export default function ProfessoresPendentes({navigation}) {
@@ -65,7 +66,8 @@ export default function ProfessoresPendentes({navigation}) {
           />
         </Container>
         <ContainerFooter>
-          <ContainerVoltar onPressVoltar={() => navigation.push('HomeAdm')} />
+          <ContainerVoltar onPressVoltar={() => navigation.push('HomeAdm')}
+            onPressContinuar={() => navigation.navigate('ConfirmaProf') }/>
         </ContainerFooter>
       </Background1>
     </Theme>
