@@ -1,12 +1,11 @@
-import React,{useState, useEffect, useContext} from 'react';
-import Theme,{theme} from '../../../Theme';
+import React, {useState, useEffect, useContext} from 'react';
+import Theme, {theme} from '../../../Theme';
 import Background2 from '../../components/Background2';
 import CustomText from '../../components/CustomText';
-import {AuthContext} from '../../contexts/auth'
+import RegFieldBig from '../../components/RegFieldBig';
+import {AuthContext} from '../../contexts/auth';
 import {
   LoginContainer,
-  ButtonAluno,
-  ButtonProfessor,
   Container,
   ButtonEntrar,
   Link,
@@ -16,29 +15,50 @@ import {
   Icon,
 } from './styles';
 
-
 export default function Login({navigation}) {
-  const [selectedButton,setSelectedButton] = useState(null);
-  const [background1,setBackground1] = useState(null);
-  const [background2,setBackground2] = useState(null);
-  const {userSelected} = useContext(AuthContext);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  /*const {signIn} = useContext(AuthContext); */
 
+  /*function handleLogin(){
+    signIn(email, password)
+  }*/
 
-  useEffect(()=>{
-    if(selectedButton === 'Aluno'){
-      setBackground1(theme.colors.cinzaClaro);
-      setBackground2(theme.colors.fundoAzul);
+  async function handleLogin() {
+    const settings = {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    };
+    const fetchResponse1 = await fetch(
+      'http://192.168.0.8:3333/api/users/login',
+      settings,
+    );
+    try {
+      const data = await fetchResponse1.json();
+      console.log('Success:', data);
+      if (data.message) {
+        if (data.message === 'Login efetuado com sucesso') {
+          console.log('login efetuado');
+          if (data.role === 2) {
+            /*setTypeUser('Professor'); */
+            console.log('Professor');
+          } else {
+            /*setTypeUser('Aluno'); */
+            console.log('Aluno');
+          }
+        }
+      }
+    } catch (error) {
+      console.error('Error:', error);
     }
-    else if(selectedButton === 'Professor'){
-      setBackground1(theme.colors.fundoAzul);
-      setBackground2(theme.colors.cinzaClaro);
-    }
-    else if(selectedButton === null){
-      setBackground1(theme.colors.fundoAzul);
-      setBackground2(theme.colors.fundoAzul);
-    }
-  }, [selectedButton])
-  
+  }
   return (
     <Theme>
       <Background2
@@ -49,27 +69,30 @@ export default function Login({navigation}) {
               <UserContatiner>
                 <Icon source={require('../../assets/user_white.png')} />
               </UserContatiner>
+              <RegFieldBig
+                placeholder="Email"
+                autoCapitalize="none"
+                value={email}
+                onChangeText={(text) => setEmail(text)}
+              />
+              <RegFieldBig
+                placeholder="Senha"
+                autoCapitalize="none"
+                value={password}
+                onChangeText={(text) => setPassword(text)}
+                secureTextEntry={true}
+              />
+              <ButtonEntrar onPress={handleLogin}>
+                <CustomText white medium>
+                  Entrar
+                </CustomText>
+              </ButtonEntrar>
               <Link>
                 <LinkTexto onPress={() => navigation.navigate('RegistroAluno')}>
                   Registre-se
                 </LinkTexto>
               </Link>
-              <ButtonEntrar onPress={() => userSelected(selectedButton)}>
-                <CustomText white medium>
-                  Entrar
-                </CustomText>
-              </ButtonEntrar>
             </LoginContainer>
-            <ButtonAluno onPress={() => {setSelectedButton('Aluno')}} style={{backgroundColor: background1}}>
-              <CustomText white medium>
-                Aluno
-              </CustomText>
-            </ButtonAluno>
-            <ButtonProfessor onPress={() => {setSelectedButton('Professor')}} style={{backgroundColor: background2}}>
-              <CustomText white medium>
-                Professor
-              </CustomText>
-            </ButtonProfessor>
           </Container>
         }
       />
