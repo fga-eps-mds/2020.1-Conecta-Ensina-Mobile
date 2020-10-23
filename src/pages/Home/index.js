@@ -48,7 +48,7 @@ export default function Home({navigation}) {
 
   return (
     <Theme>
-      <Background1>
+      <Background1 navigation={navigation}>
         <ListFiltro
           horizontal
           data={filtros}
