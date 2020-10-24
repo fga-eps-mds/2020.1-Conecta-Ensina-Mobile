@@ -1,8 +1,5 @@
 import styled from 'styled-components/native';
-export const ListInfo = styled.FlatList`
-  align-self: center;
-  left: 2.8%;
-`;
+
 export const Container = styled.View`
   flex: 1;
   justify-content: center;
@@ -13,6 +10,26 @@ export const Container = styled.View`
   left: 0px;
   bottom: 13.3%;
   border-radius: 20px;
+`;
+
+export const InfoContainer = styled.ScrollView.attrs(() => ({
+  contentContainerStyle: {
+    alignItems: 'center',
+  },
+}))`
+  width: 100%;
+  height: 64.28%;
+  margin-top: 7.6%;
+`;
+
+export const TextContainer = styled.View`
+  height: 50px;
+  width: 280px;
+  border-radius: 9px;
+  background-color: ${(props) => props.theme.colors.fundoAzul};
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ContainerFooter = styled.View`
