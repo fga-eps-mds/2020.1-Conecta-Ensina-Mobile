@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import ProfessoresPendente from '../pages/ProfessoresPendente';
 import HomeAdm from '../pages/HomeAdm';
-import ConfirmaProf from '../pages/ConfirmaProf';
+import Perfil from '../pages/Perfil';
 
 
 const AdmStack = createStackNavigator();
@@ -21,7 +21,7 @@ function AdmRoutes(){
       />
       <AdmStack.Screen
         name="Perfil"
-        component={ConfirmaProf}
+        component={Perfil}
         options={{headerShown: false}}
       />
     </AdmStack.Navigator>

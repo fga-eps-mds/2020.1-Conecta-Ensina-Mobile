@@ -20,7 +20,25 @@ const Item = ({ item, onPress, style }) => (
 
 
 export default function Home({navigation}) {
-    const [filtros,setFiltros] = useState([
+
+  const getStudent = async () => {
+    const fetchResponse = await fetch(
+      'http://192.168.0.157:3333/api/students/3bd7c190-ce64-4827-8c0c-58cfef45ad9f',
+    );
+    try {
+      const data = await fetchResponse.json();
+      console.log(data.data.student);
+      setStudent(data.data.student);
+      return data;
+    } catch (error) {
+      return error;
+    }
+  };
+  
+  const [student, setStudent] = useState(getStudent);
+
+
+  const [filtros,setFiltros] = useState([
       {id: '1', nome: 'Reforço Escolar', img: require('../../assets/books.png')},
       {id: '2', nome: 'Idiomas', img: require('../../assets/books.png')},
       {id: '3', nome: 'Vestibular', img: require('../../assets/books.png')},
@@ -70,7 +88,7 @@ export default function Home({navigation}) {
           </ContainerHorizontal>
         </ContainerAula>
         <ContainerButtons>
-          <ButtonAulaUrgente>
+          <ButtonAulaUrgente onPress = {() => navigation.navigate('Perfil', {student})}>
             <Icon source={require('../../assets/books.png')} />
             <CustomText white medium>
               Aula Urgente

@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, {useState} from 'react'; 
 import Theme, {theme} from '../../../Theme';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
@@ -6,7 +6,26 @@ import { Text, SafeAreaView, View} from 'react-native';
 import { Container, ContainerGrande, ContainerMedio, ContainerPequeno, ContainerGrupo, Button } from './styles';
 import { ButtonGeral } from '../../components/ButtonGeral/styles';
  
-export default function ConfirmaProf({navigation}){
+export default function Perfil({route, navigation}){
+
+  const {item} = route.params;
+
+  const getPerfil = async () => {
+    const fetchResponse = await fetch(
+      'http://192.168.0.157:3333/api/users/'+item.id,
+    );
+    try {
+      const data = await fetchResponse.json();
+      console.log(data.data.user);
+      setPerfil(data.data.user);
+      return data;
+    } catch (error) {
+      return error;
+    }
+  };
+  
+  const [perfil, setPerfil] = useState(getPerfil);
+
 
     return (
         <Theme>
