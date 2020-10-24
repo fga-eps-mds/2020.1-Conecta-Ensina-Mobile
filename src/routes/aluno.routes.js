@@ -1,15 +1,14 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../pages/Home';
 import Materias from '../pages/Materias';
 import Filtros from '../pages/Filtros';
 import Professores from '../pages/Professores';
 
-
 const AlunoStack = createStackNavigator();
 
-function AlunoRoutes(){
-  return(
+function AlunoRoutes() {
+  return (
     <AlunoStack.Navigator>
       <AlunoStack.Screen
         name="Home"

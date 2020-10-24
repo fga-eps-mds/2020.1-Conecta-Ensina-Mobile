@@ -41,8 +41,7 @@ export default function Professores({navigation}) {
           />
         </Container>
         <ContainerFooter>
-          <ContainerVoltar onPressVoltar={()=>navigation.push('Filtros')} >
-          </ContainerVoltar>
+          <ContainerVoltar onPressVoltar={() => navigation.push('Filtros')} />
         </ContainerFooter>
       </Background1>
     </Theme>

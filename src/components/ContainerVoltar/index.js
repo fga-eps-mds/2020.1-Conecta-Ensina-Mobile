@@ -6,14 +6,12 @@ export default function ContainerVoltar({onPressContinuar, onPressVoltar}) {
   return (
     <Theme>
       <Container>
-        <Voltar
-          onPress={onPressVoltar}>
+        <Voltar onPress={onPressVoltar}>
           <CustomText white small>
             Voltar
           </CustomText>
         </Voltar>
-        <Continuar
-         onPress={onPressContinuar}>
+        <Continuar onPress={onPressContinuar}>
           <CustomText white small>
             Continuar
           </CustomText>

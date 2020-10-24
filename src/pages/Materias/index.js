@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Theme,{theme} from '../../../Theme';
+import Theme, {theme} from '../../../Theme';
 import SquareButton from '../../components/SquareButton';
 import ButtonContinuar from '../../components/ButtonContinuar';
 
@@ -37,7 +37,8 @@ export default function Materias({route, navigation}) {
   const {params} = route.params;
 
   const renderItem = ({item}) => {
-    const backgroundColor = item.id === selectedId ? theme.colors.azulClaro: theme.colors.cinzaClaro;
+    const backgroundColor =
+      item.id === selectedId ? theme.colors.azulClaro : theme.colors.cinzaClaro;
     return (
       <Item
         item={item}

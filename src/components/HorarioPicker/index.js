@@ -20,8 +20,8 @@ function HorarioPicker({onChange, theme}) {
           ]}
           style={{
             inputAndroid: {
-              color: theme.colors.cinzaClaro
-            }
+              color: theme.colors.cinzaClaro,
+            },
           }}
         />
       </PickerView>
