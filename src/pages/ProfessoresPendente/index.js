@@ -67,7 +67,7 @@ export default function ProfessoresPendentes({navigation}) {
         </Container>
         <ContainerFooter>
           <ContainerVoltar onPressVoltar={() => navigation.push('HomeAdm')}
-            onPressContinuar={() => navigation.navigate('ConfirmaProf') }/>
+            onPressContinuar={() => navigation.navigate('Perfil') }/>
         </ContainerFooter>
       </Background1>
     </Theme>

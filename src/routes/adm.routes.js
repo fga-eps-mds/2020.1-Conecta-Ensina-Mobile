@@ -20,7 +20,7 @@ function AdmRoutes(){
         options={{headerShown: false}}
       />
       <AdmStack.Screen
-        name="ConfirmaProf"
+        name="Perfil"
         component={ConfirmaProf}
         options={{headerShown: false}}
       />
