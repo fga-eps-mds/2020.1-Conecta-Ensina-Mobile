@@ -4,17 +4,20 @@ import CustomText from '../CustomText';
 import {
   BlueContainer,
   WhiteContainer,
-  UserContainer,
   TextoContainer,
   UserAvatar,
   UserImage,
+  UserContainer,
 } from './styles';
 
-export default function Background1({children}) {
+export default function Background1({children, navigation}) {
   return (
     <Theme>
       <BlueContainer>
-        <UserContainer>
+        <UserContainer
+          onPress={() => {
+            navigation.navigate('Perfil', {}); /*}catch(error){}*/
+          }}>
           <UserAvatar>
             <UserImage source={require('../../assets/user_blue.png')} />
           </UserAvatar>
