@@ -2,6 +2,9 @@ import React from 'react';
 import Theme from '../../../Theme';
 import {Formik} from 'formik';
 import * as yup from 'yup';
+import {TextInputMask} from 'react-native-masked-text';
+import {Alert} from 'react-native';
+
 import {
   UserContatiner,
   Icon,
@@ -9,20 +12,35 @@ import {
   ButtonRegistrar,
   ContainerRowFlex,
   Container,
+  DateContainer,
 } from './styles';
-
-import {View} from 'react-native';
 
 import Background3 from '../../components/Background3';
 import RegFieldBig from '../../components/RegFieldBig';
 import RegFieldMedium from '../../components/RegFieldMedium';
 import RegFieldSmall from '../../components/RegFieldSmall';
 import CustomText from '../../components/CustomText';
-import SwitchAdulthood from '../../components/SwitchAdulthood';
+import SwitchSpecial from '../../components/SwitchSpecial';
 import SeriePicker from '../../components/SeriePicker';
 
-export default function RegistroAluno() {
-  const handleSubmit = async (values, {setStatus, isSubmitting}) => {
+export default function RegistroAluno({navigation}) {
+  const RegistroAlert = () => {
+    Alert.alert(
+      'Registro',
+      //body
+      'Registro Concluido com sucesso',
+      [
+        {
+          text: 'Finalizar',
+          onPress: () => navigation.navigate('Login'),
+        },
+      ],
+      {cancelable: false},
+    );
+  };
+
+  const submitHandler = async (values, {setStatus, isSubmitting}) => {
+    console.log(values);
     var ok = false;
     const settings = {
       method: 'POST',
@@ -35,17 +53,27 @@ export default function RegistroAluno() {
         lastName: values.surname,
         email: values.email,
         password: values.password,
+        cellphone: values.cellphone,
+        birthdate: values.birthdate,
+        grade: values.grade,
+        institution: values.school,
+        cpf: values.cpf,
+        cep: values.cep,
+        number: values.num,
+        details: values.details,
+        description: values.description,
+        special: values.special,
       }),
     };
-    const fetchResponse1 = await fetch(
-      'http://192.168.0.8:3333/api/users/create',
+    const fetchResponse = await fetch(
+      'http://192.168.0.8:3333/api/student/create',
       settings,
     );
     try {
-      const data = await fetchResponse1.json();
+      const data = await fetchResponse.json();
       console.log('Success:', data);
       if (data.message) {
-        if (data.message === 'Usuário criado com sucesso!') {
+        if (data.message === 'Estudante criado com sucesso!') {
           ok = true;
         } else if (data.message.name) {
           if (
@@ -53,42 +81,19 @@ export default function RegistroAluno() {
             data.message.fields.email
           ) {
             setStatus({email: 'Email já foi registrado'});
+          } else if (
+            data.message.name === 'SequelizeUniqueConstraintError' &&
+            data.message.fields.cpf
+          ) {
+            setStatus({cpf: 'CPF já foi registrado'});
           }
         }
       }
     } catch (error) {
       console.error('Error:', error);
     }
-
-    if (ok === true) {
-      const settings1 = {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          grade: values.grade,
-          institution: values.school,
-          cpf: values.cpf,
-          cep: values.cep,
-          number: values.num,
-          details: values.details,
-          description: values.description,
-          adulthood: values.adulthood,
-          special: values.special,
-        }),
-      };
-      const fetchResponse2 = await fetch(
-        'http://192.168.0.8:3333/api/students/create',
-        settings1,
-      );
-      try {
-        const data = await fetchResponse2.json();
-        console.log('Success:', data);
-      } catch (error) {
-        console.error('Error:', error);
-      }
+    if (ok) {
+      RegistroAlert();
     }
   };
 
@@ -104,19 +109,20 @@ export default function RegistroAluno() {
             surname: '',
             email: '',
             password: '',
+            cellphone: '',
+            birthdate: '',
             grade: '',
             school: '',
-            adulthood: false,
             cpf: '',
             cep: '',
             num: '',
             details: '',
             description: '',
-            special: '',
+            special: false,
           }}
           validateOnChange={false}
           validateOnBlur={false}
-          onSubmit={handleSubmit}
+          onSubmit={submitHandler}
           validationSchema={yup.object().shape({
             name: yup
               .string('Nome deve ser um texto')
@@ -132,13 +138,18 @@ export default function RegistroAluno() {
               .string('Senha inválida')
               .min(8, 'Senha deve ter 8 caracteres')
               .required('É necessário indicar uma senha'),
+            cellphone: yup
+              .string()
+              .required('É necessário indicar um número de telefone')
+              .min(11, 'Número de telefone inválido')
+              .max(13, 'Número de telefone inválido'),
+            birthdate: yup
+              .date('Data inválida')
+              .required('É necessário indicar uma data de nascimentos'),
             grade: yup.number().required('É necessário indicar uma série'),
             school: yup
               .string('Instituição deve ser um texto')
               .required('É necessário indicar uma instituição'),
-            adulthood: yup
-              .boolean()
-              .required('É necessário indicar maioridade'),
             cpf: yup
               .string()
               .length(11, 'CPF deve ter 11 números')
@@ -154,8 +165,11 @@ export default function RegistroAluno() {
               .required('É necessário indicar um número do endereço'),
             details: yup
               .string('Complemento deve ser um texto')
-              .required('É necessário indicar um complemento'),
-            special: yup.string('Necessidades especiais deve ser um texto'),
+              .required('É necessário indicar o complemento'),
+            description: yup
+              .string()
+              .required('É necessário indicar uma descriação'),
+            special: yup.boolean().required(),
           })}>
           {({
             handleChange,
@@ -168,38 +182,32 @@ export default function RegistroAluno() {
           }) => (
             <Container>
               <RegsContainer>
-                <View>
-                  <RegFieldBig
-                    placeholder="Nome"
-                    value={values.name}
-                    onChangeText={handleChange('name')}
-                  />
-                </View>
+                <RegFieldBig
+                  placeholder="Nome"
+                  value={values.name}
+                  onChangeText={handleChange('name')}
+                />
                 {errors.name && touched.name && (
                   <CustomText black small>
                     {errors.name}
                   </CustomText>
                 )}
-                <View>
-                  <RegFieldBig
-                    placeholder="Sobrenome"
-                    value={values.surname}
-                    onChangeText={handleChange('surname')}
-                  />
-                </View>
+                <RegFieldBig
+                  placeholder="Sobrenome"
+                  value={values.surname}
+                  onChangeText={handleChange('surname')}
+                />
                 {errors.surname && touched.surname && (
                   <CustomText black small>
                     {errors.surname}
                   </CustomText>
                 )}
-                <View>
-                  <RegFieldBig
-                    placeholder="Email"
-                    autoCapitalize="none"
-                    value={values.email}
-                    onChangeText={handleChange('email')}
-                  />
-                </View>
+                <RegFieldBig
+                  placeholder="Email"
+                  autoCapitalize="none"
+                  value={values.email}
+                  onChangeText={handleChange('email')}
+                />
                 {!!status && status.email && touched.email && (
                   <CustomText black small>
                     {status.email}
@@ -210,19 +218,46 @@ export default function RegistroAluno() {
                     {errors.email}
                   </CustomText>
                 )}
-                <View>
-                  <RegFieldBig
-                    placeholder="Senha"
-                    autoCapitalize="none"
-                    value={values.password}
-                    onChangeText={handleChange('password')}
-                  />
-                </View>
+                <RegFieldBig
+                  placeholder="Senha"
+                  autoCapitalize="none"
+                  value={values.password}
+                  onChangeText={handleChange('password')}
+                />
                 {errors.password && (
                   <CustomText black small>
                     {errors.password}
                   </CustomText>
                 )}
+                <RegFieldBig
+                  placeholder="Número de celular"
+                  autoCapitalize="none"
+                  value={values.cellphone}
+                  onChangeText={handleChange('cellphone')}
+                />
+                {errors.cellphone && (
+                  <CustomText black small>
+                    {errors.cellphone}
+                  </CustomText>
+                )}
+                <DateContainer>
+                  <TextInputMask
+                    value={values.birthdate}
+                    onChangeText={handleChange('birthdate')}
+                    type={'datetime'}
+                    options={{
+                      format: 'YYYY-MM-DD',
+                    }}
+                    placeholder="Data de nascimento"
+                    placeholderTextColor="#F6F6F6"
+                    style={{
+                      color: '#FFFFFF',
+                      fontSize: 14,
+                      flex: 1,
+                      textAlign: 'center',
+                    }}
+                  />
+                </DateContainer>
                 <ContainerRowFlex>
                   <SeriePicker
                     value={values.grade}
@@ -245,24 +280,11 @@ export default function RegistroAluno() {
                     {errors.school}
                   </CustomText>
                 )}
-                <ContainerRowFlex>
-                  <SwitchAdulthood
-                    value={values.adulthood}
-                    onChange={(value) =>
-                      setFieldValue('adulthood', value, false)
-                    }
-                  />
-                  <RegFieldMedium
-                    placeholder="CPF"
-                    value={values.cpf}
-                    onChangeText={handleChange('cpf')}
-                  />
-                </ContainerRowFlex>
-                {errors.adulthood && (
-                  <CustomText black small>
-                    {errors.adulthood}
-                  </CustomText>
-                )}
+                <RegFieldBig
+                  placeholder="CPF"
+                  value={values.cpf}
+                  onChangeText={handleChange('cpf')}
+                />
                 {errors.cpf && (
                   <CustomText black small>
                     {errors.cpf}
@@ -290,50 +312,39 @@ export default function RegistroAluno() {
                     {errors.num}
                   </CustomText>
                 )}
-                <View>
-                  <RegFieldBig
-                    placeholder="Complemento"
-                    value={values.details}
-                    onChangeText={handleChange('details')}
-                  />
-                </View>
+                <RegFieldBig
+                  placeholder="Complemento"
+                  value={values.details}
+                  onChangeText={handleChange('details')}
+                />
                 {errors.details && (
                   <CustomText black small>
                     {errors.details}
                   </CustomText>
                 )}
-                <View>
-                  <RegFieldBig
-                    placeholder="Descrição"
-                    autoCapitalize="none"
-                    value={values.description}
-                    onChangeText={handleChange('description')}
-                  />
-                </View>
+                <RegFieldBig
+                  placeholder="Descrição"
+                  autoCapitalize="none"
+                  value={values.description}
+                  onChangeText={handleChange('description')}
+                />
                 {errors.description && (
                   <CustomText black small>
                     {errors.description}
                   </CustomText>
                 )}
-                <View>
-                  <RegFieldBig
-                    placeholder="Necessidades Especiais"
-                    autoCapitalize="none"
-                    value={values.special}
-                    onChangeText={handleChange('special')}
-                  />
-                </View>
+                <SwitchSpecial
+                  value={values.special}
+                  text="Necessidades especiais?"
+                  onChange={(value) => setFieldValue('special', value, false)}
+                />
                 {errors.special && (
                   <CustomText black small>
                     {errors.special}
                   </CustomText>
                 )}
               </RegsContainer>
-              <ButtonRegistrar onPress={handleSubmit}>
-                <CustomText white bigSmall>
-                  Continuar
-                </CustomText>
-              </ButtonRegistrar>
+              <ButtonRegistrar onPress={handleSubmit} />
             </Container>
           )}
         </Formik>
