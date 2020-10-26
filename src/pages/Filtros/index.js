@@ -37,7 +37,7 @@ export default function Filtros({navigation}) {
 
   return (
     <Theme>
-      <Background1>
+      <Background1 navigation={navigation} page={'Perfil'}>
         <Container>
           <DataButton onPress={handlerShowPicker}>
             <Texto>Data</Texto>
@@ -49,7 +49,7 @@ export default function Filtros({navigation}) {
           </ContainerFiltros>
           <HorarioPicker onChange={setHorario} />
         </Container>
-        <ButtonContinuar onPress={()=>navigation.navigate('Professores')} />
+        <ButtonContinuar onPress={() => navigation.navigate('Professores')} />
       </Background1>
     </Theme>
   );

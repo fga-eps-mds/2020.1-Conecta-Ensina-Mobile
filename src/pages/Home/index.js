@@ -48,7 +48,7 @@ export default function Home({navigation}) {
 
   return (
     <Theme>
-      <Background1 navigation={navigation}>
+      <Background1 navigation={navigation} page={'Perfil'}>
         <ListFiltro
           horizontal
           data={filtros}
@@ -70,7 +70,8 @@ export default function Home({navigation}) {
           </ContainerHorizontal>
         </ContainerAula>
         <ContainerButtons>
-          <ButtonAulaUrgente onPress = {() => navigation.navigate('Perfil', {student})}>
+          <ButtonAulaUrgente
+            onPress={() => navigation.navigate('Perfil', {student})}>
             <Icon source={require('../../assets/books.png')} />
             <CustomText white medium>
               Aula Urgente

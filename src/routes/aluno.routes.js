@@ -4,7 +4,7 @@ import Home from '../pages/Home';
 import Materias from '../pages/Materias';
 import Filtros from '../pages/Filtros';
 import Professores from '../pages/Professores';
-import Perfil from '../pages/Perfil'
+import Perfil from '../pages/Perfil';
 
 const AlunoStack = createStackNavigator();
 

@@ -11,14 +11,14 @@ import {
 } from './styles';
 import {AuthContext} from '../../contexts/auth';
 
-export default function Background1({children, navigation}) {
+export default function Background1({children, navigation, page}) {
   const {user} = useContext(AuthContext);
   return (
     <Theme>
       <BlueContainer>
         <UserContainer
           onPress={() => {
-            navigation.navigate('Perfil', {}); /*}catch(error){}*/
+            navigation.navigate(page, {user}); /*}catch(error){}*/
           }}>
           <UserAvatar>
             <UserImage source={require('../../assets/user_blue.png')} />

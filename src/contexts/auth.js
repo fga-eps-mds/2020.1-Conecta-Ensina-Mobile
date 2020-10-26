@@ -19,7 +19,7 @@ function AuthProvider({children}) {
       }),
     };
     const fetchResponse1 = await fetch(
-      'http://172.17.245.49:3333/api/user/login',
+      'http://192.168.15.15:3333/api/user/login',
       settings,
     );
     try {
