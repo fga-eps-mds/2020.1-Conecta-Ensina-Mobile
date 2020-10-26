@@ -16,7 +16,7 @@ export const WhiteContainer = styled.View`
   border-top-right-radius: 20px;
 `;
 
-export const UserContainer = styled.TouchableOpacity`
+export const UserContainer = styled.View`
   flex-direction: row-reverse;
   flex: 22;
   margin-left: 30px;

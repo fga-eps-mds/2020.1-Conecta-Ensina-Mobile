@@ -4,7 +4,7 @@ import {Container, ContainerRow} from './styles';
 import {withTheme} from 'styled-components/native';
 import CustomText from '../CustomText';
 
-function SwitchAdulthood({theme, onChange, onBlur, text}) {
+function SwitchAdulthood({theme, onChange, onBlur, text, testID}) {
   const estiloOptions = [
     {label: 'Não', value: false},
     {label: 'Sim', value: true},
@@ -34,6 +34,7 @@ function SwitchAdulthood({theme, onChange, onBlur, text}) {
           fontSize={12}
           onBlur={onBlur}
           style={{borderColor: 'white', borderWidth: 1, borderRadius: 5}}
+          role="special"
         />
       </ContainerRow>
     </Container>

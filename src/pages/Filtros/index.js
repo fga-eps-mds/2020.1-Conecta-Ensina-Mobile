@@ -49,7 +49,9 @@ export default function Filtros({navigation}) {
           </ContainerFiltros>
           <HorarioPicker onChange={setHorario} />
         </Container>
-        <ButtonContinuar onPress={()=>navigation.navigate('Professores')} />
+        <ButtonContinuar onPress={() => navigation.navigate('Professores')}>
+          Continuar
+        </ButtonContinuar>
       </Background1>
     </Theme>
   );

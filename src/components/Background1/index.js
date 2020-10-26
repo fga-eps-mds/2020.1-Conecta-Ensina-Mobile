@@ -10,14 +10,11 @@ import {
   UserContainer,
 } from './styles';
 
-export default function Background1({children, navigation}) {
+export default function Background1({children}) {
   return (
     <Theme>
       <BlueContainer>
-        <UserContainer
-          onPress={() => {
-            navigation.navigate('InfoEstudante', {}); /*}catch(error){}*/
-          }}>
+        <UserContainer>
           <UserAvatar>
             <UserImage source={require('../../assets/user_blue.png')} />
           </UserAvatar>
