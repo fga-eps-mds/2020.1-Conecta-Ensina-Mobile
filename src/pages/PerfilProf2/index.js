@@ -125,7 +125,7 @@ export default class InfoProfessor extends React.Component {
               </TextContainer>
               <TextContainer>
                 <CustomText white bigSmall>
-                  {this.infoStudent.data.student.video}
+                  {this.infoTeacher.data.teacher.video}
                 </CustomText>
               </TextContainer>
               <TextContainer>
@@ -145,7 +145,7 @@ export default class InfoProfessor extends React.Component {
               </TextContainer>
               <TextContainer>
                 <CustomText white medium>
-                  {this.infoTeacher.data.teacher.ageny}
+                  {this.infoTeacher.data.teacher.agency}
                 </CustomText>
               </TextContainer>
               <TextContainer>

@@ -8,17 +8,14 @@ import {AuthContext} from '../contexts/auth';
 function Routes() {
   const {typeUser} = useContext(AuthContext);
 
-  if(typeUser == 'Professor'){
-    return <ProfRoutes/>;  
-  }
-  else if(typeUser == 'Aluno'){
-    return <AlunoRoutes/>;
-  }
-  else if(typeUser == 'Adm'){
-    return <AdmRoutes/>;
-  }
-  else{
-    return <AuthRoutes/>
+  if (typeUser === 'Professor') {
+    return <ProfRoutes />;
+  } else if (typeUser === 'Aluno') {
+    return <AlunoRoutes />;
+  } else if (typeUser === 'Adm') {
+    return <AdmRoutes />;
+  } else {
+    return <AuthRoutes />;
   }
 }
 

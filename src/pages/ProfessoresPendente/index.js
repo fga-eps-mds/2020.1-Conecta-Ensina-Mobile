@@ -9,7 +9,6 @@ import Background1 from '../../components/Background1';
 import {ListMaterias, Container, ContainerFooter} from './styles';
 import ButtonContinuar from '../../components/ButtonContinuar';
 
-
 export default function ProfessoresPendentes({navigation}) {
   /*const [usuario] = useState([
     {id: '1', nome: 'Carlos', img: require('../../assets/user_blue.png')},
@@ -33,7 +32,6 @@ export default function ProfessoresPendentes({navigation}) {
     {id: '19', nome: 'Redação', img: require('../../assets/user_blue.png')},
   ]);*/
 
-
   const getProfessorList = async () => {
     const fetchResponse = await fetch(
       'http://192.168.0.12:3333/api/teachers/status/0',
@@ -47,7 +45,7 @@ export default function ProfessoresPendentes({navigation}) {
       return error;
     }
   };
-  
+
   const [teachers, setTeachers] = useState('');
   return (
     <Theme>
@@ -58,16 +56,19 @@ export default function ProfessoresPendentes({navigation}) {
             numColumns={2}
             data={teachers}
             keyExtractor={(item) => item.id}
-            renderItem={({item}) =>  
-              <SquareButton 
-                data={item} 
+            renderItem={({item}) => (
+              <SquareButton
+                data={item}
                 onPressProf={() => navigation.navigate('HomeAdm')}
-              />}
+              />
+            )}
           />
         </Container>
         <ContainerFooter>
-          <ContainerVoltar onPressVoltar={() => navigation.push('HomeAdm')}
-            onPressContinuar={() => navigation.navigate('Perfil') }/>
+          <ContainerVoltar
+            onPressVoltar={() => navigation.push('HomeAdm')}
+            onPressContinuar={() => navigation.navigate('Perfil')}
+          />
         </ContainerFooter>
       </Background1>
     </Theme>
