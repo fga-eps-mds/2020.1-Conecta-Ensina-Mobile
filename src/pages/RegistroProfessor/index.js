@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Theme from '../../../Theme';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import {TextInputMask} from 'react-native-masked-text';
-import {Alert} from 'react-native';
+import {AuthContext} from '../../contexts/auth'
+import {TextInput} from 'react-native'
 
 import {
   UserContatiner,
@@ -24,85 +25,89 @@ import SwitchSpecial from '../../components/SwitchSpecial';
 import SeriePicker from '../../components/SeriePicker';
 
 export default function RegistroProfessor({navigation}) {
-  const RegistroAlert = () => {
-    Alert.alert(
-      'Registro',
-      //body
-      'Registro Concluido com sucesso',
-      [
-        {
-          text: 'Finalizar',
-          onPress: () => navigation.navigate('Login'),
-        },
-      ],
-      {cancelable: false},
-    );
-  };
 
-  const submitHandler = async (values, {setStatus, isSubmitting}) => {
-    console.log(values);
-    var ok = false;
-    const settings = {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        firstName: values.name,
-        lastName: values.surname,
-        email: values.email,
-        password: values.password,
-        cellphone: values.cellphone,
-        birthdate: values.birthdate,
-        grade: values.grade,
-        institution: values.school,
-        cpf: values.cpf,
-        cep: values.cep,
-        number: values.num,
-        details: values.details,
-        description: values.description,
-        special: values.special,
-        photo: values.photo,
-        video: values.video,
-        graduation_area: values.graduation_area,
-        degree: values.degree,
-        bank: values.bank,
-        agency: values.agency,
-        account: values.account,
-      }),
-    };
-    const fetchResponse = await fetch(
-      'http://192.168.0.8:3333/api/teacher/create',
-      settings,
-    );
-    try {
-      const data = await fetchResponse.json();
-      console.log('Success:', data);
-      if (data.message) {
-        if (data.message === 'Professor criado com sucesso!') {
-          ok = true;
-        } else if (data.message.name) {
-          if (
-            data.message.name === 'SequelizeUniqueConstraintError' &&
-            data.message.fields.email
-          ) {
-            setStatus({email: 'Email já foi registrado'});
-          } else if (
-            data.message.name === 'SequelizeUniqueConstraintError' &&
-            data.message.fields.cpf
-          ) {
-            setStatus({cpf: 'CPF já foi registrado'});
-          }
-        }
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-    if (ok) {
-      RegistroAlert();
-    }
-  };
+  const {registerProf} = useContext(AuthContext);
+
+  let initials={
+    name: '',
+    surname: '',
+    email: '',
+    password: '',
+    cellphone: '',
+    birthdate: '',
+    grade: '',
+    school: '',
+    cpf: '',
+    cep: '',
+    num: '',
+    details: '',
+    description: '',
+    special: false,
+    photo: '',
+    video: '',
+    graduation_area: '',
+    degree: '',
+    bank: '',
+    agency: '',
+    account: '',
+  }
+
+  let Schema = yup.object().shape({
+    name: yup
+      .string('Nome deve ser um texto')
+      .required('É necessário indicar um nome'),
+    surname: yup
+      .string('Sobrenome deve ser um texto')
+      .required('É necessário indicar um sobrenome'),
+    email: yup
+      .string('Email deve ser um texto')
+      .email('Email deve ter formato válido')
+      .required('É necessário indicar um email'),
+    password: yup
+      .string('Senha inválida')
+      .min(8, 'Senha deve ter 8 caracteres')
+      .required('É necessário indicar uma senha'),
+    cellphone: yup
+      .string()
+      .required('É necessário indicar um número de telefone')
+      .min(11, 'Número de telefone inválido')
+      .max(13, 'Número de telefone inválido'),
+    birthdate: yup
+      .date('Data inválida')
+      .required('É necessário indicar uma data de nascimentos'),
+    grade: yup.number().required('É necessário indicar uma série'),
+    school: yup
+      .string('Instituição deve ser um texto')
+      .required('É necessário indicar uma instituição'),
+    cpf: yup
+      .string()
+      .length(11, 'CPF deve ter 11 números')
+      .matches(/^\d+$/, 'CPF deve ser um número')
+      .required('É necessário indicar um CPF'),
+    cep: yup
+      .string()
+      .length(8, 'CPF deve ter 8 números')
+      .matches(/^\d+$/, 'CEP deve ser um número')
+      .required('É necessário indicar um CEP'),
+    num: yup
+      .number('Número do endereço deve ser um numero')
+      .required('É necessário indicar um número do endereço'),
+    details: yup
+      .string('Complemento deve ser um texto')
+      .required('Você deve inserir um complemento'),
+    description: yup
+      .string('Descrição deve ser um texto')
+      .required('Você deve inserir uma descrição'),
+    video: yup.string(),
+    special: yup.boolean().required(),
+    graduation_area: yup
+      .string()
+      .required('É necessário indicar a área e graduação'),
+    degree: yup.string().required('É necessário indicar o diploma'),
+    bank: yup.string().required('É necessário indicar o banco'),
+    agency: yup.string().required('É necessário indicar a agência'),
+    account: yup.string().required('É necessário indicar a conta'),
+  })
 
   return (
     <Theme>
@@ -111,88 +116,11 @@ export default function RegistroProfessor({navigation}) {
           <Icon source={require('../../assets/user_white.png')} />
         </UserContatiner>
         <Formik
-          initialValues={{
-            name: '',
-            surname: '',
-            email: '',
-            password: '',
-            cellphone: '',
-            birthdate: '',
-            grade: '',
-            school: '',
-            cpf: '',
-            cep: '',
-            num: '',
-            details: '',
-            description: '',
-            special: false,
-            photo: '',
-            video: '',
-            graduation_area: '',
-            degree: '',
-            bank: '',
-            agency: '',
-            account: '',
-          }}
+          initialValues={initials}
           validateOnChange={false}
           validateOnBlur={false}
-          onSubmit={submitHandler}
-          validationSchema={yup.object().shape({
-            name: yup
-              .string('Nome deve ser um texto')
-              .required('É necessário indicar um nome'),
-            surname: yup
-              .string('Sobrenome deve ser um texto')
-              .required('É necessário indicar um sobrenome'),
-            email: yup
-              .string('Email deve ser um texto')
-              .email('Email deve ter formato válido')
-              .required('É necessário indicar um email'),
-            password: yup
-              .string('Senha inválida')
-              .min(8, 'Senha deve ter 8 caracteres')
-              .required('É necessário indicar uma senha'),
-            cellphone: yup
-              .string()
-              .required('É necessário indicar um número de telefone')
-              .min(11, 'Número de telefone inválido')
-              .max(13, 'Número de telefone inválido'),
-            birthdate: yup
-              .date('Data inválida')
-              .required('É necessário indicar uma data de nascimentos'),
-            grade: yup.number().required('É necessário indicar uma série'),
-            school: yup
-              .string('Instituição deve ser um texto')
-              .required('É necessário indicar uma instituição'),
-            cpf: yup
-              .string()
-              .length(11, 'CPF deve ter 11 números')
-              .matches(/^\d+$/, 'CPF deve ser um número')
-              .required('É necessário indicar um CPF'),
-            cep: yup
-              .string()
-              .length(8, 'CPF deve ter 8 números')
-              .matches(/^\d+$/, 'CEP deve ser um número')
-              .required('É necessário indicar um CEP'),
-            num: yup
-              .number('Número do endereço deve ser um numero')
-              .required('É necessário indicar um número do endereço'),
-            details: yup
-              .string('Complemento deve ser um texto')
-              .required('Você deve inserir um complemento'),
-            description: yup
-              .string('Descrição deve ser um texto')
-              .required('Você deve inserir uma descrição'),
-            video: yup.string(),
-            special: yup.boolean().required(),
-            graduation_area: yup
-              .string()
-              .required('É necessário indicar a área e graduação'),
-            degree: yup.string().required('É necessário indicar o diploma'),
-            bank: yup.string().required('É necessário indicar o banco'),
-            agency: yup.string().required('É necessário indicar a agência'),
-            account: yup.string().required('É necessário indicar a conta'),
-          })}>
+          onSubmit={registerProf}
+          validationSchema={Schema}>
           {({
             handleChange,
             handleSubmit,
@@ -240,12 +168,22 @@ export default function RegistroProfessor({navigation}) {
                     {errors.email}
                   </CustomText>
                 )}
-                <RegFieldBig
-                  placeholder="Senha"
-                  autoCapitalize="none"
-                  value={values.password}
-                  onChangeText={handleChange('password')}
-                />
+                <DateContainer>
+                  <TextInput
+                    placeholder="Senha"
+                    autoCapitalize="none"
+                    value={values.password}
+                    onChangeText={handleChange('password')}
+                    secureTextEntry={true}
+                    placeholderTextColor="#F6F6F6"
+                    style={{
+                      color: '#FFFFFF',
+                      fontSize: 14,
+                      flex: 1,
+                      textAlign: 'center',
+                    }}
+                  />
+                </DateContainer>
                 {errors.password && (
                   <CustomText black small>
                     {errors.password}
