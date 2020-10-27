@@ -3,7 +3,7 @@ import Theme, {theme} from '../../../Theme';
 import Background2 from '../../components/Background2';
 import CustomText from '../../components/CustomText';
 import RegFieldBig from '../../components/RegFieldBig';
-import {AuthContext} from '../../contexts/auth'
+import {AuthContext} from '../../contexts/auth';
 import {
   LoginContainer,
   ButtonAluno,
@@ -15,17 +15,18 @@ import {
   Logo,
   UserContatiner,
   Icon,
+  ButtonAdm,
 } from './styles';
 
 export default function Login({navigation}) {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const {signIn} = useContext(AuthContext);
 
-  function handleLogin(){
-    signIn(email, password)
+  function handleLogin() {
+    signIn(email, password);
   }
-  
+
   return (
     <Theme>
       <Background2
@@ -37,17 +38,17 @@ export default function Login({navigation}) {
                 <Icon source={require('../../assets/user_white.png')} />
               </UserContatiner>
               <RegFieldBig
-                    placeholder="Email"
-                    autoCapitalize="none"
-                    value={email}
-                    onChangeText={ (text) => setEmail(text) }
+                placeholder="Email"
+                autoCapitalize="none"
+                value={email}
+                onChangeText={(text) => setEmail(text)}
               />
               <RegFieldBig
-                    placeholder="Senha"
-                    autoCapitalize="none"
-                    value={password}
-                    onChangeText={ (text) => setPassword(text) }
-                    secureTextEntry={true}
+                placeholder="Senha"
+                autoCapitalize="none"
+                value={password}
+                onChangeText={(text) => setPassword(text)}
+                secureTextEntry={true}
               />
               <ButtonEntrar onPress={handleLogin}>
                 <CustomText white medium>

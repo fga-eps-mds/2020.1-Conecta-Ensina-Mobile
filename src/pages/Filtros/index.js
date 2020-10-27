@@ -7,13 +7,7 @@ import HorarioPicker from '../../components/HorarioPicker';
 import DatePicker from '../../components/DatePicker';
 
 import SwitchFiltro from '../../components/SwitchFiltro';
-import {
-  ListMaterias,
-  Container,
-  ContainerFiltros,
-  DataButton,
-  Texto,
-} from './styles';
+import {Container, ContainerFiltros, DataButton, Texto} from './styles';
 
 export default function Filtros({navigation}) {
   const [type, setType] = useState('');
