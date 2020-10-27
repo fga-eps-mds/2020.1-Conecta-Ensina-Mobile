@@ -8,7 +8,7 @@ import {ListMaterias, Container} from './styles';
 export default function ProfessoresPendentes({navigation}) {
   const getProfessorList = async () => {
     const fetchResponse = await fetch(
-      'http://192.168.0.12:3333/api/students/status/0',
+      'http://192.168.0.12:3333/api/student/status/0',
     );
     try {
       const data = await fetchResponse.json();

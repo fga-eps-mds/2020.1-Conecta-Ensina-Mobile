@@ -19,7 +19,7 @@ export default function ConfirmaProf({route, navigation}) {
       }),
     };
     const fetchResponse1 = await fetch(
-      'http://192.168.0.12:3333/api/students/status/' + item.id,
+      'http://192.168.0.12:3333/api/student/status/' + item.id,
       settings,
     );
     try {
@@ -32,7 +32,7 @@ export default function ConfirmaProf({route, navigation}) {
 
   const getProfessoUser = async () => {
     const fetchResponse = await fetch(
-      'http://192.168.0.12:3333/api/users/' + item.id,
+      'http://192.168.0.12:3333/api/user/' + item.id,
     );
     try {
       const data = await fetchResponse.json();
@@ -48,7 +48,7 @@ export default function ConfirmaProf({route, navigation}) {
 
   const getProfessor = async () => {
     const fetchResponse = await fetch(
-      'http://192.168.0.12:3333/api/teachers/' + item.id,
+      'http://192.168.0.12:3333/api/teacher/' + item.id,
     );
     try {
       const data = await fetchResponse.json();

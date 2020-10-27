@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, {useContext} from 'react';
 import Theme from '../../../Theme';
 import CustomText from '../CustomText';
 import {
@@ -9,10 +9,10 @@ import {
   UserImage,
   UserContainer,
 } from './styles';
-import {AuthContext} from '../../contexts/auth'
+import {AuthContext} from '../../contexts/auth';
 
 export default function Background1({children}) {
-  const { user } = useContext(AuthContext)
+  const {user} = useContext(AuthContext);
 
   return (
     <Theme>
@@ -22,7 +22,9 @@ export default function Background1({children}) {
             <UserImage source={require('../../assets/user_blue.png')} />
           </UserAvatar>
           <TextoContainer>
-            <CustomText white medium>{user && user.firstName}</CustomText>
+            <CustomText white medium>
+              {user && user.firstName}
+            </CustomText>
           </TextoContainer>
         </UserContainer>
         <WhiteContainer>{children}</WhiteContainer>

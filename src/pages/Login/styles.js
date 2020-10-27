@@ -11,32 +11,6 @@ export const LoginContainer = styled.View`
   margin-top: 55.5%;
 `;
 
-<<<<<<< HEAD
-export const ButtonAluno = styled(ButtonGeral)`
-  margin-top: 8%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const ButtonProfessor = styled(ButtonGeral)`
-  align-self: center;
-  margin-top: 8%
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const ButtonAdm = styled(ButtonGeral)`
-  align-self: center;
-  margin-top: 8%
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-=======
->>>>>>> 2e5b79381e511676b1eacc73f6c6f9b5bf94b2d7
 export const Container = styled.View`
   align-items: center;
   margin-bottom: 83.5%;
