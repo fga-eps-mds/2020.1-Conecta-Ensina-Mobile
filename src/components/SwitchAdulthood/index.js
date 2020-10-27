@@ -4,7 +4,7 @@ import {Container} from './styles';
 import {withTheme} from 'styled-components/native';
 import CustomText from '../CustomText';
 
-function SwitchAdulthood({theme, onChange, onBlur}) {
+function SwitchAdulthood({theme, onChange, onBlur, text}) {
   const estiloOptions = [
     {label: 'Não', value: false},
     {label: 'Sim', value: true},
@@ -12,7 +12,7 @@ function SwitchAdulthood({theme, onChange, onBlur}) {
   return (
     <Container>
       <CustomText white smaller>
-        Adulto
+        {text}
       </CustomText>
       <SwitchSelector
         options={estiloOptions}
@@ -25,9 +25,15 @@ function SwitchAdulthood({theme, onChange, onBlur}) {
         backgroundColor={theme.colors.fundoAzul}
         borderRadius={5}
         buttonMargin={1}
-        height={20}
+        height={16}
         fontSize={12}
         onBlur={onBlur}
+        style={{
+          width: 60,
+          borderColor: 'white',
+          borderWidth: 1,
+          borderRadius: 5,
+        }}
       />
     </Container>
   );

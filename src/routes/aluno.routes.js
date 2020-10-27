@@ -4,7 +4,10 @@ import Home from '../pages/Home';
 import Materias from '../pages/Materias';
 import Filtros from '../pages/Filtros';
 import Professores from '../pages/Professores';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2e5b79381e511676b1eacc73f6c6f9b5bf94b2d7
 const AlunoStack = createStackNavigator();
 
 function AlunoRoutes() {
