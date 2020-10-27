@@ -23,7 +23,7 @@ import CustomText from '../../components/CustomText';
 import SwitchSpecial from '../../components/SwitchSpecial';
 import SeriePicker from '../../components/SeriePicker';
 
-export default function RegistroAluno({navigation}) {
+export default function RegistroProfessor({navigation}) {
   const RegistroAlert = () => {
     Alert.alert(
       'Registro',
@@ -63,17 +63,24 @@ export default function RegistroAluno({navigation}) {
         details: values.details,
         description: values.description,
         special: values.special,
+        photo: values.photo,
+        video: values.video,
+        graduation_area: values.graduation_area,
+        degree: values.degree,
+        bank: values.bank,
+        agency: values.agency,
+        account: values.account,
       }),
     };
     const fetchResponse = await fetch(
-      'http://192.168.0.8:3333/api/student/create',
+      'http://192.168.0.8:3333/api/teacher/create',
       settings,
     );
     try {
       const data = await fetchResponse.json();
       console.log('Success:', data);
       if (data.message) {
-        if (data.message === 'Estudante criado com sucesso!') {
+        if (data.message === 'Professor criado com sucesso!') {
           ok = true;
         } else if (data.message.name) {
           if (
@@ -99,7 +106,7 @@ export default function RegistroAluno({navigation}) {
 
   return (
     <Theme>
-      <Background3 navigation={navigation} student={true}>
+      <Background3 navigation={navigation} student={false}>
         <UserContatiner>
           <Icon source={require('../../assets/user_white.png')} />
         </UserContatiner>
@@ -119,6 +126,13 @@ export default function RegistroAluno({navigation}) {
             details: '',
             description: '',
             special: false,
+            photo: '',
+            video: '',
+            graduation_area: '',
+            degree: '',
+            bank: '',
+            agency: '',
+            account: '',
           }}
           validateOnChange={false}
           validateOnBlur={false}
@@ -165,11 +179,19 @@ export default function RegistroAluno({navigation}) {
               .required('É necessário indicar um número do endereço'),
             details: yup
               .string('Complemento deve ser um texto')
-              .required('É necessário indicar o complemento'),
+              .required('Você deve inserir um complemento'),
             description: yup
-              .string()
-              .required('É necessário indicar uma descriação'),
+              .string('Descrição deve ser um texto')
+              .required('Você deve inserir uma descrição'),
+            video: yup.string(),
             special: yup.boolean().required(),
+            graduation_area: yup
+              .string()
+              .required('É necessário indicar a área e graduação'),
+            degree: yup.string().required('É necessário indicar o diploma'),
+            bank: yup.string().required('É necessário indicar o banco'),
+            agency: yup.string().required('É necessário indicar a agência'),
+            account: yup.string().required('É necessário indicar a conta'),
           })}>
           {({
             handleChange,
@@ -285,6 +307,11 @@ export default function RegistroAluno({navigation}) {
                   value={values.cpf}
                   onChangeText={handleChange('cpf')}
                 />
+                {!!status && status.cpf && (
+                  <CustomText black small>
+                    {status.cpf}
+                  </CustomText>
+                )}
                 {errors.cpf && (
                   <CustomText black small>
                     {errors.cpf}
@@ -341,6 +368,72 @@ export default function RegistroAluno({navigation}) {
                 {errors.special && (
                   <CustomText black small>
                     {errors.special}
+                  </CustomText>
+                )}
+                <RegFieldBig
+                  placeholder="Link para Vídeo"
+                  autoCapitalize="none"
+                  value={values.video}
+                  onChangeText={handleChange('video')}
+                />
+                {errors.video && (
+                  <CustomText black small>
+                    {errors.video}
+                  </CustomText>
+                )}
+                <RegFieldBig
+                  placeholder="Área de graduação"
+                  autoCapitalize="none"
+                  value={values.graduation_area}
+                  onChangeText={handleChange('graduation_area')}
+                />
+                {errors.graduation_area && (
+                  <CustomText black small>
+                    {errors.graduation_area}
+                  </CustomText>
+                )}
+                <RegFieldBig
+                  placeholder="Diploma"
+                  autoCapitalize="none"
+                  value={values.degree}
+                  onChangeText={handleChange('degree')}
+                />
+                {errors.degree && (
+                  <CustomText black small>
+                    {errors.degree}
+                  </CustomText>
+                )}
+                <RegFieldBig
+                  placeholder="Banco"
+                  autoCapitalize="none"
+                  value={values.bank}
+                  onChangeText={handleChange('bank')}
+                />
+                {errors.bank && (
+                  <CustomText black small>
+                    {errors.bank}
+                  </CustomText>
+                )}
+                <RegFieldBig
+                  placeholder="Agência"
+                  autoCapitalize="none"
+                  value={values.agency}
+                  onChangeText={handleChange('agency')}
+                />
+                {errors.agecy && (
+                  <CustomText black small>
+                    {errors.agency}
+                  </CustomText>
+                )}
+                <RegFieldBig
+                  placeholder="Conta"
+                  autoCapitalize="none"
+                  value={values.account}
+                  onChangeText={handleChange('account')}
+                />
+                {errors.account && (
+                  <CustomText black small>
+                    {errors.account}
                   </CustomText>
                 )}
               </RegsContainer>

@@ -4,10 +4,10 @@ import CustomText from '../CustomText';
 import {
   BlueContainer,
   WhiteContainer,
-  UserContainer,
   TextoContainer,
   UserAvatar,
   UserImage,
+  UserContainer,
 } from './styles';
 import {AuthContext} from '../../contexts/auth'
 

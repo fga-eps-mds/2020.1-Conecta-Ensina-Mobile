@@ -1,8 +1,8 @@
-import React,{createContext, useState} from 'react';
+import React, {createContext, useState} from 'react';
 
 export const AuthContext = createContext({});
 
-function AuthProvider({children}){
+function AuthProvider({children}) {
   const [user, setUser] = useState(null);
   const [typeUser, setTypeUser] = useState(null);
 
@@ -33,10 +33,10 @@ function AuthProvider({children}){
               id: data.id,
             }
             setUser(usuario)
-           if (data.role === 1){ 
+          if (data.role === 1){ 
               setTypeUser('Adm')
               console.log("Adm")
-           } else if(data.role === 2){
+          } else if(data.role === 2){
               setTypeUser('Professor')
               console.log("Professor")
             } else{

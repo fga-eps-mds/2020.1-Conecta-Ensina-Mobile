@@ -1,5 +1,5 @@
-import React,{useState, useEffect, useContext} from 'react';
-import Theme,{theme} from '../../../Theme';
+import React, {useState, useEffect, useContext} from 'react';
+import Theme, {theme} from '../../../Theme';
 import Background2 from '../../components/Background2';
 import CustomText from '../../components/CustomText';
 import RegFieldBig from '../../components/RegFieldBig';
@@ -16,7 +16,6 @@ import {
   UserContatiner,
   Icon,
 } from './styles';
-
 
 export default function Login({navigation}) {
   const [email, setEmail] = useState('')
