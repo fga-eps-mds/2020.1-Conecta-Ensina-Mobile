@@ -1,12 +1,11 @@
-import React,{useState, useEffect, useContext} from 'react';
-import Theme,{theme} from '../../../Theme';
+import React, {useState, useContext} from 'react';
+import Theme from '../../../Theme';
 import Background2 from '../../components/Background2';
 import CustomText from '../../components/CustomText';
-import {AuthContext} from '../../contexts/auth'
+import RegFieldBig from '../../components/RegFieldBig';
+import {AuthContext} from '../../contexts/auth';
 import {
   LoginContainer,
-  ButtonAluno,
-  ButtonProfessor,
   Container,
   ButtonEntrar,
   Link,
@@ -16,62 +15,52 @@ import {
   Icon,
 } from './styles';
 
-
 export default function Login({navigation}) {
-  const [selectedButton,setSelectedButton] = useState(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const {signIn} = useContext(AuthContext);
 
-  //Only for change color buttons when pressed
-  const [background1,setBackground1] = useState(null);
-  const [background2,setBackground2] = useState(null);
-  const {userSelected} = useContext(AuthContext);
+  function handleLogin() {
+    signIn(email, password);
+  }
 
-
-  useEffect(()=>{
-    if(selectedButton === 'Aluno'){
-      setBackground1(theme.colors.cinzaClaro);
-      setBackground2(theme.colors.fundoAzul);
-    }
-    else if(selectedButton === 'Professor'){
-      setBackground1(theme.colors.fundoAzul);
-      setBackground2(theme.colors.cinzaClaro);
-    }
-    else if(selectedButton === null){
-      setBackground1(theme.colors.fundoAzul);
-      setBackground2(theme.colors.fundoAzul);
-    }
-  }, [selectedButton])
-  
   return (
     <Theme>
       <Background2
-        blue={<Logo testID = 'Logo' source={require('../../assets/logo.png')} />}
+        blue={<Logo testID="Logo" source={require('../../assets/logo.png')} />}
         white={
           <Container>
             <LoginContainer>
               <UserContatiner>
-                <Icon testID = 'Icon' source={require('../../assets/user_white.png')} />
+                <Icon
+                  testID="Icon"
+                  source={require('../../assets/user_white.png')}
+                />
               </UserContatiner>
-              <Link onPress={() => navigation.navigate('RegistroAluno')}>
-                <LinkTexto>
-                  Registre-se
-                </LinkTexto>
-              </Link>
-              <ButtonEntrar onPress={() => userSelected(selectedButton)}>
+              <RegFieldBig
+                placeholder="Email"
+                autoCapitalize="none"
+                value={email}
+                onChangeText={(text) => setEmail(text)}
+              />
+              <RegFieldBig
+                placeholder="Senha"
+                autoCapitalize="none"
+                value={password}
+                onChangeText={(text) => setPassword(text)}
+                secureTextEntry={true}
+              />
+              <ButtonEntrar onPress={handleLogin}>
                 <CustomText white medium>
                   Entrar
                 </CustomText>
               </ButtonEntrar>
+              <Link>
+                <LinkTexto onPress={() => navigation.navigate('RegistroAluno')}>
+                  Registre-se
+                </LinkTexto>
+              </Link>
             </LoginContainer>
-            <ButtonAluno onPress={() => {setSelectedButton('Aluno')}} style={{backgroundColor: background1}}>
-              <CustomText white medium>
-                Aluno
-              </CustomText>
-            </ButtonAluno>
-            <ButtonProfessor onPress={() => {setSelectedButton('Professor')}} style={{backgroundColor: background2}}>
-              <CustomText white medium>
-                Professor
-              </CustomText>
-            </ButtonProfessor>
           </Container>
         }
       />

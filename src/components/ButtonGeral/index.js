@@ -1,11 +1,13 @@
 import React from 'react';
-import Theme from '../../../Theme';
+import CustomText from '../CustomText';
 import {ButtonGeral} from './styles';
 
-export default function BotaoGeral() {
+export default function BotaoGeral({children}) {
   return (
-    <Theme>
-      <ButtonGeral />
-    </Theme>
+    <ButtonGeral>
+      <CustomText white small>
+        {children}
+      </CustomText>
+    </ButtonGeral>
   );
 }

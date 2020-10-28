@@ -1,16 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Theme from '../../../Theme';
 import CustomText from '../CustomText';
 import {
   BlueContainer,
   WhiteContainer,
-  UserContainer,
   TextoContainer,
   UserAvatar,
   UserImage,
+  UserContainer,
 } from './styles';
+import {AuthContext} from '../../contexts/auth';
 
 export default function Background1({children}) {
+  const {user} = useContext(AuthContext);
+
   return (
     <Theme>
       <BlueContainer>
@@ -20,7 +23,7 @@ export default function Background1({children}) {
           </UserAvatar>
           <TextoContainer>
             <CustomText white medium>
-              Nome do Aluno
+              {user && user.firstName}
             </CustomText>
           </TextoContainer>
         </UserContainer>

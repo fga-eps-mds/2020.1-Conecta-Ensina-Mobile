@@ -7,7 +7,6 @@ export const Container = styled.View`
   justify-content: center;
   align-items: center;
   margin-left: -2px;
-
 `;
 
 export const Voltar = styled.TouchableOpacity`
