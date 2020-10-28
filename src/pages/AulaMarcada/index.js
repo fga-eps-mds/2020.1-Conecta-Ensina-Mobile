@@ -4,7 +4,7 @@ import DatePicker from '../../components/DatePicker';
 import Theme from '../../../Theme';
 import Background1 from '../../components/Background1';
 
-export default function AulaMarcada() {
+export default function AulaMarcada({navigation}) {
   const [newDate, setNewDate] = useState(new Date());
   const [show, setShow] = useState(false);
 
@@ -18,7 +18,7 @@ export default function AulaMarcada() {
   };
   return (
     <Theme>
-      <Background1>
+      <Background1 navigation={navigation} page={'PerfilProf2'}>
         <Container>
           <DataButton onPress={handlerShowPicker}>
             <Texto>Data</Texto>

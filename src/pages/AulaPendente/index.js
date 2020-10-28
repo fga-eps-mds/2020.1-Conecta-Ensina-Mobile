@@ -11,7 +11,7 @@ import {
 } from './styles';
 import CustomText from '../../components/CustomText';
 
-export default function AulaPendente() {
+export default function AulaPendente({navigation}) {
   const [aulas, setAulas] = useState([
     {id: '15', nome: 'ExemploAula01'},
     {id: '25', nome: 'ExemploAula02'},
@@ -68,7 +68,7 @@ export default function AulaPendente() {
 
   return (
     <Theme>
-      <Background1>
+      <Background1 navigation={navigation} page={'PerfilProf2'}>
         <ListaVisualAula
           numColumns={2}
           data={aulas}

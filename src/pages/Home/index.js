@@ -70,8 +70,7 @@ export default function Home({navigation}) {
           </ContainerHorizontal>
         </ContainerAula>
         <ContainerButtons>
-          <ButtonAulaUrgente
-            onPress={() => navigation.navigate('Perfil', {student})}>
+          <ButtonAulaUrgente>
             <Icon source={require('../../assets/books.png')} />
             <CustomText white medium>
               Aula Urgente
