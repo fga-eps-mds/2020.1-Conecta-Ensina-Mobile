@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {DataButton, Container, Texto} from './styles';
 import DatePicker from '../../components/DatePicker';
-import Theme, {theme} from '../../../Theme';
+import Theme from '../../../Theme';
 import Background1 from '../../components/Background1';
 
 export default function AulaMarcada() {

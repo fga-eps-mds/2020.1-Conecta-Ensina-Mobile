@@ -60,7 +60,9 @@ export default function Materias({route, navigation}) {
             renderItem={renderItem}
           />
         </Container>
-        <ButtonContinuar onPress={() => navigation.navigate('Filtros')} />
+        <ButtonContinuar onPress={() => navigation.navigate('Filtros')}>
+          Continuar
+        </ButtonContinuar>
       </Background1>
     </Theme>
   );

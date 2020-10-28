@@ -1,14 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Theme, {theme} from '../../../Theme';
 import SquareButton from '../../components/SquareButton';
-import Background1 from '../../components/Background1';
-import {
-  BigTextContainer,
-  ContainerAula,
-  ContainerHorizontal,
-  Icon,
-  ListFuncoes,
-} from './styles';
+import Background4 from '../../components/Background4';
+import {ListFuncoes} from './styles';
 
 const Item = ({item, onPress, style}) => (
   <SquareButton data={item} onPress={onPress} style={[style]} />
@@ -45,14 +39,14 @@ export default function HomeAdm({navigation}) {
 
   return (
     <Theme>
-      <Background1 navigation={navigation}>
+      <Background4>
         <ListFuncoes
           horizontal
           data={funcoes}
           keyExtractor={(item) => item.id}
           renderItem={renderItem}
         />
-      </Background1>
+      </Background4>
     </Theme>
   );
 }
