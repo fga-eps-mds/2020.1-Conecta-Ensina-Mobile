@@ -6,8 +6,6 @@ import RegFieldBig from '../../components/RegFieldBig';
 import {AuthContext} from '../../contexts/auth';
 import {
   LoginContainer,
-  ButtonAluno,
-  ButtonProfessor,
   Container,
   ButtonEntrar,
   Link,
@@ -15,7 +13,6 @@ import {
   Logo,
   UserContatiner,
   Icon,
-  ButtonAdm,
 } from './styles';
 
 export default function Login({navigation}) {

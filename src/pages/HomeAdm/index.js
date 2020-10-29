@@ -17,6 +17,8 @@ export default function HomeAdm({navigation}) {
     },
   ]);
 
+  const [selectedId, setSelectedId] = useState(null);
+
   const renderItem = ({item}) => {
     var nextScreen;
 

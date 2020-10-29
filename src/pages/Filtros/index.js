@@ -31,7 +31,7 @@ export default function Filtros({navigation}) {
 
   return (
     <Theme>
-      <Background1>
+      <Background1 navigation={navigation} page={'Perfil'}>
         <Container>
           <DataButton onPress={handlerShowPicker}>
             <Texto>Data</Texto>

@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import Theme, {theme} from '../../../Theme';
+import {AuthContext} from '../../contexts/auth';
 import SquareButton from '../../components/SquareButton';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
@@ -16,6 +17,7 @@ const Item = ({item, onPress, style}) => (
 );
 
 export default function HomeProf({navigation}) {
+  const {user} = useContext(AuthContext);
   const [funcoes, setFuncoes] = useState([
     {id: '101', nome: 'Aulas Marcadas', img: require('../../assets/books.png')},
     {
@@ -29,6 +31,8 @@ export default function HomeProf({navigation}) {
       img: require('../../assets/books.png'),
     },
   ]);
+
+  const [selectedId, setSelectedId] = useState(null);
 
   const renderItem = ({item}) => {
     var nextScreen;
@@ -54,7 +58,7 @@ export default function HomeProf({navigation}) {
 
   return (
     <Theme>
-      <Background1>
+      <Background1 navigation={navigation} page={'PerfilProf2'}>
         <ListFuncoes
           horizontal
           data={funcoes}

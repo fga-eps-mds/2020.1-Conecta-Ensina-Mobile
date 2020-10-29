@@ -50,7 +50,7 @@ export default function Materias({route, navigation}) {
 
   return (
     <Theme>
-      <Background1>
+      <Background1 navigation={navigation} page={'Perfil'}>
         <Container>
           <ListMaterias
             numColumns={3}
