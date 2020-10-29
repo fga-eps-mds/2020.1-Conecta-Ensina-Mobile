@@ -16,30 +16,9 @@ export const WhiteContainer = styled.View`
   border-top-right-radius: 20px;
 `;
 
-export const UserContainer = styled.TouchableOpacity`
+export const UserContainer = styled.View`
   flex-direction: row-reverse;
-  flex: 22;
+  flex: 10;
   margin-left: 30px;
   align-items: center;
-`;
-
-export const TextoContainer = styled.View`
-  margin-bottom: 40px;
-  margin-right: 35px;
-`;
-
-export const UserAvatar = styled.View`
-  width: 58px;
-  height: 58px;
-  border-radius: 1000px;
-  background-color: ${(props) => props.theme.colors.branco};
-  margin-left: 40px;
-  margin-bottom: 30px;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const UserImage = styled.Image`
-  width: 33px;
-  height: 38px;
 `;

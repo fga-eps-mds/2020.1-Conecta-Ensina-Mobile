@@ -33,11 +33,7 @@ function AuthProvider({children}) {
         if (data.message) {
           if (data.message === 'Login efetuado com sucesso!') {
             console.log("login efetuado")
-            let usuario = {
-              firstName: data.firstName,
-              id: data.id,
-            }
-            setUser(usuario)
+            renderData(data.id)
           if (data.role === 1){ 
               setTypeUser('Adm')
               console.log("Adm")
@@ -50,9 +46,9 @@ function AuthProvider({children}) {
             }
           }
         }
-      }catch(error){
-        console.error('Error:', error);
-      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   }
 
   async function registerAluno (values, {setStatus}) {
@@ -97,12 +93,12 @@ function AuthProvider({children}) {
             lastName: data.data.user.lastName,
             email: data.data.user.email,
             password: data.data.user.password,
-            role: data.data.user.role
+            role: data.data.user.role,
+            cellphone: data.data.student.cellphone,
           }
           setUser(usuario);
 
           let estudante = {
-            cellphone: data.data.student.cellphone,
             birthdate: data.data.student.birthdate,
             grade: data.data.student.grade,
             institution: data.data.student.school,
@@ -186,12 +182,12 @@ function AuthProvider({children}) {
             lastName: data.data.user.lastName,
             email: data.data.user.email,
             password: data.data.user.password,
-            role: data.data.user.role
+            role: data.data.user.role,
+            cellphone: data.data.student.cellphone,
           }
           setUser(usuario);
 
           let estudante = {
-            cellphone: data.data.student.cellphone,
             birthdate: data.data.student.birthdate,
             grade: data.data.student.grade,
             institution: data.data.student.school,
@@ -253,6 +249,79 @@ function AuthProvider({children}) {
       {cancelable: false},
     );
   };
+
+  async function renderData(id) {
+    var ok = false;
+    try {
+      let response = await fetch(
+        `${Host}/api/user/` + id,
+      );
+      const data = await response.json();
+      let usuario = {
+        id: id,
+        firstName: data.data.user.firstName,
+        lastName: data.data.user.lastName,
+        email: data.data.user.email,
+        password: data.data.user.password,
+        role: data.data.user.role,
+        cellphone: data.data.user.cellphone,
+      }
+      ok = true;
+      setUser(usuario);
+      
+      console.log(usuario);
+      console.log('user');
+
+    } catch (error) {
+      console.error(error);
+    }
+    if (ok) {
+      try {
+        let response = await fetch(
+          `${Host}/api/student/` + id,
+        );
+        const data = await response.json();
+        let estudante = {
+          birthdate: data.data.student.birthdate,
+          grade: data.data.student.grade,
+          institution: data.data.student.school,
+          cpf: data.data.student.cpf,
+          cep: data.data.student.cep,
+          number: data.data.student.num,
+          details: data.data.student.details,
+          description: data.data.student.description,
+          special: data.data.student.special,
+        }
+        setStudent(estudante);
+
+        console.log(estudante);
+        console.log('student');
+      } catch (error) {
+        console.error(error);
+      }
+      try {
+        let response = await fetch(
+          `${Host}/api/teacher/` + id,
+        );
+        const data = await response.json();
+        let professor = {
+          photo: data.data.teacher.photo,
+          video: data.data.teacher.video,
+          graduation_area: data.data.teacher.graduation_area,
+          degree: data.data.teacher.degree,
+          bank: data.data.teacher.bank,
+          agency: data.data.teacher.agency,
+          account: data.data.teacher.account,
+        }
+        setTeacher(professor);
+
+        console.log(professor);
+        console.log('teacher');
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
 
   return(
     <AuthContext.Provider value={{signed: true/*(!! user)*/, user, teacher, student, typeUser, signIn, registerAluno, registerProf}}>

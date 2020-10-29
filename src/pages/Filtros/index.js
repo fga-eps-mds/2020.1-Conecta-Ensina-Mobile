@@ -7,15 +7,7 @@ import DurationPicker from '../../components/DurationPicker';
 import HorarioPicker from '../../components/HorarioPicker';
 import DatePicker from '../../components/DatePicker';
 import SwitchFiltro from '../../components/SwitchFiltro';
-
-import {
-  ListMaterias,
-  Container,
-  ContainerFiltros,
-  DataButton,
-  Texto,
-  ButtonContainer,
-} from './styles';
+import {Container, ContainerFiltros, DataButton, Texto} from './styles';
 
 export default function Filtros({navigation}) {
   const [type, setType] = useState('');
@@ -39,7 +31,7 @@ export default function Filtros({navigation}) {
 
   return (
     <Theme>
-      <Background1>
+      <Background1 navigation={navigation} page={'Perfil'}>
         <Container>
           <DataButton onPress={handlerShowPicker}>
             <Texto>Data</Texto>

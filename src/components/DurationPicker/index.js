@@ -1,12 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import RNPickerSelect from 'react-native-picker-select';
 import {Container, PickerView} from './styles';
 import CustomText from '../CustomText';
 import {withTheme} from 'styled-components/native';
 
 function DurationPicker({onChange, theme}) {
-  const placeholder = {};
-
   return (
     <Container>
       <CustomText black smallMedium>
