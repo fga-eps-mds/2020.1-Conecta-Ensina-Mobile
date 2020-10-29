@@ -2,9 +2,15 @@ import React, {useState} from 'react';
 import Theme from '../../../Theme';
 import SquareButton from '../../components/ContainerStars';
 import ContainerVoltar from '../../components/ContainerVoltar';
+import ContinuarContainer from '../../components/ContinuarContainer';
 
 import Background1 from '../../components/Background1';
-import {ListMaterias, Container, ContainerFooter} from './styles';
+import {
+  ListMaterias,
+  Container,
+  ContainerFooter,
+  ButtonContainer,
+} from './styles';
 
 export default function Professores({navigation}) {
   const [usuario] = useState([
@@ -40,9 +46,11 @@ export default function Professores({navigation}) {
             renderItem={({item}) => <SquareButton data={item} />}
           />
         </Container>
-        <ContainerFooter>
-          <ContainerVoltar onPressVoltar={() => navigation.push('Filtros')} />
-        </ContainerFooter>
+        <ContinuarContainer
+          onPress={() => navigation.push('Filtros')}
+          marginTop={{value: '128%'}}>
+          Continuar
+        </ContinuarContainer>
       </Background1>
     </Theme>
   );

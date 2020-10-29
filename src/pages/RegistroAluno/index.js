@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, {useContext} from 'react';
 import Theme from '../../../Theme';
 import {Formik} from 'formik';
 import * as yup from 'yup';
@@ -17,18 +17,15 @@ import {
 } from './styles';
 
 import Background3 from '../../components/Background3';
-import RegFieldBig from '../../components/RegFieldBig';
-import RegFieldMedium from '../../components/RegFieldMedium';
-import RegFieldSmall from '../../components/RegFieldSmall';
+import RegField from '../../components/RegField';
 import CustomText from '../../components/CustomText';
 import SwitchSpecial from '../../components/SwitchSpecial';
 import SeriePicker from '../../components/SeriePicker';
 
 export default function RegistroAluno({navigation}) {
-
   const {registerAluno} = useContext(AuthContext);
 
-  let initials={
+  let initials = {
     name: '',
     surname: '',
     email: '',
@@ -43,7 +40,7 @@ export default function RegistroAluno({navigation}) {
     details: '',
     description: '',
     special: false,
-  }
+  };
 
   let Schema = yup.object().shape({
     name: yup
@@ -88,12 +85,9 @@ export default function RegistroAluno({navigation}) {
     details: yup
       .string('Complemento deve ser um texto')
       .required('É necessário indicar o complemento'),
-    description: yup
-      .string()
-      .required('É necessário indicar uma descriação'),
+    description: yup.string().required('É necessário indicar uma descriação'),
     special: yup.boolean().required(),
-  })
-
+  });
 
   return (
     <Theme>
@@ -118,7 +112,7 @@ export default function RegistroAluno({navigation}) {
           }) => (
             <Container>
               <RegsContainer>
-                <RegFieldBig
+                <RegField
                   placeholder="Nome"
                   value={values.name}
                   onChangeText={handleChange('name')}
@@ -128,7 +122,7 @@ export default function RegistroAluno({navigation}) {
                     {errors.name}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Sobrenome"
                   value={values.surname}
                   onChangeText={handleChange('surname')}
@@ -138,7 +132,7 @@ export default function RegistroAluno({navigation}) {
                     {errors.surname}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Email"
                   autoCapitalize="none"
                   value={values.email}
@@ -170,13 +164,13 @@ export default function RegistroAluno({navigation}) {
                     }}
                   />
                 </DateContainer>
-                
+
                 {errors.password && (
                   <CustomText black small>
                     {errors.password}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Número de celular"
                   autoCapitalize="none"
                   value={values.cellphone}
@@ -210,11 +204,12 @@ export default function RegistroAluno({navigation}) {
                     value={values.grade}
                     onChange={(value) => setFieldValue('grade', value, false)}
                   />
-                  <RegFieldMedium
+                  <RegField
                     placeholder="Instituição"
                     autoCapitalize="none"
                     value={values.school}
                     onChangeText={handleChange('school')}
+                    medium
                   />
                 </ContainerRowFlex>
                 {errors.grade && (
@@ -227,7 +222,7 @@ export default function RegistroAluno({navigation}) {
                     {errors.school}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="CPF"
                   value={values.cpf}
                   onChangeText={handleChange('cpf')}
@@ -238,15 +233,17 @@ export default function RegistroAluno({navigation}) {
                   </CustomText>
                 )}
                 <ContainerRowFlex>
-                  <RegFieldMedium
+                  <RegField
                     placeholder="CEP"
                     value={values.cep}
                     onChangeText={handleChange('cep')}
+                    medium
                   />
-                  <RegFieldSmall
+                  <RegField
                     placeholder="Nº"
                     value={values.num}
                     onChangeText={handleChange('num')}
+                    small
                   />
                 </ContainerRowFlex>
                 {errors.cep && (
@@ -259,7 +256,7 @@ export default function RegistroAluno({navigation}) {
                     {errors.num}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Complemento"
                   value={values.details}
                   onChangeText={handleChange('details')}
@@ -269,7 +266,7 @@ export default function RegistroAluno({navigation}) {
                     {errors.details}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Descrição"
                   autoCapitalize="none"
                   value={values.description}

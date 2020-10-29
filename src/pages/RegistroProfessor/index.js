@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React, {useContext} from 'react';
 import Theme from '../../../Theme';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import {TextInputMask} from 'react-native-masked-text';
-import {AuthContext} from '../../contexts/auth'
-import {TextInput} from 'react-native'
+import {AuthContext} from '../../contexts/auth';
+import {TextInput} from 'react-native';
 
 import {
   UserContatiner,
@@ -17,18 +17,15 @@ import {
 } from './styles';
 
 import Background3 from '../../components/Background3';
-import RegFieldBig from '../../components/RegFieldBig';
-import RegFieldMedium from '../../components/RegFieldMedium';
-import RegFieldSmall from '../../components/RegFieldSmall';
+import RegField from '../../components/RegField';
 import CustomText from '../../components/CustomText';
 import SwitchSpecial from '../../components/SwitchSpecial';
 import SeriePicker from '../../components/SeriePicker';
 
 export default function RegistroProfessor({navigation}) {
-
   const {registerProf} = useContext(AuthContext);
 
-  let initials={
+  let initials = {
     name: '',
     surname: '',
     email: '',
@@ -50,7 +47,7 @@ export default function RegistroProfessor({navigation}) {
     bank: '',
     agency: '',
     account: '',
-  }
+  };
 
   let Schema = yup.object().shape({
     name: yup
@@ -107,7 +104,7 @@ export default function RegistroProfessor({navigation}) {
     bank: yup.string().required('É necessário indicar o banco'),
     agency: yup.string().required('É necessário indicar a agência'),
     account: yup.string().required('É necessário indicar a conta'),
-  })
+  });
 
   return (
     <Theme>
@@ -132,7 +129,7 @@ export default function RegistroProfessor({navigation}) {
           }) => (
             <Container>
               <RegsContainer>
-                <RegFieldBig
+                <RegField
                   placeholder="Nome"
                   value={values.name}
                   onChangeText={handleChange('name')}
@@ -142,7 +139,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.name}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Sobrenome"
                   value={values.surname}
                   onChangeText={handleChange('surname')}
@@ -152,7 +149,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.surname}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Email"
                   autoCapitalize="none"
                   value={values.email}
@@ -189,7 +186,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.password}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Número de celular"
                   autoCapitalize="none"
                   value={values.cellphone}
@@ -223,11 +220,12 @@ export default function RegistroProfessor({navigation}) {
                     value={values.grade}
                     onChange={(value) => setFieldValue('grade', value, false)}
                   />
-                  <RegFieldMedium
+                  <RegField
                     placeholder="Instituição"
                     autoCapitalize="none"
                     value={values.school}
                     onChangeText={handleChange('school')}
+                    medium
                   />
                 </ContainerRowFlex>
                 {errors.grade && (
@@ -240,7 +238,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.school}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="CPF"
                   value={values.cpf}
                   onChangeText={handleChange('cpf')}
@@ -256,15 +254,17 @@ export default function RegistroProfessor({navigation}) {
                   </CustomText>
                 )}
                 <ContainerRowFlex>
-                  <RegFieldMedium
+                  <RegField
                     placeholder="CEP"
                     value={values.cep}
                     onChangeText={handleChange('cep')}
+                    medium
                   />
-                  <RegFieldSmall
+                  <RegField
                     placeholder="Nº"
                     value={values.num}
                     onChangeText={handleChange('num')}
+                    small
                   />
                 </ContainerRowFlex>
                 {errors.cep && (
@@ -277,7 +277,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.num}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Complemento"
                   value={values.details}
                   onChangeText={handleChange('details')}
@@ -287,7 +287,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.details}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Descrição"
                   autoCapitalize="none"
                   value={values.description}
@@ -308,7 +308,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.special}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Link para Vídeo"
                   autoCapitalize="none"
                   value={values.video}
@@ -319,7 +319,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.video}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Área de graduação"
                   autoCapitalize="none"
                   value={values.graduation_area}
@@ -330,7 +330,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.graduation_area}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Diploma"
                   autoCapitalize="none"
                   value={values.degree}
@@ -341,7 +341,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.degree}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Banco"
                   autoCapitalize="none"
                   value={values.bank}
@@ -352,7 +352,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.bank}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Agência"
                   autoCapitalize="none"
                   value={values.agency}
@@ -363,7 +363,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.agency}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Conta"
                   autoCapitalize="none"
                   value={values.account}

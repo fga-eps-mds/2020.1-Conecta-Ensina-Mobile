@@ -7,7 +7,7 @@ function AuthProvider({children}) {
   const [user, setUser] = useState(null);
   const [typeUser, setTypeUser] = useState(null);
 
-  const Host = "http://192.168.175.33:3333"
+  const Host = "http://192.168.0.8:3333"
 
   async function signIn(email, password){
       const settings = {
