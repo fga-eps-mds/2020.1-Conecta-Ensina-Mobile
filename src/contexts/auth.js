@@ -6,8 +6,10 @@ export const AuthContext = createContext({});
 function AuthProvider({children}) {
   const [user, setUser] = useState(null);
   const [typeUser, setTypeUser] = useState(null);
+  const [teacher, setTeacher] = useState(null);
+  const [student, setStudent] = useState(null);
 
-  const Host = "http://192.168.0.8:3333"
+  const Host = "http://192.168.175.33:3333"
 
   async function signIn(email, password){
       const settings = {
@@ -89,6 +91,30 @@ function AuthProvider({children}) {
       if (data.message) {
         if (data.message === 'Estudante criado com sucesso!') {
           ok = true;
+          let usuario = {
+            id: data.data.user.id,
+            firstName: data.data.user.firstName,
+            lastName: data.data.user.lastName,
+            email: data.data.user.email,
+            password: data.data.user.password,
+            role: data.data.user.role
+          }
+          setUser(usuario);
+
+          let estudante = {
+            cellphone: data.data.student.cellphone,
+            birthdate: data.data.student.birthdate,
+            grade: data.data.student.grade,
+            institution: data.data.student.school,
+            cpf: data.data.student.cpf,
+            cep: data.data.student.cep,
+            number: data.data.student.num,
+            details: data.data.student.details,
+            description: data.data.student.description,
+            special: data.data.student.special,
+          }
+          setStudent(estudante);
+
         } else if (data.message.name) {
           if (
             data.message.name === 'SequelizeUniqueConstraintError' &&
@@ -154,6 +180,41 @@ function AuthProvider({children}) {
       if (data.message) {
         if (data.message === 'Professor criado com sucesso!') {
           ok = true;
+          let usuario = {
+            id: data.data.user.id,
+            firstName: data.data.user.firstName,
+            lastName: data.data.user.lastName,
+            email: data.data.user.email,
+            password: data.data.user.password,
+            role: data.data.user.role
+          }
+          setUser(usuario);
+
+          let estudante = {
+            cellphone: data.data.student.cellphone,
+            birthdate: data.data.student.birthdate,
+            grade: data.data.student.grade,
+            institution: data.data.student.school,
+            cpf: data.data.student.cpf,
+            cep: data.data.student.cep,
+            number: data.data.student.num,
+            details: data.data.student.details,
+            description: data.data.student.description,
+            special: data.data.student.special,
+          }
+          setStudent(estudante);
+
+          let professor = {
+            photo: data.data.teacher.photo,
+            video: data.data.teacher.video,
+            graduation_area: data.data.teacher.graduation_area,
+            degree: data.data.teacher.degree,
+            bank: data.data.teacher.bank,
+            agency: data.data.teacher.agency,
+            account: data.data.teacher.account,
+          }
+          setTeacher(professor);
+
         } else if (data.message.name) {
           if (
             data.message.name === 'SequelizeUniqueConstraintError' &&
@@ -194,7 +255,7 @@ function AuthProvider({children}) {
   };
 
   return(
-    <AuthContext.Provider value={{signed: true/*(!! user)*/, user, typeUser, signIn, registerAluno, registerProf}}>
+    <AuthContext.Provider value={{signed: true/*(!! user)*/, user, teacher, student, typeUser, signIn, registerAluno, registerProf}}>
       {children}
     </AuthContext.Provider>
   );
