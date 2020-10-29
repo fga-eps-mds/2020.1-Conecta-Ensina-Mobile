@@ -20,9 +20,9 @@ const Item = ({item, onPress, style}) => (
 
 export default function Home({navigation}) {
   const [filtros, setFiltros] = useState([
-    {id: '1', nome: 'Reforço Escolar', img: require('../../assets/books.png')},
-    {id: '2', nome: 'Idiomas', img: require('../../assets/books.png')},
-    {id: '3', nome: 'Vestibular', img: require('../../assets/books.png')},
+    {id: '1', name: 'Reforço Escolar', img: require('../../assets/books.png')},
+    {id: '2', name: 'Idiomas', img: require('../../assets/books.png')},
+    {id: '3', name: 'Vestibular', img: require('../../assets/books.png')},
   ]);
 
   const [selectedId, setSelectedId] = useState(null);
