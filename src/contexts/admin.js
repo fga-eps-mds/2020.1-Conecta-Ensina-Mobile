@@ -6,15 +6,18 @@ export const AdmContext = createContext({});
 
 function AdmProvider({children}) {
     const [students, setStudents] = useState(null);
-    const [user, setUser] = useState(null);
+    const [userDB, setUserDB] = useState(null);
     const [teacher, setTeacher] = useState(null);
     
-    const {Host} = useContext(AuthContext);
+    const {Host, user} = useContext(AuthContext);
 
     async function getProfessorList(){
         const fetchResponse = await fetch(
           `${Host}/api/student/status/0`,
         );
+
+        console.log(Host)
+
         try {
           const data = await fetchResponse.json();
           setStudents(data.data.student);
@@ -32,6 +35,7 @@ function AdmProvider({children}) {
             },
             body: JSON.stringify({
               status: 1,
+              agentRole: user.role
             }),
           };
           const fetchResponse1 = await fetch(
@@ -61,7 +65,7 @@ function AdmProvider({children}) {
                 role: data.data.user.role,
                 cellphone: data.data.user.cellphone,
               }
-            setUser(usuario);
+            setUserDB(usuario);
             try {
                 let response = await fetch(
                   `${Host}/api/teacher/${id}`,
@@ -86,7 +90,7 @@ function AdmProvider({children}) {
     }  
     
     return(
-        <AdmContext.Provider value={{ students, user, teacher, getProfessorList, statusUpdate, getProfessoUser}}>
+        <AdmContext.Provider value={{ students, userDB, teacher, getProfessorList, statusUpdate, getProfessoUser}}>
         {children}
         </AdmContext.Provider>
     );
