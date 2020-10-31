@@ -2,7 +2,7 @@ import React from 'react';
 import Theme from '../../../Theme';
 import {Formik} from 'formik';
 import * as yup from 'yup';
-import {TextInputMask} from 'react-native-masked-text';
+import {TextInputMask} from 'react-native';
 import {Alert} from 'react-native';
 
 import {
