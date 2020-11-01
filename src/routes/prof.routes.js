@@ -4,6 +4,7 @@ import HomeProf from '../pages/HomeProf';
 import AulaMarcada from '../pages/AulaMarcada';
 import AulaPendente from '../pages/AulaPendente';
 import AulaRealizada from '../pages/AulaRealizada';
+import PerfilProf2 from '../pages/PerfilProf2';
 
 // import { Container } from './styles';
 const ProfStack = createStackNavigator();
@@ -29,6 +30,11 @@ function ProfRoutes() {
       <ProfStack.Screen
         name="AulaRealizada"
         component={AulaRealizada}
+        options={{headerShown: false}}
+      />
+      <ProfStack.Screen
+        name="PerfilProf2"
+        component={PerfilProf2}
         options={{headerShown: false}}
       />
     </ProfStack.Navigator>

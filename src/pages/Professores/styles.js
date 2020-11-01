@@ -8,10 +8,3 @@ flex: 1;
 justify-content: center;
 border-radius: 20px;
 `;
-
-export const ContainerFooter = styled.View`
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-  `;
-
