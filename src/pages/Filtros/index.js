@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import Theme, {theme} from '../../../Theme';
+
 import Background1 from '../../components/Background1';
-import ButtonContinuar from '../../components/ButtonContinuar';
+import ContinuarContainer from '../../components/ContinuarContainer';
 import DurationPicker from '../../components/DurationPicker';
 import HorarioPicker from '../../components/HorarioPicker';
 import DatePicker from '../../components/DatePicker';
-
 import SwitchFiltro from '../../components/SwitchFiltro';
 import {Container, ContainerFiltros, DataButton, Texto} from './styles';
 
@@ -43,9 +43,11 @@ export default function Filtros({navigation}) {
           </ContainerFiltros>
           <HorarioPicker onChange={setHorario} />
         </Container>
-        <ButtonContinuar onPress={() => navigation.navigate('Professores')}>
+        <ContinuarContainer
+          onPress={() => navigation.navigate('Professores')}
+          marginTop={{value: '129%'}}>
           Continuar
-        </ButtonContinuar>
+        </ContinuarContainer>
       </Background1>
     </Theme>
   );
