@@ -38,7 +38,7 @@ export default function Materias({navigation}) {
           />
         </Container>
         <ContinuarContainer
-          marginTop={{value: '127.5%'}}
+          marginTop={{value: '100%'}}
           onPress={() => navigation.navigate('Filtros')}>
           Continuar
         </ContinuarContainer>

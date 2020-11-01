@@ -46,6 +46,21 @@ export default function Home({navigation}) {
     );
   };
 
+  const getClassroom = async () => {
+    const fetchResponse = await fetch('http://192.168.0.157:3333/api/classroom/3bd7c190-ce64-4827-8c0c-58cfef45ad9f');
+    try {
+      const data = await fetchResponse.json();
+      console.log(data.data.classroom.dtclass);
+      setClassroom(data.data.classroom);
+      return data;
+    } catch (error) {
+      return error;
+    }
+  };
+
+  const [classroom, setClassroom] = useState(getClassroom);
+
+
   return (
     <Theme>
       <Background1 navigation={navigation} page={'Perfil'}>
@@ -62,7 +77,7 @@ export default function Home({navigation}) {
             <CustomText bigSmall>Proxima Aula</CustomText>
           </ContainerHorizontal>
           <BigTextContainer>
-            <CustomText big>12 Jun</CustomText>
+             <CustomText>{classroom.dtclass}</CustomText>
           </BigTextContainer>
           <ContainerHorizontal>
             <CustomText bigSmall>16 - 18 Horas</CustomText>

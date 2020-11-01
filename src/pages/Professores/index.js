@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Theme from '../../../Theme';
-import SquareButton from '../../components/SquareButton';
-import ContainerVoltar from '../../components/ContainerVoltar';
+import SquareButton from '../../components/ContainerStars';
 import ContinuarContainer from '../../components/ContinuarContainer';
 
 import Background1 from '../../components/Background1';
@@ -68,7 +67,7 @@ const [teachers, setTeachers] = useState(getTeachers);
         </Container>
         <ContinuarContainer
           onPress={() => navigation.push('Filtros')}
-          marginTop={{value: '128%'}}>
+          marginTop={{value: '1%'}}>
           Continuar
         </ContinuarContainer>
       </Background1>
