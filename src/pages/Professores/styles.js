@@ -1,24 +1,17 @@
 import styled from 'styled-components/native';
 export const ListMaterias = styled.FlatList`
   align-self: center;
-  left: 2.8%;
 `;
 
 export const Container = styled.View`
-  flex: 1;
-  justify-content: center;
-  position: absolute;
-  top: -5.7%;
-  border: 4px solid ${(props) => props.theme.colors.fundoAzul};
-  right: 0px;
-  left: 0px;
-  bottom: 13.3%;
-  border-radius: 20px;
+flex: 1;
+justify-content: center;
+border-radius: 20px;
 `;
 
 export const ContainerFooter = styled.View`
   align-items: center;
   justify-content: center;
-  margin-top: 115%;
-  margin-left: 5%;
-`;
+  align-self: center;
+  `;
+
