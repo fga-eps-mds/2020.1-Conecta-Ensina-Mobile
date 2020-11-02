@@ -21,13 +21,27 @@ function gradeResolver(grade) {
     case 9:
       return '9º Ano Ensino Fundamental';
     case 10:
-      return '1º Ano Ensino Médio';
+      return 'Ensino Fundamental Completo';
     case 11:
-      return '2º Ano Ensino Médio';
+      return '1º Ano Ensino Médio';
     case 12:
-      return '3º Ano Ensino Médio';
+      return '2º Ano Ensino Médio';
     case 13:
-      return 'Ensino Superior';
+      return '3º Ano Ensino Médio';
+    case 14:
+      return 'Ensino Médio Completo';
+    case 15:
+      return 'Graduação Incompleta';
+    case 16:
+      return 'Graduado';
+    case 17:
+      return 'Pós Graduação Incompleta';
+    case 18:
+      return 'Pós Graduado';
+    case 19:
+      return 'Mestrado Incompleto';
+    case 20:
+      return 'Mestrado';
     default:
       return 'Invalid Grade';
   }

@@ -17,7 +17,7 @@ import {
   WhiteTextContainer,
 } from './styles';
 
-export default function Login() {
+export default function PerfilProf() {
   return (
     <Theme>
       <Background2

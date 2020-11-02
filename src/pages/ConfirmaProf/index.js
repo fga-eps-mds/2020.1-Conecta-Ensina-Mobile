@@ -1,97 +1,48 @@
-import React, {useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import Theme from '../../../Theme';
+import {AdmContext} from '../../contexts/admin';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
 import {Container, ContainerGrande, ContainerButton, Button} from './styles';
 
 export default function ConfirmaProf({route, navigation}) {
   const {item} = route.params;
+  const {userDB, teacher, statusUpdate} = useContext(AdmContext);
 
   const handleSubmit = async () => {
-    const settings = {
-      method: 'PUT',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        status: 1,
-      }),
-    };
-    const fetchResponse1 = await fetch(
-      'http://192.168.0.12:3333/api/student/status/' + item.id,
-      settings,
-    );
-    try {
-      const data = await fetchResponse1.json();
-      console.log('Success:', data);
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    statusUpdate(item.id);
   };
-
-  const getProfessoUser = async () => {
-    const fetchResponse = await fetch(
-      'http://192.168.0.12:3333/api/user/' + item.id,
-    );
-    try {
-      const data = await fetchResponse.json();
-      console.log(data.data.user);
-      setUsers(data.data.user);
-      return data;
-    } catch (error) {
-      return error;
-    }
-  };
-
-  const [users, setUsers] = useState(getProfessoUser);
-
-  const getProfessor = async () => {
-    const fetchResponse = await fetch(
-      'http://192.168.0.12:3333/api/teacher/' + item.id,
-    );
-    try {
-      const data = await fetchResponse.json();
-      console.log(data.data.teacher);
-      setTeachers(data.data.teacher);
-      return data;
-    } catch (error) {
-      return error;
-    }
-  };
-
-  const [teachers, setTeachers] = useState(getProfessor);
 
   return (
     <Theme>
       <Background1>
         <Container>
           <ContainerGrande>
-            <CustomText white>{users.firstName}</CustomText>
+            <CustomText white>{userDB && userDB.firstName}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{users.lastName}</CustomText>
+            <CustomText white>{userDB && userDB.lastName}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{users.email}</CustomText>
+            <CustomText white>{userDB && userDB.email}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{users.cellphone}</CustomText>
+            <CustomText white>{userDB && userDB.cellphone}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{teachers.description}</CustomText>
+            <CustomText white>{teacher && teacher.description}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
             <CustomText white>{item.institution}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{teachers.degree}</CustomText>
+            <CustomText white>{teacher && teacher.degree}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{teachers.graduation_area}</CustomText>
+            <CustomText white>{teacher && teacher.graduation_area}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{teachers.video}</CustomText>
+            <CustomText white>{teacher && teacher.video}</CustomText>
           </ContainerGrande>
         </Container>
         <ContainerButton>

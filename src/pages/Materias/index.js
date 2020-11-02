@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Theme, {theme} from '../../../Theme';
 import SquareButton from '../../components/SquareButton';
-import ButtonContinuar from '../../components/ButtonContinuar';
+import ContinuarContainer from '../../components/ContinuarContainer';
 
 import Background1 from '../../components/Background1';
 import {ListMaterias, Container} from './styles';
@@ -50,7 +50,7 @@ export default function Materias({route, navigation}) {
 
   return (
     <Theme>
-      <Background1>
+      <Background1 navigation={navigation} page={'Perfil'}>
         <Container>
           <ListMaterias
             numColumns={3}
@@ -60,9 +60,11 @@ export default function Materias({route, navigation}) {
             renderItem={renderItem}
           />
         </Container>
-        <ButtonContinuar onPress={() => navigation.navigate('Filtros')}>
+        <ContinuarContainer
+          marginTop={{value: '127.5%'}}
+          onPress={() => navigation.navigate('Filtros')}>
           Continuar
-        </ButtonContinuar>
+        </ContinuarContainer>
       </Background1>
     </Theme>
   );

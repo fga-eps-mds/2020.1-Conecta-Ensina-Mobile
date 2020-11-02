@@ -20,5 +20,19 @@ exports[`renders correctly 1`] = `
       "width": 200,
     }
   }
-/>
+>
+  <Text
+    small={true}
+    style={
+      Array [
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "Roboto",
+          "fontSize": 14,
+        },
+      ]
+    }
+    white={true}
+  />
+</View>
 `;

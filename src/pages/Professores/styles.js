@@ -15,10 +15,3 @@ export const Container = styled.View`
   bottom: 13.3%;
   border-radius: 20px;
 `;
-
-export const ContainerFooter = styled.View`
-  align-items: center;
-  justify-content: center;
-  margin-top: 115%;
-  margin-left: 5%;
-`;

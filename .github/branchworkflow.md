@@ -9,6 +9,8 @@ Os conceitos chave para implementação da estratégia de Git Flow:
 - feature/\*: são branches para o desenvolvimento de uma funcionalidade específica, por convenção elas tem o nome iniciado por feature/, por exemplo: feature/cadastro-usuarios. - - Importante ressaltar que essas branches são criadas sempre à partir da branch develop
 - hotfix/\*: são branches responsáveis pela realização de alguma correção crítica encontrada em produção e por isso são criadas à partir da master. Importante ressaltar que essa branch deve ser juntada tanto com a master quanto com a develop
 - release/\*: tem uma confiança maior que a branch develop e que se encontra em nível de preparação para ser juntada com a master e com a develop (caso alguma coisa tenha sido modificada na branch em questão)
+- doc/\*: são branches responsáveis pela criação de documentação e/ou revisão de documentação já existente.
+- automation/\*: são branches responsáveis pela integração de alguma ferramenta auxiliar ao projeto.
 
 Exemplo do fluxo de branches:
 
@@ -16,7 +18,7 @@ Exemplo do fluxo de branches:
 
 # Nomenclatura
 
-Toda branch criada deve estar relacionada a uma funcionalidade ou correção, logo necessariamente deverá estar atrelada a uma Issue. O nome da branch deve ser em INGLÊS e deve seguir o padrão:
+Toda branch criada deve estar relacionada a uma funcionalidade ou correção, logo necessariamente deverá estar atrelada a uma Issue. O nome da branch deve ser em INGLES e deve seguir o padrão:
 
 - doc/IssueID-descrição-curta: para documentações
 
@@ -24,10 +26,12 @@ Toda branch criada deve estar relacionada a uma funcionalidade ou correção, lo
 
 - hotfix/IssueID-descrição-curta: para correções;
 
+- automation/IssueID-descrição-curta: para implementação de ferramentas;
+
 # Referências
 
 - A successful Git branching model. Vincent Driessen. Disponível em: <https://nvie.com/posts/a-successful-git-branching-model/>. Acessado em: 05 de outrubro 2020.
 
 - FeatureBranch. Martin Fowler. Disponível em: <httgitps://martinfowler.com/bliki/FeatureBranch.html>. Acessado em: 05 de outubro 2020.
 
-- Git Feature Branch Workflow. Atlassian. Disponível em: <https://br.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow>. Acessado em: 28 de agosto de 2019.
+- Git Feature Branch Workflow. Atlassian. Disponível em: <https://br.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow>. Acessado em: 05 de outrubro 2020.

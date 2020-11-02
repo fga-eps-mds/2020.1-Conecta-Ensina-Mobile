@@ -37,8 +37,6 @@ exports[`renders correctly 1`] = `
       ]
     }
     white={true}
-  >
-    Continuar
-  </Text>
+  />
 </View>
 `;

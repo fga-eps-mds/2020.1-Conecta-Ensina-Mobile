@@ -19,7 +19,7 @@ const Item = ({item, onPress, style}) => (
 );
 
 export default function Home({navigation}) {
-  const [filtros] = useState([
+  const [filtros, setFiltros] = useState([
     {id: '1', nome: 'Reforço Escolar', img: require('../../assets/books.png')},
     {id: '2', nome: 'Idiomas', img: require('../../assets/books.png')},
     {id: '3', nome: 'Vestibular', img: require('../../assets/books.png')},
@@ -48,7 +48,7 @@ export default function Home({navigation}) {
 
   return (
     <Theme>
-      <Background1 navigation={navigation}>
+      <Background1 navigation={navigation} page={'Perfil'}>
         <ListFiltro
           testID="listFiltro"
           horizontal

@@ -1,9 +1,11 @@
-import React, {useState, useContext} from 'react';
-import Theme from '../../../Theme';
+import React, {useState, useEffect, useContext} from 'react';
+import Theme, {theme} from '../../../Theme';
 import Background2 from '../../components/Background2';
 import CustomText from '../../components/CustomText';
-import RegFieldBig from '../../components/RegFieldBig';
+import RegField from '../../components/RegField';
 import {AuthContext} from '../../contexts/auth';
+import {TextInput} from 'react-native';
+import {DateContainer} from '../RegistroAluno/styles';
 import {
   LoginContainer,
   Container,
@@ -37,19 +39,28 @@ export default function Login({navigation}) {
                   source={require('../../assets/user_white.png')}
                 />
               </UserContatiner>
-              <RegFieldBig
+              <RegField
                 placeholder="Email"
                 autoCapitalize="none"
                 value={email}
                 onChangeText={(text) => setEmail(text)}
               />
-              <RegFieldBig
-                placeholder="Senha"
-                autoCapitalize="none"
-                value={password}
-                onChangeText={(text) => setPassword(text)}
-                secureTextEntry={true}
-              />
+              <DateContainer>
+                <TextInput
+                  placeholder="Senha"
+                  autoCapitalize="none"
+                  value={password}
+                  onChangeText={(text) => setPassword(text)}
+                  secureTextEntry={true}
+                  placeholderTextColor="#F6F6F6"
+                  style={{
+                    color: '#FFFFFF',
+                    fontSize: 14,
+                    flex: 1,
+                    textAlign: 'center',
+                  }}
+                />
+              </DateContainer>
               <ButtonEntrar onPress={handleLogin}>
                 <CustomText white medium>
                   Entrar

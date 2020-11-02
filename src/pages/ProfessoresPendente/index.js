@@ -1,26 +1,19 @@
-import React, {useState} from 'react';
+import React, {useContext} from 'react';
 import Theme from '../../../Theme';
 import SquareButton from '../../components/ContainerTeacher';
-
+import {AdmContext} from '../../contexts/admin';
 import Background4 from '../../components/Background4';
 import {ListMaterias, Container} from './styles';
+import {get} from 'react-native/Libraries/Utilities/PixelRatio';
 
 export default function ProfessoresPendentes({navigation}) {
-  const getProfessorList = async () => {
-    const fetchResponse = await fetch(
-      'http://192.168.0.12:3333/api/student/status/0',
-    );
-    try {
-      const data = await fetchResponse.json();
-      console.log(data.data.student);
-      setStudents(data.data.student);
-      return data;
-    } catch (error) {
-      return error;
-    }
-  };
+  const {students, getProfessoUser} = useContext(AdmContext);
 
-  const [students, setStudents] = useState(getProfessorList);
+  function handleSubmit({item}) {
+    getProfessoUser(item.id);
+    console.log(item.id);
+    navigation.navigate('ConfirmaProf', {item});
+  }
 
   return (
     <Theme>
@@ -33,7 +26,7 @@ export default function ProfessoresPendentes({navigation}) {
             renderItem={({item}) => (
               <SquareButton
                 data={item}
-                onPressProf={() => navigation.navigate('ConfirmaProf', {item})}
+                onPressProf={() => handleSubmit({item})}
               />
             )}
           />

@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import Theme, {theme} from '../../../Theme';
 import SquareButton from '../../components/SquareButton';
 import Background4 from '../../components/Background4';
+import {AdmContext} from '../../contexts/admin';
 import {ListFuncoes} from './styles';
 
 const Item = ({item, onPress, style}) => (
@@ -16,7 +17,7 @@ export default function HomeAdm({navigation}) {
       img: require('../../assets/books.png'),
     },
   ]);
-
+  const {getProfessorList} = useContext(AdmContext);
   const renderItem = ({item}) => {
     var nextScreen;
 
@@ -26,10 +27,15 @@ export default function HomeAdm({navigation}) {
       nextScreen = 'HomeAdm';
     }
 
+    async function handleProf() {
+      await getProfessorList();
+      navigation.navigate(nextScreen);
+    }
+
     return (
       <Item
         item={item}
-        onPress={() => navigation.navigate(nextScreen)}
+        onPress={handleProf}
         style={{backgroundColor: theme.colors.cinzaClaro}}
       />
     );

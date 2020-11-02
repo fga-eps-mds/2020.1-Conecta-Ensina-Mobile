@@ -16,17 +16,25 @@ exports[`renders correctly 1`] = `
   }
 >
   <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "flexBasis": 0,
-          "flexDirection": "row-reverse",
-          "flexGrow": 22,
-          "flexShrink": 1,
-          "marginLeft": 30,
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "flexBasis": 0,
+        "flexDirection": "row-reverse",
+        "flexGrow": 22,
+        "flexShrink": 1,
+        "marginLeft": 30,
+        "opacity": 1,
+      }
     }
   >
     <View
@@ -83,9 +91,7 @@ exports[`renders correctly 1`] = `
           ]
         }
         white={true}
-      >
-        Nome do Aluno
-      </Text>
+      />
     </View>
   </View>
   <View
