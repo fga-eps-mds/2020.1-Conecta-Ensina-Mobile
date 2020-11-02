@@ -47,7 +47,7 @@ export default function Home({navigation}) {
   };
 
   const getClassroom = async () => {
-    const fetchResponse = await fetch('http://192.168.0.157:3333/api/classroom/3bd7c190-ce64-4827-8c0c-58cfef45ad9f');
+    const fetchResponse = await fetch('http://192.168.0.157:3333/api/classroom/nextClass/3bd7c190-ce64-4827-8c0c-58cfef45ad9f');
     try {
       const data = await fetchResponse.json();
       console.log(data.data.classroom.dtclass);
