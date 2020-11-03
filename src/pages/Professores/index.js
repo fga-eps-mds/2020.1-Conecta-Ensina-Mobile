@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Theme from '../../../Theme';
 import SquareButton from '../../components/ContainerStars';
-import ContainerVoltar from '../../components/ContainerVoltar';
 import ContinuarContainer from '../../components/ContinuarContainer';
 
 import Background1 from '../../components/Background1';
@@ -13,7 +12,7 @@ import {
 } from './styles';
 
 export default function Professores({navigation}) {
-  const [usuario] = useState([
+/*  const [usuario] = useState([
     {id: '1', nome: 'Carlos', img: require('../../assets/user_blue.png')},
     {id: '2', nome: 'Cassia', img: require('../../assets/user_blue.png')},
     {id: '3', nome: 'Arthur', img: require('../../assets/user_blue.png')},
@@ -34,6 +33,21 @@ export default function Professores({navigation}) {
     {id: '18', nome: 'Biologia', img: require('../../assets/user_blue.png')},
     {id: '19', nome: 'Redação', img: require('../../assets/user_blue.png')},
   ]);
+*/
+const getTeachers = async () => {
+  const fetchResponse = await fetch('http://192.168.0.157:3333/api/teacher/');
+  try {
+    const data = await fetchResponse.json();
+    console.log(data.data.user);
+    setTeachers(data.data.user);
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
+const [teachers, setTeachers] = useState(getTeachers);
+
 
   return (
     <Theme>
@@ -41,17 +55,23 @@ export default function Professores({navigation}) {
         <Container>
           <ListMaterias
             numColumns={3}
-            data={usuario}
+            data={teachers}
             keyExtractor={(item) => item.id}
-            renderItem={({item}) => <SquareButton data={item} />}
+            renderItem={({item}) => (
+            <SquareButton 
+              data={item}
+              img={require('../../assets/user_blue.png')}
+            />
+            )}
           />
         </Container>
         <ContinuarContainer
           onPress={() => navigation.push('Filtros')}
-          marginTop={{value: '128%'}}>
+          marginTop={{value: '1%'}}>
           Continuar
         </ContinuarContainer>
       </Background1>
     </Theme>
   );
 }
+

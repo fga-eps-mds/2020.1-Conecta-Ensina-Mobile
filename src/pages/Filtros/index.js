@@ -45,7 +45,7 @@ export default function Filtros({navigation}) {
         </Container>
         <ContinuarContainer
           onPress={() => navigation.navigate('Professores')}
-          marginTop={{value: '129%'}}>
+          marginTop={{value: '100%'}}>
           Continuar
         </ContinuarContainer>
       </Background1>

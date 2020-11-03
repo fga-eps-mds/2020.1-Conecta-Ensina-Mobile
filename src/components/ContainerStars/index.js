@@ -5,10 +5,10 @@ import {Rating} from 'react-native-ratings';
 import CustomText from '../CustomText';
 import {withTheme} from 'styled-components/native';
 
-function ContainerStars({data, theme}) {
+function ContainerStars({img, data, theme}) {
   return (
     <Container>
-      <Imagem source={data.img} />
+      <Imagem source={img} />
       <Rating
         type="custom"
         ratingCount={5}
@@ -18,7 +18,7 @@ function ContainerStars({data, theme}) {
       />
       <ContainerTexto>
         <CustomText smaller black>
-          {data.nome}
+          {data.firstName}
         </CustomText>
       </ContainerTexto>
     </Container>

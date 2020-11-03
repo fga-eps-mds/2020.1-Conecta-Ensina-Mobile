@@ -7,6 +7,7 @@ export const Container = styled.TouchableOpacity`
   margin-right: 20px;
   margin-bottom: 20px;
   align-items: center;
+  background-color: ${(props) => props.theme.colors.cinzaClaro};
 `;
 
 export const Imagem = styled.Image`
