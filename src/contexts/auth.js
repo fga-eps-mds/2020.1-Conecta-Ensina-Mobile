@@ -9,49 +9,46 @@ function AuthProvider({children}) {
   const [teacher, setTeacher] = useState(null);
   const [student, setStudent] = useState(null);
 
-  const Host = "http://192.168.114.129:3333"
+  const Host = 'http://192.168.0.8:3333';
 
-  async function signIn(email, password){
-      const settings = {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
-      };
-      const fetchResponse1 = await fetch(
-        `${Host}/api/user/login`,
-        settings,
-      );
-      try {
-        const data = await fetchResponse1.json();
-        console.log('Success:', data);
-        if (data.message) {
-          if (data.message === 'Login efetuado com sucesso!') {
-            console.log("login efetuado")
-            renderData(data.id, data.role)
-          if (data.role === 1){ 
-              setTypeUser('Adm')
-              console.log("Adm")
-          } else if(data.role === 2){
-              setTypeUser('Professor')
-              console.log("Professor")
-            } else{
-              setTypeUser('Aluno')
-              console.log("aluno")
-            }
+  async function signIn(email, password) {
+    const settings = {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    };
+    const fetchResponse1 = await fetch(`${Host}/api/user/login`, settings);
+    try {
+      const data = await fetchResponse1.json();
+      console.log('Success:', data);
+      if (data.message) {
+        if (data.message === 'Login efetuado com sucesso!') {
+          console.log('login efetuado');
+          renderData(data.id, data.role);
+          if (data.role === 1) {
+            setTypeUser('Adm');
+            console.log('Adm');
+          } else if (data.role === 2) {
+            setTypeUser('Professor');
+            console.log('Professor');
+          } else {
+            setTypeUser('Aluno');
+            console.log('aluno');
           }
         }
+      }
     } catch (error) {
       console.error('Error:', error);
     }
   }
 
-  async function registerAluno (values, {setStatus}) {
+  async function registerAluno(values, {setStatus}) {
     console.log(values);
     var ok = false;
     const settings = {
@@ -77,10 +74,7 @@ function AuthProvider({children}) {
         special: values.special,
       }),
     };
-    const fetchResponse = await fetch(
-      `${Host}/api/student/create`,
-      settings,
-    );
+    const fetchResponse = await fetch(`${Host}/api/student/create`, settings);
     try {
       const data = await fetchResponse.json();
       console.log('Success:', data);
@@ -95,7 +89,7 @@ function AuthProvider({children}) {
             password: data.data.user.password,
             role: data.data.user.role,
             cellphone: data.data.student.cellphone,
-          }
+          };
           setUser(usuario);
 
           let estudante = {
@@ -108,9 +102,8 @@ function AuthProvider({children}) {
             details: data.data.student.details,
             description: data.data.student.description,
             special: data.data.student.special,
-          }
+          };
           setStudent(estudante);
-
         } else if (data.message.name) {
           if (
             data.message.name === 'SequelizeUniqueConstraintError' &&
@@ -131,9 +124,9 @@ function AuthProvider({children}) {
     if (ok) {
       RegistroAlert(3);
     }
-  };
+  }
 
-  async function registerProf(values, { setStatus }){
+  async function registerProf(values, {setStatus}) {
     console.log(values);
     var ok = false;
     const settings = {
@@ -166,10 +159,7 @@ function AuthProvider({children}) {
         account: values.account,
       }),
     };
-    const fetchResponse = await fetch(
-      `${Host}/api/teacher/create`,
-      settings,
-    );
+    const fetchResponse = await fetch(`${Host}/api/teacher/create`, settings);
     try {
       const data = await fetchResponse.json();
       console.log('Success:', data);
@@ -184,7 +174,7 @@ function AuthProvider({children}) {
             password: data.data.user.password,
             role: data.data.user.role,
             cellphone: data.data.student.cellphone,
-          }
+          };
           setUser(usuario);
 
           let estudante = {
@@ -197,7 +187,7 @@ function AuthProvider({children}) {
             details: data.data.student.details,
             description: data.data.student.description,
             special: data.data.student.special,
-          }
+          };
           setStudent(estudante);
 
           let professor = {
@@ -208,9 +198,8 @@ function AuthProvider({children}) {
             bank: data.data.teacher.bank,
             agency: data.data.teacher.agency,
             account: data.data.teacher.account,
-          }
+          };
           setTeacher(professor);
-
         } else if (data.message.name) {
           if (
             data.message.name === 'SequelizeUniqueConstraintError' &&
@@ -231,9 +220,9 @@ function AuthProvider({children}) {
     if (ok) {
       RegistroAlert(2);
     }
-  };
+  }
 
-  const RegistroAlert = ({ role }) => {
+  const RegistroAlert = ({role}) => {
     Alert.alert(
       'Registro',
       'Registro Concluido com sucesso',
@@ -241,8 +230,11 @@ function AuthProvider({children}) {
         {
           text: 'Finalizar',
           onPress: () => {
-            if(role === 2) setTypeUser('Professor')
-            else setTypeUser('Aluno')
+            if (role === 2) {
+              setTypeUser('Professor');
+            } else {
+              setTypeUser('Aluno');
+            }
           },
         },
       ],
@@ -253,9 +245,7 @@ function AuthProvider({children}) {
   async function renderData(id, role) {
     var ok = false;
     try {
-      let response = await fetch(
-        `${Host}/api/user/` + id,
-      );
+      let response = await fetch(`${Host}/api/user/` + id);
       const data = await response.json();
       let usuario = {
         id: id,
@@ -265,9 +255,9 @@ function AuthProvider({children}) {
         password: data.data.user.password,
         role: data.data.user.role,
         cellphone: data.data.user.cellphone,
-      }
-      if( role === 2 || role === 3){
-       ok = true; 
+      };
+      if (role === 2 || role === 3) {
+        ok = true;
       }
       setUser(usuario);
     } catch (error) {
@@ -275,9 +265,7 @@ function AuthProvider({children}) {
     }
     if (ok) {
       try {
-        let response = await fetch(
-          `${Host}/api/student/` + id,
-        );
+        let response = await fetch(`${Host}/api/student/` + id);
         const data = await response.json();
         let estudante = {
           birthdate: data.data.student.birthdate,
@@ -289,16 +277,14 @@ function AuthProvider({children}) {
           details: data.data.student.details,
           description: data.data.student.description,
           special: data.data.student.special,
-        }
+        };
         setStudent(estudante);
       } catch (error) {
         console.error(error);
       }
-      if(role === 2){
+      if (role === 2) {
         try {
-          let response = await fetch(
-            `${Host}/api/teacher/` + id,
-          );
+          let response = await fetch(`${Host}/api/teacher/` + id);
           const data = await response.json();
           let professor = {
             photo: data.data.teacher.photo,
@@ -308,18 +294,28 @@ function AuthProvider({children}) {
             bank: data.data.teacher.bank,
             agency: data.data.teacher.agency,
             account: data.data.teacher.account,
-          }
+          };
           setTeacher(professor);
-      } catch (error) {
-        console.error(error);
+        } catch (error) {
+          console.error(error);
+        }
       }
-      } 
-      
     }
   }
 
-  return(
-    <AuthContext.Provider value={{signed: true/*(!! user)*/, user, teacher, student, typeUser, Host, signIn, registerAluno, registerProf}}>
+  return (
+    <AuthContext.Provider
+      value={{
+        signed: true /*(!! user)*/,
+        user,
+        teacher,
+        student,
+        typeUser,
+        Host,
+        signIn,
+        registerAluno,
+        registerProf,
+      }}>
       {children}
     </AuthContext.Provider>
   );

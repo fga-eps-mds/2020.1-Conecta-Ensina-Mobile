@@ -38,11 +38,11 @@ export default function HomeProf({navigation}) {
     var nextScreen;
 
     if (item.id === '101') {
-      nextScreen = 'AulaMarcada';
+      nextScreen = 'ConfirmedClass';
     } else if (item.id === '102') {
-      nextScreen = 'AulaPendente';
+      nextScreen = 'PendingClass';
     } else if (item.id === '103') {
-      nextScreen = 'AulaRealizada';
+      nextScreen = 'CompletedClass';
     } else {
       nextScreen = 'HomeProf';
     }
@@ -58,7 +58,7 @@ export default function HomeProf({navigation}) {
 
   return (
     <Theme>
-      <Background1 navigation={navigation} page={'PerfilProf2'}>
+      <Background1 navigation={navigation} page={'TeacherProfile2'}>
         <ListFuncoes
           horizontal
           data={funcoes}
