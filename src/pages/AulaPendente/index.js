@@ -7,8 +7,7 @@ import {
   ListaVisualAula,
   ContainerButtons,
   ContainerTexto,
-  ButtonConfirmar,
-  ButtonRecusar,
+  ButtonVerMais,
 } from './styles';
 import CustomText from '../../components/CustomText';
 
@@ -40,31 +39,7 @@ export default function AulaPendente({navigation}) {
     }
   };
 
-  const updateStatus = async (id, status) => {
-    const settings = {
-      method: 'PUT',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        status: status,
-      }),
-    };
-    const fetchResponse1 = await fetch(
-      'http://192.168.0.12:3333/api/classroom/status/' + id,
-      settings,
-    );
-    try {
-      const data = await fetchResponse1.json();
-      console.log('Success:', data);
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
-
   const [classes, setClasses] = useState(getClass);
-  console.log(classes);
 
   const renderItem = ({item}) => {
     return (
@@ -74,40 +49,25 @@ export default function AulaPendente({navigation}) {
             Horario: 16 - 17h
           </CustomText>
           <CustomText smaller black>
-            Conteudo
+            Distancia: {item.cep}
           </CustomText>
           <CustomText smaller black>
-            Modalidade
+            Duração: {item.duration}
           </CustomText>
           <CustomText smaller black>
-            Distancia
+            Serie: {item.grade}
           </CustomText>
           <CustomText smaller black>
-            {' '}
-          </CustomText>
-          <CustomText smaller black>
-            Dados do Aluno
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Nome
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Serie
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Endereço
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Observação
+             Conteudo: {item.details}
           </CustomText>
         </ContainerTexto>
         <ContainerButtons>
-          <ButtonRecusar onPress={() => updateStatus(item.id, -1)} />
-          <ButtonConfirmar onPress={() => updateStatus(item.id, 1)} />
+          <ButtonVerMais onPress={() => navigation.navigate('ConfirmaAulaPendente', {item})}>
+          <CustomText white bigSmall>
+          Ver mais
+          </CustomText>
+          
+          </ButtonVerMais>
         </ContainerButtons>
       </ContainerVisualAula>
     );
