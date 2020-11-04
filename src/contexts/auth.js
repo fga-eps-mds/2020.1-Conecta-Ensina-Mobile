@@ -11,7 +11,9 @@ export default function AuthProvider({children}) {
 
   const Host = 'http://192.168.0.157:3333';
 
-  useEffect(() => {console.log(user)}, [user])
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
   async function signIn(email, password) {
     const settings = {
@@ -43,7 +45,7 @@ export default function AuthProvider({children}) {
             setTypeUser('Aluno');
             console.log('aluno');
           }
-          setUser(data)
+          setUser(data);
         }
       }
     } catch (error) {
@@ -309,7 +311,7 @@ export default function AuthProvider({children}) {
   return (
     <AuthContext.Provider
       value={{
-        signed:!!user,
+        signed: !!user,
         user,
         teacher,
         student,
