@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Theme from '../../../Theme';
 import {Formik} from 'formik';
 import * as yup from 'yup';
-import {TextInputMask} from 'react-native';
-import {Alert} from 'react-native';
+import {TextInputMask} from 'react-native-masked-text';
+import {AuthContext} from '../../contexts/auth';
+import {TextInput} from 'react-native';
 
 import {
   UserContatiner,
@@ -16,93 +17,94 @@ import {
 } from './styles';
 
 import Background3 from '../../components/Background3';
-import RegFieldBig from '../../components/RegFieldBig';
-import RegFieldMedium from '../../components/RegFieldMedium';
-import RegFieldSmall from '../../components/RegFieldSmall';
+import RegField from '../../components/RegField';
 import CustomText from '../../components/CustomText';
 import SwitchSpecial from '../../components/SwitchSpecial';
 import SeriePicker from '../../components/SeriePicker';
 
 export default function RegistroProfessor({navigation}) {
-  const RegistroAlert = () => {
-    Alert.alert(
-      'Registro',
-      //body
-      'Registro Concluido com sucesso',
-      [
-        {
-          text: 'Finalizar',
-          onPress: () => navigation.navigate('Login'),
-        },
-      ],
-      {cancelable: false},
-    );
+  const {registerProf} = useContext(AuthContext);
+
+  let initials = {
+    name: '',
+    surname: '',
+    email: '',
+    password: '',
+    cellphone: '',
+    birthdate: '',
+    grade: '',
+    school: '',
+    cpf: '',
+    cep: '',
+    num: '',
+    details: '',
+    description: '',
+    special: false,
+    photo: '',
+    video: '',
+    graduation_area: '',
+    degree: '',
+    bank: '',
+    agency: '',
+    account: '',
   };
 
-  const submitHandler = async (values, {setStatus, isSubmitting}) => {
-    console.log(values);
-    var ok = false;
-    const settings = {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        firstName: values.name,
-        lastName: values.surname,
-        email: values.email,
-        password: values.password,
-        cellphone: values.cellphone,
-        birthdate: values.birthdate,
-        grade: values.grade,
-        institution: values.school,
-        cpf: values.cpf,
-        cep: values.cep,
-        number: values.num,
-        details: values.details,
-        description: values.description,
-        special: values.special,
-        photo: values.photo,
-        video: values.video,
-        graduation_area: values.graduation_area,
-        degree: values.degree,
-        bank: values.bank,
-        agency: values.agency,
-        account: values.account,
-      }),
-    };
-    const fetchResponse = await fetch(
-      'http://192.168.0.8:3333/api/teacher/create',
-      settings,
-    );
-    try {
-      const data = await fetchResponse.json();
-      console.log('Success:', data);
-      if (data.message) {
-        if (data.message === 'Professor criado com sucesso!') {
-          ok = true;
-        } else if (data.message.name) {
-          if (
-            data.message.name === 'SequelizeUniqueConstraintError' &&
-            data.message.fields.email
-          ) {
-            setStatus({email: 'Email já foi registrado'});
-          } else if (
-            data.message.name === 'SequelizeUniqueConstraintError' &&
-            data.message.fields.cpf
-          ) {
-            setStatus({cpf: 'CPF já foi registrado'});
-          }
-        }
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-    if (ok) {
-      RegistroAlert();
-    }
-  };
+  let Schema = yup.object().shape({
+    name: yup
+      .string('Nome deve ser um texto')
+      .required('É necessário indicar um nome'),
+    surname: yup
+      .string('Sobrenome deve ser um texto')
+      .required('É necessário indicar um sobrenome'),
+    email: yup
+      .string('Email deve ser um texto')
+      .email('Email deve ter formato válido')
+      .required('É necessário indicar um email'),
+    password: yup
+      .string('Senha inválida')
+      .min(8, 'Senha deve ter 8 caracteres')
+      .required('É necessário indicar uma senha'),
+    cellphone: yup
+      .string()
+      .required('É necessário indicar um número de telefone')
+      .min(11, 'Número de telefone inválido')
+      .max(13, 'Número de telefone inválido'),
+    birthdate: yup
+      .date('Data inválida')
+      .required('É necessário indicar uma data de nascimentos'),
+    grade: yup.number().required('É necessário indicar uma série'),
+    school: yup
+      .string('Instituição deve ser um texto')
+      .required('É necessário indicar uma instituição'),
+    cpf: yup
+      .string()
+      .length(11, 'CPF deve ter 11 números')
+      .matches(/^\d+$/, 'CPF deve ser um número')
+      .required('É necessário indicar um CPF'),
+    cep: yup
+      .string()
+      .length(8, 'CPF deve ter 8 números')
+      .matches(/^\d+$/, 'CEP deve ser um número')
+      .required('É necessário indicar um CEP'),
+    num: yup
+      .number('Número do endereço deve ser um numero')
+      .required('É necessário indicar um número do endereço'),
+    details: yup
+      .string('Complemento deve ser um texto')
+      .required('Você deve inserir um complemento'),
+    description: yup
+      .string('Descrição deve ser um texto')
+      .required('Você deve inserir uma descrição'),
+    video: yup.string(),
+    special: yup.boolean().required(),
+    graduation_area: yup
+      .string()
+      .required('É necessário indicar a área e graduação'),
+    degree: yup.string().required('É necessário indicar o diploma'),
+    bank: yup.string().required('É necessário indicar o banco'),
+    agency: yup.string().required('É necessário indicar a agência'),
+    account: yup.string().required('É necessário indicar a conta'),
+  });
 
   return (
     <Theme>
@@ -111,88 +113,11 @@ export default function RegistroProfessor({navigation}) {
           <Icon source={require('../../assets/user_white.png')} />
         </UserContatiner>
         <Formik
-          initialValues={{
-            name: '',
-            surname: '',
-            email: '',
-            password: '',
-            cellphone: '',
-            birthdate: '',
-            grade: '',
-            school: '',
-            cpf: '',
-            cep: '',
-            num: '',
-            details: '',
-            description: '',
-            special: false,
-            photo: '',
-            video: '',
-            graduation_area: '',
-            degree: '',
-            bank: '',
-            agency: '',
-            account: '',
-          }}
+          initialValues={initials}
           validateOnChange={false}
           validateOnBlur={false}
-          onSubmit={submitHandler}
-          validationSchema={yup.object().shape({
-            name: yup
-              .string('Nome deve ser um texto')
-              .required('É necessário indicar um nome'),
-            surname: yup
-              .string('Sobrenome deve ser um texto')
-              .required('É necessário indicar um sobrenome'),
-            email: yup
-              .string('Email deve ser um texto')
-              .email('Email deve ter formato válido')
-              .required('É necessário indicar um email'),
-            password: yup
-              .string('Senha inválida')
-              .min(8, 'Senha deve ter 8 caracteres')
-              .required('É necessário indicar uma senha'),
-            cellphone: yup
-              .string()
-              .required('É necessário indicar um número de telefone')
-              .min(11, 'Número de telefone inválido')
-              .max(13, 'Número de telefone inválido'),
-            birthdate: yup
-              .date('Data inválida')
-              .required('É necessário indicar uma data de nascimentos'),
-            grade: yup.number().required('É necessário indicar uma série'),
-            school: yup
-              .string('Instituição deve ser um texto')
-              .required('É necessário indicar uma instituição'),
-            cpf: yup
-              .string()
-              .length(11, 'CPF deve ter 11 números')
-              .matches(/^\d+$/, 'CPF deve ser um número')
-              .required('É necessário indicar um CPF'),
-            cep: yup
-              .string()
-              .length(8, 'CPF deve ter 8 números')
-              .matches(/^\d+$/, 'CEP deve ser um número')
-              .required('É necessário indicar um CEP'),
-            num: yup
-              .number('Número do endereço deve ser um numero')
-              .required('É necessário indicar um número do endereço'),
-            details: yup
-              .string('Complemento deve ser um texto')
-              .required('Você deve inserir um complemento'),
-            description: yup
-              .string('Descrição deve ser um texto')
-              .required('Você deve inserir uma descrição'),
-            video: yup.string(),
-            special: yup.boolean().required(),
-            graduation_area: yup
-              .string()
-              .required('É necessário indicar a área e graduação'),
-            degree: yup.string().required('É necessário indicar o diploma'),
-            bank: yup.string().required('É necessário indicar o banco'),
-            agency: yup.string().required('É necessário indicar a agência'),
-            account: yup.string().required('É necessário indicar a conta'),
-          })}>
+          onSubmit={registerProf}
+          validationSchema={Schema}>
           {({
             handleChange,
             handleSubmit,
@@ -204,7 +129,7 @@ export default function RegistroProfessor({navigation}) {
           }) => (
             <Container>
               <RegsContainer>
-                <RegFieldBig
+                <RegField
                   placeholder="Nome"
                   value={values.name}
                   onChangeText={handleChange('name')}
@@ -214,7 +139,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.name}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Sobrenome"
                   value={values.surname}
                   onChangeText={handleChange('surname')}
@@ -224,7 +149,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.surname}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Email"
                   autoCapitalize="none"
                   value={values.email}
@@ -240,18 +165,28 @@ export default function RegistroProfessor({navigation}) {
                     {errors.email}
                   </CustomText>
                 )}
-                <RegFieldBig
-                  placeholder="Senha"
-                  autoCapitalize="none"
-                  value={values.password}
-                  onChangeText={handleChange('password')}
-                />
+                <DateContainer>
+                  <TextInput
+                    placeholder="Senha"
+                    autoCapitalize="none"
+                    value={values.password}
+                    onChangeText={handleChange('password')}
+                    secureTextEntry={true}
+                    placeholderTextColor="#F6F6F6"
+                    style={{
+                      color: '#FFFFFF',
+                      fontSize: 14,
+                      flex: 1,
+                      textAlign: 'center',
+                    }}
+                  />
+                </DateContainer>
                 {errors.password && (
                   <CustomText black small>
                     {errors.password}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Número de celular"
                   autoCapitalize="none"
                   value={values.cellphone}
@@ -285,11 +220,12 @@ export default function RegistroProfessor({navigation}) {
                     value={values.grade}
                     onChange={(value) => setFieldValue('grade', value, false)}
                   />
-                  <RegFieldMedium
+                  <RegField
                     placeholder="Instituição"
                     autoCapitalize="none"
                     value={values.school}
                     onChangeText={handleChange('school')}
+                    medium
                   />
                 </ContainerRowFlex>
                 {errors.grade && (
@@ -302,7 +238,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.school}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="CPF"
                   value={values.cpf}
                   onChangeText={handleChange('cpf')}
@@ -318,15 +254,17 @@ export default function RegistroProfessor({navigation}) {
                   </CustomText>
                 )}
                 <ContainerRowFlex>
-                  <RegFieldMedium
+                  <RegField
                     placeholder="CEP"
                     value={values.cep}
                     onChangeText={handleChange('cep')}
+                    medium
                   />
-                  <RegFieldSmall
+                  <RegField
                     placeholder="Nº"
                     value={values.num}
                     onChangeText={handleChange('num')}
+                    small
                   />
                 </ContainerRowFlex>
                 {errors.cep && (
@@ -339,7 +277,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.num}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Complemento"
                   value={values.details}
                   onChangeText={handleChange('details')}
@@ -349,7 +287,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.details}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Descrição"
                   autoCapitalize="none"
                   value={values.description}
@@ -370,7 +308,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.special}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Link para Vídeo"
                   autoCapitalize="none"
                   value={values.video}
@@ -381,7 +319,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.video}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Área de graduação"
                   autoCapitalize="none"
                   value={values.graduation_area}
@@ -392,7 +330,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.graduation_area}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Diploma"
                   autoCapitalize="none"
                   value={values.degree}
@@ -403,7 +341,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.degree}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Banco"
                   autoCapitalize="none"
                   value={values.bank}
@@ -414,7 +352,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.bank}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Agência"
                   autoCapitalize="none"
                   value={values.agency}
@@ -425,7 +363,7 @@ export default function RegistroProfessor({navigation}) {
                     {errors.agency}
                   </CustomText>
                 )}
-                <RegFieldBig
+                <RegField
                   placeholder="Conta"
                   autoCapitalize="none"
                   value={values.account}

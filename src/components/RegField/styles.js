@@ -7,9 +7,11 @@ export const BlueInput = styled.TextInput.attrs({
 })`
   background-color: ${(props) => props.theme.colors.fundoAzul};
   height: 45px;
-  width: 196px;
+  width: ${(props) =>
+    props.small ? '71px' : props.medium ? '196px' : '280px'};
   border-radius: 10px;
   justify-content: center;
   align-items: center;
   color: ${(props) => props.theme.colors.branco};
+  margin-top: ${(props) => (props.small ? '0' : props.medium ? '0' : '5%')};
 `;
