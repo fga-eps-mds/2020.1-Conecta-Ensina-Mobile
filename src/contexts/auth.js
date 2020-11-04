@@ -1,4 +1,4 @@
-import React, {createContext, useState, useEffect} from 'react';
+import React, {createContext, useState} from 'react';
 import {Alert} from 'react-native';
 
 export const AuthContext = createContext({});
@@ -9,9 +9,7 @@ export default function AuthProvider({children}) {
   const [teacher, setTeacher] = useState(null);
   const [student, setStudent] = useState(null);
 
-  const Host = 'http://192.168.0.157:3333';
-
-  useEffect(() => {console.log(user)}, [user])
+  const Host = 'http://10.0.0.103:3333';
 
   async function signIn(email, password) {
     const settings = {
@@ -43,7 +41,7 @@ export default function AuthProvider({children}) {
             setTypeUser('Aluno');
             console.log('aluno');
           }
-          setUser(data)
+          setUser(data);
         }
       }
     } catch (error) {
@@ -309,7 +307,7 @@ export default function AuthProvider({children}) {
   return (
     <AuthContext.Provider
       value={{
-        signed:!!user,
+        signed: !!user,
         user,
         teacher,
         student,

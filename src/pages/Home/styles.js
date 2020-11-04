@@ -41,10 +41,12 @@ export const ContainerButtons = styled.View`
 `;
 
 export const ContainerHorizontal = styled.View`
+  flex: 3
   flex-direction: row;
-  padding-top: 4%;
-  padding-left: 6%;
-  padding-bottom: 4%;
+  justify-content: space-around;
+  padding-top: 6%;
+  padding-left: 2%;
+  padding-bottom: 2%;
 `;
 
 export const Icon = styled.Image`

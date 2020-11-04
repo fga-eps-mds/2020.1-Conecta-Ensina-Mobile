@@ -1,14 +1,16 @@
-import React, {useState} from 'react';
-import Theme, {theme} from '../../../Theme';
+import React, {useState, useContext} from 'react';
+import Theme from '../../../Theme';
 import SquareButton from '../../components/SquareButton';
 import ContinuarContainer from '../../components/ContinuarContainer';
-
+import {AuthContext} from '../../contexts/auth';
 import Background1 from '../../components/Background1';
 import {ListMaterias, Container} from './styles';
 
 export default function Materias({navigation}) {
+  const {Host} = useContext(AuthContext);
+
   const getMaterias = async () => {
-    const fetchResponse = await fetch('http://192.168.0.157:3333/api/subject/');
+    const fetchResponse = await fetch(`${Host}/api/subject/`);
     try {
       const data = await fetchResponse.json();
       console.log(data.data.subject);
@@ -18,7 +20,6 @@ export default function Materias({navigation}) {
       return error;
     }
   };
-
   const [subjects, setSubjects] = useState(getMaterias);
   return (
     <Theme>
