@@ -1,41 +1,50 @@
-import React, {useState, useContext} from 'react';
-import Theme from '../../../Theme';
+import React, {useState, useContext, useEffect} from 'react';
+import Theme, {theme} from '../../../Theme';
 import SquareButton from '../../components/SquareButton';
 import ContinuarContainer from '../../components/ContinuarContainer';
 import {AuthContext} from '../../contexts/auth';
+import {SubjectContext} from '../../contexts/subject';
 import Background1 from '../../components/Background1';
 import {ListMaterias, Container} from './styles';
 
 export default function Materias({navigation}) {
   const {Host} = useContext(AuthContext);
+  const {subject, getSubjects} = useContext(SubjectContext);
+  const [selectedId, setSelectedId] = useState(null);
 
-  const getMaterias = async () => {
-    const fetchResponse = await fetch(`${Host}/api/subject/`);
-    try {
-      const data = await fetchResponse.json();
-      console.log(data.data.subject);
-      setSubjects(data.data.subject);
-      return data;
-    } catch (error) {
-      return error;
-    }
+  useEffect(() => {
+    getSubjects();
+  }, []);
+
+  const renderItem = ({item}) => {
+    const backgroundColor =
+      item.id === selectedId ? theme.colors.azulClaro : theme.colors.cinzaClaro;
+    return (
+      <SquareButton
+        data={item}
+        onPress={() => setSelectedId(item.id)}
+        img={require('../../assets/books.png')}
+        style={{backgroundColor}}
+      />
+    );
   };
-  const [subjects, setSubjects] = useState(getMaterias);
+
   return (
     <Theme>
       <Background1 navigation={navigation} page={'Perfil'}>
         <Container>
           <ListMaterias
             numColumns={3}
-            data={subjects}
+            data={subject}
             keyExtractor={(item) => item.id}
-            renderItem={({item}) => (
+            renderItem={
+              renderItem /*({item}) => (
               <SquareButton
                 onPress={() => navigation.navigate('Filtros')}
                 data={item}
                 img={require('../../assets/books.png')}
-              />
-            )}
+              />*/
+            }
           />
         </Container>
         <ContinuarContainer

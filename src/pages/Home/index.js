@@ -4,6 +4,7 @@ import SquareButton from '../../components/SquareButton';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
 import {ClassroomContext} from '../../contexts/classroom';
+
 import {
   BigTextContainer,
   ButtonAulaUrgente,
@@ -32,7 +33,8 @@ export default function Home({navigation}) {
     if (classroom !== {}) {
       loadNextClass();
     }
-  }, [selectedId]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const renderItem = ({item}) => {
     const backgroundColor =
@@ -41,6 +43,7 @@ export default function Home({navigation}) {
       <SquareButton
         data={item}
         onPress={() => setSelectedId(item.id)}
+        img={require('../../assets/books.png')}
         style={{backgroundColor}}
       />
     );
@@ -56,7 +59,7 @@ export default function Home({navigation}) {
           keyExtractor={(item) => item.id}
           renderItem={renderItem}
         />
-        <ContainerAula onPress={() => loadNextClass()}>
+        <ContainerAula>
           <ContainerHorizontal>
             <Icon source={require('../../assets/books.png')} />
             <CustomText bigSmall>Proxima Aula</CustomText>

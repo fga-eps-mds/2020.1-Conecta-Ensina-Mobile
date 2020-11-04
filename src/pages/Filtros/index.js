@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Theme, {theme} from '../../../Theme';
+import Theme from '../../../Theme';
 
 import Background1 from '../../components/Background1';
 import ContinuarContainer from '../../components/ContinuarContainer';
@@ -10,18 +10,14 @@ import SwitchFiltro from '../../components/SwitchFiltro';
 import {Container, ContainerFiltros, DataButton, Texto} from './styles';
 
 export default function Filtros({navigation}) {
-  const [type, setType] = useState('');
-  const [duration, setDuration] = useState('');
-  const [horario, setHorario] = useState('');
+  const [, setType] = useState('');
+  const [, setDuration] = useState('');
+  const [, setHorario] = useState('');
   const [newDate, setNewDate] = useState(new Date());
   const [show, setShow] = useState(false);
 
   function handlerShowPicker() {
     setShow(true);
-  }
-
-  function handleClose() {
-    setShow(false);
   }
 
   const onChange = (date) => {

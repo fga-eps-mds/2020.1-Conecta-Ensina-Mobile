@@ -9,3 +9,34 @@ export async function getNextClassroom(Host) {
     return error;
   }
 }
+
+export async function createClass(
+  user,
+  teacher,
+  subject,
+  filtros,
+  student,
+  Host,
+) {
+  const response = await fetch(`${Host}/api/classroom/create`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      agentRole: user.role,
+      teacher: teacher.id,
+      student: user.id,
+      grade: subject.grade,
+      subject: subject.id,
+      dtclass: new Date(),
+      duration: 1 /*filtro.duration*/,
+      cep: student.cep,
+      number: student.number,
+      details: '',
+    }),
+  });
+
+  console.log(response);
+}

@@ -1,72 +1,60 @@
-import React, {useState} from 'react';
-import Theme from '../../../Theme';
+import React, {useState, useContext, useEffect} from 'react';
+import Theme, {theme} from '../../../Theme';
 import SquareButton from '../../components/ContainerStars';
 import ContinuarContainer from '../../components/ContinuarContainer';
-
+import {AuthContext} from '../../contexts/auth';
 import Background1 from '../../components/Background1';
-import {
-  ListMaterias,
-  Container,
-  ContainerFooter,
-  ButtonContainer,
-} from './styles';
+import {TeacherList, Container} from './styles';
 
 export default function Professores({navigation}) {
-/*  const [usuario] = useState([
-    {id: '1', nome: 'Carlos', img: require('../../assets/user_blue.png')},
-    {id: '2', nome: 'Cassia', img: require('../../assets/user_blue.png')},
-    {id: '3', nome: 'Arthur', img: require('../../assets/user_blue.png')},
-    {id: '4', nome: 'Jorge', img: require('../../assets/user_blue.png')},
-    {id: '5', nome: 'Luana', img: require('../../assets/user_blue.png')},
-    {id: '6', nome: 'Jade', img: require('../../assets/user_blue.png')},
-    {id: '7', nome: 'Carla', img: require('../../assets/user_blue.png')},
-    {id: '8', nome: 'Biologia', img: require('../../assets/user_blue.png')},
-    {id: '9', nome: 'Redação', img: require('../../assets/user_blue.png')},
-    {id: '10', nome: 'Artes', img: require('../../assets/user_blue.png')},
-    {id: '11', nome: 'Inglês', img: require('../../assets/user_blue.png')},
-    {id: '12', nome: 'Espanhol', img: require('../../assets/user_blue.png')},
-    {id: '13', nome: 'História', img: require('../../assets/user_blue.png')},
-    {id: '14', nome: 'Geografia', img: require('../../assets/user_blue.png')},
-    {id: '15', nome: 'Ciência', img: require('../../assets/user_blue.png')},
-    {id: '16', nome: 'Química', img: require('../../assets/user_blue.png')},
-    {id: '17', nome: 'Física', img: require('../../assets/user_blue.png')},
-    {id: '18', nome: 'Biologia', img: require('../../assets/user_blue.png')},
-    {id: '19', nome: 'Redação', img: require('../../assets/user_blue.png')},
-  ]);
-*/
-const getTeachers = async () => {
-  const fetchResponse = await fetch('http://192.168.0.157:3333/api/teacher/');
-  try {
-    const data = await fetchResponse.json();
-    console.log(data.data.user);
-    setTeachers(data.data.user);
-    return data;
-  } catch (error) {
-    return error;
-  }
-};
+  const {Host} = useContext(AuthContext);
+  const getTeachers = async () => {
+    const fetchResponse = await fetch(`${Host}/api/teacher/`);
+    try {
+      const data = await fetchResponse.json();
+      console.log(data.data.user);
+      setTeachers(data.data.user);
+      return data;
+    } catch (error) {
+      return error;
+    }
+  };
 
-const [teachers, setTeachers] = useState(getTeachers);
+  const [teachers, setTeachers] = useState(getTeachers);
+  const [selectedId, setSelectedId] = useState(null);
 
+  useEffect(() => {
+    console.log('selected teacher: ' + selectedId);
+  }, [selectedId]);
+
+  const renderItem = ({item}) => {
+    const backgroundColor =
+      item.id === selectedId ? theme.colors.azulClaro : theme.colors.cinzaClaro;
+    return (
+      <SquareButton
+        data={item}
+        onPress={() => setSelectedId(item.id)}
+        img={require('../../assets/user_blue.png')}
+        styleContainer={{backgroundColor}}
+        style={backgroundColor}
+      />
+    );
+  };
 
   return (
     <Theme>
       <Background1 navigation={navigation} page={'Perfil'}>
         <Container>
-          <ListMaterias
+          <TeacherList
             numColumns={3}
             data={teachers}
+            extraData={selectedId}
             keyExtractor={(item) => item.id}
-            renderItem={({item}) => (
-            <SquareButton 
-              data={item}
-              img={require('../../assets/user_blue.png')}
-            />
-            )}
+            renderItem={renderItem}
           />
         </Container>
         <ContinuarContainer
-          onPress={() => navigation.push('Filtros')}
+          onPress={() => navigation.navigate('PerfilProf', {selectedId})}
           marginTop={{value: '1%'}}>
           Continuar
         </ContinuarContainer>
@@ -74,4 +62,3 @@ const [teachers, setTeachers] = useState(getTeachers);
     </Theme>
   );
 }
-

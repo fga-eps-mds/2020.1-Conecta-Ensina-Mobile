@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import Theme from '../../../Theme';
 import Background2 from '../../components/Background2';
 import ContainerVoltar from '../../components/ContainerVoltar';
 import RedContainerTextBig from '../../components/RedContainerTextBig';
 import RedContainerTextMedium from '../../components/RedContainerTextMedium';
 import CustomText from '../../components/CustomText';
+import {AuthContext} from '../../contexts/auth';
+import gradeResolver from '../../services/gradeResolver';
 import {
   BlackTextContainer,
   ContainerB,
@@ -17,7 +19,47 @@ import {
   WhiteTextContainer,
 } from './styles';
 
-export default function PerfilProf() {
+export default function PerfilProf({navigation, route}) {
+  //console.log(route.params.selectedId);
+
+  const {Host} = useContext(AuthContext);
+
+  const getTeacher = async () => {
+    const teacherResponse = await fetch(
+      `${Host}/api/teacher/` + route.params.selectedId,
+    );
+    const studentResponse = await fetch(
+      `${Host}/api/student/` + route.params.selectedId,
+    );
+    const userResponse = await fetch(
+      `${Host}/api/user/` + route.params.selectedId,
+    );
+    try {
+      const dataTeacher = await teacherResponse.json();
+      const dataStudent = await studentResponse.json();
+      const dataUser = await userResponse.json();
+
+      let teacher = {
+        id: route.params.selectedId,
+        name: `${dataUser.data.user.firstName} ${dataUser.data.user.lastName}`,
+        graduation_area: dataTeacher.data.teacher.graduation_area,
+        institution: dataStudent.data.student.institution,
+        grade: dataStudent.data.student.grade,
+      };
+      console.log(teacher);
+      setTeacher(teacher);
+      return dataTeacher.data;
+    } catch (error) {
+      return error;
+    }
+  };
+
+  useEffect(() => {
+    //console.log(teacher);
+  }, [teacher]);
+
+  const [teacher, setTeacher] = useState(getTeacher);
+
   return (
     <Theme>
       <Background2
@@ -29,7 +71,7 @@ export default function PerfilProf() {
             </UserContatiner>
             <WhiteTextContainer>
               <CustomText white smallMedium>
-                João Marcelo da Silva
+                {teacher && teacher.name}
               </CustomText>
             </WhiteTextContainer>
           </ContainerB>
@@ -44,7 +86,9 @@ export default function PerfilProf() {
               </BlackTextContainer>
             </MiniContainer>
             <MiniContainer>
-              <RedContainerTextMedium>Matemática</RedContainerTextMedium>
+              <RedContainerTextMedium>
+                {teacher && teacher.graduation_area}
+              </RedContainerTextMedium>
             </MiniContainer>
             <MiniContainer>
               <BlackTextContainer>
@@ -54,7 +98,9 @@ export default function PerfilProf() {
               </BlackTextContainer>
             </MiniContainer>
             <MiniContainer>
-              <RedContainerTextMedium>Mestre</RedContainerTextMedium>
+              <RedContainerTextMedium>
+                {teacher && gradeResolver(teacher.grade)}
+              </RedContainerTextMedium>
             </MiniContainer>
             <MiniContainer>
               <BlackTextContainer>
@@ -64,7 +110,9 @@ export default function PerfilProf() {
               </BlackTextContainer>
             </MiniContainer>
             <MiniContainer>
-              <RedContainerTextMedium>UCB</RedContainerTextMedium>
+              <RedContainerTextMedium>
+                {teacher && teacher.institution}
+              </RedContainerTextMedium>
             </MiniContainer>
             <MiniContainer>
               <BlackTextContainer>

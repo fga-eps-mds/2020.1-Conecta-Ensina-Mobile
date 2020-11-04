@@ -4,7 +4,7 @@ export const ContainerVisualAula = styled.View`
   background-color: ${(props) => props.theme.colors.cinzaClaro};
   padding: 3%;
   width: 144px;
-  height: 223px;
+  height: 150px;
   border-radius: 10px;
   margin-right: 20px;
   margin-bottom: 20px;
@@ -16,16 +16,10 @@ export const ListaVisualAula = styled.FlatList`
   align-self: center;
 `;
 
-export const ButtonConfirmar = styled.TouchableOpacity` 
-    width: 35px;
-    height: 35px    
-    background-color: ${(props) => props.theme.colors.verdeEscuro};
-`;
-
-export const ButtonRecusar = styled.TouchableOpacity`
-  width: 35px;
-  height: 35px;
-  background-color: ${(props) => props.theme.colors.vermelho};
+export const ButtonVerMais = styled.TouchableOpacity` 
+    width: 100px;
+    height: 30px    
+    background-color: ${(props) => props.theme.colors.fundoAzul};
 `;
 
 export const ContainerButtons = styled.View`

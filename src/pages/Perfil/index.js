@@ -10,71 +10,71 @@ import {AuthContext} from '../../contexts/auth';
 
 import {TextContainer, Container, InfoContainer} from './styles';
 
-export default function Perfil(){
+export default function Perfil() {
   const {user, student} = useContext(AuthContext);
-    return(
-      <Theme>
-        <Background1>
-          <Container>
-            <InfoContainer>
-              <TextContainer>
-                <CustomText white medium>
-                  {user && user.firstName}
-                </CustomText>
-              </TextContainer>
-              <TextContainer>
-                <CustomText white medium>
-                  {user && user.lastName}
-                </CustomText>
-              </TextContainer>
-              <TextContainer>
-                <CustomText white medium>
-                  {user && user.email}
-                </CustomText>
-              </TextContainer>
-              <TextContainer>
-                <CustomText white medium>
-                  {user && user.cellphone}
-                </CustomText>
-              </TextContainer>
-              <TextContainer>
-                <CustomText white medium>
-                  {student && student.cep}
-                </CustomText>
-              </TextContainer>
-              <TextContainer>
-                <CustomText white medium>
-                  {student && student.number}
-                </CustomText>
-              </TextContainer>
-              <TextContainer>
-                <CustomText white medium>
-                  {student && student.details}
-                </CustomText>
-              </TextContainer>
-              <TextContainer>
-                <CustomText white medium>
-                  {student && student.cpf}
-                </CustomText>
-              </TextContainer>
-              <TextContainer>
-                <CustomText white medium>
-                  {student && student.description}
-                </CustomText>
-              </TextContainer>
-              <TextContainer>
-                <CustomText white medium>
-                  {student && student.institution}
-                </CustomText>
-              </TextContainer>
-              <TextContainer>
-                <CustomText white bigSmall>
-                  {gradeResolver(student.grade)}
-                </CustomText>
-              </TextContainer>
-            </InfoContainer>
-          </Container>
-        </Background1>
-      </Theme>
-    )
-  }
+  return (
+    <Theme>
+      <Background1>
+        <Container>
+          <InfoContainer>
+            <TextContainer>
+              <CustomText white medium>
+                {user && user.firstName}
+              </CustomText>
+            </TextContainer>
+            <TextContainer>
+              <CustomText white medium>
+                {user && user.lastName}
+              </CustomText>
+            </TextContainer>
+            <TextContainer>
+              <CustomText white medium>
+                {user && user.email}
+              </CustomText>
+            </TextContainer>
+            <TextContainer>
+              <CustomText white medium>
+                {user && user.cellphone}
+              </CustomText>
+            </TextContainer>
+            <TextContainer>
+              <CustomText white medium>
+                {student && student.cep}
+              </CustomText>
+            </TextContainer>
+            <TextContainer>
+              <CustomText white medium>
+                {student && student.number}
+              </CustomText>
+            </TextContainer>
+            <TextContainer>
+              <CustomText white medium>
+                {student && student.details}
+              </CustomText>
+            </TextContainer>
+            <TextContainer>
+              <CustomText white medium>
+                {student && student.cpf}
+              </CustomText>
+            </TextContainer>
+            <TextContainer>
+              <CustomText white medium>
+                {student && student.description}
+              </CustomText>
+            </TextContainer>
+            <TextContainer>
+              <CustomText white medium>
+                {student && student.institution}
+              </CustomText>
+            </TextContainer>
+            <TextContainer>
+              <CustomText white bigSmall>
+                {gradeResolver(student.grade)}
+              </CustomText>
+            </TextContainer>
+          </InfoContainer>
+        </Container>
+      </Background1>
+    </Theme>
+  );
+}
