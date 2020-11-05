@@ -10,6 +10,16 @@ export async function getNextClassroom(Host) {
   }
 }
 
+export async function getUserClassroom(Host, id) {
+  const fetchResponse = await fetch(`${Host}/api/classroom/userClasses/${id}`);
+  try {
+    const data = await fetchResponse.json();
+    return data.data.classroom;
+  } catch (error) {
+    return error;
+  }
+}
+
 export async function createClass(
   user,
   teacher,

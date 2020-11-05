@@ -22,7 +22,9 @@ export default function Home({navigation}) {
     {id: '2', name: 'Idiomas', img: require('../../assets/books.png')},
     {id: '3', name: 'Vestibular', img: require('../../assets/books.png')},
   ]);
-  const {classroom, loadNextClass} = useContext(ClassroomContext);
+  const {classroom, loadNextClass, firstClass, loadUserClasses} = useContext(
+    ClassroomContext,
+  );
   const [selectedId, setSelectedId] = useState(null);
   const [params, setParams] = useState(null);
 
@@ -30,8 +32,11 @@ export default function Home({navigation}) {
     if (selectedId !== null) {
       setParams(selectedId);
     }
-    if (classroom !== {}) {
+    if (firstClass !== {}) {
       loadNextClass();
+    }
+    if (classroom !== {}) {
+      loadUserClasses();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -65,7 +70,7 @@ export default function Home({navigation}) {
             <CustomText bigSmall>Proxima Aula</CustomText>
           </ContainerHorizontal>
           <BigTextContainer>
-            <CustomText>{classroom.dtclass}</CustomText>
+            <CustomText>{firstClass.dtclass}</CustomText>
           </BigTextContainer>
           <ContainerHorizontal>
             <CustomText bigSmall>16 - 18 Horas</CustomText>
