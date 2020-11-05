@@ -11,7 +11,7 @@ export default function AuthProvider({children}) {
   const [student, setStudent] = useState(null);
   const [loading, setLoading] = useState(true)
 
-  const Host = 'http://172.17.141.81:3333';
+  const Host = 'http://172.18.224.1:3333';
 
  useEffect(()=>{
     async function loadStorage(){

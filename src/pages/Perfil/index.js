@@ -3,92 +3,26 @@ import Theme from '../../../Theme';
 
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
-import RegField from '../../components/RegField';
 
 import gradeResolver from '../../services/gradeResolver';
 
 import {AuthContext} from '../../contexts/auth';
 
-import {TextContainer, Container, InfoContainer, ButtonContainer} from './styles';
+import {
+  TextContainer,
+  Container,
+  InfoContainer,
+  ButtonContainer,
+} from './styles';
 
-export default function Perfil() {
+export default function Perfil({navigation}) {
   const {user, student} = useContext(AuthContext);
   const [editar, setEditar] = useState(false);
-  
-  if(editar){
-    return(
-      <Theme>
-      <Background1>
-        <Container>
-          <InfoContainer>
-            <TextContainer>
-              <RegField
-                placeholder={user && user.firstName}
-              />
-            </TextContainer>
-            <TextContainer>
-              <RegField
-                placeholder={user && user.lastName}
-              />
-            </TextContainer>
-            <TextContainer>
-              <RegField
-                  placeholder={user && user.email}
-                /> 
-            </TextContainer>
-            <TextContainer>
-              <RegField
-                  placeholder={user && user.cellphone}
-                />
-            </TextContainer>
-            <TextContainer>
-              <RegField
-                  placeholder={student && student.cep}
-                />
-            </TextContainer>
-            <TextContainer>
-              <RegField
-                    placeholder={student && student.number}
-                  />
-            </TextContainer>
-            <TextContainer>
-              <RegField
-                    placeholder={student && student.details}
-                  />
-            </TextContainer>
-            <TextContainer>
-              <RegField
-                    placeholder={student && student.cpf}
-                  />
-            </TextContainer>
-            <TextContainer>
-              <RegField
-                    placeholder={student && student.description}
-                  />
-            </TextContainer>
-            <TextContainer>
-            <RegField
-                  placeholder={student && student.institution}
-                />
-            </TextContainer>
-            <TextContainer>
-              <RegField
-                    placeholder={student && gradeResolver(student.grade)}
-                  />
-            </TextContainer>
-          </InfoContainer>
-        </Container>
-        <ButtonContainer onPress = {() => setEditar(false)}>
-          <CustomText white bigSmall>
-            salvar
-          </CustomText>
-        </ButtonContainer>
-      </Background1>
-    </Theme>
-    );
-  }
-  else{
-  return (
+
+  if (editar) {
+    return <Edit onChange={setEditar} />
+  } else {
+    return (
       <Theme>
         <Background1>
           <Container>
@@ -150,7 +84,7 @@ export default function Perfil() {
               </TextContainer>
             </InfoContainer>
           </Container>
-          <ButtonContainer onPress = {() => setEditar(true)}>
+          <ButtonContainer onPress={() => navigation.navigate('Edit')}>
             <CustomText white bigSmall>
               Editar
             </CustomText>
