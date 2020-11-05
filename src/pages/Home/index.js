@@ -56,7 +56,7 @@ export default function Home({navigation}) {
 
   return (
     <Theme>
-      <Background1 navigation={navigation} page={'Perfil'}>
+      <Background1 navigation={navigation} page={'Profile'}>
         <ListFiltro
           horizontal
           data={filtros}
@@ -86,7 +86,7 @@ export default function Home({navigation}) {
           </ButtonAulaUrgente>
           <ButtonMarcarAula
             onPress={() => {
-              navigation.navigate('Materias', {params}); /*}catch(error){}*/
+              navigation.navigate('Subjects', {params}); /*}catch(error){}*/
             }}>
             <Icon source={require('../../assets/books.png')} />
             <CustomText white medium>

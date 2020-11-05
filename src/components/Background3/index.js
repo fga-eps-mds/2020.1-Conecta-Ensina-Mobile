@@ -8,8 +8,7 @@ export default function Background3({children, navigation, student}) {
       <Logo source={require('../../assets/logo.png')} />
       <WhiteContainer>{children}</WhiteContainer>
       {student && (
-        <ButtonRegistrar
-          onPress={() => navigation.navigate('RegistroProfessor')}>
+        <ButtonRegistrar onPress={() => navigation.navigate('TeacherRegister')}>
           <CustomText white small>
             Seja Professor
           </CustomText>

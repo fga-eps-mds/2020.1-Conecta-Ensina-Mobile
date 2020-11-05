@@ -16,11 +16,11 @@ export default function Background1({children, navigation, page}) {
   return (
     <Theme>
       <BlueContainer>
-        <UserContainer
-          onPress={() => {
-            navigation.navigate(page, {user}); /*}catch(error){}*/
-          }}>
-          <UserAvatar>
+        <UserContainer>
+          <UserAvatar
+            onPress={() => {
+              navigation.navigate(page, {user}); /*}catch(error){}*/
+            }}>
             <UserImage source={require('../../assets/user_blue.png')} />
           </UserAvatar>
           <TextoContainer>

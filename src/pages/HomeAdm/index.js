@@ -22,12 +22,12 @@ export default function HomeAdm({navigation}) {
     var nextScreen;
 
     if (item.id === '101') {
-      nextScreen = 'ProfessoresPendente';
+      nextScreen = 'PendingTeacher';
     } else {
       nextScreen = 'HomeAdm';
     }
 
-    async function handleProf(){
+    async function handleProf() {
       await getProfessorList();
       navigation.navigate(nextScreen);
     }
