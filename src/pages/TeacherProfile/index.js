@@ -1,7 +1,7 @@
 import React from 'react';
 import Theme from '../../../Theme';
 import Background2 from '../../components/Background2';
-import ContinuarContainer from '../../components/ContinuarContainer';
+import ContinueContainer from '../../components/ContinueContainer';
 import RedContainerText from '../../components/RedContainerText';
 import CustomTextContainer from '../../components/CustomTextContainer';
 import {ContainerB, ContainerW, Icon, Logo, UserContatiner} from './styles';
@@ -58,7 +58,7 @@ export default function TeacherProfile({navigation}) {
               Ja fiz curso para lecionar para crianças dentro do espectro de
               deficit de atençao.
             </RedContainerText>
-            <ContinuarContainer onPress={() => navigation.push('PerfilProf')} />
+            <ContinueContainer onPress={() => navigation.push('PerfilProf')} />
           </ContainerW>
         }
       />

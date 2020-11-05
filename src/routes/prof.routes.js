@@ -5,6 +5,7 @@ import ConfirmedClass from '../pages/ConfirmedClass';
 import PendingClass from '../pages/PendingClass';
 import CompletedClass from '../pages/CompletedClass';
 import TeacherProfile2 from '../pages/TeacherProfile2';
+import PendingClassConfirmation from '../pages/PendingClassConfirmation';
 
 // import { Container } from './styles';
 const ProfStack = createStackNavigator();
@@ -35,6 +36,11 @@ function ProfRoutes() {
       <ProfStack.Screen
         name="TeacherProfile2"
         component={TeacherProfile2}
+        options={{headerShown: false}}
+      />
+      <ProfStack.Screen
+        name="PendingClassConfirmation"
+        component={PendingClassConfirmation}
         options={{headerShown: false}}
       />
     </ProfStack.Navigator>

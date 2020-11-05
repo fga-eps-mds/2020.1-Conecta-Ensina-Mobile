@@ -7,7 +7,8 @@ import {Container, ContainerGrande, ContainerButton, Button} from './styles';
 
 export default function TeacherConfirmation({route, navigation}) {
   const {item} = route.params;
-  const {user, teacher, statusUpdate} = useContext(AdmContext);
+  const {userDB, teacher, statusUpdate} = useContext(AdmContext);
+
   const handleSubmit = async () => {
     statusUpdate(item.id);
   };
@@ -17,16 +18,16 @@ export default function TeacherConfirmation({route, navigation}) {
       <Background1>
         <Container>
           <ContainerGrande>
-            <CustomText white>{user && user.firstName}</CustomText>
+            <CustomText white>{userDB && userDB.firstName}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{user && user.lastName}</CustomText>
+            <CustomText white>{userDB && userDB.lastName}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{user && user.email}</CustomText>
+            <CustomText white>{userDB && userDB.email}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{user && user.cellphone}</CustomText>
+            <CustomText white>{userDB && userDB.cellphone}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
             <CustomText white>{teacher && teacher.description}</CustomText>

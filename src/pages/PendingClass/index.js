@@ -1,23 +1,45 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import Theme from '../../../Theme';
 import Background1 from '../../components/Background1';
+import {AuthContext} from '../../contexts/auth';
 import {
   ContainerVisualAula,
   ListaVisualAula,
   ContainerButtons,
   ContainerTexto,
-  ButtonConfirmar,
-  ButtonRecusar,
+  ButtonVerMais,
 } from './styles';
 import CustomText from '../../components/CustomText';
 
 export default function PendingClass({navigation}) {
-  const [aulas, setAulas] = useState([
-    {id: '15', nome: 'ExemploAula01'},
-    {id: '25', nome: 'ExemploAula02'},
-    {id: '35', nome: 'ExemploAula03'},
-    {id: '45', nome: 'ExemploAula04'},
-  ]);
+  const {user} = useContext(AuthContext);
+
+  const getClass = async () => {
+    const settings = {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        teacher: user.id,
+        status: 0,
+      }),
+    };
+    const fetchResponse1 = await fetch(
+      'http://192.168.0.12:3333/api/classroom/',
+      settings,
+    );
+    try {
+      const data = await fetchResponse1.json();
+      console.log(data.data.classroom);
+      setClasses(data.data.classroom);
+    } catch (error) {
+      return error;
+    }
+  };
+
+  const [classes, setClasses] = useState(getClass);
 
   const renderItem = ({item}) => {
     return (
@@ -27,40 +49,27 @@ export default function PendingClass({navigation}) {
             Horario: 16 - 17h
           </CustomText>
           <CustomText smaller black>
-            Conteudo
+            Distancia: {item.cep}
           </CustomText>
           <CustomText smaller black>
-            Modalidade
+            Duração: {item.duration}
           </CustomText>
           <CustomText smaller black>
-            Distancia
+            Serie: {item.grade}
           </CustomText>
           <CustomText smaller black>
-            {' '}
-          </CustomText>
-          <CustomText smaller black>
-            Dados do Aluno
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Nome
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Serie
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Endereço
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Observação
+            Conteudo: {item.details}
           </CustomText>
         </ContainerTexto>
         <ContainerButtons>
-          <ButtonRecusar />
-          <ButtonConfirmar />
+          <ButtonVerMais
+            onPress={() =>
+              navigation.navigate('PendingClassConfirmation', {item})
+            }>
+            <CustomText white bigSmall>
+              Ver mais
+            </CustomText>
+          </ButtonVerMais>
         </ContainerButtons>
       </ContainerVisualAula>
     );
@@ -71,7 +80,7 @@ export default function PendingClass({navigation}) {
       <Background1 navigation={navigation} page={'TeacherProfile2'}>
         <ListaVisualAula
           numColumns={2}
-          data={aulas}
+          data={classes}
           keyExtractor={(item) => item.id}
           renderItem={renderItem}
         />

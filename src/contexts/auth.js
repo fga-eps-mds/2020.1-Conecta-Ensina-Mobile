@@ -1,15 +1,19 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useState, useEffect} from 'react';
 import {Alert} from 'react-native';
 
 export const AuthContext = createContext({});
 
-function AuthProvider({children}) {
+export default function AuthProvider({children}) {
   const [user, setUser] = useState(null);
   const [typeUser, setTypeUser] = useState(null);
   const [teacher, setTeacher] = useState(null);
   const [student, setStudent] = useState(null);
 
   const Host = 'http://192.168.0.8:3333';
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
   async function signIn(email, password) {
     const settings = {
@@ -41,12 +45,13 @@ function AuthProvider({children}) {
             setTypeUser('Aluno');
             console.log('aluno');
           }
+          setUser(data);
         }
       }
     } catch (error) {
       console.error('Error:', error);
     }
-  }
+  } //close signIn function
 
   async function registerAluno(values, {setStatus}) {
     console.log(values);
@@ -124,7 +129,7 @@ function AuthProvider({children}) {
     if (ok) {
       RegistroAlert(3);
     }
-  }
+  } //close registerAluno fuction
 
   async function registerProf(values, {setStatus}) {
     console.log(values);
@@ -220,7 +225,7 @@ function AuthProvider({children}) {
     if (ok) {
       RegistroAlert(2);
     }
-  }
+  } //close registerProf function
 
   const RegistroAlert = ({role}) => {
     Alert.alert(
@@ -306,7 +311,7 @@ function AuthProvider({children}) {
   return (
     <AuthContext.Provider
       value={{
-        signed: true /*(!! user)*/,
+        signed: !!user,
         user,
         teacher,
         student,
@@ -320,5 +325,3 @@ function AuthProvider({children}) {
     </AuthContext.Provider>
   );
 }
-
-export default AuthProvider;

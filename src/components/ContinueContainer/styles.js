@@ -1,5 +1,12 @@
 import styled from 'styled-components/native';
 
+export const ButtonContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin-top: ${(props) => (props.marginTop ? props.marginTop.value : 0)};
+`;
+
 export const Button = styled.TouchableOpacity`
   background-color: ${(props) => props.theme.colors.azulClaro};
   width: 138px;
@@ -7,10 +14,5 @@ export const Button = styled.TouchableOpacity`
   border-radius: 8px;
   align-items: center;
   justify-content: center;
-  margin-top: 440px;
   align-self: center;
-`;
-export const Texto = styled.Text`
-  font-size: ${(props) => props.theme.fontSizes.bigSmall};
-  color: ${(props) => props.theme.colors.branco};
 `;

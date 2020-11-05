@@ -1,16 +1,16 @@
 import React from 'react';
 import CustomText from '../CustomText';
 
-import {ButtonContainer, ButtonContinuar} from './styles';
+import {ButtonContainer, Button} from './styles';
 
-export default function ContinuarContainer({onPress, marginTop}) {
+export default function ContinueContainer({onPress, marginTop}) {
   return (
     <ButtonContainer marginTop={marginTop}>
-      <ButtonContinuar onPress={onPress}>
+      <Button onPress={onPress}>
         <CustomText white bigSmall>
           Continuar
         </CustomText>
-      </ButtonContinuar>
+      </Button>
     </ButtonContainer>
   );
 }
