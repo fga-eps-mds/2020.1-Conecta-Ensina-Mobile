@@ -31,3 +31,14 @@ export const TextContainer = styled.View`
   justify-content: center;
   align-items: center;
 `;
+
+export const ButtonContainer = styled.TouchableOpacity`
+  height: 50px;
+  width: 280px;
+  background-color: ${(props) => props.theme.colors.vermelho};
+  margin-top: 125%;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+`;
