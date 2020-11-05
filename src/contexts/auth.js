@@ -1,4 +1,5 @@
-import React, {createContext, useState} from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
+import React, {createContext, useState, useEffect} from 'react';
 import {Alert} from 'react-native';
 
 export const AuthContext = createContext({});
@@ -8,8 +9,81 @@ export default function AuthProvider({children}) {
   const [typeUser, setTypeUser] = useState(null);
   const [teacher, setTeacher] = useState(null);
   const [student, setStudent] = useState(null);
+  const [loading, setLoading] = useState(true)
 
-  const Host = 'http://192.168.1.132:3333';
+  const Host = 'http://172.17.141.81:3333';
+
+ useEffect(()=>{
+    async function loadStorage(){
+      const storageTypeUser = await AsyncStorage.getItem('Auth_typeUser')
+      const storageUser = await AsyncStorage.getItem('Auth_user')
+      
+      if(storageTypeUser){
+        if(JSON.parse(storageTypeUser) === 1){
+          setTypeUser('Adm')
+          setLoading(false)
+        }else if(JSON.parse(storageTypeUser) === 2){
+          setTypeUser('Professor')
+          setLoading(false)
+        }else{
+          setTypeUser('Aluno')
+          setLoading(false)
+        }
+      }
+      if(storageUser){
+        const dataUser = JSON.parse(storageUser)
+        let usuario = {
+            id: dataUser.id,
+            firstName: dataUser.firstName,
+            lastName: dataUser.lastName,
+            email: dataUser.email,
+            password: dataUser.password,
+            role: dataUser.role,
+            cellphone: dataUser.cellphone,
+        }
+        setUser(usuario)
+        setLoading(false)
+        if( dataUser.role == 2 || dataUser.role == 3  ){
+          const storageStudent = await AsyncStorage.getItem('Auth_student')
+            if(storageStudent){
+            const dataStudent = JSON.parse(storageStudent)
+            let estudante = {
+              birthdate: dataStudent.birthdate,
+              grade: dataStudent.grade,
+              institution: dataStudent.school,
+              cpf: dataStudent.cpf,
+              cep: dataStudent.cep,
+              number: dataStudent.number,
+              details: dataStudent.details,
+              description: dataStudent.description,
+              special: dataStudent.special,
+            }
+            setStudent(estudante)
+            setLoading(false)
+          }
+          if( dataUser.role == 2){
+            const storageTeacher = await AsyncStorage.getItem('Auth_teacher')
+              if(storageTeacher){
+                const dataTeacher = JSON.parse(storageTeacher)
+                let professor = {
+                  photo: dataTeacher.photo,
+                  video: dataTeacher.video,
+                  graduation_area: dataTeacher.graduation_area,
+                  degree: dataTeacher.degree,
+                  bank: dataTeacher.bank,
+                  agency: dataTeacher.agency,
+                  account: dataTeacher.account,
+                }
+                setTeacher(professor)
+                setLoading(false)
+              }
+          }
+        }
+      }
+      setLoading(false)
+    }
+    loadStorage()
+  }, [])
 
   async function signIn(email, password) {
     const settings = {
@@ -30,7 +104,8 @@ export default function AuthProvider({children}) {
       if (data.message) {
         if (data.message === 'Login efetuado com sucesso!') {
           console.log('login efetuado');
-          renderData(data.id, data.role);
+          storageTypeUser(data.role)
+          renderData(data.id, data.role, password);
           if (data.role === 1) {
             setTypeUser('Adm');
             console.log('Adm');
@@ -243,7 +318,7 @@ export default function AuthProvider({children}) {
     );
   };
 
-  async function renderData(id, role) {
+  async function renderData(id, role, password) {
     var ok = false;
     try {
       let response = await fetch(`${Host}/api/user/` + id);
@@ -253,13 +328,14 @@ export default function AuthProvider({children}) {
         firstName: data.data.user.firstName,
         lastName: data.data.user.lastName,
         email: data.data.user.email,
-        password: data.data.user.password,
+        password: password,
         role: data.data.user.role,
         cellphone: data.data.user.cellphone,
       };
       if (role === 2 || role === 3) {
         ok = true;
       }
+      storageUser(usuario);
       setUser(usuario);
     } catch (error) {
       console.error(error);
@@ -280,6 +356,7 @@ export default function AuthProvider({children}) {
           special: data.data.student.special,
         };
         setStudent(estudante);
+        storageStudent(estudante);
       } catch (error) {
         console.error(error);
       }
@@ -297,11 +374,28 @@ export default function AuthProvider({children}) {
             account: data.data.teacher.account,
           };
           setTeacher(professor);
+          storageTeacher(professor);
         } catch (error) {
           console.error(error);
         }
       }
     }
+  }
+  
+  async function storageTypeUser(data){
+    await AsyncStorage.setItem('Auth_typeUser', JSON.stringify(data))
+  }
+
+  async function storageUser(data){
+    await AsyncStorage.setItem('Auth_user', JSON.stringify(data))
+  }
+
+  async function storageStudent(data){
+    await AsyncStorage.setItem('Auth_student', JSON.stringify(data))
+  }
+
+  async function storageTeacher(data){
+    await AsyncStorage.setItem('Auth_teacher', JSON.stringify(data))
   }
 
   return (

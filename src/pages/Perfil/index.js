@@ -22,67 +22,65 @@ export default function Perfil() {
         <Container>
           <InfoContainer>
             <TextContainer>
+              <RegField
+                placeholder={user && user.firstName}
+              />
+            </TextContainer>
+            <TextContainer>
+              <RegField
+                placeholder={user && user.lastName}
+              />
+            </TextContainer>
+            <TextContainer>
+              <RegField
+                  placeholder={user && user.email}
+                /> 
+            </TextContainer>
+            <TextContainer>
+              <RegField
+                  placeholder={user && user.cellphone}
+                />
+            </TextContainer>
+            <TextContainer>
+              <RegField
+                  placeholder={student && student.cep}
+                />
+            </TextContainer>
+            <TextContainer>
+              <RegField
+                    placeholder={student && student.number}
+                  />
+            </TextContainer>
+            <TextContainer>
+              <RegField
+                    placeholder={student && student.details}
+                  />
+            </TextContainer>
+            <TextContainer>
+              <RegField
+                    placeholder={student && student.cpf}
+                  />
+            </TextContainer>
+            <TextContainer>
+              <RegField
+                    placeholder={student && student.description}
+                  />
+            </TextContainer>
+            <TextContainer>
             <RegField
-              placeholder="Nome"
-              value={values.name}
-              onChangeText={handleChange('name')}
-            />
+                  placeholder={student && student.institution}
+                />
             </TextContainer>
             <TextContainer>
-              <CustomText white medium>
-                {user && user.lastName}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {user && user.email}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {user && user.cellphone}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {student && student.cep}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {student && student.number}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {student && student.details}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {student && student.cpf}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {student && student.description}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {student && student.institution}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white bigSmall>
-                {student && gradeResolver(student.grade)}
-              </CustomText>
+              <RegField
+                    placeholder={student && gradeResolver(student.grade)}
+                  />
             </TextContainer>
           </InfoContainer>
         </Container>
         <ButtonContainer onPress = {() => setEditar(false)}>
           <CustomText white bigSmall>
-            Editar
+            salvar
           </CustomText>
         </ButtonContainer>
       </Background1>
