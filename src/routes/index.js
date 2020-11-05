@@ -8,8 +8,8 @@ import {AuthContext} from '../contexts/auth';
 function Routes() {
   const {typeUser, signed} = useContext(AuthContext);
   console.log(signed);
-  
-  if(signed === true){
+
+  if (signed === true) {
     if (typeUser === 'Professor') {
       return <ProfRoutes />;
     } else if (typeUser === 'Aluno') {
@@ -17,11 +17,9 @@ function Routes() {
     } else if (typeUser === 'Adm') {
       return <AdmRoutes />;
     }
-  }
-  else {
+  } else {
     return <AuthRoutes />;
   }
-
 }
 
 export default Routes;

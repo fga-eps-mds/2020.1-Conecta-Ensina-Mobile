@@ -1,12 +1,11 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeProf from '../pages/HomeProf';
-import AulaMarcada from '../pages/AulaMarcada';
-import AulaPendente from '../pages/AulaPendente';
-import AulaRealizada from '../pages/AulaRealizada';
-import PerfilProf2 from '../pages/PerfilProf2';
-import ConfirmaAulaPendente from '../pages/ConfirmaAulaPendente';
-
+import ConfirmedClass from '../pages/ConfirmedClass';
+import PendingClass from '../pages/PendingClass';
+import CompletedClass from '../pages/CompletedClass';
+import TeacherProfile2 from '../pages/TeacherProfile2';
+import PendingClassConfirmation from '../pages/PendingClassConfirmation';
 
 // import { Container } from './styles';
 const ProfStack = createStackNavigator();
@@ -20,28 +19,28 @@ function ProfRoutes() {
         options={{headerShown: false}}
       />
       <ProfStack.Screen
-        name="AulaMarcada"
-        component={AulaMarcada}
+        name="ConfirmedClass"
+        component={ConfirmedClass}
         options={{headerShown: false}}
       />
       <ProfStack.Screen
-        name="AulaPendente"
-        component={AulaPendente}
+        name="PendingClass"
+        component={PendingClass}
         options={{headerShown: false}}
       />
       <ProfStack.Screen
-        name="AulaRealizada"
-        component={AulaRealizada}
+        name="CompletedClass"
+        component={CompletedClass}
         options={{headerShown: false}}
       />
       <ProfStack.Screen
-        name="PerfilProf2"
-        component={PerfilProf2}
+        name="TeacherProfile2"
+        component={TeacherProfile2}
         options={{headerShown: false}}
       />
       <ProfStack.Screen
-        name="ConfirmaAulaPendente"
-        component={ConfirmaAulaPendente}
+        name="PendingClassConfirmation"
+        component={PendingClassConfirmation}
         options={{headerShown: false}}
       />
     </ProfStack.Navigator>

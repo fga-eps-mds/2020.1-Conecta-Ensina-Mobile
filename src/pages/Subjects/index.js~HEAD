@@ -1,0 +1,97 @@
+import React, {useState} from 'react';
+import Theme, {theme} from '../../../Theme';
+import SquareButton from '../../components/SquareButton';
+import ContinuarContainer from '../../components/ContinuarContainer';
+
+import Background1 from '../../components/Background1';
+import {ListMaterias, Container} from './styles';
+
+<<<<<<< HEAD:src/pages/Subjects/index.js
+const Item = ({item, onPress, style}) => (
+  <SquareButton data={item} onPress={onPress} style={[style]} />
+);
+
+export default function Subjects({route, navigation}) {
+  const [materias] = useState([
+    {id: '1', nome: 'Português', img: require('../../assets/books.png')},
+    {id: '2', nome: 'Matemática', img: require('../../assets/books.png')},
+    {id: '3', nome: 'História', img: require('../../assets/books.png')},
+    {id: '4', nome: 'Geografia', img: require('../../assets/books.png')},
+    {id: '5', nome: 'Ciência', img: require('../../assets/books.png')},
+    {id: '6', nome: 'Química', img: require('../../assets/books.png')},
+    {id: '7', nome: 'Física', img: require('../../assets/books.png')},
+    {id: '8', nome: 'Biologia', img: require('../../assets/books.png')},
+    {id: '9', nome: 'Redação', img: require('../../assets/books.png')},
+    {id: '10', nome: 'Artes', img: require('../../assets/books.png')},
+    {id: '11', nome: 'Inglês', img: require('../../assets/books.png')},
+    {id: '12', nome: 'Espanhol', img: require('../../assets/books.png')},
+    {id: '13', nome: 'História', img: require('../../assets/books.png')},
+    {id: '14', nome: 'Geografia', img: require('../../assets/books.png')},
+    {id: '15', nome: 'Ciência', img: require('../../assets/books.png')},
+    {id: '16', nome: 'Química', img: require('../../assets/books.png')},
+    {id: '17', nome: 'Física', img: require('../../assets/books.png')},
+    {id: '18', nome: 'Biologia', img: require('../../assets/books.png')},
+    {id: '19', nome: 'Redação', img: require('../../assets/books.png')},
+  ]);
+
+  const [selectedId, setSelectedId] = useState(null);
+  const {params} = route.params;
+
+  const renderItem = ({item}) => {
+    const backgroundColor =
+      item.id === selectedId ? theme.colors.azulClaro : theme.colors.cinzaClaro;
+    return (
+      <Item
+        item={item}
+        onPress={() => setSelectedId(item.id)}
+        style={{backgroundColor}}
+      />
+    );
+=======
+export default function Materias({navigation}) {
+  const getMaterias = async () => {
+    const fetchResponse = await fetch('http://192.168.0.157:3333/api/subject/');
+    try {
+      const data = await fetchResponse.json();
+      console.log(data.data.subject);
+      setSubjects(data.data.subject);
+      return data;
+    } catch (error) {
+      return error;
+    }
+>>>>>>> b05145b2be7874854d4529f6f60a5f43183ab5c0:src/pages/Materias/index.js
+  };
+
+  const [subjects, setSubjects] = useState(getMaterias);
+  return (
+    <Theme>
+      <Background1 navigation={navigation} page={'Profile'}>
+        <Container>
+          <ListMaterias
+            numColumns={3}
+            data={subjects}
+            keyExtractor={(item) => item.id}
+            renderItem={({item}) => (
+              <SquareButton
+                onPress={() => navigation.navigate('Filtros')}
+                data={item}
+                img={require('../../assets/books.png')}
+              />
+            )}
+          />
+        </Container>
+        <ContinuarContainer
+<<<<<<< HEAD:src/pages/Subjects/index.js
+          marginTop={{value: '127.5%'}}
+          onPress={() => navigation.navigate('Filters')}
+        />
+=======
+          marginTop={{value: '100%'}}
+          onPress={() => navigation.navigate('Filtros')}>
+          Continuar
+        </ContinuarContainer>
+>>>>>>> b05145b2be7874854d4529f6f60a5f43183ab5c0:src/pages/Materias/index.js
+      </Background1>
+    </Theme>
+  );
+}

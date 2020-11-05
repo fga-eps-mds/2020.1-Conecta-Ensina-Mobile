@@ -1,0 +1,91 @@
+import React, {useState} from 'react';
+import Theme from '../../../Theme';
+import SquareButton from '../../components/ContainerStars';
+import ContinuarContainer from '../../components/ContinuarContainer';
+
+import Background1 from '../../components/Background1';
+import {ListMaterias} from './styles';
+
+<<<<<<< HEAD:src/pages/Teachers/index.js
+export default function Teachers({navigation}) {
+  const [usuario] = useState([
+=======
+export default function Professores({navigation}) {
+/*  const [usuario] = useState([
+>>>>>>> b05145b2be7874854d4529f6f60a5f43183ab5c0:src/pages/Professores/index.js
+    {id: '1', nome: 'Carlos', img: require('../../assets/user_blue.png')},
+    {id: '2', nome: 'Cassia', img: require('../../assets/user_blue.png')},
+    {id: '3', nome: 'Arthur', img: require('../../assets/user_blue.png')},
+    {id: '4', nome: 'Jorge', img: require('../../assets/user_blue.png')},
+    {id: '5', nome: 'Luana', img: require('../../assets/user_blue.png')},
+    {id: '6', nome: 'Jade', img: require('../../assets/user_blue.png')},
+    {id: '7', nome: 'Carla', img: require('../../assets/user_blue.png')},
+    {id: '8', nome: 'Biologia', img: require('../../assets/user_blue.png')},
+    {id: '9', nome: 'Redação', img: require('../../assets/user_blue.png')},
+    {id: '10', nome: 'Artes', img: require('../../assets/user_blue.png')},
+    {id: '11', nome: 'Inglês', img: require('../../assets/user_blue.png')},
+    {id: '12', nome: 'Espanhol', img: require('../../assets/user_blue.png')},
+    {id: '13', nome: 'História', img: require('../../assets/user_blue.png')},
+    {id: '14', nome: 'Geografia', img: require('../../assets/user_blue.png')},
+    {id: '15', nome: 'Ciência', img: require('../../assets/user_blue.png')},
+    {id: '16', nome: 'Química', img: require('../../assets/user_blue.png')},
+    {id: '17', nome: 'Física', img: require('../../assets/user_blue.png')},
+    {id: '18', nome: 'Biologia', img: require('../../assets/user_blue.png')},
+    {id: '19', nome: 'Redação', img: require('../../assets/user_blue.png')},
+  ]);
+*/
+const getTeachers = async () => {
+  const fetchResponse = await fetch('http://192.168.0.157:3333/api/teacher/');
+  try {
+    const data = await fetchResponse.json();
+    console.log(data.data.user);
+    setTeachers(data.data.user);
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
+const [teachers, setTeachers] = useState(getTeachers);
+
+
+  return (
+    <Theme>
+<<<<<<< HEAD:src/pages/Teachers/index.js
+      <Background1 navigation={navigation} page={'Profile'}>
+        <ListMaterias
+          numColumns={3}
+          data={usuario}
+          keyExtractor={(item) => item.id}
+          renderItem={({item}) => <SquareButton data={item} />}
+        />
+        <ContinuarContainer
+          onPress={() => navigation.push('Profile')}
+          marginTop={{value: '128%'}}
+        />
+=======
+      <Background1 navigation={navigation} page={'Perfil'}>
+        <Container>
+          <ListMaterias
+            numColumns={3}
+            data={teachers}
+            keyExtractor={(item) => item.id}
+            renderItem={({item}) => (
+            <SquareButton 
+              data={item}
+              img={require('../../assets/user_blue.png')}
+            />
+            )}
+          />
+        </Container>
+        <ContinuarContainer
+          onPress={() => navigation.push('Filtros')}
+          marginTop={{value: '1%'}}>
+          Continuar
+        </ContinuarContainer>
+>>>>>>> b05145b2be7874854d4529f6f60a5f43183ab5c0:src/pages/Professores/index.js
+      </Background1>
+    </Theme>
+  );
+}
+
