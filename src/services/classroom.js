@@ -23,8 +23,7 @@ export async function getUserClassroom(Host, id) {
 export async function createClass(
   user,
   teacher,
-  subject,
-  filtros,
+  filter,
   student,
   Host,
 ) {
@@ -36,17 +35,28 @@ export async function createClass(
     },
     body: JSON.stringify({
       agentRole: user.role,
-      teacher: teacher.id,
+      teacher: teacher,
       student: user.id,
-      grade: subject.grade,
-      subject: subject.id,
-      dtclass: new Date(),
-      duration: 1 /*filtro.duration*/,
+      grade: student.grade,
+      subject: filter.subject,
+      dtclass: filter.dtClass,
+      duration: filter.duration,
       cep: student.cep,
       number: student.number,
-      details: '',
+      details: 'oi',
     }),
   });
+  try {
+    const data = await response.json();
+    console.log('Success: ', data);
+    if (data.message === 'Aula criada com sucesso!'){
+      console.log('Aula criada com sucesso')
+    }
+    return data;
+
+  }catch(error){
+    console.log(error)
+  }
 
   console.log(response);
 }

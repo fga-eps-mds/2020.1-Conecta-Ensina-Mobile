@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Theme from '../../../Theme';
 import {AuthContext} from '../../contexts/auth';
-
+import {ClassroomContext} from '../../contexts/classroom'
 import Background2 from '../../components/Background2';
 import ContinueContainer from '../../components/ContinueContainer';
 import RedContainerText from '../../components/RedContainerText';
@@ -9,8 +9,10 @@ import CustomTextContainer from '../../components/CustomTextContainer';
 import gradeResolver from '../../services/gradeResolver';
 import {ContainerB, ContainerW, Icon, Logo, UserContatiner} from './styles';
 
+
 export default function TeacherProfile({navigation, route}) {
   const {Host} = useContext(AuthContext);
+  const {createClass} = useContext(ClassroomContext);
 
   const getTeacher = async () => {
     const teacherResponse = await fetch(
@@ -105,7 +107,7 @@ export default function TeacherProfile({navigation, route}) {
               Ja fiz curso para lecionar para crianças dentro do espectro de
               deficit de atençao.
             </RedContainerText>
-            <ContinueContainer onPress={() => console.log('contratada')} />
+            <ContinueContainer onPress={() => {createClass(teacher.id)}} />
           </ContainerW>
         }
       />
