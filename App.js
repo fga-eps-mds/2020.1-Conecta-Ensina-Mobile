@@ -6,6 +6,7 @@ import AuthProvider from './src/contexts/auth';
 import AdmProvider from './src/contexts/admin';
 import ClassroomProvider from './src/contexts/classroom';
 import SubjectProvider from './src/contexts/subject';
+import FiltersProvider from './src/contexts/filters'
 
 export default function App() {
   return (
@@ -13,9 +14,11 @@ export default function App() {
       <AuthProvider>
         <AdmProvider>
           <SubjectProvider>
-            <ClassroomProvider>
-              <Routes />
-            </ClassroomProvider>
+            <FiltersProvider>
+              <ClassroomProvider>
+                <Routes />
+              </ClassroomProvider>
+            </FiltersProvider>
           </SubjectProvider>
         </AdmProvider>
       </AuthProvider>

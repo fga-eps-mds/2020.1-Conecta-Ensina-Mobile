@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react';
 import Theme, {theme} from '../../../Theme';
 import {AuthContext} from '../../contexts/auth';
-
+import {FiltersContext} from '../../contexts/filters';
 import SquareButton from '../../components/SquareButton';
 import ContinueContainer from '../../components/ContinueContainer';
 import Background1 from '../../components/Background1';
@@ -12,6 +12,7 @@ export default function Subjects({route, navigation}) {
   const {params} = route.params;
 
   const {Host} = useContext(AuthContext);
+  const {setSubjectFilter} = useContext(FiltersContext);
 
   const getSubjects = async () => {
     const fetchResponse = await fetch(`${Host}/api/subject/`);
@@ -51,7 +52,9 @@ export default function Subjects({route, navigation}) {
         </Container>
         <ContinueContainer
           marginTop={{value: '127.5%'}}
-          onPress={() => navigation.navigate('Filters')}
+          onPress={() => {
+            setSubjectFilter(selectedId)
+            navigation.navigate('Filters')}}
         />
       </Background1>
     </Theme>

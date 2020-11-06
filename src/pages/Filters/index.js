@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import Theme, {theme} from '../../../Theme';
-
+import {FiltersContext} from '../../contexts/filters'
 import Background1 from '../../components/Background1';
 import ContinueContainer from '../../components/ContinueContainer';
 import GeneralPicker from '../../components/GeneralPicker';
@@ -14,6 +14,23 @@ export default function Filters({navigation}) {
   const [horario, setHorario] = useState('');
   const [newDate, setNewDate] = useState(new Date());
   const [show, setShow] = useState(false);
+
+  const {setDtClass, setDurationFilters, setClassType} = useContext(FiltersContext);
+
+  useEffect (() => {
+    setClassType(type);
+  },[type])
+
+  useEffect (() => {
+    setDurationFilters(parseInt(duration));
+
+    console.log(duration);
+  },[duration])
+
+  useEffect (() => {
+    setDtClass(newDate);
+  },[newDate])
+
 
   function handlerShowPicker() {
     setShow(true);
@@ -43,7 +60,7 @@ export default function Filters({navigation}) {
           <GeneralPicker time onChange={setHorario} />
         </Container>
         <ContinueContainer
-          onPress={() => navigation.navigate('Teachers')}
+          onPress={() => {navigation.navigate('Teachers')}}
           marginTop={{value: '129%'}}
         />
       </Background1>

@@ -9,7 +9,7 @@ export default function AuthProvider({children}) {
   const [teacher, setTeacher] = useState(null);
   const [student, setStudent] = useState(null);
 
-  const Host = 'http://192.168.0.8:3333';
+  const Host = 'http://192.168.0.12:3333';
 
   async function signIn(email, password) {
     const settings = {
