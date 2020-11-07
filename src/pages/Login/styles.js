@@ -31,7 +31,7 @@ export const LinkTexto = styled.Text`
   font-family: ${(props) => props.theme.font};
   font-size: ${(props) => props.theme.fontSizes.smallMedium};
   color: ${(props) => props.theme.colors.branco};
-  text-shadow: -1px 1px 8px ${(props) => props.theme.colors.fundoAzul};
+  text-shadow: -1.5px 1.5px 4px ${(props) => props.theme.colors.cinzaEscuro};
 `;
 
 export const Logo = styled.Image`

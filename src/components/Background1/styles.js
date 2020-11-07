@@ -28,7 +28,7 @@ export const TextoContainer = styled.View`
   margin-right: 35px;
 `;
 
-export const UserAvatar = styled.View`
+export const UserAvatar = styled.TouchableOpacity`
   width: 58px;
   height: 58px;
   border-radius: 1000px;

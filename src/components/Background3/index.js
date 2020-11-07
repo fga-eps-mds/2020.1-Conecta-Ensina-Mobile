@@ -11,7 +11,7 @@ export default function Background3({children, navigation, student}) {
         <WhiteContainer>{children}</WhiteContainer>
         {student && (
           <ButtonRegistrar
-            onPress={() => navigation.navigate('RegistroProfessor')}>
+            onPress={() => navigation.navigate('TeacherRegister')}>
             <CustomText white small>
               Seja Professor
             </CustomText>

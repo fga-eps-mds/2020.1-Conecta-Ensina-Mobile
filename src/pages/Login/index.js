@@ -4,8 +4,8 @@ import Background2 from '../../components/Background2';
 import CustomText from '../../components/CustomText';
 import RegField from '../../components/RegField';
 import {AuthContext} from '../../contexts/auth';
-import {TextInput} from 'react-native';
-import {DateContainer} from '../RegistroAluno/styles';
+import PasswordInput from '../../components/PasswordInput';
+import {FieldContainer} from '../../components/FieldContainer/styles';
 import {
   LoginContainer,
   Container,
@@ -45,29 +45,21 @@ export default function Login({navigation}) {
                 value={email}
                 onChangeText={(text) => setEmail(text)}
               />
-              <DateContainer>
-                <TextInput
-                  placeholder="Senha"
-                  autoCapitalize="none"
+              <FieldContainer>
+                <PasswordInput
                   value={password}
                   onChangeText={(text) => setPassword(text)}
                   secureTextEntry={true}
-                  placeholderTextColor="#F6F6F6"
-                  style={{
-                    color: '#FFFFFF',
-                    fontSize: 14,
-                    flex: 1,
-                    textAlign: 'center',
-                  }}
                 />
-              </DateContainer>
+              </FieldContainer>
               <ButtonEntrar onPress={handleLogin}>
                 <CustomText white medium>
                   Entrar
                 </CustomText>
               </ButtonEntrar>
               <Link>
-                <LinkTexto onPress={() => navigation.navigate('RegistroAluno')}>
+                <LinkTexto
+                  onPress={() => navigation.navigate('StudentRegister')}>
                   Registre-se
                 </LinkTexto>
               </Link>

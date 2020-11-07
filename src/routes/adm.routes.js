@@ -1,8 +1,8 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import ProfessoresPendente from '../pages/ProfessoresPendente';
+import PendingTeacher from '../pages/PendingTeacher';
 import HomeAdm from '../pages/HomeAdm';
-import ConfirmaProf from '../pages/ConfirmaProf';
+import TeacherConfirmation from '../pages/TeacherConfirmation';
 
 const AdmStack = createStackNavigator();
 
@@ -15,13 +15,13 @@ function AdmRoutes() {
         options={{headerShown: false}}
       />
       <AdmStack.Screen
-        name="ProfessoresPendente"
-        component={ProfessoresPendente}
+        name="PendingTeacher"
+        component={PendingTeacher}
         options={{headerShown: false}}
       />
       <AdmStack.Screen
-        name="ConfirmaProf"
-        component={ConfirmaProf}
+        name="TeacherConfirmation"
+        component={TeacherConfirmation}
         options={{headerShown: false}}
       />
     </AdmStack.Navigator>

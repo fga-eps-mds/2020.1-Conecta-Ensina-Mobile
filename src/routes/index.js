@@ -7,6 +7,7 @@ import {AuthContext} from '../contexts/auth';
 
 function Routes() {
   const {typeUser, signed} = useContext(AuthContext);
+
   console.log(signed);
 
   if (signed === true) {

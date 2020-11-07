@@ -63,7 +63,6 @@ function AdmProvider({children}) {
       setUserDB(usuario);
       try {
         let response = await fetch(`${Host}/api/teacher/${id}`);
-        // eslint-disable-next-line no-shadow
         const data = await response.json();
         let professor = {
           photo: data.data.teacher.photo,

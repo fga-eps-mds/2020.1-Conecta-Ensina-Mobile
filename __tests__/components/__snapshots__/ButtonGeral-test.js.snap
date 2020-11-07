@@ -29,6 +29,7 @@ exports[`renders correctly 1`] = `
           "color": "#ffffff",
           "fontFamily": "Roboto",
           "fontSize": 14,
+          "textAlign": "center",
         },
       ]
     }
