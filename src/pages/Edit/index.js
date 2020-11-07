@@ -4,9 +4,8 @@ import {Formik} from 'formik';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
 import RegField from '../../components/RegField';
+import SeriePicker from '../../components/SeriePicker';
 import * as yup from 'yup';
-
-import gradeResolver from '../../services/gradeResolver';
 
 import {AuthContext} from '../../contexts/auth';
 
@@ -18,12 +17,9 @@ import {
 } from './styles';
 
 export default function Edit({navigation}) {
-  const {user, student, updateStudent} = useContext(AuthContext);
-
+  const {user, student, updateUser} = useContext(AuthContext);
   function handleEdit(values){
-    console.log("to aki")
-    console.log(values)
-    updateStudent(values, user.id)
+    updateUser(values, user.id)
     navigation.navigate('Perfil')
   }
 
@@ -32,13 +28,12 @@ export default function Edit({navigation}) {
     surname: ''/*user && user.lastName*/,
     email: ''/*user && user.email*/,
     cellphone: ''/*student && student.cep*/,
-    /*grade: '',
+    grade: '',
     school: '',
     cep: '',
-    num: student && student.number.toString(),,
+    num: '',
     details: '',
-    description: '',
-    special: false,*/
+    description: ''
   };
 
   let Schema = yup.object().shape({
@@ -57,16 +52,10 @@ export default function Edit({navigation}) {
       .required('É necessário indicar um número de telefone')
       .min(11, 'Número de telefone inválido')
       .max(13, 'Número de telefone inválido'),
-/*
     grade: yup.number().required('É necessário indicar uma série'),
     school: yup
       .string('Instituição deve ser um texto')
       .required('É necessário indicar uma instituição'),
-    cpf: yup
-      .string()
-      .length(11, 'CPF deve ter 11 números')
-      .matches(/^\d+$/, 'CPF deve ser um número')
-      .required('É necessário indicar um CPF'),
     cep: yup
       .string()
       .length(8, 'CPF deve ter 8 números')
@@ -79,7 +68,6 @@ export default function Edit({navigation}) {
       .string('Complemento deve ser um texto')
       .required('É necessário indicar o complemento'),
     description: yup.string().required('É necessário indicar uma descriação'),
-    special: yup.boolean().required(),*/
   });
 
   return (
@@ -95,11 +83,12 @@ export default function Edit({navigation}) {
           {({
             handleChange,
             handleSubmit,
+            setFieldValue,
             values,
             errors,
             touched,
           }) => ( <>     
-              <Container>
+          <Container>
             <InfoContainer>
               <TextContainer>
                 <RegField placeholder={user && user.firstName} 
@@ -117,42 +106,102 @@ export default function Edit({navigation}) {
                           value={values.surname}
                           onChangeText={handleChange('surname')}
                 />
+                {errors.surname && touched.surname && (
+                  <CustomText black small>
+                    {errors.surname}
+                  </CustomText>
+                )}
               </TextContainer>
               <TextContainer>
                 <RegField placeholder={user && user.email} 
                           value={values.email}
                           onChangeText={handleChange('email')}
                 />
+                {errors.email && touched.email && (
+                  <CustomText black small>
+                    {errors.email}
+                  </CustomText>
+                )}
               </TextContainer>
               <TextContainer>
                 <RegField placeholder={user && user.cellphone} 
                           value={values.cellphone}
                           onChangeText={handleChange('cellphone')}
                 />
+                {errors.cellphone && (
+                  <CustomText black small>
+                    {errors.cellphone}
+                  </CustomText>
+                )}
               </TextContainer>
               <TextContainer>
-                <RegField placeholder={student && student.cep} />
+                <RegField placeholder={student && student.cep} 
+                          value={values.cep}
+                          onChangeText={handleChange('cep')}
+                />
+                {errors.cep && (
+                  <CustomText black small>
+                    {errors.cep}
+                  </CustomText>
+                )}
               </TextContainer>
               <TextContainer>
-                <RegField placeholder={student && student.number.toString()} />
+                <RegField placeholder={student && student.number.toString()} 
+                          value={values.num}
+                          onChangeText={handleChange('num')}
+                />
+                {errors.num && (
+                  <CustomText black small>
+                    {errors.num}
+                  </CustomText>
+                )}
               </TextContainer>
               <TextContainer>
-                <RegField placeholder={student && student.details} />
+                <RegField placeholder={student && student.details} 
+                          value={values.details}
+                          onChangeText={handleChange('details')}
+                />
+                {errors.details && (
+                  <CustomText black small>
+                    {errors.details}
+                  </CustomText>
+                )}
               </TextContainer>
               <TextContainer>
-                <RegField placeholder={student && student.cpf} />
+                <RegField placeholder={student && student.description} 
+                          value={values.description}
+                          onChangeText={handleChange('description')}
+                />
+                {errors.description && (
+                  <CustomText black small>
+                    {errors.description}
+                  </CustomText>
+                )}
               </TextContainer>
               <TextContainer>
-                <RegField placeholder={student && student.description} />
+                <RegField placeholder={student && student.institution} 
+                          value={values.school}
+                          onChangeText={handleChange('school')}
+                />
+                {errors.institution && (
+                  <CustomText black small>
+                    {errors.school}
+                  </CustomText>
+                )}
               </TextContainer>
               <TextContainer>
-                <RegField placeholder={student && student.institution} />
-              </TextContainer>
-              <TextContainer>
-                <RegField placeholder={student && gradeResolver(student.grade)} />
+                <SeriePicker
+                      value={values.grade}
+                      onChange={(value) => setFieldValue('grade', value, false)}
+                />
+                {errors.grade && (
+                  <CustomText black small>
+                    {errors.grade}
+                  </CustomText>
+                )}
               </TextContainer>
             </InfoContainer>       
-             </Container>
+          </Container>
         <ButtonContainer onPress={handleSubmit}>
           <CustomText white bigSmall>
             Salvar

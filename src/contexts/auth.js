@@ -256,7 +256,7 @@ export default function AuthProvider({children}) {
           let estudante = {
             birthdate: data.data.student.birthdate,
             grade: data.data.student.grade,
-            institution: data.data.student.school,
+            institution: data.data.student.institution,
             cpf: data.data.student.cpf,
             cep: data.data.student.cep,
             number: data.data.student.number,
@@ -347,7 +347,7 @@ export default function AuthProvider({children}) {
         let estudante = {
           birthdate: data.data.student.birthdate,
           grade: data.data.student.grade,
-          institution: data.data.student.school,
+          institution: data.data.student.institution,
           cpf: data.data.student.cpf,
           cep: data.data.student.cep,
           number: data.data.student.number,
@@ -382,8 +382,8 @@ export default function AuthProvider({children}) {
     }
   }
 
-  async function updateStudent(values, id){
-    const settings = {
+  async function updateUser(values, id){
+    const settings1 = {
       method: 'PUT',
       headers: {
         Accept: 'application/json',
@@ -399,13 +399,73 @@ export default function AuthProvider({children}) {
     };
     const fetchResponse1 = await fetch(
       `${Host}/api/user/${id}`,
-      settings,
+      settings1,
     );
+ 
     try {
-      const data = await fetchResponse1.text();
+      const data = await fetchResponse1.json();
       console.log('Success:', data);
     } catch (error) {
       console.error('Error:', error);
+    }  
+    if(user.role === 2 || user.role === 3){
+      const settings2 = {
+        method: 'PUT',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          agentRole: user.role,
+          birthdate: student.birthdate,
+          grade: values.grade,
+          institution: values.school,
+          cpf: student.cpf,
+          cep: values.cep,
+          number: values.num,
+          details: values.details,
+          description: values.description,
+          special: student.special,
+        }),
+      };
+      const fetchResponse2 = await fetch(
+        `${Host}/api/student/${id}`,
+        settings2,
+      );
+      try {
+        const data2 = await fetchResponse2.json();
+        console.log('Success:', data2);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+      if(user.role === 2){
+        const settings3 = {
+          method: 'PUT',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            photo: values.photo,
+            video: values.video,
+            graduation_area: values.graduation_area,
+            degree: values.degree,
+            bank: values.bank,
+            agency: values.agency,
+            account: values.account,
+          }),
+        };
+        const fetchResponse3 = await fetch(
+          `${Host}/api/teacher/${id}`,
+          settings3,
+        );
+        try {
+          const data3 = await fetchResponse3.json();
+          console.log('Success:', data3);
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }  
     }
   }
   
@@ -425,11 +485,22 @@ export default function AuthProvider({children}) {
     await AsyncStorage.setItem('Auth_teacher', JSON.stringify(data))
   }
 
+  async function signOut(){
+    await AsyncStorage.clear()
+    .then(()=>{
+      setUser(null)
+      setTypeUser(null)
+      setStudent(null)
+      setTeacher(null)
+    })
+  }
+
   return (
     <AuthContext.Provider
       value={{
         signed: !!user,
         user,
+        loading,
         teacher,
         student,
         typeUser,
@@ -437,7 +508,8 @@ export default function AuthProvider({children}) {
         signIn,
         registerAluno,
         registerProf,
-        updateStudent,
+        updateUser,
+        signOut,
       }}>
       {children}
     </AuthContext.Provider>

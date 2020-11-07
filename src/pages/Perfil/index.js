@@ -13,10 +13,11 @@ import {
   Container,
   InfoContainer,
   ButtonContainer,
+  ContainerBotao
 } from './styles';
 
 export default function Perfil({navigation}) {
-  const {user, student} = useContext(AuthContext);
+  const {user, student, signOut} = useContext(AuthContext);
   const [editar, setEditar] = useState(false);
 
   if (editar) {
@@ -84,11 +85,19 @@ export default function Perfil({navigation}) {
               </TextContainer>
             </InfoContainer>
           </Container>
-          <ButtonContainer onPress={() => navigation.navigate('Edit')}>
-            <CustomText white bigSmall>
-              Editar
-            </CustomText>
-          </ButtonContainer>
+          <ContainerBotao>
+            <ButtonContainer onPress={() => navigation.navigate('Edit')}>
+              <CustomText white bigSmall>
+                Editar
+              </CustomText>
+            </ButtonContainer>
+            <ButtonContainer onPress={() => signOut()}>
+              <CustomText white bigSmall>
+                Sair
+              </CustomText>
+            </ButtonContainer>
+          </ContainerBotao>
+          
         </Background1>
       </Theme>
     );

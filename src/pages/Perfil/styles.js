@@ -34,11 +34,15 @@ export const TextContainer = styled.View`
 
 export const ButtonContainer = styled.TouchableOpacity`
   height: 50px;
-  width: 280px;
+  width: 140px;
   background-color: ${(props) => props.theme.colors.vermelho};
-  margin-top: 125%;
-  align-self: center;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
+`;
+export const ContainerBotao = styled.View`
+  margin-top: 125%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 `;
