@@ -11,7 +11,7 @@ export default function AuthProvider({children}) {
   const [student, setStudent] = useState(null);
   const [loading, setLoading] = useState(true)
 
-  const Host = 'http://172.18.224.1:3333';
+  const Host = 'http://172.17.122.1:3333';
 
  useEffect(()=>{
     async function loadStorage(){
@@ -381,6 +381,33 @@ export default function AuthProvider({children}) {
       }
     }
   }
+
+  async function updateStudent(values, id){
+    const settings = {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstName: values.name,
+        lastName: values.surname,
+        email: values.email,
+        cellphone: values.cellphone,
+        password: user.password
+      }),
+    };
+    const fetchResponse1 = await fetch(
+      `${Host}/api/user/${id}`,
+      settings,
+    );
+    try {
+      const data = await fetchResponse1.text();
+      console.log('Success:', data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
   
   async function storageTypeUser(data){
     await AsyncStorage.setItem('Auth_typeUser', JSON.stringify(data))
@@ -410,6 +437,7 @@ export default function AuthProvider({children}) {
         signIn,
         registerAluno,
         registerProf,
+        updateStudent,
       }}>
       {children}
     </AuthContext.Provider>
