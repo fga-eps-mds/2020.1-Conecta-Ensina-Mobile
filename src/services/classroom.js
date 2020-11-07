@@ -20,13 +20,7 @@ export async function getUserClassroom(Host, id) {
   }
 }
 
-export async function createClass(
-  user,
-  teacher,
-  filter,
-  student,
-  Host,
-) {
+export async function createClass(user, teacher, filter, student, Host) {
   const response = await fetch(`${Host}/api/classroom/create`, {
     method: 'POST',
     headers: {
@@ -49,13 +43,9 @@ export async function createClass(
   try {
     const data = await response.json();
     console.log('Success: ', data);
-    if (data.message === 'Aula criada com sucesso!'){
-      console.log('Aula criada com sucesso')
-    }
     return data;
-
-  }catch(error){
-    console.log(error)
+  } catch (error) {
+    console.log(error);
   }
 
   console.log(response);

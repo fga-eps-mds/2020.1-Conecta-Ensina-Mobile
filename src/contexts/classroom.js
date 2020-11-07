@@ -20,10 +20,7 @@ export default function ClassroomProvider({children}) {
     }
   }
   async function createClass(teacher) {
-    const student = await Student.getStudent(
-      Host,
-      user.id,
-    );
+    const student = await Student.getStudent(Host, user.id);
     console.log(student);
     const response = await Class.createClass(
       user,
@@ -32,21 +29,27 @@ export default function ClassroomProvider({children}) {
       student,
       Host,
     );
-    console.log(response);
+    console.log(response.message);
   }
 
   async function loadUserClasses() {
-    const response = await Class.getUserClassroom(Host,user.id);
+    const response = await Class.getUserClassroom(Host, user.id);
     if (classroom !== response) {
       console.log(response);
       setClassroom(response);
     }
     console.log(response);
-  } 
-    
+  }
 
   return (
-    <ClassroomContext.Provider value={{classroom, loadNextClass, createClass, loadUserClasses, firstClass}}>
+    <ClassroomContext.Provider
+      value={{
+        classroom,
+        loadNextClass,
+        createClass,
+        loadUserClasses,
+        firstClass,
+      }}>
       {children}
     </ClassroomContext.Provider>
   );

@@ -41,19 +41,6 @@ export default function Home({navigation}) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const renderItem = ({item}) => {
-    const backgroundColor =
-      item.id === selectedId ? theme.colors.azulClaro : theme.colors.cinzaClaro;
-    return (
-      <SquareButton
-        data={item}
-        onPress={() => setSelectedId(item.id)}
-        img={require('../../assets/books.png')}
-        style={{backgroundColor}}
-      />
-    );
-  };
-
   return (
     <Theme>
       <Background1 navigation={navigation} page={'Profile'}>
@@ -62,7 +49,20 @@ export default function Home({navigation}) {
           data={filtros}
           extraData={selectedId}
           keyExtractor={(item) => item.id}
-          renderItem={renderItem}
+          renderItem={({item}) => {
+            const backgroundColor =
+              item.id === selectedId
+                ? theme.colors.azulClaro
+                : theme.colors.cinzaClaro;
+            return (
+              <SquareButton
+                data={item}
+                onPress={() => setSelectedId(item.id)}
+                img={require('../../assets/books.png')}
+                style={{backgroundColor}}
+              />
+            );
+          }}
         />
         <ContainerAula>
           <ContainerHorizontal>
