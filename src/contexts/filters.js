@@ -14,7 +14,7 @@ export default function FiltersProvider({children}) {
   const {Host} = useContext(AuthContext);
   console.log(filter);
 
-  function setSubjectFilter (subject) {
+  function setSubjectFilter(subject) {
     let filters = {
       subject: subject,
       dtClass: filter.dtClass,
@@ -24,7 +24,7 @@ export default function FiltersProvider({children}) {
     setFilter(filters);
   }
 
-  function setDtClass (date) {
+  function setDtClass(date) {
     let filters = {
       subject: filter.subject,
       dtClass: date,
@@ -32,10 +32,9 @@ export default function FiltersProvider({children}) {
       classType: filter.classType,
     };
     setFilter(filters);
-
   }
 
-  function setDurationFilters (duration) {
+  function setDurationFilters(duration) {
     let filters = {
       subject: filter.subject,
       dtClass: filter.dtClass,
@@ -43,10 +42,9 @@ export default function FiltersProvider({children}) {
       classType: filter.classType,
     };
     setFilter(filters);
-
   }
 
-  function setClassType (type) {
+  function setClassType(type) {
     let filters = {
       subject: filter.subject,
       dtClass: filter.dtClass,
@@ -54,11 +52,17 @@ export default function FiltersProvider({children}) {
       classType: type,
     };
     setFilter(filters);
-
   }
 
   return (
-    <FiltersContext.Provider value={{filter, setSubjectFilter, setDtClass, setDurationFilters, setClassType}}>
+    <FiltersContext.Provider
+      value={{
+        filter,
+        setSubjectFilter,
+        setDtClass,
+        setDurationFilters,
+        setClassType,
+      }}>
       {children}
     </FiltersContext.Provider>
   );

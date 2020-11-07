@@ -107,6 +107,7 @@ export default function TeacherProfile({navigation, route}) {
               deficit de atençao.
             </RedContainerText>
             <ContinueContainer
+              testID="teacherProfileButton"
               onPress={() => {
                 createClass(teacher.id);
                 navigation.navigate('Home');

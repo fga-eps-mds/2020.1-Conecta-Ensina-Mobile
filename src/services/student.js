@@ -1,4 +1,4 @@
-export async function getStudent (Host, id) {
+export async function getStudent(Host, id) {
   const response = await fetch(`${Host}/api/student/${id}`);
   try {
     const data = await response.json();
@@ -8,4 +8,4 @@ export async function getStudent (Host, id) {
   } catch (error) {
     return error;
   }
-};
+}
