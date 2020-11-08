@@ -24,22 +24,17 @@ export default function EditTeacher({navigation}) {
   }
 
   let initials = {
-    name: '',
-    surname: '',
-    email: '',
-    password: '',
-    cellphone: '',
-    birthdate: '',
+    name: ''/*user && user.firstName*/,
+    surname: ''/*user && user.lastName*/,
+    email: ''/*user && user.email*/,
+    cellphone: ''/*student && student.cep*/,
     grade: '',
     school: '',
-    cpf: '',
     cep: '',
     num: '',
     details: '',
     description: '',
-    special: false,
     video: '',
-    graduation_area: '',
     degree: '',
     bank: '',
     agency: '',
@@ -57,27 +52,15 @@ export default function EditTeacher({navigation}) {
       .string('Email deve ser um texto')
       .email('Email deve ter formato válido')
       .required('É necessário indicar um email'),
-    password: yup
-      .string('Senha inválida')
-      .min(8, 'Senha deve ter 8 caracteres')
-      .required('É necessário indicar uma senha'),
     cellphone: yup
       .string()
       .required('É necessário indicar um número de telefone')
       .min(11, 'Número de telefone inválido')
       .max(13, 'Número de telefone inválido'),
-    birthdate: yup
-      .date('Data inválida')
-      .required('É necessário indicar uma data de nascimentos'),
     grade: yup.number().required('É necessário indicar uma série'),
     school: yup
       .string('Instituição deve ser um texto')
       .required('É necessário indicar uma instituição'),
-    cpf: yup
-      .string()
-      .length(11, 'CPF deve ter 11 números')
-      .matches(/^\d+$/, 'CPF deve ser um número')
-      .required('É necessário indicar um CPF'),
     cep: yup
       .string()
       .length(8, 'CPF deve ter 8 números')
@@ -93,10 +76,6 @@ export default function EditTeacher({navigation}) {
       .string('Descrição deve ser um texto')
       .required('Você deve inserir uma descrição'),
     video: yup.string(),
-    special: yup.boolean().required(),
-    graduation_area: yup
-      .string()
-      .required('É necessário indicar a área e graduação'),
     degree: yup.string().required('É necessário indicar o diploma'),
     bank: yup.string().required('É necessário indicar o banco'),
     agency: yup.string().required('É necessário indicar a agência'),
@@ -251,18 +230,6 @@ export default function EditTeacher({navigation}) {
                     {errors.video && (
                       <CustomText black small>
                         {errors.video}
-                      </CustomText>
-                    )}
-                  </TextContainer>
-                  <TextContainer>
-                    <RegField
-                      placeholder={teacher && teacher.graduation_area}
-                      value={values.graduation_area}
-                      onChangeText={handleChange('graduation_area')}
-                    />
-                    {errors.graduation_area && (
-                      <CustomText black small>
-                        {errors.graduation_area}
                       </CustomText>
                     )}
                   </TextContainer>
