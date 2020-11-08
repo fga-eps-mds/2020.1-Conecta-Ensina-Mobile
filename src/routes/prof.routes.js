@@ -6,6 +6,7 @@ import AulaPendente from '../pages/AulaPendente';
 import AulaRealizada from '../pages/AulaRealizada';
 import PerfilProf2 from '../pages/PerfilProf2';
 import ConfirmaAulaPendente from '../pages/ConfirmaAulaPendente';
+import EditTeacher from '../pages/EditTeacher';
 
 // import { Container } from './styles';
 const ProfStack = createStackNavigator();
@@ -41,6 +42,11 @@ function ProfRoutes() {
       <ProfStack.Screen
         name="ConfirmaAulaPendente"
         component={ConfirmaAulaPendente}
+        options={{headerShown: false}}
+      />
+      <ProfStack.Screen
+        name="EditTeacher"
+        component={EditTeacher}
         options={{headerShown: false}}
       />
     </ProfStack.Navigator>

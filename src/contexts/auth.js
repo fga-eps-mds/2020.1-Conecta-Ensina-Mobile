@@ -9,44 +9,44 @@ export default function AuthProvider({children}) {
   const [typeUser, setTypeUser] = useState(null);
   const [teacher, setTeacher] = useState(null);
   const [student, setStudent] = useState(null);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
-  const Host = 'http://172.17.122.1:3333';
+  const Host = 'http://192.168.1.132:3333';
 
- useEffect(()=>{
-    async function loadStorage(){
-      const storageTypeUser = await AsyncStorage.getItem('Auth_typeUser')
-      const storageUser = await AsyncStorage.getItem('Auth_user')
-      
-      if(storageTypeUser){
-        if(JSON.parse(storageTypeUser) === 1){
-          setTypeUser('Adm')
-          setLoading(false)
-        }else if(JSON.parse(storageTypeUser) === 2){
-          setTypeUser('Professor')
-          setLoading(false)
-        }else{
-          setTypeUser('Aluno')
-          setLoading(false)
+  useEffect(() => {
+    async function loadStorage() {
+      const storageTypeUser = await AsyncStorage.getItem('Auth_typeUser');
+      const storageUser = await AsyncStorage.getItem('Auth_user');
+
+      if (storageTypeUser) {
+        if (JSON.parse(storageTypeUser) === 1) {
+          setTypeUser('Adm');
+          setLoading(false);
+        } else if (JSON.parse(storageTypeUser) === 2) {
+          setTypeUser('Professor');
+          setLoading(false);
+        } else {
+          setTypeUser('Aluno');
+          setLoading(false);
         }
       }
-      if(storageUser){
-        const dataUser = JSON.parse(storageUser)
+      if (storageUser) {
+        const dataUser = JSON.parse(storageUser);
         let usuario = {
-            id: dataUser.id,
-            firstName: dataUser.firstName,
-            lastName: dataUser.lastName,
-            email: dataUser.email,
-            password: dataUser.password,
-            role: dataUser.role,
-            cellphone: dataUser.cellphone,
-        }
-        setUser(usuario)
-        setLoading(false)
-        if( dataUser.role == 2 || dataUser.role == 3  ){
-          const storageStudent = await AsyncStorage.getItem('Auth_student')
-            if(storageStudent){
-            const dataStudent = JSON.parse(storageStudent)
+          id: dataUser.id,
+          firstName: dataUser.firstName,
+          lastName: dataUser.lastName,
+          email: dataUser.email,
+          password: dataUser.password,
+          role: dataUser.role,
+          cellphone: dataUser.cellphone,
+        };
+        setUser(usuario);
+        setLoading(false);
+        if (dataUser.role == 2 || dataUser.role == 3) {
+          const storageStudent = await AsyncStorage.getItem('Auth_student');
+          if (storageStudent) {
+            const dataStudent = JSON.parse(storageStudent);
             let estudante = {
               birthdate: dataStudent.birthdate,
               grade: dataStudent.grade,
@@ -57,33 +57,33 @@ export default function AuthProvider({children}) {
               details: dataStudent.details,
               description: dataStudent.description,
               special: dataStudent.special,
-            }
-            setStudent(estudante)
-            setLoading(false)
+            };
+            setStudent(estudante);
+            setLoading(false);
           }
-          if( dataUser.role == 2){
-            const storageTeacher = await AsyncStorage.getItem('Auth_teacher')
-              if(storageTeacher){
-                const dataTeacher = JSON.parse(storageTeacher)
-                let professor = {
-                  photo: dataTeacher.photo,
-                  video: dataTeacher.video,
-                  graduation_area: dataTeacher.graduation_area,
-                  degree: dataTeacher.degree,
-                  bank: dataTeacher.bank,
-                  agency: dataTeacher.agency,
-                  account: dataTeacher.account,
-                }
-                setTeacher(professor)
-                setLoading(false)
-              }
+          if (dataUser.role == 2) {
+            const storageTeacher = await AsyncStorage.getItem('Auth_teacher');
+            if (storageTeacher) {
+              const dataTeacher = JSON.parse(storageTeacher);
+              let professor = {
+                photo: dataTeacher.photo,
+                video: dataTeacher.video,
+                graduation_area: dataTeacher.graduation_area,
+                degree: dataTeacher.degree,
+                bank: dataTeacher.bank,
+                agency: dataTeacher.agency,
+                account: dataTeacher.account,
+              };
+              setTeacher(professor);
+              setLoading(false);
+            }
           }
         }
       }
-      setLoading(false)
+      setLoading(false);
     }
-    loadStorage()
-  }, [])
+    loadStorage();
+  }, []);
 
   async function signIn(email, password) {
     const settings = {
@@ -104,7 +104,7 @@ export default function AuthProvider({children}) {
       if (data.message) {
         if (data.message === 'Login efetuado com sucesso!') {
           console.log('login efetuado');
-          storageTypeUser(data.role)
+          storageTypeUser(data.role);
           renderData(data.id, data.role, password);
           if (data.role === 1) {
             setTypeUser('Adm');
@@ -382,7 +382,7 @@ export default function AuthProvider({children}) {
     }
   }
 
-  async function updateUser(values, id){
+  async function updateUser(values, id) {
     const settings1 = {
       method: 'PUT',
       headers: {
@@ -394,21 +394,18 @@ export default function AuthProvider({children}) {
         lastName: values.surname,
         email: values.email,
         cellphone: values.cellphone,
-        password: user.password
+        password: user.password,
       }),
     };
-    const fetchResponse1 = await fetch(
-      `${Host}/api/user/${id}`,
-      settings1,
-    );
- 
+    const fetchResponse1 = await fetch(`${Host}/api/user/${id}`, settings1);
+
     try {
       const data = await fetchResponse1.json();
       console.log('Success:', data);
     } catch (error) {
       console.error('Error:', error);
-    }  
-    if(user.role === 2 || user.role === 3){
+    }
+    if (user.role === 2 || user.role === 3) {
       const settings2 = {
         method: 'PUT',
         headers: {
@@ -438,7 +435,7 @@ export default function AuthProvider({children}) {
       } catch (error) {
         console.error('Error:', error);
       }
-      if(user.role === 2){
+      if (user.role === 2) {
         const settings3 = {
           method: 'PUT',
           headers: {
@@ -446,7 +443,8 @@ export default function AuthProvider({children}) {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            photo: values.photo,
+            agentRole: user.role,
+            photo: teacher.photo,
             video: values.video,
             graduation_area: values.graduation_area,
             degree: values.degree,
@@ -465,34 +463,33 @@ export default function AuthProvider({children}) {
         } catch (error) {
           console.error('Error:', error);
         }
-      }  
+      }
     }
   }
-  
-  async function storageTypeUser(data){
-    await AsyncStorage.setItem('Auth_typeUser', JSON.stringify(data))
+
+  async function storageTypeUser(data) {
+    await AsyncStorage.setItem('Auth_typeUser', JSON.stringify(data));
   }
 
-  async function storageUser(data){
-    await AsyncStorage.setItem('Auth_user', JSON.stringify(data))
+  async function storageUser(data) {
+    await AsyncStorage.setItem('Auth_user', JSON.stringify(data));
   }
 
-  async function storageStudent(data){
-    await AsyncStorage.setItem('Auth_student', JSON.stringify(data))
+  async function storageStudent(data) {
+    await AsyncStorage.setItem('Auth_student', JSON.stringify(data));
   }
 
-  async function storageTeacher(data){
-    await AsyncStorage.setItem('Auth_teacher', JSON.stringify(data))
+  async function storageTeacher(data) {
+    await AsyncStorage.setItem('Auth_teacher', JSON.stringify(data));
   }
 
-  async function signOut(){
-    await AsyncStorage.clear()
-    .then(()=>{
-      setUser(null)
-      setTypeUser(null)
-      setStudent(null)
-      setTeacher(null)
-    })
+  async function signOut() {
+    await AsyncStorage.clear().then(() => {
+      setUser(null);
+      setTypeUser(null);
+      setStudent(null);
+      setTeacher(null);
+    });
   }
 
   return (

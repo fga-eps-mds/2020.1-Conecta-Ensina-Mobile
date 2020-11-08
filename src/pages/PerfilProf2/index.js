@@ -8,10 +8,16 @@ import gradeResolver from '../../services/gradeResolver';
 
 import {AuthContext} from '../../contexts/auth';
 
-import {TextContainer, Container, InfoContainer} from './styles';
+import {
+  TextContainer,
+  Container,
+  InfoContainer,
+  ContainerBotao,
+  ButtonContainer,
+} from './styles';
 
-export default function PerfilProf2() {
-  const {user, student, teacher} = useContext(AuthContext);
+export default function PerfilProf2({navigation}) {
+  const {user, student, teacher, signOut} = useContext(AuthContext);
   return (
     <Theme>
       <Background1>
@@ -104,6 +110,18 @@ export default function PerfilProf2() {
             </TextContainer>
           </InfoContainer>
         </Container>
+        <ContainerBotao>
+          <ButtonContainer onPress={() => navigation.navigate('EditTeacher')}>
+            <CustomText white bigSmall>
+              Editar
+            </CustomText>
+          </ButtonContainer>
+          <ButtonContainer onPress={() => signOut()}>
+            <CustomText white bigSmall>
+              Sair
+            </CustomText>
+          </ButtonContainer>
+        </ContainerBotao>
       </Background1>
     </Theme>
   );
