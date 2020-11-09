@@ -4,7 +4,8 @@ import Home from '../pages/Home';
 import Subjects from '../pages/Subjects';
 import Filters from '../pages/Filters';
 import Teachers from '../pages/Teachers';
-import Profile from '../pages/Filters';
+import Profile from '../pages/Profile';
+import TeacherProfile from '../pages/TeacherProfile';
 
 const AlunoStack = createStackNavigator();
 
@@ -34,6 +35,11 @@ function AlunoRoutes() {
       <AlunoStack.Screen
         name="Profile"
         component={Profile}
+        options={{headerShown: false}}
+      />
+      <AlunoStack.Screen
+        name="TeacherProfile"
+        component={TeacherProfile}
         options={{headerShown: false}}
       />
     </AlunoStack.Navigator>

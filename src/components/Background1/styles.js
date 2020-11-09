@@ -16,7 +16,7 @@ export const WhiteContainer = styled.View`
   border-top-right-radius: 20px;
 `;
 
-export const UserContainer = styled.TouchableOpacity`
+export const UserContainer = styled.View`
   flex-direction: row-reverse;
   flex: 22;
   margin-left: 30px;
@@ -28,7 +28,7 @@ export const TextoContainer = styled.View`
   margin-right: 35px;
 `;
 
-export const UserAvatar = styled.View`
+export const UserAvatar = styled.TouchableOpacity`
   width: 58px;
   height: 58px;
   border-radius: 1000px;

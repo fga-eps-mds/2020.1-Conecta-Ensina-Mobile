@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-export const ListMaterias = styled.FlatList.attrs(() => ({
+export const TeacherList = styled.FlatList.attrs(() => ({
   contentContainerStyle: {
     marginLeft: '7.7%',
   },

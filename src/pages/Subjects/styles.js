@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-export const ListMaterias = styled.FlatList`
+export const ListSubjects = styled.FlatList`
   align-self: center;
 `;
 

@@ -7,4 +7,5 @@ export const RedContainer = styled.View`
   border-radius: 15px;
   justify-content: center;
   align-items: center;
+  text-align: center;
 `;
