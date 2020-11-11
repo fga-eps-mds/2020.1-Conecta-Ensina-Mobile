@@ -3,6 +3,7 @@ import SwitchSelector from 'react-native-switch-selector';
 import {Container, ContainerRow} from './styles';
 import {withTheme} from 'styled-components/native';
 import CustomText from '../CustomText';
+import {} from 'react-native';
 
 function SwitchAdulthood({theme, onChange, onBlur, text, testID}) {
   const estiloOptions = [

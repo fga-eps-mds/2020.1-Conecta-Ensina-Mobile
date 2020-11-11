@@ -22,7 +22,9 @@ export default function Home({navigation}) {
     {id: '2', name: 'Idiomas', img: require('../../assets/books.png')},
     {id: '3', name: 'Vestibular', img: require('../../assets/books.png')},
   ]);
-  const {classroom, loadNextClass} = useContext(ClassroomContext);
+  const {classroom, loadNextClass, firstClass, loadUserClasses} = useContext(
+    ClassroomContext,
+  );
   const [selectedId, setSelectedId] = useState(null);
   const [params, setParams] = useState(null);
 
@@ -30,34 +32,37 @@ export default function Home({navigation}) {
     if (selectedId !== null) {
       setParams(selectedId);
     }
-    if (classroom !== {}) {
+    if (firstClass !== {}) {
       loadNextClass();
+    }
+    if (classroom !== {}) {
+      loadUserClasses();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const renderItem = ({item}) => {
-    const backgroundColor =
-      item.id === selectedId ? theme.colors.azulClaro : theme.colors.cinzaClaro;
-    return (
-      <SquareButton
-        data={item}
-        onPress={() => setSelectedId(item.id)}
-        img={require('../../assets/books.png')}
-        style={{backgroundColor}}
-      />
-    );
-  };
-
   return (
     <Theme>
-      <Background1 navigation={navigation} page={'Perfil'}>
+      <Background1 navigation={navigation} page={'Profile'}>
         <ListFiltro
           horizontal
           data={filtros}
           extraData={selectedId}
           keyExtractor={(item) => item.id}
-          renderItem={renderItem}
+          renderItem={({item}) => {
+            const backgroundColor =
+              item.id === selectedId
+                ? theme.colors.azulClaro
+                : theme.colors.cinzaClaro;
+            return (
+              <SquareButton
+                data={item}
+                onPress={() => setSelectedId(item.id)}
+                img={require('../../assets/books.png')}
+                style={{backgroundColor}}
+              />
+            );
+          }}
         />
         <ContainerAula>
           <ContainerHorizontal>
@@ -65,7 +70,7 @@ export default function Home({navigation}) {
             <CustomText bigSmall>Proxima Aula</CustomText>
           </ContainerHorizontal>
           <BigTextContainer>
-            <CustomText>{classroom.dtclass}</CustomText>
+            <CustomText>{firstClass.dtclass}</CustomText>
           </BigTextContainer>
           <ContainerHorizontal>
             <CustomText bigSmall>16 - 18 Horas</CustomText>
@@ -81,7 +86,7 @@ export default function Home({navigation}) {
           </ButtonAulaUrgente>
           <ButtonMarcarAula
             onPress={() => {
-              navigation.navigate('Materias', {params}); /*}catch(error){}*/
+              navigation.navigate('Subjects', {params}); /*}catch(error){}*/
             }}>
             <Icon source={require('../../assets/books.png')} />
             <CustomText white medium>

@@ -4,7 +4,7 @@ import {Formik} from 'formik';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
 import RegField from '../../components/RegField';
-import SeriePicker from '../../components/SeriePicker';
+import GeneralPicker from '../../components/GeneralPicker';
 import * as yup from 'yup';
 
 import {AuthContext} from '../../contexts/auth';
@@ -18,22 +18,22 @@ import {
 
 export default function Edit({navigation}) {
   const {user, student, updateUser} = useContext(AuthContext);
-  function handleEdit(values){
-    updateUser(values, user.id)
-    navigation.navigate('Perfil')
+  function handleEdit(values) {
+    updateUser(values, user.id);
+    navigation.navigate('Profile');
   }
 
-  let initials = { 
-    name: ''/*user && user.firstName*/,
-    surname: ''/*user && user.lastName*/,
-    email: ''/*user && user.email*/,
-    cellphone: ''/*student && student.cep*/,
+  let initials = {
+    name: '' /*user && user.firstName*/,
+    surname: '' /*user && user.lastName*/,
+    email: '' /*user && user.email*/,
+    cellphone: '' /*student && student.cep*/,
     grade: '',
     school: '',
     cep: '',
     num: '',
     details: '',
-    description: ''
+    description: '',
   };
 
   let Schema = yup.object().shape({
@@ -73,8 +73,7 @@ export default function Edit({navigation}) {
   return (
     <Theme>
       <Background1>
-
-          <Formik
+        <Formik
           initialValues={initials}
           validateOnChange={false}
           validateOnBlur={false}
@@ -87,131 +86,140 @@ export default function Edit({navigation}) {
             values,
             errors,
             touched,
-          }) => ( <>     
-          <Container>
-            <InfoContainer>
-              <TextContainer>
-                <RegField placeholder={user && user.firstName} 
-                          value={values.name}
-                          onChangeText={handleChange('name')}
-                />
-                {errors.name && touched.name && (
-                  <CustomText black small>
-                    {errors.name}
-                  </CustomText>
-                )}
-              </TextContainer>
-              <TextContainer>
-                <RegField placeholder={user && user.lastName} 
-                          value={values.surname}
-                          onChangeText={handleChange('surname')}
-                />
-                {errors.surname && touched.surname && (
-                  <CustomText black small>
-                    {errors.surname}
-                  </CustomText>
-                )}
-              </TextContainer>
-              <TextContainer>
-                <RegField placeholder={user && user.email} 
-                          value={values.email}
-                          onChangeText={handleChange('email')}
-                />
-                {errors.email && touched.email && (
-                  <CustomText black small>
-                    {errors.email}
-                  </CustomText>
-                )}
-              </TextContainer>
-              <TextContainer>
-                <RegField placeholder={user && user.cellphone} 
-                          value={values.cellphone}
-                          onChangeText={handleChange('cellphone')}
-                />
-                {errors.cellphone && (
-                  <CustomText black small>
-                    {errors.cellphone}
-                  </CustomText>
-                )}
-              </TextContainer>
-              <TextContainer>
-                <RegField placeholder={student && student.cep} 
-                          value={values.cep}
-                          onChangeText={handleChange('cep')}
-                />
-                {errors.cep && (
-                  <CustomText black small>
-                    {errors.cep}
-                  </CustomText>
-                )}
-              </TextContainer>
-              <TextContainer>
-                <RegField placeholder={student && student.number.toString()} 
-                          value={values.num}
-                          onChangeText={handleChange('num')}
-                />
-                {errors.num && (
-                  <CustomText black small>
-                    {errors.num}
-                  </CustomText>
-                )}
-              </TextContainer>
-              <TextContainer>
-                <RegField placeholder={student && student.details} 
-                          value={values.details}
-                          onChangeText={handleChange('details')}
-                />
-                {errors.details && (
-                  <CustomText black small>
-                    {errors.details}
-                  </CustomText>
-                )}
-              </TextContainer>
-              <TextContainer>
-                <RegField placeholder={student && student.description} 
-                          value={values.description}
-                          onChangeText={handleChange('description')}
-                />
-                {errors.description && (
-                  <CustomText black small>
-                    {errors.description}
-                  </CustomText>
-                )}
-              </TextContainer>
-              <TextContainer>
-                <RegField placeholder={student && student.institution} 
-                          value={values.school}
-                          onChangeText={handleChange('school')}
-                />
-                {errors.institution && (
-                  <CustomText black small>
-                    {errors.school}
-                  </CustomText>
-                )}
-              </TextContainer>
-              <TextContainer>
-                <SeriePicker
+          }) => (
+            <>
+              <Container>
+                <InfoContainer>
+                  <TextContainer>
+                    <RegField
+                      placeholder={user && user.firstName}
+                      value={values.name}
+                      onChangeText={handleChange('name')}
+                    />
+                    {errors.name && touched.name && (
+                      <CustomText black small>
+                        {errors.name}
+                      </CustomText>
+                    )}
+                  </TextContainer>
+                  <TextContainer>
+                    <RegField
+                      placeholder={user && user.lastName}
+                      value={values.surname}
+                      onChangeText={handleChange('surname')}
+                    />
+                    {errors.surname && touched.surname && (
+                      <CustomText black small>
+                        {errors.surname}
+                      </CustomText>
+                    )}
+                  </TextContainer>
+                  <TextContainer>
+                    <RegField
+                      placeholder={user && user.email}
+                      value={values.email}
+                      onChangeText={handleChange('email')}
+                    />
+                    {errors.email && touched.email && (
+                      <CustomText black small>
+                        {errors.email}
+                      </CustomText>
+                    )}
+                  </TextContainer>
+                  <TextContainer>
+                    <RegField
+                      placeholder={user && user.cellphone}
+                      value={values.cellphone}
+                      onChangeText={handleChange('cellphone')}
+                    />
+                    {errors.cellphone && (
+                      <CustomText black small>
+                        {errors.cellphone}
+                      </CustomText>
+                    )}
+                  </TextContainer>
+                  <TextContainer>
+                    <RegField
+                      placeholder={student && student.cep}
+                      value={values.cep}
+                      onChangeText={handleChange('cep')}
+                    />
+                    {errors.cep && (
+                      <CustomText black small>
+                        {errors.cep}
+                      </CustomText>
+                    )}
+                  </TextContainer>
+                  <TextContainer>
+                    <RegField
+                      placeholder={student && student.number.toString()}
+                      value={values.num}
+                      onChangeText={handleChange('num')}
+                    />
+                    {errors.num && (
+                      <CustomText black small>
+                        {errors.num}
+                      </CustomText>
+                    )}
+                  </TextContainer>
+                  <TextContainer>
+                    <RegField
+                      placeholder={student && student.details}
+                      value={values.details}
+                      onChangeText={handleChange('details')}
+                    />
+                    {errors.details && (
+                      <CustomText black small>
+                        {errors.details}
+                      </CustomText>
+                    )}
+                  </TextContainer>
+                  <TextContainer>
+                    <RegField
+                      placeholder={student && student.description}
+                      value={values.description}
+                      onChangeText={handleChange('description')}
+                    />
+                    {errors.description && (
+                      <CustomText black small>
+                        {errors.description}
+                      </CustomText>
+                    )}
+                  </TextContainer>
+                  <TextContainer>
+                    <RegField
+                      placeholder={student && student.institution}
+                      value={values.school}
+                      onChangeText={handleChange('school')}
+                    />
+                    {errors.institution && (
+                      <CustomText black small>
+                        {errors.school}
+                      </CustomText>
+                    )}
+                  </TextContainer>
+                  <TextContainer>
+                    <GeneralPicker
+                      grade
                       value={values.grade}
                       onChange={(value) => setFieldValue('grade', value, false)}
-                />
-                {errors.grade && (
-                  <CustomText black small>
-                    {errors.grade}
-                  </CustomText>
-                )}
-              </TextContainer>
-            </InfoContainer>       
-          </Container>
-        <ButtonContainer onPress={handleSubmit}>
-          <CustomText white bigSmall>
-            Salvar
-          </CustomText>
-        </ButtonContainer>
-        </>
-              )}
-              
-            </Formik>
-
+                    />
+                    {errors.grade && (
+                      <CustomText black small>
+                        {errors.grade}
+                      </CustomText>
+                    )}
+                  </TextContainer>
+                </InfoContainer>
+              </Container>
+              <ButtonContainer onPress={handleSubmit}>
+                <CustomText white bigSmall>
+                  Salvar
+                </CustomText>
+              </ButtonContainer>
+            </>
+          )}
+        </Formik>
       </Background1>
     </Theme>
   );

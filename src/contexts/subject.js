@@ -8,7 +8,7 @@ export default function SubjectProvider({children}) {
   const [subject, setSubject] = useState({});
   const {Host} = useContext(AuthContext);
 
-  async function getSubjects() {
+  async function loadSubjects() {
     const response = await Subj.getAllSubjects(Host);
     if (subject !== response) {
       console.log(response);
@@ -17,7 +17,7 @@ export default function SubjectProvider({children}) {
   }
 
   return (
-    <SubjectContext.Provider value={{subject, getSubjects}}>
+    <SubjectContext.Provider value={{subject, loadSubjects}}>
       {children}
     </SubjectContext.Provider>
   );

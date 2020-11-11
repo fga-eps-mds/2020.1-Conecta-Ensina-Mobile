@@ -4,7 +4,7 @@ import {Formik} from 'formik';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
 import RegField from '../../components/RegField';
-import SeriePicker from '../../components/SeriePicker';
+import GeneralPicker from '../../components/GeneralPicker';
 import * as yup from 'yup';
 
 import {AuthContext} from '../../contexts/auth';
@@ -20,7 +20,7 @@ export default function EditTeacher({navigation}) {
   const {user, student, updateUser, teacher} = useContext(AuthContext);
   function handleEdit(values) {
     updateUser(values, user.id);
-    navigation.navigate('PerfilProf2');
+    navigation.navigate('TeacherProfile2');
   }
 
   let initials = {
@@ -211,7 +211,8 @@ export default function EditTeacher({navigation}) {
                     )}
                   </TextContainer>
                   <TextContainer>
-                    <SeriePicker
+                    <GeneralPicker
+                      grade
                       value={values.grade}
                       onChange={(value) => setFieldValue('grade', value, false)}
                     />

@@ -10,14 +10,17 @@ export async function getNextClassroom(Host) {
   }
 }
 
-export async function createClass(
-  user,
-  teacher,
-  subject,
-  filtros,
-  student,
-  Host,
-) {
+export async function getUserClassroom(Host, id) {
+  const fetchResponse = await fetch(`${Host}/api/classroom/userClasses/${id}`);
+  try {
+    const data = await fetchResponse.json();
+    return data.data.classroom;
+  } catch (error) {
+    return error;
+  }
+}
+
+export async function createClass(user, teacher, filter, student, Host) {
   const response = await fetch(`${Host}/api/classroom/create`, {
     method: 'POST',
     headers: {
@@ -26,17 +29,24 @@ export async function createClass(
     },
     body: JSON.stringify({
       agentRole: user.role,
-      teacher: teacher.id,
+      teacher: teacher,
       student: user.id,
-      grade: subject.grade,
-      subject: subject.id,
-      dtclass: new Date(),
-      duration: 1 /*filtro.duration*/,
+      grade: student.grade,
+      subject: filter.subject,
+      dtclass: filter.dtClass,
+      duration: filter.duration,
       cep: student.cep,
       number: student.number,
-      details: '',
+      details: 'oi',
     }),
   });
+  try {
+    const data = await response.json();
+    console.log('Success: ', data);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 
   console.log(response);
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../pages/Home';
-import Materias from '../pages/Materias';
-import Filtros from '../pages/Filtros';
-import Professores from '../pages/Professores';
-import Perfil from '../pages/Perfil';
-import PerfilProf from '../pages/PerfilProf';
+import Subjects from '../pages/Subjects';
+import Filters from '../pages/Filters';
+import Teachers from '../pages/Teachers';
+import Profile from '../pages/Profile';
+import TeacherProfile from '../pages/TeacherProfile';
 import Edit from '../pages/Edit';
 
 const AlunoStack = createStackNavigator();
@@ -19,28 +19,28 @@ function AlunoRoutes() {
         options={{headerShown: false}}
       />
       <AlunoStack.Screen
-        name="Materias"
-        component={Materias}
+        name="Subjects"
+        component={Subjects}
         options={{headerShown: false}}
       />
       <AlunoStack.Screen
-        name="Filtros"
-        component={Filtros}
+        name="Filters"
+        component={Filters}
         options={{headerShown: false}}
       />
       <AlunoStack.Screen
-        name="Professores"
-        component={Professores}
+        name="Teachers"
+        component={Teachers}
         options={{headerShown: false}}
       />
       <AlunoStack.Screen
-        name="Perfil"
-        component={Perfil}
+        name="Profile"
+        component={Profile}
         options={{headerShown: false}}
       />
       <AlunoStack.Screen
-        name="PerfilProf"
-        component={PerfilProf}
+        name="TeacherProfile"
+        component={TeacherProfile}
         options={{headerShown: false}}
       />
       <AlunoStack.Screen

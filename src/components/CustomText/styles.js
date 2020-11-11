@@ -24,4 +24,5 @@ export const Texto = styled.Text`
       ? props.theme.colors.fundoAzul
       : props.theme.colors.cinzaEscuro};
   font-family: ${(props) => props.theme.font};
+  text-align: center;
 `;
