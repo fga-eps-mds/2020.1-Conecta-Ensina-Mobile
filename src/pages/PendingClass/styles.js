@@ -16,10 +16,13 @@ export const ListaVisualAula = styled.FlatList`
   align-self: center;
 `;
 
-export const ButtonVerMais = styled.TouchableOpacity` 
-    width: 100px;
-    height: 30px    
-    background-color: ${(props) => props.theme.colors.fundoAzul};
+export const ButtonVerMais = styled.TouchableOpacity`
+  width: 100px;
+  height: 30px;
+  background-color: ${(props) => props.theme.colors.fundoAzul};
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
 `;
 
 export const ContainerButtons = styled.View`
