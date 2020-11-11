@@ -1,0 +1,486 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing teacher profile page Should renders page 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#184E79",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#184E79",
+          "flexBasis": 0,
+          "flexGrow": 0.7,
+          "flexShrink": 1,
+          "justifyContent": "center",
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "marginBottom": "8.4%",
+          },
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../src/assets/logo.png",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "height": 120,
+              "width": 120,
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 100,
+              "height": 58,
+              "justifyContent": "center",
+              "marginTop": "5.5%",
+              "width": 58,
+            },
+          ]
+        }
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../src/assets/user_blue.png",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "height": "63%",
+                "width": "52%",
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        marginTop={
+          Object {
+            "value": "14%",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "marginBottom": 0,
+              "marginTop": "14%",
+            },
+          ]
+        }
+      >
+        <Text
+          smallMedium={true}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Roboto",
+                "fontSize": 20,
+                "textAlign": "center",
+              },
+            ]
+          }
+          white={true}
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderTopLeftRadius": 20,
+          "borderTopRightRadius": 20,
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+            "width": "100%",
+          },
+        ]
+      }
+    >
+      <View
+        marginBot={
+          Object {
+            "value": "1%",
+          }
+        }
+        marginTop={
+          Object {
+            "value": "2%",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "marginBottom": "1%",
+              "marginTop": "2%",
+            },
+          ]
+        }
+      >
+        <Text
+          black={true}
+          smallMedium={true}
+          style={
+            Array [
+              Object {
+                "color": "black",
+                "fontFamily": "Roboto",
+                "fontSize": 20,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Disciplina
+        </Text>
+      </View>
+      <View
+        medium={true}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#E46270",
+              "borderRadius": 15,
+              "height": 40,
+              "justifyContent": "center",
+              "textAlign": "center",
+              "width": 196,
+            },
+          ]
+        }
+      >
+        <Text
+          small={true}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "textAlign": "center",
+              },
+            ]
+          }
+          white={true}
+        />
+      </View>
+      <View
+        marginBot={
+          Object {
+            "value": "1%",
+          }
+        }
+        marginTop={
+          Object {
+            "value": "2%",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "marginBottom": "1%",
+              "marginTop": "2%",
+            },
+          ]
+        }
+      >
+        <Text
+          black={true}
+          smallMedium={true}
+          style={
+            Array [
+              Object {
+                "color": "black",
+                "fontFamily": "Roboto",
+                "fontSize": 20,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Formação
+        </Text>
+      </View>
+      <View
+        medium={true}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#E46270",
+              "borderRadius": 15,
+              "height": 40,
+              "justifyContent": "center",
+              "textAlign": "center",
+              "width": 196,
+            },
+          ]
+        }
+      >
+        <Text
+          small={true}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "textAlign": "center",
+              },
+            ]
+          }
+          white={true}
+        >
+          Invalid Grade
+        </Text>
+      </View>
+      <View
+        marginBot={
+          Object {
+            "value": "1%",
+          }
+        }
+        marginTop={
+          Object {
+            "value": "2%",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "marginBottom": "1%",
+              "marginTop": "2%",
+            },
+          ]
+        }
+      >
+        <Text
+          black={true}
+          smallMedium={true}
+          style={
+            Array [
+              Object {
+                "color": "black",
+                "fontFamily": "Roboto",
+                "fontSize": 20,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Universidade
+        </Text>
+      </View>
+      <View
+        medium={true}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#E46270",
+              "borderRadius": 15,
+              "height": 40,
+              "justifyContent": "center",
+              "textAlign": "center",
+              "width": 196,
+            },
+          ]
+        }
+      >
+        <Text
+          small={true}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "textAlign": "center",
+              },
+            ]
+          }
+          white={true}
+        />
+      </View>
+      <View
+        marginBot={
+          Object {
+            "value": "1%",
+          }
+        }
+        marginTop={
+          Object {
+            "value": "2%",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "marginBottom": "1%",
+              "marginTop": "2%",
+            },
+          ]
+        }
+      >
+        <Text
+          black={true}
+          smallMedium={true}
+          style={
+            Array [
+              Object {
+                "color": "black",
+                "fontFamily": "Roboto",
+                "fontSize": 20,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Especialidade
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#E46270",
+              "borderRadius": 15,
+              "height": 60,
+              "justifyContent": "center",
+              "textAlign": "center",
+              "width": 280,
+            },
+          ]
+        }
+      >
+        <Text
+          small={true}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "textAlign": "center",
+              },
+            ]
+          }
+          white={true}
+        >
+          Ja fiz curso para lecionar para crianças dentro do espectro de deficit de atençao.
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "justifyContent": "center",
+              "marginTop": 0,
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "backgroundColor": "#297FB8",
+              "borderRadius": 8,
+              "height": 31,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": 138,
+            }
+          }
+          testID="teacherProfileButton"
+        >
+          <Text
+            bigSmall={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          >
+            Continuar
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

@@ -1,26 +1,31 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Theme from '../../../Theme';
 import CustomText from '../CustomText';
 import {
   BlueContainer,
   WhiteContainer,
-  UserContainer,
   TextoContainer,
   UserAvatar,
   UserImage,
+  UserContainer,
 } from './styles';
+import {AuthContext} from '../../contexts/auth';
 
-export default function Background1({children}) {
+export default function Background1({children, navigation, page}) {
+  const {user} = useContext(AuthContext);
   return (
     <Theme>
       <BlueContainer>
         <UserContainer>
-          <UserAvatar>
+          <UserAvatar
+            onPress={() => {
+              navigation.navigate(page, {user}); /*}catch(error){}*/
+            }}>
             <UserImage source={require('../../assets/user_blue.png')} />
           </UserAvatar>
           <TextoContainer>
             <CustomText white medium>
-              Nome do Aluno
+              {user && user.firstName}
             </CustomText>
           </TextoContainer>
         </UserContainer>
