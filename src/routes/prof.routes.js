@@ -6,6 +6,8 @@ import PendingClass from '../pages/PendingClass';
 import CompletedClass from '../pages/CompletedClass';
 import TeacherProfile2 from '../pages/TeacherProfile2';
 import PendingClassConfirmation from '../pages/PendingClassConfirmation';
+import EditTeacher from '../pages/EditTeacher';
+
 
 // import { Container } from './styles';
 const ProfStack = createStackNavigator();
@@ -41,6 +43,11 @@ function ProfRoutes() {
       <ProfStack.Screen
         name="PendingClassConfirmation"
         component={PendingClassConfirmation}
+        options={{headerShown: false}}
+      />
+      <ProfStack.Screen
+        name="EditTeacher"
+        component={EditTeacher}
         options={{headerShown: false}}
       />
     </ProfStack.Navigator>

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import Theme from '../../../Theme';
 
 import Background1 from '../../components/Background1';
@@ -8,10 +8,16 @@ import gradeResolver from '../../services/gradeResolver';
 
 import {AuthContext} from '../../contexts/auth';
 
-import {TextContainer, Container, InfoContainer} from './styles';
+import {
+  TextContainer,
+  Container,
+  InfoContainer,
+  ButtonContainer,
+  ContainerBotao,
+} from './styles';
 
 export default function Profile({navigation}) {
-  const {user, student} = useContext(AuthContext);
+  const {user, student, signOut} = useContext(AuthContext);
   return (
     <Theme>
       <Background1 navigation={navigation}>
@@ -67,13 +73,20 @@ export default function Profile({navigation}) {
                 {student && student.institution}
               </CustomText>
             </TextContainer>
-            <TextContainer>
-              <CustomText white bigSmall>
-                {gradeResolver(student.grade)}
-              </CustomText>
-            </TextContainer>
           </InfoContainer>
         </Container>
+        <ContainerBotao>
+          <ButtonContainer onPress={() => navigation.navigate('Edit')}>
+            <CustomText white bigSmall>
+              Editar
+            </CustomText>
+          </ButtonContainer>
+          <ButtonContainer onPress={() => signOut()}>
+            <CustomText white bigSmall>
+              Sair
+            </CustomText>
+          </ButtonContainer>
+        </ContainerBotao>
       </Background1>
     </Theme>
   );
