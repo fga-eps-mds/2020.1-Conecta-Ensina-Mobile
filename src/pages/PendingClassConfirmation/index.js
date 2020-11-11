@@ -15,7 +15,7 @@ export default function ConfirmaProf({route, navigation}) {
 
   const getStudent = async () => {
     const fetchResponse = await fetch(
-      'http://192.168.0.12:3333/api/student/' + item.student,
+      'http://192.168.15.17:3333/api/student/' + item.student,
     );
     try {
       const data = await fetchResponse.json();
@@ -31,7 +31,7 @@ export default function ConfirmaProf({route, navigation}) {
 
   const getUser = async () => {
     const fetchResponse = await fetch(
-      'http://192.168.0.12:3333/api/user/' + item.student,
+      'http://192.168.15.17:3333/api/user/' + item.student,
     );
     try {
       const data = await fetchResponse.json();
@@ -57,7 +57,7 @@ export default function ConfirmaProf({route, navigation}) {
       }),
     };
     const fetchResponse1 = await fetch(
-      'http://192.168.0.12:3333/api/classroom/status/' + id,
+      'http://192.168.15.17:3333/api/classroom/status/' + id,
       settings,
     );
     try {
@@ -73,7 +73,7 @@ export default function ConfirmaProf({route, navigation}) {
       <Background1 navigation={navigation} page={'PerfilProf2'}>
         <Container>
           <ContainerGrande>
-            <CustomText white> Data: {item.dtClass}</CustomText>
+            <CustomText white> Data: {item.dtclass}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
             <CustomText white>Distância: {student.cep}</CustomText>
@@ -106,12 +106,20 @@ export default function ConfirmaProf({route, navigation}) {
           </ContainerGrande>
         </Container>
         <ContainerButton>
-          <ButtonConfirmar onPress={() => updateStatus(item.id, 1)}>
+          <ButtonConfirmar
+            onPress={() => {
+              updateStatus(item.id, 1);
+              navigation.navigate('PendingClass');
+            }}>
             <CustomText white bigSmall>
               Aceitar
             </CustomText>
           </ButtonConfirmar>
-          <ButtonRecusar onPress={() => updateStatus(item.id, -1)}>
+          <ButtonRecusar
+            onPress={() => {
+              updateStatus(item.id, -1);
+              navigation.navigate('PendingClass');
+            }}>
             <CustomText white bigSmall>
               Recusar
             </CustomText>
