@@ -9,6 +9,7 @@ export const theme = {
     vermelho: '#E46270',
     azulClaro: '#297FB8',
     verde: '#3FB93B',
+    verdeClaro: '#7ED957',
     verdeEscuro: '#2D9D49',
     botãoLoginNaoApertado: '#8B99A5',
     branco: '#ffffff',

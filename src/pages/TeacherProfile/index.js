@@ -110,7 +110,7 @@ export default function TeacherProfile({navigation, route}) {
               testID="teacherProfileButton"
               onPress={() => {
                 createClass(teacher.id);
-                navigation.navigate('Home');
+                navigation.navigate('ClassroomDetails');
               }}
             />
           </ContainerW>

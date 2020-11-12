@@ -11,7 +11,7 @@ export default function AuthProvider({children}) {
   const [student, setStudent] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const Host = 'http://192.168.1.132:3333';
+  const Host = 'http://10.0.0.103:3333';
 
   useEffect(() => {
     async function loadStorage() {
@@ -157,11 +157,14 @@ export default function AuthProvider({children}) {
       if (data.message) {
         if (data.message === 'Estudante criado com sucesso!') {
           ok = true;
-          
-          renderData(data.data.user.id, data.data.user.role, data.data.user.password);
+
+          renderData(
+            data.data.user.id,
+            data.data.user.role,
+            data.data.user.password,
+          );
           setTypeUser('Aluno');
           storageTypeUser(data.data.user.role);
-
         } else if (data.message.name) {
           if (
             data.message.name === 'SequelizeUniqueConstraintError' &&
@@ -224,7 +227,11 @@ export default function AuthProvider({children}) {
       if (data.message) {
         if (data.message === 'Professor criado com sucesso!') {
           ok = true;
-          renderData(data.data.user.id, data.data.user.role, data.data.user.password);
+          renderData(
+            data.data.user.id,
+            data.data.user.role,
+            data.data.user.password,
+          );
           setTypeUser('Professor');
           storageTypeUser(data.data.user.role);
         } else if (data.message.name) {
@@ -415,7 +422,7 @@ export default function AuthProvider({children}) {
         }
       }
     }
-    renderData(user.id, user.role, user.password)
+    renderData(user.id, user.role, user.password);
   }
 
   async function storageTypeUser(data) {
