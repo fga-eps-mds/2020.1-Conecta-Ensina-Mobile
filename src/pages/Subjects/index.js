@@ -7,7 +7,7 @@ import ContinueContainer from '../../components/ContinueContainer';
 import Background1 from '../../components/Background1';
 import {ListSubjects, Container} from './styles';
 
-export default function Subjects({route, navigation}) {
+export default function Subjects({navigation}) {
   const [selectedId, setSelectedId] = useState(null);
 
   const {setSubjectFilter} = useContext(FiltersContext);

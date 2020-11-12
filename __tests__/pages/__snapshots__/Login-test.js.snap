@@ -197,6 +197,7 @@ exports[`testing Login page should be match snapshot 1`] = `
                   "textAlign": "center",
                 }
               }
+              testID="password"
               underlineColorAndroid="transparent"
               value=""
             />
@@ -224,6 +225,7 @@ exports[`testing Login page should be match snapshot 1`] = `
               "width": 200,
             }
           }
+          testID="signIn"
         >
           <Text
             medium={true}
@@ -244,7 +246,7 @@ exports[`testing Login page should be match snapshot 1`] = `
         </View>
         <View
           accessible={true}
-          focusable={false}
+          focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -259,9 +261,9 @@ exports[`testing Login page should be match snapshot 1`] = `
               "opacity": 1,
             }
           }
+          testID="signUp"
         >
           <Text
-            onPress={[Function]}
             style={
               Array [
                 Object {
