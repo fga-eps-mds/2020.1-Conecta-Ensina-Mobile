@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import Theme from '../../../Theme';
 import Background1 from '../../components/Background1';
 import {AuthContext} from '../../contexts/auth';
@@ -27,7 +27,7 @@ export default function PendingClass({navigation}) {
       }),
     };
     const fetchResponse1 = await fetch(
-      'http://192.168.0.12:3333/api/classroom/',
+      'http://192.168.15.17:3333/api/classroom/',
       settings,
     );
     try {
@@ -38,7 +38,6 @@ export default function PendingClass({navigation}) {
       return error;
     }
   };
-
   const [classes, setClasses] = useState(getClass);
 
   const renderItem = ({item}) => {
@@ -46,7 +45,7 @@ export default function PendingClass({navigation}) {
       <ContainerVisualAula>
         <ContainerTexto>
           <CustomText smaller black>
-            Horario: 16 - 17h
+            Horario: {item.dtclass}
           </CustomText>
           <CustomText smaller black>
             Distancia: {item.cep}

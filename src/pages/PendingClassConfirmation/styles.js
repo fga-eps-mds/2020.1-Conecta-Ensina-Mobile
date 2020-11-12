@@ -55,14 +55,20 @@ export const ContainerButton = styled.View`
   width: 90%;
 `;
 
-export const ButtonConfirmar = styled.TouchableOpacity` 
-    width: 150px;
-    height: 35px    
-    background-color: ${(props) => props.theme.colors.verdeEscuro};
+export const ButtonConfirmar = styled.TouchableOpacity`
+  width: 150px;
+  height: 35px;
+  background-color: ${(props) => props.theme.colors.verdeEscuro};
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
 `;
 
 export const ButtonRecusar = styled.TouchableOpacity`
   width: 150px;
   height: 35px;
   background-color: ${(props) => props.theme.colors.vermelho};
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
 `;

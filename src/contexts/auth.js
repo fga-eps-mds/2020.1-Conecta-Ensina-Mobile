@@ -1,4 +1,5 @@
-import React, {createContext, useState} from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
+import React, {createContext, useState, useEffect} from 'react';
 import {Alert} from 'react-native';
 
 export const AuthContext = createContext({});
@@ -8,8 +9,81 @@ export default function AuthProvider({children}) {
   const [typeUser, setTypeUser] = useState(null);
   const [teacher, setTeacher] = useState(null);
   const [student, setStudent] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const Host = 'http://10.0.0.103:3333';
+  const Host = 'http://192.168.1.132:3333';
+
+  useEffect(() => {
+    async function loadStorage() {
+      const storageTypeUser = await AsyncStorage.getItem('Auth_typeUser');
+      const storageUser = await AsyncStorage.getItem('Auth_user');
+
+      if (storageTypeUser) {
+        if (JSON.parse(storageTypeUser) === 1) {
+          setTypeUser('Adm');
+          setLoading(false);
+        } else if (JSON.parse(storageTypeUser) === 2) {
+          setTypeUser('Professor');
+          setLoading(false);
+        } else {
+          setTypeUser('Aluno');
+          setLoading(false);
+        }
+      }
+      if (storageUser) {
+        const dataUser = JSON.parse(storageUser);
+        let usuario = {
+          id: dataUser.id,
+          firstName: dataUser.firstName,
+          lastName: dataUser.lastName,
+          email: dataUser.email,
+          password: dataUser.password,
+          role: dataUser.role,
+          cellphone: dataUser.cellphone,
+        };
+        setUser(usuario);
+        setLoading(false);
+        if (dataUser.role == 2 || dataUser.role == 3) {
+          const storageStudent = await AsyncStorage.getItem('Auth_student');
+          if (storageStudent) {
+            const dataStudent = JSON.parse(storageStudent);
+            let estudante = {
+              birthdate: dataStudent.birthdate,
+              grade: dataStudent.grade,
+              institution: dataStudent.school,
+              cpf: dataStudent.cpf,
+              cep: dataStudent.cep,
+              number: dataStudent.number,
+              details: dataStudent.details,
+              description: dataStudent.description,
+              special: dataStudent.special,
+            };
+            setStudent(estudante);
+            setLoading(false);
+          }
+          if (dataUser.role == 2) {
+            const storageTeacher = await AsyncStorage.getItem('Auth_teacher');
+            if (storageTeacher) {
+              const dataTeacher = JSON.parse(storageTeacher);
+              let professor = {
+                photo: dataTeacher.photo,
+                video: dataTeacher.video,
+                graduation_area: dataTeacher.graduation_area,
+                degree: dataTeacher.degree,
+                bank: dataTeacher.bank,
+                agency: dataTeacher.agency,
+                account: dataTeacher.account,
+              };
+              setTeacher(professor);
+              setLoading(false);
+            }
+          }
+        }
+      }
+      setLoading(false);
+    }
+    loadStorage();
+  }, []);
 
   async function signIn(email, password) {
     const settings = {
@@ -30,7 +104,8 @@ export default function AuthProvider({children}) {
       if (data.message) {
         if (data.message === 'Login efetuado com sucesso!') {
           console.log('login efetuado');
-          renderData(data.id, data.role);
+          storageTypeUser(data.role);
+          renderData(data.id, data.role, password);
           if (data.role === 1) {
             setTypeUser('Adm');
             console.log('Adm');
@@ -82,29 +157,11 @@ export default function AuthProvider({children}) {
       if (data.message) {
         if (data.message === 'Estudante criado com sucesso!') {
           ok = true;
-          let usuario = {
-            id: data.data.user.id,
-            firstName: data.data.user.firstName,
-            lastName: data.data.user.lastName,
-            email: data.data.user.email,
-            password: data.data.user.password,
-            role: data.data.user.role,
-            cellphone: data.data.student.cellphone,
-          };
-          setUser(usuario);
+          
+          renderData(data.data.user.id, data.data.user.role, data.data.user.password);
+          setTypeUser('Aluno');
+          storageTypeUser(data.data.user.role);
 
-          let estudante = {
-            birthdate: data.data.student.birthdate,
-            grade: data.data.student.grade,
-            institution: data.data.student.school,
-            cpf: data.data.student.cpf,
-            cep: data.data.student.cep,
-            number: data.data.student.number,
-            details: data.data.student.details,
-            description: data.data.student.description,
-            special: data.data.student.special,
-          };
-          setStudent(estudante);
         } else if (data.message.name) {
           if (
             data.message.name === 'SequelizeUniqueConstraintError' &&
@@ -167,40 +224,9 @@ export default function AuthProvider({children}) {
       if (data.message) {
         if (data.message === 'Professor criado com sucesso!') {
           ok = true;
-          let usuario = {
-            id: data.data.user.id,
-            firstName: data.data.user.firstName,
-            lastName: data.data.user.lastName,
-            email: data.data.user.email,
-            password: data.data.user.password,
-            role: data.data.user.role,
-            cellphone: data.data.student.cellphone,
-          };
-          setUser(usuario);
-
-          let estudante = {
-            birthdate: data.data.student.birthdate,
-            grade: data.data.student.grade,
-            institution: data.data.student.school,
-            cpf: data.data.student.cpf,
-            cep: data.data.student.cep,
-            number: data.data.student.number,
-            details: data.data.student.details,
-            description: data.data.student.description,
-            special: data.data.student.special,
-          };
-          setStudent(estudante);
-
-          let professor = {
-            photo: data.data.teacher.photo,
-            video: data.data.teacher.video,
-            graduation_area: data.data.teacher.graduation_area,
-            degree: data.data.teacher.degree,
-            bank: data.data.teacher.bank,
-            agency: data.data.teacher.agency,
-            account: data.data.teacher.account,
-          };
-          setTeacher(professor);
+          renderData(data.data.user.id, data.data.user.role, data.data.user.password);
+          setTypeUser('Professor');
+          storageTypeUser(data.data.user.role);
         } else if (data.message.name) {
           if (
             data.message.name === 'SequelizeUniqueConstraintError' &&
@@ -243,7 +269,7 @@ export default function AuthProvider({children}) {
     );
   };
 
-  async function renderData(id, role) {
+  async function renderData(id, role, password) {
     var ok = false;
     try {
       let response = await fetch(`${Host}/api/user/` + id);
@@ -253,13 +279,14 @@ export default function AuthProvider({children}) {
         firstName: data.data.user.firstName,
         lastName: data.data.user.lastName,
         email: data.data.user.email,
-        password: data.data.user.password,
+        password: password,
         role: data.data.user.role,
         cellphone: data.data.user.cellphone,
       };
       if (role === 2 || role === 3) {
         ok = true;
       }
+      storageUser(usuario);
       setUser(usuario);
     } catch (error) {
       console.error(error);
@@ -271,7 +298,7 @@ export default function AuthProvider({children}) {
         let estudante = {
           birthdate: data.data.student.birthdate,
           grade: data.data.student.grade,
-          institution: data.data.student.school,
+          institution: data.data.student.institution,
           cpf: data.data.student.cpf,
           cep: data.data.student.cep,
           number: data.data.student.number,
@@ -280,6 +307,7 @@ export default function AuthProvider({children}) {
           special: data.data.student.special,
         };
         setStudent(estudante);
+        storageStudent(estudante);
       } catch (error) {
         console.error(error);
       }
@@ -297,6 +325,7 @@ export default function AuthProvider({children}) {
             account: data.data.teacher.account,
           };
           setTeacher(professor);
+          storageTeacher(professor);
         } catch (error) {
           console.error(error);
         }
@@ -304,11 +333,122 @@ export default function AuthProvider({children}) {
     }
   }
 
+  async function updateUser(values, id) {
+    const settings1 = {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstName: values.name,
+        lastName: values.surname,
+        email: values.email,
+        cellphone: values.cellphone,
+        password: user.password,
+      }),
+    };
+    const fetchResponse1 = await fetch(`${Host}/api/user/${id}`, settings1);
+
+    try {
+      const data = await fetchResponse1.json();
+      console.log('Success:', data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+    if (user.role === 2 || user.role === 3) {
+      const settings2 = {
+        method: 'PUT',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          agentRole: user.role,
+          birthdate: student.birthdate,
+          grade: values.grade,
+          institution: values.school,
+          cpf: student.cpf,
+          cep: values.cep,
+          number: values.num,
+          details: values.details,
+          description: values.description,
+          special: student.special,
+        }),
+      };
+      const fetchResponse2 = await fetch(
+        `${Host}/api/student/${id}`,
+        settings2,
+      );
+      try {
+        const data2 = await fetchResponse2.json();
+        console.log('Success:', data2);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+      if (user.role === 2) {
+        const settings3 = {
+          method: 'PUT',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            agentRole: user.role,
+            video: values.video,
+            graduation_area: teacher.graduation_area,
+            degree: values.degree,
+            bank: values.bank,
+            agency: values.agency,
+            account: values.account,
+          }),
+        };
+        const fetchResponse3 = await fetch(
+          `${Host}/api/teacher/${id}`,
+          settings3,
+        );
+        try {
+          const data3 = await fetchResponse3.json();
+          console.log('Success:', data3);
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }
+    }
+    renderData(user.id, user.role, user.password)
+  }
+
+  async function storageTypeUser(data) {
+    await AsyncStorage.setItem('Auth_typeUser', JSON.stringify(data));
+  }
+
+  async function storageUser(data) {
+    await AsyncStorage.setItem('Auth_user', JSON.stringify(data));
+  }
+
+  async function storageStudent(data) {
+    await AsyncStorage.setItem('Auth_student', JSON.stringify(data));
+  }
+
+  async function storageTeacher(data) {
+    await AsyncStorage.setItem('Auth_teacher', JSON.stringify(data));
+  }
+
+  async function signOut() {
+    await AsyncStorage.clear().then(() => {
+      setUser(null);
+      setTypeUser(null);
+      setStudent(null);
+      setTeacher(null);
+    });
+  }
+
   return (
     <AuthContext.Provider
       value={{
         signed: !!user,
         user,
+        loading,
         teacher,
         student,
         typeUser,
@@ -316,6 +456,8 @@ export default function AuthProvider({children}) {
         signIn,
         registerAluno,
         registerProf,
+        updateUser,
+        signOut,
       }}>
       {children}
     </AuthContext.Provider>
