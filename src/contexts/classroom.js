@@ -41,6 +41,39 @@ export default function ClassroomProvider({children}) {
     console.log(response);
   }
 
+  async function getClassroom(status) {
+    let teacher, student;
+    if (user.role == 2){
+      student = '';
+      teacher = user.id;
+    
+    } else {
+      student = user.id;
+      teacher = '';
+    }
+    const response = await Class.getClassroom(
+      student = student,
+      teacher = teacher,
+      status,
+      Host,
+    );
+    if (classroom !== response) {
+      console.log(response);
+      setClassroom(response);
+    }
+    console.log(response.message);
+    
+  }
+
+  async function updateStatusClassroom(classroom, status) {
+    const response = await Class.updateStatusClassroom(
+      classroom,
+      status,
+      Host,
+    );
+    console.log(response.message);
+  }
+
   return (
     <ClassroomContext.Provider
       value={{
@@ -49,6 +82,8 @@ export default function ClassroomProvider({children}) {
         createClass,
         loadUserClasses,
         firstClass,
+        getClassroom,
+        updateStatusClassroom,
       }}>
       {children}
     </ClassroomContext.Provider>
