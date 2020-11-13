@@ -7,6 +7,8 @@ import Teachers from '../pages/Teachers';
 import Profile from '../pages/Profile';
 import TeacherProfile from '../pages/TeacherProfile';
 import Edit from '../pages/Edit';
+import ConfirmedClass from '../pages/ConfirmedClass';
+import ShowClass from '../pages/ShowClass';
 
 const AlunoStack = createStackNavigator();
 
@@ -46,6 +48,16 @@ function AlunoRoutes() {
       <AlunoStack.Screen
         name="Edit"
         component={Edit}
+        options={{headerShown: false}}
+      />
+      <AlunoStack.Screen
+        name="ConfirmedClass"
+        component={ConfirmedClass}
+        options={{headerShown: false}}
+      />
+      <AlunoStack.Screen
+        name="ShowClass"
+        component={ShowClass}
         options={{headerShown: false}}
       />
     </AlunoStack.Navigator>

@@ -43,17 +43,16 @@ export default function ClassroomProvider({children}) {
 
   async function getClassroom(status) {
     let teacher, student;
-    if (user.role == 2){
+    if (user.role == 2) {
       student = '';
       teacher = user.id;
-    
     } else {
       student = user.id;
       teacher = '';
     }
     const response = await Class.getClassroom(
-      student = student,
-      teacher = teacher,
+      (student = student),
+      (teacher = teacher),
       status,
       Host,
     );
@@ -62,15 +61,10 @@ export default function ClassroomProvider({children}) {
       setClassroom(response);
     }
     console.log(response.message);
-    
   }
 
   async function updateStatusClassroom(classroom, status) {
-    const response = await Class.updateStatusClassroom(
-      classroom,
-      status,
-      Host,
-    );
+    const response = await Class.updateStatusClassroom(classroom, status, Host);
     console.log(response.message);
   }
 

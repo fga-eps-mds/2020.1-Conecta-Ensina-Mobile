@@ -24,10 +24,10 @@ export default function EditTeacher({navigation}) {
   }
 
   let initials = {
-    name: ''/*user && user.firstName*/,
-    surname: ''/*user && user.lastName*/,
-    email: ''/*user && user.email*/,
-    cellphone: ''/*student && student.cep*/,
+    name: '' /*user && user.firstName*/,
+    surname: '' /*user && user.lastName*/,
+    email: '' /*user && user.email*/,
+    cellphone: '' /*student && student.cep*/,
     grade: '',
     school: '',
     cep: '',
