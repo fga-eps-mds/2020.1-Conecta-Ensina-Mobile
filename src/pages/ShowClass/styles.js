@@ -4,10 +4,11 @@ export const ContainerVisualAula = styled.View`
   background-color: ${(props) => props.theme.colors.cinzaClaro};
   padding: 3%;
   width: 144px;
-  height: 223px;
   border-radius: 10px;
   margin-right: 20px;
   margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ListaVisualAula = styled.FlatList`

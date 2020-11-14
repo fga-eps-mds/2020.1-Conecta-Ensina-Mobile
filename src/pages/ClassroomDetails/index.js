@@ -19,11 +19,13 @@ import {
   RouteButton,
   ButtonContainer,
 } from './styles';
+import {AuthContext} from '../../contexts/auth';
+import {ClassroomContext} from '../../contexts/classroom';
 
 export default function ClassroomDetails({navigation, route}) {
-  useEffect(() => {
-    //console.log(teacher);
-  }, []);
+  const {item} = route.params;
+  const {user} = useContext(AuthContext);
+  const {updateStatusClassroom} = useContext(ClassroomContext);
 
   return (
     <Theme>
@@ -36,10 +38,10 @@ export default function ClassroomDetails({navigation, route}) {
             </UserContainer>
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
-                João Marcelo da Silva
+                {user.firstName + ' ' + user.lastName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '2%'}}>
-                1° Ano do Ensino Medio
+                {item.grade}
               </CustomTextContainer>
             </ContainerTextBlue>
           </ContainerB>
@@ -55,7 +57,7 @@ export default function ClassroomDetails({navigation, route}) {
                   marginBot={{value: '1%'}}>
                   Disciplina
                 </CustomTextContainer>
-                <RedContainerText medium>Matematica</RedContainerText>
+                <RedContainerText medium>{item.subject}</RedContainerText>
               </ContainerTextBox>
               <ContainerTextBox>
                 <CustomTextContainer
@@ -77,7 +79,7 @@ export default function ClassroomDetails({navigation, route}) {
                   marginBot={{value: '1%'}}>
                   Duração
                 </CustomTextContainer>
-                <RedContainerText medium>Matematica</RedContainerText>
+                <RedContainerText medium>{item.duration}</RedContainerText>
               </ContainerTextBox>
               <ContainerTextBox>
                 <CustomTextContainer
@@ -98,10 +100,7 @@ export default function ClassroomDetails({navigation, route}) {
                 marginBot={{value: '1%'}}>
                 Observação
               </CustomTextContainer>
-              <RedContainerText>
-                Ja fiz curso para lecionar para crianças dentro do espectro de
-                deficit de atençao.
-              </RedContainerText>
+              <RedContainerText>{item.details}</RedContainerText>
               <CustomTextContainer
                 black
                 smallMedium
@@ -109,10 +108,7 @@ export default function ClassroomDetails({navigation, route}) {
                 marginBot={{value: '1%'}}>
                 Endereço
               </CustomTextContainer>
-              <RedContainerText>
-                Ja fiz curso para lecionar para crianças dentro do espectro de
-                deficit de atençao.
-              </RedContainerText>
+              <RedContainerText>{item.cep}</RedContainerText>
             </ContainerWLower>
             <ButtonContainer>
               <ChatButton>
@@ -123,7 +119,8 @@ export default function ClassroomDetails({navigation, route}) {
               <StartButton
                 testID="StartButton"
                 onPress={() => {
-                  navigation.navigate('Home');
+                  navigation.navigate('ShowClass');
+                  updateStatusClassroom(item.id, 2);
                 }}>
                 <CustomText white bigSmall>
                   Iniciar

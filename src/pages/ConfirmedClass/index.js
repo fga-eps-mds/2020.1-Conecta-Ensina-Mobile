@@ -33,7 +33,7 @@ export default function AulaMarcada({navigation}) {
         <ContinueContainer
           onPress={() => {
             navigation.navigate('ShowClass');
-            getClassroom(0);
+            getClassroom(1);
           }}
           marginTop={{value: '100%'}}
         />

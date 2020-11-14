@@ -10,6 +10,7 @@ import {
 } from './styles';
 import CustomText from '../../components/CustomText';
 import {ClassroomContext} from '../../contexts/classroom';
+import {AuthContext} from '../../contexts/auth';
 
 export default function CompletedClass({navigation}) {
   const {classroom} = useContext(ClassroomContext);
@@ -19,42 +20,21 @@ export default function CompletedClass({navigation}) {
       <ContainerVisualAula>
         <ContainerTexto>
           <CustomText smaller black>
-            Horario: 16 - 17h
+            Horario:
+            {'\n' + item.dtclass}
           </CustomText>
           <CustomText smaller black>
-            Conteudo
+            Conteudo:
+            {'\n' + item.subject}
           </CustomText>
           <CustomText smaller black>
-            Modalidade
-          </CustomText>
-          <CustomText smaller black>
-            Distancia
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-          </CustomText>
-          <CustomText smaller black>
-            Dados do Aluno
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Nome
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Serie
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Endereço
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Observação
+            Distancia:
+            {'\n' + item.cep}
           </CustomText>
         </ContainerTexto>
         <ContainerButtons>
-          <ButtonVerMais>
+          <ButtonVerMais
+            onPress={() => navigation.navigate('ClassroomDetails', {item})}>
             <CustomText smaller white>
               Ver mais
             </CustomText>
