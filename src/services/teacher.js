@@ -9,3 +9,14 @@ export async function getAllTeachers(Host) {
     return error;
   }
 }
+export async function getTeacher(Host, id) {
+  const response = await fetch(`${Host}/api/teacher/${id}`);
+  try {
+    const data = await response.json();
+    console.log(data.data.teacher);
+    //setSubjects(data.data.subject);
+    return data.data.teacher;
+  } catch (error) {
+    return error;
+  }
+}
