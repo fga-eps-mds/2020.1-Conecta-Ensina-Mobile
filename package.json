@@ -7,7 +7,7 @@
     "android": "npx react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest --coverage",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -54,7 +54,7 @@
     ],
     "setupFiles": [
       "./node_modules/react-native-gesture-handler/jestSetup.js",
-      "./setupJest.js"
+      "./jest.setup.js"
     ],
     "moduleFileExtensions": [
       "js",
