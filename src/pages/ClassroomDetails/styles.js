@@ -53,17 +53,17 @@ export const ContainerWUpper = styled.View`
   flex-direction: row;
   width: 100%;
   height: 10%;
-  margin: 3%;
+  margin: 5%;
 `;
 
 export const ContainerWLower = styled.View`
-  flex: 3;
+  flex: 5;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 10%;
+  height: 5%;
   padding: 3%;
-  margin: 5%;
+  margin-bottom: -5%;
 `;
 
 export const StartButton = styled.TouchableOpacity`
@@ -100,5 +100,33 @@ export const ButtonContainer = styled.View`
   justify-content: center;
   flex-direction: row;
   flex: 1;
-  padding: 2%;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+`;
+export const ContainerColumnButton = styled.View`
+  justify-content: center;
+  flex-direction: column;
+  flex: 2;
+`;
+
+export const TimerButton = styled.TouchableOpacity`
+  background-color: ${(props) => props.theme.colors.fundoAzul}
+  width: 195px;
+  height: 48px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1%;
+  margin-bottom: 3%;
+`;
+
+export const FinishButton = styled.TouchableOpacity`
+  background-color: ${(props) => props.theme.colors.vermelho}
+  width: 195px;
+  height: 48px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1%;
+  margin-bottom: 3%;
 `;
