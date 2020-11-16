@@ -137,9 +137,7 @@ exports[`Testing Classroom Details Should renders page 1`] = `
               ]
             }
             white={true}
-          >
-            João Marcelo da Silva
-          </Text>
+          />
         </View>
         <View
           marginTop={
@@ -169,9 +167,7 @@ exports[`Testing Classroom Details Should renders page 1`] = `
               ]
             }
             white={true}
-          >
-            1° Ano do Ensino Medio
-          </Text>
+          />
         </View>
       </View>
     </View>
@@ -217,10 +213,10 @@ exports[`Testing Classroom Details Should renders page 1`] = `
               "flexShrink": 1,
               "height": "10%",
               "justifyContent": "space-around",
-              "marginBottom": "3%",
-              "marginLeft": "3%",
-              "marginRight": "3%",
-              "marginTop": "3%",
+              "marginBottom": "5%",
+              "marginLeft": "5%",
+              "marginRight": "5%",
+              "marginTop": "5%",
               "width": "100%",
             },
           ]
@@ -306,9 +302,7 @@ exports[`Testing Classroom Details Should renders page 1`] = `
                 ]
               }
               white={true}
-            >
-              Matematica
-            </Text>
+            />
           </View>
         </View>
         <View
@@ -392,7 +386,7 @@ exports[`Testing Classroom Details Should renders page 1`] = `
               }
               white={true}
             >
-              Matematica
+              16:00
             </Text>
           </View>
         </View>
@@ -407,10 +401,10 @@ exports[`Testing Classroom Details Should renders page 1`] = `
               "flexShrink": 1,
               "height": "10%",
               "justifyContent": "space-around",
-              "marginBottom": "3%",
-              "marginLeft": "3%",
-              "marginRight": "3%",
-              "marginTop": "3%",
+              "marginBottom": "5%",
+              "marginLeft": "5%",
+              "marginRight": "5%",
+              "marginTop": "5%",
               "width": "100%",
             },
           ]
@@ -496,9 +490,7 @@ exports[`Testing Classroom Details Should renders page 1`] = `
                 ]
               }
               white={true}
-            >
-              Matematica
-            </Text>
+            />
           </View>
         </View>
         <View
@@ -582,10 +574,77 @@ exports[`Testing Classroom Details Should renders page 1`] = `
               }
               white={true}
             >
-              Matematica
+              Presencial
             </Text>
           </View>
         </View>
+      </View>
+      <View
+        marginBot={
+          Object {
+            "value": "0%",
+          }
+        }
+        marginTop={
+          Object {
+            "value": "2%",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "marginBottom": "0%",
+              "marginTop": "2%",
+            },
+          ]
+        }
+      >
+        <Text
+          black={true}
+          smallMedium={true}
+          style={
+            Array [
+              Object {
+                "color": "black",
+                "fontFamily": "Roboto",
+                "fontSize": 20,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Observação
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#E46270",
+              "borderRadius": 15,
+              "height": 60,
+              "justifyContent": "center",
+              "textAlign": "center",
+              "width": 280,
+            },
+          ]
+        }
+      >
+        <Text
+          small={true}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "textAlign": "center",
+              },
+            ]
+          }
+          white={true}
+        />
       </View>
       <View
         style={
@@ -593,14 +652,11 @@ exports[`Testing Classroom Details Should renders page 1`] = `
             Object {
               "alignItems": "center",
               "flexBasis": 0,
-              "flexGrow": 3,
+              "flexGrow": 5,
               "flexShrink": 1,
-              "height": "10%",
+              "height": "5%",
               "justifyContent": "center",
-              "marginBottom": "5%",
-              "marginLeft": "5%",
-              "marginRight": "5%",
-              "marginTop": "5%",
+              "marginBottom": "-5%",
               "paddingBottom": "3%",
               "paddingLeft": "3%",
               "paddingRight": "3%",
@@ -618,83 +674,14 @@ exports[`Testing Classroom Details Should renders page 1`] = `
           }
           marginTop={
             Object {
-              "value": "2%",
+              "value": "-3%",
             }
           }
           style={
             Array [
               Object {
                 "marginBottom": "1%",
-                "marginTop": "2%",
-              },
-            ]
-          }
-        >
-          <Text
-            black={true}
-            smallMedium={true}
-            style={
-              Array [
-                Object {
-                  "color": "black",
-                  "fontFamily": "Roboto",
-                  "fontSize": 20,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Observação
-          </Text>
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#E46270",
-                "borderRadius": 15,
-                "height": 60,
-                "justifyContent": "center",
-                "textAlign": "center",
-                "width": 280,
-              },
-            ]
-          }
-        >
-          <Text
-            small={true}
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "Roboto",
-                  "fontSize": 14,
-                  "textAlign": "center",
-                },
-              ]
-            }
-            white={true}
-          >
-            Ja fiz curso para lecionar para crianças dentro do espectro de deficit de atençao.
-          </Text>
-        </View>
-        <View
-          marginBot={
-            Object {
-              "value": "1%",
-            }
-          }
-          marginTop={
-            Object {
-              "value": "2%",
-            }
-          }
-          style={
-            Array [
-              Object {
-                "marginBottom": "1%",
-                "marginTop": "2%",
+                "marginTop": "-3%",
               },
             ]
           }
@@ -744,157 +731,153 @@ exports[`Testing Classroom Details Should renders page 1`] = `
               ]
             }
             white={true}
-          >
-            Ja fiz curso para lecionar para crianças dentro do espectro de deficit de atençao.
-          </Text>
-        </View>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "flexBasis": 0,
-              "flexDirection": "row",
-              "flexGrow": 1,
-              "flexShrink": 1,
-              "justifyContent": "center",
-              "paddingBottom": "2%",
-              "paddingLeft": "2%",
-              "paddingRight": "2%",
-              "paddingTop": "2%",
-            },
-          ]
-        }
-      >
-        <View
-          accessible={true}
-          focusable={false}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#297FB8",
-              "borderRadius": 5,
-              "height": 37,
-              "justifyContent": "center",
-              "marginBottom": "1%",
-              "marginLeft": "1%",
-              "marginRight": "1%",
-              "marginTop": "1%",
-              "opacity": 1,
-              "width": 93,
-            }
-          }
-        >
-          <Text
-            bigSmall={true}
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "Roboto",
-                  "fontSize": 16,
-                  "textAlign": "center",
-                },
-              ]
-            }
-            white={true}
-          >
-            Chat
-          </Text>
+          />
         </View>
         <View
-          accessible={true}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#7ED957",
-              "borderRadius": 5,
-              "height": 37,
-              "justifyContent": "center",
-              "marginBottom": "1%",
-              "marginLeft": "1%",
-              "marginRight": "1%",
-              "marginTop": "1%",
-              "opacity": 1,
-              "width": 118,
-            }
-          }
-          testID="StartButton"
-        >
-          <Text
-            bigSmall={true}
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "Roboto",
-                  "fontSize": 16,
-                  "textAlign": "center",
-                },
-              ]
-            }
-            white={true}
-          >
-            Iniciar
-          </Text>
-        </View>
-        <View
-          accessible={true}
-          focusable={false}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#297FB8",
-              "borderRadius": 5,
-              "height": 37,
-              "justifyContent": "center",
-              "marginBottom": "1%",
-              "marginLeft": "1%",
-              "marginRight": "1%",
-              "marginTop": "1%",
-              "opacity": 1,
-              "width": 93,
-            }
+            Array [
+              Object {
+                "flexBasis": 0,
+                "flexDirection": "row",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+                "marginBottom": "1.5%",
+                "marginTop": "1.5%",
+              },
+            ]
           }
         >
-          <Text
-            bigSmall={true}
+          <View
+            accessible={true}
+            focusable={false}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "Roboto",
-                  "fontSize": 16,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#297FB8",
+                "borderRadius": 5,
+                "height": 37,
+                "justifyContent": "center",
+                "marginBottom": "1%",
+                "marginLeft": "1%",
+                "marginRight": "1%",
+                "marginTop": "1%",
+                "opacity": 1,
+                "width": 93,
+              }
             }
-            white={true}
           >
-            Rota
-          </Text>
+            <Text
+              bigSmall={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "Roboto",
+                    "fontSize": 16,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+              white={true}
+            >
+              Chat
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#7ED957",
+                "borderRadius": 5,
+                "height": 37,
+                "justifyContent": "center",
+                "marginBottom": "1%",
+                "marginLeft": "1%",
+                "marginRight": "1%",
+                "marginTop": "1%",
+                "opacity": 1,
+                "width": 118,
+              }
+            }
+            testID="StartButton"
+          >
+            <Text
+              bigSmall={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "Roboto",
+                    "fontSize": 16,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+              white={true}
+            >
+              Iniciar
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            focusable={false}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#297FB8",
+                "borderRadius": 5,
+                "height": 37,
+                "justifyContent": "center",
+                "marginBottom": "1%",
+                "marginLeft": "1%",
+                "marginRight": "1%",
+                "marginTop": "1%",
+                "opacity": 1,
+                "width": 93,
+              }
+            }
+          >
+            <Text
+              bigSmall={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "Roboto",
+                    "fontSize": 16,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+              white={true}
+            >
+              Rota
+            </Text>
+          </View>
         </View>
       </View>
     </View>

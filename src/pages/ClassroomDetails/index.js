@@ -122,7 +122,7 @@ export default function ClassroomDetails({}) {
               marginBot={{value: '0%'}}>
               Observação
             </CustomTextContainer>
-            <RedContainerText>{classroom.details}</RedContainerText>
+            <RedContainerText>{/*classroom.details*/}</RedContainerText>
             {start ? (
               <ContainerWLower>
                 <ContainerColumnButton>
@@ -138,10 +138,11 @@ export default function ClassroomDetails({}) {
                       timeLabels={{}}
                     />
                   </TimerButton>
-                  <FinishButton onPress={() => {
-                    setRun(false)
-                    alert('Aula Finalizada')
-                  }}>
+                  <FinishButton
+                    onPress={() => {
+                      setRun(false);
+                      alert('Aula Finalizada');
+                    }}>
                     <CustomText white medium>
                       Terminar Aula
                     </CustomText>
