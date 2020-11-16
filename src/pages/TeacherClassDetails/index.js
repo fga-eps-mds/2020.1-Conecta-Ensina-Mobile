@@ -28,8 +28,8 @@ import {
   ContainerColumnButton,
 } from './styles';
 
-export default function ClassroomDetails({}) {
-  const {classroom} = useContext(ClassroomContext);
+export default function TeacherClassDetails({}) {
+  const {classroom, readClass} = useContext(ClassroomContext);
   const {student, getStudent} = useContext(StudentContext);
   const {user, getUser} = useContext(UserContext);
   const [start, setStart] = useState(false);
@@ -37,11 +37,11 @@ export default function ClassroomDetails({}) {
 
   useEffect(() => {
     async function readUser() {
-      await getUser(classroom.teacher);
+      await getUser(classroom.student);
       await getStudent(classroom.teacher);
     }
     readUser();
-    //readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
+    
     console.log(classroom);
   }, []);
 
@@ -158,7 +158,7 @@ export default function ClassroomDetails({}) {
                   Endereço
                 </CustomTextContainer>
                 <RedContainerText>
-                  {classroom &&
+                {classroom &&
                     classroom.address.logradouro +
                       ' n°: ' +
                       classroom.number +
