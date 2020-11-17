@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Testing Background1 Should match snapshot 1`] = `
 <View
   style={
     Array [
@@ -60,6 +60,7 @@ exports[`renders correctly 1`] = `
           "width": 58,
         }
       }
+      testID="userAvatar"
     >
       <Image
         source={
