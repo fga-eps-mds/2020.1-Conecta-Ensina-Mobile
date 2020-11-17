@@ -56,18 +56,31 @@ describe('Testing Classroom Details', () => {
     await expect(getStudent).toHaveBeenCalled();
   });
 
-  test('Should tests timer', () => {
-    const {debug, getByTestId, UNSAFE_getByType} = render(
+  test('Should tests timer', async () => {
+    const {getByTestId, UNSAFE_getByType} = render(
       <ClassroomContext.Provider value={{classroom}}>
         <ClassroomDetails />
       </ClassroomContext.Provider>,
     );
 
     const button = getByTestId('StartButton');
-    fireEvent.press(button);
+    await fireEvent.press(button);
 
     const timer = UNSAFE_getByType(CountDown);
 
-    //debug();
+    expect(timer.props.onFinish).toBeFunction();
+  });
+  test('Should press button finish', async () => {
+    const {getByTestId} = render(
+      <ClassroomContext.Provider value={{classroom}}>
+        <ClassroomDetails />
+      </ClassroomContext.Provider>,
+    );
+
+    const button = getByTestId('StartButton');
+    await fireEvent.press(button);
+
+    const finish = getByTestId('finishButton');
+    await fireEvent.press(finish);
   });
 });

@@ -43,7 +43,6 @@ export default function ClassroomDetails({}) {
 
     readUser();
     //readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
-    console.log(classroom);
   }, []);
 
   return (
@@ -141,9 +140,11 @@ export default function ClassroomDetails({}) {
                     />
                   </TimerButton>
                   <FinishButton
+                    testID="finishButton"
                     onPress={() => {
-                      setRun(false);
-                      alert('Aula Finalizada');
+                      //setRun(false);
+                      //alert('Aula Finalizada');
+                      console.log('pressionado');
                     }}>
                     <CustomText white medium>
                       Terminar Aula
