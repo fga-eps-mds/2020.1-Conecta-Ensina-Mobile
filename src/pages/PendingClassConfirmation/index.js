@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import {AuthContext} from '../../contexts/auth'
 import Theme from '../../../Theme';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
@@ -10,12 +11,13 @@ import {
   ButtonRecusar,
 } from './styles';
 
-export default function ConfirmaProf({route, navigation}) {
+export default function PendingClassConfirmation({route, navigation}) {
   const {item} = route.params;
+  const {Host} = useContext(AuthContext);
 
   const getStudent = async () => {
     const fetchResponse = await fetch(
-      'http://192.168.15.17:3333/api/student/' + item.student,
+      Host+'/api/student/' + item.student,
     );
     try {
       const data = await fetchResponse.json();
@@ -31,7 +33,7 @@ export default function ConfirmaProf({route, navigation}) {
 
   const getUser = async () => {
     const fetchResponse = await fetch(
-      'http://192.168.15.17:3333/api/user/' + item.student,
+      Host+'/api/user/' + item.student,
     );
     try {
       const data = await fetchResponse.json();
@@ -57,7 +59,7 @@ export default function ConfirmaProf({route, navigation}) {
       }),
     };
     const fetchResponse1 = await fetch(
-      'http://192.168.15.17:3333/api/classroom/status/' + id,
+      Host+'/api/classroom/status/' + id,
       settings,
     );
     try {
