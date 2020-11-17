@@ -2,6 +2,9 @@ import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
 import ClassroomDetails from '../../src/pages/ClassroomDetails';
 import {ClassroomContext} from '../../src/contexts/classroom';
+import {StudentContext} from '../../src/contexts/student';
+import {UserContext} from '../../src/contexts/user';
+import CountDown from 'react-native-countdown-component';
 
 describe('Testing Classroom Details', () => {
   const navigation = {
@@ -16,21 +19,55 @@ describe('Testing Classroom Details', () => {
     },
     number: 1231,
   };
+  const getUser = jest.fn();
 
-  test('Should renders page', () => {
+  const getStudent = jest.fn();
+
+  test('Should matches snapshot page', () => {
     const tree = render(<ClassroomDetails navigation={navigation} />).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
-  test('Should press button', () => {
+
+  test('Should press start button', () => {
     const {getByTestId} = render(
       <ClassroomContext.Provider value={{classroom}}>
-        <ClassroomDetails navigation={navigation} />
+        <ClassroomDetails />
       </ClassroomContext.Provider>,
     );
 
     const button = getByTestId('StartButton');
 
     fireEvent.press(button);
+  });
+
+  test('Should test contexts functions', async () => {
+    render(
+      <StudentContext.Provider value={{getStudent}}>
+        <UserContext.Provider value={{getUser}}>
+          <ClassroomContext.Provider value={{classroom}}>
+            <ClassroomDetails />
+          </ClassroomContext.Provider>
+        </UserContext.Provider>
+      </StudentContext.Provider>,
+    );
+
+    await expect(getUser).toHaveBeenCalled();
+    await expect(getStudent).toHaveBeenCalled();
+  });
+
+  test('Should tests timer', () => {
+    const {debug, getByTestId, UNSAFE_getByType} = render(
+      <ClassroomContext.Provider value={{classroom}}>
+        <ClassroomDetails />
+      </ClassroomContext.Provider>,
+    );
+
+    const button = getByTestId('StartButton');
+    fireEvent.press(button);
+
+    const timer = UNSAFE_getByType(CountDown);
+
+    //debug();
   });
 });
