@@ -7,7 +7,6 @@ import CustomTextContainer from '../../components/CustomTextContainer';
 import CustomText from '../../components/CustomText';
 import {ClassroomContext} from '../../contexts/classroom';
 import {UserContext} from '../../contexts/user';
-import {TeacherContext} from '../../contexts/teacher';
 import {StudentContext} from '../../contexts/student';
 import gradeResolver from '../../services/gradeResolver';
 import {
@@ -28,52 +27,22 @@ import {
   TimerButton,
   ContainerColumnButton,
 } from './styles';
-import {AuthContext} from '../../contexts/auth';
 
-export default function ClassroomDetails({navigation, route}) {
-  const {item} = route.params;
-  const {updateStatusClassroom} = useContext(ClassroomContext);
-  const {user} = useContext(AuthContext);
+export default function TeacherClassDetails({}) {
   const {classroom, readClass} = useContext(ClassroomContext);
   const {student, getStudent} = useContext(StudentContext);
-  const {teacher, getTeacher} = useContext(TeacherContext);
-
+  const {user, getUser} = useContext(UserContext);
   const [start, setStart] = useState(false);
   const [run, setRun] = useState(true);
-  
-  /*const begin = () => {
-    updateStatusClassroom(item.id);
-    getClass(item.id);
-    if (classroom == 3){
-      setStart(true);
-    }
-
-  };*/
-
-  const finish = () => {
-   if (user.role == 2){
-      setRun(false);
-      updateStatusClassroom(item.id);
-      alert('Aula Finalizada');
-   } 
-  }
 
   useEffect(() => {
     async function readUser() {
-      await getTeacher(item.teacher);
-      await getStudent(item.teacher);
+      await getUser(classroom.student);
+      await getStudent(classroom.teacher);
     }
     readUser();
-
-    //readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
+    
     console.log(classroom);
-  }, []);
-
-  useEffect(() => {
-    async function classRead() {
-      await readClass(item.id);
-    }
-    classRead();
   }, []);
 
   return (
@@ -87,7 +56,7 @@ export default function ClassroomDetails({navigation, route}) {
             </UserContainer>
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
-                {teacher && teacher.firstName + ' ' + teacher.lastName}
+                {user && user.firstName + ' ' + user.lastName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '2%'}}>
                 {student && gradeResolver(student.grade)}
@@ -107,7 +76,7 @@ export default function ClassroomDetails({navigation, route}) {
                   Disciplina
                 </CustomTextContainer>
                 <RedContainerText medium>
-                  {item && item.subject}
+                  {classroom && classroom.subject}
                 </RedContainerText>
               </ContainerTextBox>
               <ContainerTextBox>
@@ -131,7 +100,7 @@ export default function ClassroomDetails({navigation, route}) {
                   Duração
                 </CustomTextContainer>
                 <RedContainerText medium>
-                  {item && item.duration + ' Hora'}
+                  {classroom && classroom.duration + ' Hora'}
                 </RedContainerText>
               </ContainerTextBox>
               <ContainerTextBox>
@@ -153,14 +122,14 @@ export default function ClassroomDetails({navigation, route}) {
               marginBot={{value: '0%'}}>
               Observação
             </CustomTextContainer>
-            <RedContainerText>{/*classroom.details*/}</RedContainerText>
+            <RedContainerText>{classroom.details}</RedContainerText>
             {start ? (
               <ContainerWLower>
                 <ContainerColumnButton>
                   <TimerButton>
                     <CountDown
                       running={run}
-                      until={60 * 60 * item.duration}
+                      until={60 * 60 * classroom.duration}
                       size={15}
                       onFinish={() => alert('Aula Finalizada')}
                       digitStyle={{backgroundColor: theme.colors.fundoAzul}}
@@ -169,10 +138,10 @@ export default function ClassroomDetails({navigation, route}) {
                       timeLabels={{}}
                     />
                   </TimerButton>
-                  <FinishButton
-                    onPress={() => {
-                      finish();
-                    }}>
+                  <FinishButton onPress={() => {
+                    setRun(false)
+                    alert('Aula Finalizada')
+                  }}>
                     <CustomText white medium>
                       Terminar Aula
                     </CustomText>
@@ -189,9 +158,14 @@ export default function ClassroomDetails({navigation, route}) {
                   Endereço
                 </CustomTextContainer>
                 <RedContainerText>
-                  {item &&
-                      item.number +
-                      ', \n'}
+                {classroom &&
+                    classroom.address.logradouro +
+                      ' n°: ' +
+                      classroom.number +
+                      ', \n' +
+                      classroom.address.bairro +
+                      ' - ' +
+                      classroom.address.uf}
                 </RedContainerText>
                 <ButtonContainer>
                   <ChatButton>
@@ -202,11 +176,7 @@ export default function ClassroomDetails({navigation, route}) {
                   <StartButton
                     testID="StartButton"
                     onPress={() => {
-                      updateStatusClassroom(item.id);
-                      //readClass(item.id);
-                      //if (classroom == 3){
                       setStart(true);
-                      //}
                     }}>
                     <CustomText white bigSmall>
                       Iniciar

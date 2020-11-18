@@ -11,7 +11,7 @@ import {ContainerB, ContainerW, Icon, Logo, UserContatiner} from './styles';
 
 export default function TeacherProfile({navigation, route}) {
   const {Host} = useContext(AuthContext);
-  const {createClass} = useContext(ClassroomContext);
+  const {createClass, readClass} = useContext(ClassroomContext);
 
   const getTeacher = async () => {
     const teacherResponse = await fetch(
@@ -108,7 +108,8 @@ export default function TeacherProfile({navigation, route}) {
             </RedContainerText>
             <ContinueContainer
               testID="teacherProfileButton"
-              onPress={() => {
+              onPress={async () => {
+                await readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
                 createClass(teacher.id);
                 navigation.navigate('ClassroomDetails');
               }}

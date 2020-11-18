@@ -74,8 +74,8 @@ export async function getClassroom(student, teacher, status, Host) {
   console.log(response);
 }
 
-export async function updateStatusClassroom(classroom, status, Host) {
-  const response = await fetch(`${Host}/api/classroom/status/${classroom}`, {
+export async function updateStatusClassroom(id, status, Host) {
+  const response = await fetch(`${Host}/api/classroom/status/${id}`, {
     method: 'PUT',
     headers: {
       Accept: 'application/json',
@@ -93,4 +93,14 @@ export async function updateStatusClassroom(classroom, status, Host) {
     console.log(error);
   }
   console.log(response);
+}
+
+export async function getClass(Host, id) {
+  const fetchResponse = await fetch(`${Host}/api/classroom/${id}`);
+  try {
+    const data = await fetchResponse.json();
+    return data.data.classroom;
+  } catch (error) {
+    return error;
+  }
 }

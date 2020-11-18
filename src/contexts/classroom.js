@@ -2,6 +2,7 @@ import React, {createContext, useState, useContext} from 'react';
 import {AuthContext} from './auth';
 import * as Class from '../services/classroom';
 import * as Student from '../services/student';
+import * as Address from '../services/findAddress';
 import {FiltersContext} from '../contexts/filters';
 
 export const ClassroomContext = createContext({});
@@ -15,7 +16,6 @@ export default function ClassroomProvider({children}) {
   async function loadNextClass() {
     const response = await Class.getNextClassroom(Host);
     if (classroom !== response) {
-      console.log(response);
       setFirstClass(response);
     }
   }
@@ -63,11 +63,50 @@ export default function ClassroomProvider({children}) {
     console.log(response.message);
   }
 
-  async function updateStatusClassroom(classroom, status) {
-    const response = await Class.updateStatusClassroom(classroom, status, Host);
-    console.log(response.message);
+  async function updateStatusClassroom(id) {
+    const response = await Class.getClass(Host, id);
+    if (response.status === 1){
+      const response = await Class.updateStatusClassroom(id, 2, Host);
+      console.log(response.message);
+    } else if (response.status === 2){
+      const response = await Class.updateStatusClassroom(id, 3, Host);
+      console.log(response.message);
+    }else if (response.status === 3){
+      const response = await Class.updateStatusClassroom(id, 4, Host);
+      console.log(response.message);
+    }
   }
 
+  /*async function getClass(id) {
+    const response = await Class.getClass(Host, id);
+    if (classroom !== response) {
+      console.log(response);
+      setClassroom(response);
+    }
+  }*/
+
+  async function readClass(id) {
+    const response = await Class.getClass(Host, id);
+    const address = await Address.findAddress(response.cep);
+    let responseClass = {
+      id: response.role,
+      teacher: response.teacher,
+      student: response.student,
+      grade: response.grade,
+      subject: response.subject,
+      dtclass: response.dtClass,
+      duration: response.duration,
+      cep: response.cep,
+      number: response.number,
+      details: response.details,
+      address: address,
+    };
+    if (classroom !== response) {
+      console.log(response);
+      setClassroom(responseClass);
+    }
+    console.log(response);
+  }
   return (
     <ClassroomContext.Provider
       value={{
@@ -78,6 +117,7 @@ export default function ClassroomProvider({children}) {
         firstClass,
         getClassroom,
         updateStatusClassroom,
+        readClass,
       }}>
       {children}
     </ClassroomContext.Provider>
