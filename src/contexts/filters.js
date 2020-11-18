@@ -14,6 +14,16 @@ export default function FiltersProvider({children}) {
   const {Host} = useContext(AuthContext);
   console.log(filter);
 
+  function setFilters(type, date, duration, subject) {
+    let filters = {
+      classType: type,
+      dtClass: date,
+      duration: duration,
+      subject: subject,
+    };
+    setFilter(filters);
+  }
+
   function setSubjectFilter(subject) {
     let filters = {
       subject: subject,
@@ -58,6 +68,7 @@ export default function FiltersProvider({children}) {
     <FiltersContext.Provider
       value={{
         filter,
+        setFilters,
         setSubjectFilter,
         setDtClass,
         setDurationFilters,
