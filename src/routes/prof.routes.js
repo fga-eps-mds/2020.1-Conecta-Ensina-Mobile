@@ -8,6 +8,7 @@ import TeacherProfile2 from '../pages/TeacherProfile2';
 import PendingClassConfirmation from '../pages/PendingClassConfirmation';
 import EditTeacher from '../pages/EditTeacher';
 import TeacherClassDetails from '../pages/TeacherClassDetails';
+//import FeedbackStudent from '../pages/FeedbackStudent';
 
 
 // import { Container } from './styles';

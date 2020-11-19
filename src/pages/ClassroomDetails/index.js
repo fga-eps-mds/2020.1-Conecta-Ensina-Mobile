@@ -28,7 +28,7 @@ import {
   ContainerColumnButton,
 } from './styles';
 
-export default function ClassroomDetails({}) {
+export default function ClassroomDetails({navigation}) {
   const {classroom} = useContext(ClassroomContext);
   const {student, getStudent} = useContext(StudentContext);
   const {user, getUser} = useContext(UserContext);
@@ -144,6 +144,7 @@ export default function ClassroomDetails({}) {
                     onPress={() => {
                       //setRun(false);
                       //alert('Aula Finalizada');
+                      navigation.navigate('FeedbackTeacher', {classroom});
                       console.log('pressionado');
                     }}>
                     <CustomText white medium>

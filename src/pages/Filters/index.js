@@ -6,7 +6,6 @@ import {FiltersContext} from '../../contexts/filters';
 import Background1 from '../../components/Background1';
 import ContinueContainer from '../../components/ContinueContainer';
 import GeneralPicker from '../../components/GeneralPicker';
-import DatePicker from '../../components/DatePicker';
 import SwitchFilter from '../../components/SwitchFilter';
 import {
   ScrollContainer,
@@ -17,7 +16,6 @@ import {
   ButtonContainer,
 } from './styles';
 import Calendars from '../../components/Calendar';
-import {Calendar} from 'react-native-calendars';
 
 export default function Filters({navigation, route}) {
   const [type, setType] = useState('Online');
