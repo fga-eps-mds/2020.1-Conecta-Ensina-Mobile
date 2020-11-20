@@ -13,10 +13,13 @@ import {
   ComplainButton,
   InfoContainer,S
 } from './styles';
+import { StudentContext } from '../../contexts/student';
 
 export default function PendingClassConfirmation({route, navigation}) {
   const {item} = route.params;
+  
   const {Host} = useContext(AuthContext);
+  const {getStudent2} = useContext(StudentContext)
 
   const getStudent = async () => {
     const fetchResponse = await fetch(
@@ -24,7 +27,6 @@ export default function PendingClassConfirmation({route, navigation}) {
     );
     try {
       const data = await fetchResponse.json();
-      console.log(data.data.student);
       setStudent(data.data.student);
       return data;
     } catch (error) {
@@ -33,6 +35,7 @@ export default function PendingClassConfirmation({route, navigation}) {
   };
 
   const [student, setStudent] = useState(getStudent);
+  const params = student.id;
 
   const getUser = async () => {
     const fetchResponse = await fetch(
@@ -40,7 +43,6 @@ export default function PendingClassConfirmation({route, navigation}) {
     );
     try {
       const data = await fetchResponse.json();
-      console.log(data.data.user);
       setUser(data.data.user);
       return data;
     } catch (error) {
@@ -111,7 +113,10 @@ export default function PendingClassConfirmation({route, navigation}) {
               <CustomText white>Detalhe:{student.details}</CustomText>
             </ContainerGrande>
             <ContainerComplain>
-              <ComplainButton onPress={()=>navigation.navigate('FeedbackTeacher', {user})}>
+              <ComplainButton onPress={async()=>{
+                await getStudent2(student.id)
+                navigation.navigate('FeedbackTeacher', {params})
+                }}>
                 <CustomText white>
                   Reportar
                 </CustomText>

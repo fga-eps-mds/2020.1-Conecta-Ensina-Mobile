@@ -10,7 +10,7 @@ function ContainerTeacher({data, onPressProf}) {
       <Imagem source={data.photo} />
       <ContainerTexto>
         <CustomText smaller black>
-          {data.cep}
+          {data.firstName+' '+data.lastName}
         </CustomText>
       </ContainerTexto>
     </Container>

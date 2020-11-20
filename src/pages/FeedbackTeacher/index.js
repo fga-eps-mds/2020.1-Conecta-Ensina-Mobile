@@ -23,6 +23,7 @@ export default function FeedbackTeacher({navigation, route}) {
     async function readUser(){
       await getStudent2(route.params.params)
     }
+    console.log(route.params)
     //readUser();
   }, []);
 

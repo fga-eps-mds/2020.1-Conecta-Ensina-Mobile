@@ -79,6 +79,17 @@ function AdmProvider({children}) {
     }
   }
 
+  async function getReportedUsers() {
+    const fetchResponse = await fetch(`${Host}/api/student/status/2`);
+    try {
+      const data = await fetchResponse.json();
+      console.log(data)
+      setStudents(data.data.student);
+    } catch (error) {
+      return error;
+    }
+  }
+
   return (
     <AdmContext.Provider
       value={{
@@ -88,6 +99,7 @@ function AdmProvider({children}) {
         getProfessorList,
         statusUpdate,
         getProfessoUser,
+        getReportedUsers,
       }}>
       {children}
     </AdmContext.Provider>
