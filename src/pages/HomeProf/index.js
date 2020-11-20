@@ -19,15 +19,15 @@ const Item = ({item, onPress, style}) => (
 export default function HomeProf({navigation}) {
   const {user} = useContext(AuthContext);
   const [funcoes, setFuncoes] = useState([
-    {id: '101', nome: 'Aulas Marcadas', img: require('../../assets/books.png')},
+    {id: '101', name: 'Aulas Marcadas', img: require('../../assets/books.png')},
     {
       id: '102',
-      nome: 'Aulas Pendentes',
+      name: 'Aulas Pendentes',
       img: require('../../assets/books.png'),
     },
     {
       id: '103',
-      nome: 'Aulas Realizadas',
+      name: 'Aulas Realizadas',
       img: require('../../assets/books.png'),
     },
   ]);

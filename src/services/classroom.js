@@ -20,6 +20,18 @@ export async function getUserClassroom(Host, id) {
   }
 }
 
+export async function getStatusClassroom(Host, id, status) {
+  const fetchResponse = await fetch(
+    `${Host}/api/classroom/statusClass/${id}/${status}`,
+  );
+  try {
+    const data = await fetchResponse.json();
+    return data.data.classroom;
+  } catch (error) {
+    return error;
+  }
+}
+
 export async function createClass(user, teacher, filter, student, Host) {
   const response = await fetch(`${Host}/api/classroom/create`, {
     method: 'POST',

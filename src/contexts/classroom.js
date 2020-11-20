@@ -41,6 +41,15 @@ export default function ClassroomProvider({children}) {
     console.log(response);
   }
 
+  async function loadStatusClasses(status) {
+    const response = await Class.getStatusClassroom(Host, user.id, status);
+    if (classroom !== response) {
+      console.log(response);
+      setClassroom(response);
+    }
+    console.log(response);
+  }
+
   return (
     <ClassroomContext.Provider
       value={{
@@ -49,6 +58,7 @@ export default function ClassroomProvider({children}) {
         createClass,
         loadUserClasses,
         firstClass,
+        loadStatusClasses,
       }}>
       {children}
     </ClassroomContext.Provider>

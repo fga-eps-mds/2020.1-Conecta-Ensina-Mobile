@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import Theme from '../../../Theme';
+import {ClassroomContext} from '../../contexts/classroom';
 import Background1 from '../../components/Background1';
 import {
   ContainerVisualAula,
@@ -11,6 +12,8 @@ import {
 import CustomText from '../../components/CustomText';
 
 export default function CompletedClass({navigation}) {
+  const {loadStatusClasses} = useContext(ClassroomContext);
+  //console.log(loadStatusClasses(4));
   const [aulas, setAulas] = useState([
     {id: '15', nome: 'ExemploAula01'},
     {id: '25', nome: 'ExemploAula02'},
