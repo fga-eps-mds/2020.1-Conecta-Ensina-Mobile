@@ -9,6 +9,9 @@ import {
   ContainerButton,
   ButtonConfirmar,
   ButtonRecusar,
+  ContainerComplain,
+  ComplainButton,
+  InfoContainer,S
 } from './styles';
 
 export default function PendingClassConfirmation({route, navigation}) {
@@ -72,40 +75,49 @@ export default function PendingClassConfirmation({route, navigation}) {
 
   return (
     <Theme>
-      <Background1 navigation={navigation} page={'PerfilProf2'}>
+      <Background1 navigation={navigation} page={'TeacherProfile2'}>
         <Container>
-          <ContainerGrande>
-            <CustomText white> Data: {item.dtclass}</CustomText>
-          </ContainerGrande>
-          <ContainerGrande>
-            <CustomText white>Distância: {student.cep}</CustomText>
-          </ContainerGrande>
-          <ContainerGrande>
-            <CustomText white>Duração: {item.duration}</CustomText>
-          </ContainerGrande>
-          <ContainerGrande>
-            <CustomText white>Matéria: {item.subject}</CustomText>
-          </ContainerGrande>
-          <ContainerGrande>
-            <CustomText white>
-              Nome: {user.firstName + ' ' + user.lastName}
-            </CustomText>
-          </ContainerGrande>
-          <ContainerGrande>
-            <CustomText white>Instituição: {student.institution}</CustomText>
-          </ContainerGrande>
-          <ContainerGrande>
-            <CustomText white>Série: {student.grade}</CustomText>
-          </ContainerGrande>
-          <ContainerGrande>
-            <CustomText white>Especial: {student.special}</CustomText>
-          </ContainerGrande>
-          <ContainerGrande>
-            <CustomText white>Descrição: {student.description}</CustomText>
-          </ContainerGrande>
-          <ContainerGrande>
-            <CustomText white>Detalhe:{student.details}</CustomText>
-          </ContainerGrande>
+          <InfoContainer>
+            <ContainerGrande>
+              <CustomText white> Data: {item.dtclass}</CustomText>
+            </ContainerGrande>
+            <ContainerGrande>
+              <CustomText white>Distância: {student.cep}</CustomText>
+            </ContainerGrande>
+            <ContainerGrande>
+              <CustomText white>Duração: {item.duration}</CustomText>
+            </ContainerGrande>
+            <ContainerGrande>
+              <CustomText white>Matéria: {item.subject}</CustomText>
+            </ContainerGrande>
+            <ContainerGrande>
+              <CustomText white>
+                Nome: {user.firstName + ' ' + user.lastName}
+              </CustomText>
+            </ContainerGrande>
+            <ContainerGrande>
+              <CustomText white>Instituição: {student.institution}</CustomText>
+            </ContainerGrande>
+            <ContainerGrande>
+              <CustomText white>Série: {student.grade}</CustomText>
+            </ContainerGrande>
+            <ContainerGrande>
+              <CustomText white>Especial: {student.special}</CustomText>
+            </ContainerGrande>
+            <ContainerGrande>
+              <CustomText white>Descrição: {student.description}</CustomText>
+            </ContainerGrande>
+            <ContainerGrande>
+              <CustomText white>Detalhe:{student.details}</CustomText>
+            </ContainerGrande>
+            <ContainerComplain>
+              <ComplainButton onPress={()=>navigation.navigate('FeedbackTeacher', {user})}>
+                <CustomText white>
+                  Reportar
+                </CustomText>
+              </ComplainButton>
+            </ContainerComplain>  
+          </InfoContainer>
         </Container>
         <ContainerButton>
           <ButtonConfirmar

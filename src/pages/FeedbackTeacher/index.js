@@ -1,63 +1,30 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Theme from '../../../Theme';
-import {AuthContext} from '../../contexts/auth';
-import {ClassroomContext} from '../../contexts/classroom';
 import Background2 from '../../components/Background2';
 import CustomTextContainer from '../../components/CustomTextContainer';
 import gradeResolver from '../../services/gradeResolver';
 import {ContainerB, ContainerW, Icon, Logo, UserContatiner, ContainerTextBlue, ContainerFlex, ContainerButtons, ComplainButton} from './styles';
 import { StudentContext } from '../../contexts/student';
-import { UserContext } from '../../contexts/user';
 import CommentaryBox from '../../components/CommentaryBox';
 import CustomText from '../../components/CustomText';
+import { ComplainContext } from '../../contexts/complain';
 
 export default function FeedbackTeacher({navigation, route}) {
-  const {Host} = useContext(AuthContext);
-  const {createClass, readClass} = useContext(ClassroomContext);
-  const {student, getStudent} = useContext(StudentContext);
-  const {user, getUser} = useContext(UserContext);
+  const {student, getStudent2} = useContext(StudentContext);
+  const {createComplain} = useContext(ComplainContext);
+  const [commentary, setCommentary] = useState('');
 
-  const getTeacher = async () => {
-    const teacherResponse = await fetch(
-      `${Host}/api/teacher/` + route.params.classroom.teacher,
-    );
-    const studentResponse = await fetch(
-      `${Host}/api/student/` + route.params.classroom.teacher,
-    );
-    const userResponse = await fetch(
-      `${Host}/api/user/` + route.params.classroom.teacher,
-    );
-    try {
-      const dataTeacher = await teacherResponse.json();
-      const dataStudent = await studentResponse.json();
-      const dataUser = await userResponse.json();
-
-      let teacher = {
-        id: route.params.selectedId,
-        name: `${dataUser.data.user.firstName} ${dataUser.data.user.lastName}`,
-        graduation_area: dataTeacher.data.teacher.graduation_area,
-        institution: dataStudent.data.student.institution,
-        grade: dataStudent.data.student.grade,
-      };
-      console.log(teacher);
-      setTeacher(teacher);
-      return dataTeacher.data;
-    } catch (error) {
-      return error;
-    }
-  };
+  async function handleComplain(){
+    await createComplain(commentary, student.user.id);
+    navigation.navigate('Teachers')
+  }
 
   useEffect(() => {
-    async function readUser() {
-      await getUser(classroom.teacher);
-      await getStudent(classroom.teacher);
+    async function readUser(){
+      await getStudent2(route.params.params)
     }
-
-    readUser();
-    //readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
+    //readUser();
   }, []);
-
-  const [teacher, setTeacher] = useState(getTeacher);
 
   return (
     <Theme>
@@ -70,10 +37,10 @@ export default function FeedbackTeacher({navigation, route}) {
             </UserContatiner>
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
-                {user && user.firstName + ' ' + user.lastName}
+                {student && student.user.firstName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '-1%'}}>
-                {student && gradeResolver(student.grade)}
+                {student && gradeResolver(student.student.grade)}
               </CustomTextContainer>
             </ContainerTextBlue>
           </ContainerB>
@@ -84,10 +51,13 @@ export default function FeedbackTeacher({navigation, route}) {
                   Denuncia
               </CustomTextContainer>
               <ContainerFlex>
-                  <CommentaryBox placeholder={"insira um comentário"}/>
+                  <CommentaryBox placeholder={"insira um comentário"}
+                                 value={commentary}
+                                 onChangeText={(text)=>setCommentary(text)}
+                  />
               </ContainerFlex>
               <ContainerButtons>
-                  <ComplainButton>
+                  <ComplainButton onPress={handleComplain}>
                       <CustomText white smallMedium>
                           Enviar denuncia
                       </CustomText>

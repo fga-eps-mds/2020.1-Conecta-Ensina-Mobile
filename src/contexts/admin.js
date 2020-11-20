@@ -12,9 +12,6 @@ function AdmProvider({children}) {
 
   async function getProfessorList() {
     const fetchResponse = await fetch(`${Host}/api/student/status/0`);
-
-    console.log(Host);
-
     try {
       const data = await fetchResponse.json();
       setStudents(data.data.student);
@@ -41,7 +38,7 @@ function AdmProvider({children}) {
     );
     try {
       const data = await fetchResponse1.json();
-      console.log('Success:', data);
+      console.log('Success');
     } catch (error) {
       console.error('Error:', error);
     }

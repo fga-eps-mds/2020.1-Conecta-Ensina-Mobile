@@ -21,7 +21,6 @@ export default function ClassroomProvider({children}) {
   }
   async function createClass(teacher) {
     const student = await Student.getStudent(Host, user.id);
-    console.log(student);
     const response = await Class.createClass(
       user,
       teacher,
@@ -29,16 +28,13 @@ export default function ClassroomProvider({children}) {
       student,
       Host,
     );
-    console.log(response.message);
   }
 
   async function loadUserClasses() {
     const response = await Class.getUserClassroom(Host, user.id);
     if (classroom !== response) {
-      console.log(response);
       setClassroom(response);
     }
-    console.log(response);
   }
 
   async function readClass(id) {
@@ -58,10 +54,8 @@ export default function ClassroomProvider({children}) {
       address: address,
     };
     if (classroom !== response) {
-      console.log(response);
       setClassroom(responseClass);
     }
-    console.log(response);
   }
   return (
     <ClassroomContext.Provider
