@@ -7,6 +7,7 @@ import CompletedClass from '../pages/CompletedClass';
 import TeacherProfile2 from '../pages/TeacherProfile2';
 import PendingClassConfirmation from '../pages/PendingClassConfirmation';
 import EditTeacher from '../pages/EditTeacher';
+import TeacherClassDetails from '../pages/TeacherClassDetails';
 
 
 // import { Container } from './styles';
@@ -48,6 +49,11 @@ function ProfRoutes() {
       <ProfStack.Screen
         name="EditTeacher"
         component={EditTeacher}
+        options={{headerShown: false}}
+      />
+      <ProfStack.Screen
+        name="TeacherClassDetails"
+        component={TeacherClassDetails}
         options={{headerShown: false}}
       />
     </ProfStack.Navigator>
