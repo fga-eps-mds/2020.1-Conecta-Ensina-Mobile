@@ -11,7 +11,6 @@ export const ContainerVisualAula = styled.View`
 `;
 
 export const ListaVisualAula = styled.FlatList`
-  position: absolute;
   padding-bottom: 25%;
   align-self: center;
 `;

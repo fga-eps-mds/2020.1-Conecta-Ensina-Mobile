@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { View, ActivityIndicator } from 'react-native'
+import {View, ActivityIndicator} from 'react-native';
 import AlunoRoutes from './aluno.routes';
 import ProfRoutes from './prof.routes';
 import AuthRoutes from './auth.routes';
@@ -10,11 +10,16 @@ function Routes() {
   const {typeUser, signed, loading} = useContext(AuthContext);
 
   console.log(signed);
-  if(loading){
-    return(
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      </View>
-    )
+  if (loading) {
+    return (
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      />
+    );
   }
 
   if (signed === true) {

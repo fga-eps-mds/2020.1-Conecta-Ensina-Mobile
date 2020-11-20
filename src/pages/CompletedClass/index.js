@@ -1,5 +1,5 @@
-import React, {useState, useContext} from 'react';
-import Theme from '../../../Theme';
+import React, {useState, useContext, useEffect} from 'react';
+import Theme, {theme} from '../../../Theme';
 import {ClassroomContext} from '../../contexts/classroom';
 import Background1 from '../../components/Background1';
 import {
@@ -12,16 +12,16 @@ import {
 import CustomText from '../../components/CustomText';
 
 export default function CompletedClass({navigation}) {
-  const {loadStatusClasses} = useContext(ClassroomContext);
-  //console.log(loadStatusClasses(4));
-  const [aulas, setAulas] = useState([
-    {id: '15', nome: 'ExemploAula01'},
-    {id: '25', nome: 'ExemploAula02'},
-    {id: '35', nome: 'ExemploAula03'},
-    {id: '45', nome: 'ExemploAula04'},
-  ]);
+  const {statusClasses, loadStatusClasses} = useContext(ClassroomContext);
 
-  const renderItem = ({item}) => {
+  useEffect(() => {
+    if (statusClasses !== {}) {
+      loadStatusClasses(4);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); //console.log(loadStatusClasses(4));
+
+  /*  const renderItem = ({item}) => {
     return (
       <ContainerVisualAula>
         <ContainerTexto>
@@ -70,15 +70,21 @@ export default function CompletedClass({navigation}) {
       </ContainerVisualAula>
     );
   };
-
+*/
   return (
     <Theme>
       <Background1 navigation={navigation} page={'TeacherProfile2'}>
         <ListaVisualAula
           numColumns={2}
-          data={aulas}
+          data={statusClasses}
           keyExtractor={(item) => item.id}
-          renderItem={renderItem}
+          renderItem={({item}) => {
+            return (<ContainerVisualAula>
+              <CustomText>
+                {item.cep}
+              </CustomText>
+            </ContainerVisualAula>);
+          }}
         />
       </Background1>
     </Theme>
