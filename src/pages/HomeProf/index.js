@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
 import Theme, {theme} from '../../../Theme';
-import {AuthContext} from '../../contexts/auth';
 import SquareButton from '../../components/SquareButton';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
@@ -11,15 +10,20 @@ import {
   Icon,
   ListFuncoes,
 } from './styles';
+import {ClassroomContext} from '../../contexts/classroom';
 
 const Item = ({item, onPress, style}) => (
   <SquareButton data={item} onPress={onPress} style={[style]} />
 );
 
 export default function HomeProf({navigation}) {
-  const {user} = useContext(AuthContext);
-  const [funcoes, setFuncoes] = useState([
-    {id: '101', name: 'Aulas Marcadas', img: require('../../assets/books.png')},
+  const {readClass} = useContext(ClassroomContext);
+  const [funcoes] = useState([
+    {
+      id: '101',
+      name: 'Aulas Marcadas',
+      img: require('../../assets/books.png'),
+    },
     {
       id: '102',
       name: 'Aulas Pendentes',
@@ -32,13 +36,11 @@ export default function HomeProf({navigation}) {
     },
   ]);
 
-  const [selectedId, setSelectedId] = useState(null);
-
   const renderItem = ({item}) => {
     var nextScreen;
 
     if (item.id === '101') {
-      nextScreen = 'ConfirmedClass';
+      nextScreen = 'TeacherClassDetails';
     } else if (item.id === '102') {
       nextScreen = 'PendingClass';
     } else if (item.id === '103') {
@@ -50,7 +52,10 @@ export default function HomeProf({navigation}) {
     return (
       <Item
         item={item}
-        onPress={() => navigation.navigate(nextScreen)}
+        onPress={async () => {
+          await readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
+          navigation.navigate(nextScreen);
+        }}
         style={{backgroundColor: theme.colors.cinzaClaro}}
       />
     );

@@ -1,90 +1,91 @@
-import React, {useState, useContext, useEffect} from 'react';
-import Theme, {theme} from '../../../Theme';
+import React, {useContext, useEffect, useState} from 'react';
+import Theme from '../../../Theme';
 import {ClassroomContext} from '../../contexts/classroom';
+import gradeResolver from '../../services/gradeResolver';
+import dateResolver from '../../services/dateResolver';
+import timeResolver from '../../services/timeResolver';
 import Background1 from '../../components/Background1';
-import {
-  ContainerVisualAula,
-  ListaVisualAula,
-  ContainerButtons,
-  ContainerTexto,
-  ButtonVerMais,
-} from './styles';
+import {ContainerVisualAula, ListaVisualAula, ButtonVerMais} from './styles';
 import CustomText from '../../components/CustomText';
 
 export default function CompletedClass({navigation}) {
-  const {statusClasses, loadStatusClasses} = useContext(ClassroomContext);
+  const {statusClasses, loadStatusClasses, Host} = useContext(ClassroomContext);
+  //const [student, setStudent] = useState('');
+  const [user, setUser] = useState([]);
 
-  useEffect(() => {
-    if (statusClasses !== {}) {
-      loadStatusClasses(4);
+  const getUser = async (id) => {
+    const fetchResponse = await fetch(`${Host}/api/user/${id}`);
+    try {
+      const data = await fetchResponse.json();
+      console.log(data);
+      await setUser(user.concat(data.data.user));
+      return data;
+    } catch (error) {
+      return error;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); //console.log(loadStatusClasses(4));
+  };
 
-  /*  const renderItem = ({item}) => {
+  const renderClass = ({item, index}) => {
     return (
-      <ContainerVisualAula>
-        <ContainerTexto>
-          <CustomText smaller black>
-            Horario: 16 - 17h
+      <ContainerVisualAula numColumns={1}>
+        <CustomText small black>
+          Informações Aula
+        </CustomText>
+        <CustomText small black>
+          {`CEP: ${item.cep}`}
+        </CustomText>
+        <CustomText small black>
+          {`Numero: ${item.number}`}
+        </CustomText>
+        <CustomText small black>
+          {`Complemento: ${item.details ? item.details : 'Não informado'}`}
+        </CustomText>
+        <CustomText small black>{`Data: ${dateResolver(
+          item.dtclass,
+        )}`}</CustomText>
+        <CustomText small black>{`Horário: ${timeResolver(
+          item.dtclass,
+        )}`}</CustomText>
+        <CustomText small black>
+          Informações Aluno
+        </CustomText>
+        <CustomText small black>
+          {user[index] && `${user[index].firstName} ${user[index].lastName}`}
+        </CustomText>
+        <CustomText smaller black>
+          {`Série: ${gradeResolver(item.grade)}`}
+        </CustomText>
+        <ButtonVerMais>
+          <CustomText smaller white>
+            Ver Mais
           </CustomText>
-          <CustomText smaller black>
-            Conteudo
-          </CustomText>
-          <CustomText smaller black>
-            Modalidade
-          </CustomText>
-          <CustomText smaller black>
-            Distancia
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-          </CustomText>
-          <CustomText smaller black>
-            Dados do Aluno
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Nome
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Serie
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Endereço
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Observação
-          </CustomText>
-        </ContainerTexto>
-        <ContainerButtons>
-          <ButtonVerMais>
-            <CustomText smaller white>
-              Ver mais
-            </CustomText>
-          </ButtonVerMais>
-        </ContainerButtons>
+        </ButtonVerMais>
       </ContainerVisualAula>
     );
   };
-*/
+  const getInfo = async () => {
+    await loadStatusClasses(4);
+  };
+  useEffect(() => {
+    if (statusClasses !== {}) {
+      getInfo();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  useEffect(() => {
+    statusClasses.map(async (item) => {
+      await getUser(item.student);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [statusClasses]);
+
   return (
     <Theme>
       <Background1 navigation={navigation} page={'TeacherProfile2'}>
         <ListaVisualAula
           numColumns={2}
           data={statusClasses}
-          keyExtractor={(item) => item.id}
-          renderItem={({item}) => {
-            return (<ContainerVisualAula>
-              <CustomText>
-                {item.cep}
-              </CustomText>
-            </ContainerVisualAula>);
-          }}
+          renderItem={renderClass}
         />
       </Background1>
     </Theme>

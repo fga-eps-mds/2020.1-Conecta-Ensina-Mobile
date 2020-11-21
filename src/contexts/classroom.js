@@ -2,6 +2,7 @@ import React, {createContext, useState, useContext} from 'react';
 import {AuthContext} from './auth';
 import * as Class from '../services/classroom';
 import * as Student from '../services/student';
+import * as Address from '../services/findAddress';
 import {FiltersContext} from '../contexts/filters';
 
 export const ClassroomContext = createContext({});
@@ -11,12 +12,11 @@ export default function ClassroomProvider({children}) {
   const [firstClass, setFirstClass] = useState({});
   const {Host, user} = useContext(AuthContext);
   const {filter} = useContext(FiltersContext);
-  const [statusClasses, setStatusClasses] = useState({});
+  const [statusClasses, setStatusClasses] = useState([]);
 
   async function loadNextClass() {
     const response = await Class.getNextClassroom(Host);
     if (classroom !== response) {
-      console.log(response);
       setFirstClass(response);
     }
   }
@@ -51,6 +51,28 @@ export default function ClassroomProvider({children}) {
     console.log(response);
   }
 
+  async function readClass(id) {
+    const response = await Class.getClass(Host, id);
+    const address = await Address.findAddress(response.cep);
+    let responseClass = {
+      id: response.role,
+      teacher: response.teacher,
+      student: response.student,
+      grade: response.grade,
+      subject: response.subject,
+      dtclass: response.dtClass,
+      duration: response.duration,
+      cep: response.cep,
+      number: response.number,
+      details: response.details,
+      address: address,
+    };
+    if (classroom !== response) {
+      console.log(response);
+      setClassroom(responseClass);
+    }
+    console.log(response);
+  }
   return (
     <ClassroomContext.Provider
       value={{
@@ -60,6 +82,9 @@ export default function ClassroomProvider({children}) {
         loadUserClasses,
         firstClass,
         loadStatusClasses,
+        readClass,
+        statusClasses,
+        Host,
       }}>
       {children}
     </ClassroomContext.Provider>
