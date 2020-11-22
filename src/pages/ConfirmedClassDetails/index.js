@@ -1,4 +1,3 @@
-import CountDown from 'react-native-countdown-component';
 import React, {useEffect, useContext, useState} from 'react';
 import Theme, {theme} from '../../../Theme';
 import Background2 from '../../components/Background2';
@@ -28,8 +27,8 @@ import {
   ContainerColumnButton,
 } from './styles';
 
-export default function TeacherClassDetails({}) {
-  const {classroom, readClass} = useContext(ClassroomContext);
+export default function ConfirmedClassDetails({}) {
+  const {statusClass} = useContext(ClassroomContext);
   const {student, getStudent} = useContext(StudentContext);
   const {user, getUser} = useContext(UserContext);
   const [start, setStart] = useState(false);
@@ -37,12 +36,12 @@ export default function TeacherClassDetails({}) {
 
   useEffect(() => {
     async function readUser() {
-      await getUser(classroom.student);
-      await getStudent(classroom.teacher);
+      await getUser(statusClass.student);
+      await getStudent(statusClass.student);
     }
     readUser();
 
-    console.log(classroom);
+    console.log(statusClass);
   }, []);
 
   return (
@@ -76,7 +75,7 @@ export default function TeacherClassDetails({}) {
                   Disciplina
                 </CustomTextContainer>
                 <RedContainerText medium>
-                  {classroom && classroom.subject}
+                  {statusClass && statusClass.subject}
                 </RedContainerText>
               </ContainerTextBox>
               <ContainerTextBox>
@@ -100,7 +99,7 @@ export default function TeacherClassDetails({}) {
                   Duração
                 </CustomTextContainer>
                 <RedContainerText medium>
-                  {classroom && classroom.duration + ' Hora'}
+                  {statusClass && statusClass.duration + ' Hora'}
                 </RedContainerText>
               </ContainerTextBox>
               <ContainerTextBox>
@@ -122,75 +121,7 @@ export default function TeacherClassDetails({}) {
               marginBot={{value: '0%'}}>
               Observação
             </CustomTextContainer>
-            <RedContainerText>{classroom.details}</RedContainerText>
-            {start ? (
-              <ContainerWLower>
-                <ContainerColumnButton>
-                  <TimerButton>
-                    <CountDown
-                      running={run}
-                      until={60 * 60 * classroom.duration}
-                      size={15}
-                      onFinish={() => alert('Aula Finalizada')}
-                      digitStyle={{backgroundColor: theme.colors.fundoAzul}}
-                      digitTxtStyle={{color: theme.colors.branco}}
-                      timeToShow={['H', 'M', 'S']}
-                      timeLabels={{}}
-                    />
-                  </TimerButton>
-                  <FinishButton
-                    onPress={() => {
-                      setRun(false);
-                      alert('Aula Finalizada');
-                    }}>
-                    <CustomText white medium>
-                      Terminar Aula
-                    </CustomText>
-                  </FinishButton>
-                </ContainerColumnButton>
-              </ContainerWLower>
-            ) : (
-              <ContainerWLower>
-                <CustomTextContainer
-                  black
-                  smallMedium
-                  marginTop={{value: '-3%'}}
-                  marginBot={{value: '1%'}}>
-                  Endereço
-                </CustomTextContainer>
-                <RedContainerText>
-                  {classroom &&
-                    classroom.address.logradouro +
-                      ' n°: ' +
-                      classroom.number +
-                      ', \n' +
-                      classroom.address.bairro +
-                      ' - ' +
-                      classroom.address.uf}
-                </RedContainerText>
-                <ButtonContainer>
-                  <ChatButton>
-                    <CustomText white bigSmall>
-                      Chat
-                    </CustomText>
-                  </ChatButton>
-                  <StartButton
-                    testID="StartButton"
-                    onPress={() => {
-                      setStart(true);
-                    }}>
-                    <CustomText white bigSmall>
-                      Iniciar
-                    </CustomText>
-                  </StartButton>
-                  <RouteButton>
-                    <CustomText white bigSmall>
-                      Rota
-                    </CustomText>
-                  </RouteButton>
-                </ButtonContainer>
-              </ContainerWLower>
-            )}
+            <RedContainerText>{statusClass.details}</RedContainerText>
           </ContainerW>
         }
       />

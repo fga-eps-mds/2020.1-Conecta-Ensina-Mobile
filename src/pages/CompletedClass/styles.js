@@ -6,6 +6,8 @@ export const ContainerVisualAula = styled.ScrollView`
   height: 220px;
   border-radius: 10px;
   margin-bottom: 100px;
+  margin-left: 4%;
+  margin-right: 4%;
 `;
 
 export const ListaVisualAula = styled.FlatList`

@@ -2,6 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeProf from '../pages/HomeProf';
 import ConfirmedClass from '../pages/ConfirmedClass';
+import ConfirmedClassDetails from '../pages/ConfirmedClassDetails';
 import PendingClass from '../pages/PendingClass';
 import CompletedClass from '../pages/CompletedClass';
 import TeacherProfile2 from '../pages/TeacherProfile2';
@@ -23,6 +24,11 @@ function ProfRoutes() {
       <ProfStack.Screen
         name="ConfirmedClass"
         component={ConfirmedClass}
+        options={{headerShown: false}}
+      />
+      <ProfStack.Screen
+        name="ConfirmedClassDetails"
+        component={ConfirmedClassDetails}
         options={{headerShown: false}}
       />
       <ProfStack.Screen

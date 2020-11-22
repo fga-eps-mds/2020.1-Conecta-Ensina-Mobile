@@ -9,7 +9,9 @@ import {ContainerVisualAula, ListaVisualAula, ButtonVerMais} from './styles';
 import CustomText from '../../components/CustomText';
 
 export default function CompletedClass({navigation}) {
-  const {statusClasses, loadStatusClasses, Host} = useContext(ClassroomContext);
+  const {setStatusClass, statusClasses, loadStatusClasses, Host} = useContext(
+    ClassroomContext,
+  );
   //const [student, setStudent] = useState('');
   const [user, setUser] = useState([]);
 
@@ -55,7 +57,11 @@ export default function CompletedClass({navigation}) {
         <CustomText smaller black>
           {`Série: ${gradeResolver(item.grade)}`}
         </CustomText>
-        <ButtonVerMais>
+        <ButtonVerMais
+          onPress={() => {
+            navigation.navigate('ConfirmedClassDetails');
+            setStatusClass(item);
+          }}>
           <CustomText smaller white>
             Ver Mais
           </CustomText>
