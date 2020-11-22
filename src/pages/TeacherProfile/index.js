@@ -7,14 +7,22 @@ import ContinueContainer from '../../components/ContinueContainer';
 import RedContainerText from '../../components/RedContainerText';
 import CustomTextContainer from '../../components/CustomTextContainer';
 import gradeResolver from '../../services/gradeResolver';
-import {ContainerB, ContainerW, Icon, Logo, UserContatiner, ButtonContainer, ComplainButton} from './styles';
+import {
+  ContainerB,
+  ContainerW,
+  Icon,
+  Logo,
+  UserContatiner,
+  ButtonContainer,
+  ComplainButton,
+} from './styles';
 import CustomText from '../../components/CustomText';
-import { StudentContext } from '../../contexts/student';
+import {StudentContext} from '../../contexts/student';
 
 export default function TeacherProfile({navigation, route}) {
   const {Host} = useContext(AuthContext);
   const {createClass, readClass} = useContext(ClassroomContext);
-  const {getStudent2} = useContext(StudentContext)
+  const {getStudent2} = useContext(StudentContext);
 
   const getTeacher = async () => {
     const teacherResponse = await fetch(
@@ -112,16 +120,18 @@ export default function TeacherProfile({navigation, route}) {
               deficit de atençao.
             </RedContainerText>
             <ButtonContainer>
-              <ComplainButton onPress={ async () => {
-                await getStudent2(route.params.selectedId)
-                navigation.navigate('FeedbackTeacher', {params})
+              <ComplainButton
+                testID="ComplainButton"
+                onPress={async () => {
+                  await getStudent2(route.params.selectedId);
+                  navigation.navigate('FeedbackTeacher', {params});
                 }}>
                 <CustomText white bigSmall>
                   Reportar
                 </CustomText>
               </ComplainButton>
               <ContinueContainer
-                testID="teacherProfileButton"
+                testID="ContinueButton"
                 onPress={async () => {
                   await readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
                   createClass(teacher.id);

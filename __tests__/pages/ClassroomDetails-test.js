@@ -10,6 +10,7 @@ describe('Testing Classroom Details', () => {
   const navigation = {
     navigate: jest.fn(),
   };
+
   let classroom = {
     details: '',
     address: {
@@ -73,7 +74,7 @@ describe('Testing Classroom Details', () => {
   test('Should press button finish', async () => {
     const {getByTestId} = render(
       <ClassroomContext.Provider value={{classroom}}>
-        <ClassroomDetails />
+        <ClassroomDetails navigation={navigation} />
       </ClassroomContext.Provider>,
     );
 

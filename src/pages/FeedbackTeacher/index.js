@@ -3,28 +3,34 @@ import Theme from '../../../Theme';
 import Background2 from '../../components/Background2';
 import CustomTextContainer from '../../components/CustomTextContainer';
 import gradeResolver from '../../services/gradeResolver';
-import {ContainerB, ContainerW, Icon, Logo, UserContatiner, ContainerTextBlue, ContainerFlex, ContainerButtons, ComplainButton} from './styles';
-import { StudentContext } from '../../contexts/student';
+import {
+  ContainerB,
+  ContainerW,
+  Icon,
+  Logo,
+  UserContatiner,
+  ContainerTextBlue,
+  ContainerFlex,
+  ContainerButtons,
+  ComplainButton,
+} from './styles';
+import {StudentContext} from '../../contexts/student';
 import CommentaryBox from '../../components/CommentaryBox';
 import CustomText from '../../components/CustomText';
-import { ComplainContext } from '../../contexts/complain';
+import {ComplainContext} from '../../contexts/complain';
 
 export default function FeedbackTeacher({navigation, route}) {
   const {student, getStudent2} = useContext(StudentContext);
   const {createComplain} = useContext(ComplainContext);
   const [commentary, setCommentary] = useState('');
 
-  async function handleComplain(){
+  async function handleComplain() {
     await createComplain(commentary, student.user.id);
-    navigation.navigate('Teachers')
+    navigation.navigate('Teachers');
   }
 
   useEffect(() => {
-    async function readUser(){
-      await getStudent2(route.params.params)
-    }
-    console.log(route.params)
-    //readUser();
+    console.log(route.params);
   }, []);
 
   return (
@@ -48,22 +54,27 @@ export default function FeedbackTeacher({navigation, route}) {
         }
         white={
           <ContainerW>
-              <CustomTextContainer black medium marginTop={{value: "2%"}} marginBot={{value: "-2%"}}>
-                  Denuncia
-              </CustomTextContainer>
-              <ContainerFlex>
-                  <CommentaryBox placeholder={"insira um comentário"}
-                                 value={commentary}
-                                 onChangeText={(text)=>setCommentary(text)}
-                  />
-              </ContainerFlex>
-              <ContainerButtons>
-                  <ComplainButton onPress={handleComplain}>
-                      <CustomText white smallMedium>
-                          Enviar denuncia
-                      </CustomText>
-                  </ComplainButton>
-              </ContainerButtons>
+            <CustomTextContainer
+              black
+              medium
+              marginTop={{value: '2%'}}
+              marginBot={{value: '-2%'}}>
+              Denuncia
+            </CustomTextContainer>
+            <ContainerFlex>
+              <CommentaryBox
+                placeholder={'insira um comentário'}
+                value={commentary}
+                onChangeText={(text) => setCommentary(text)}
+              />
+            </ContainerFlex>
+            <ContainerButtons>
+              <ComplainButton testID="SendComplain" onPress={handleComplain}>
+                <CustomText white smallMedium>
+                  Enviar denuncia
+                </CustomText>
+              </ComplainButton>
+            </ContainerButtons>
           </ContainerW>
         }
       />
