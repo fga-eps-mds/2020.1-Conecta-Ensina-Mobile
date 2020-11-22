@@ -83,7 +83,7 @@ function AdmProvider({children}) {
     const fetchResponse = await fetch(`${Host}/api/student/status/2`);
     try {
       const data = await fetchResponse.json();
-      console.log(data)
+      console.log(data.data)
       setStudents(data.data.student);
     } catch (error) {
       return error;

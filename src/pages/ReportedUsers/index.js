@@ -8,8 +8,8 @@ import {ListMaterias, Container} from './styles';
 export default function ReportedUsers({navigation}) {
   const {userDB, students, getProfessoUser} = useContext(AdmContext);
 
-  function handleSubmit({item}) {
-    getProfessoUser(item.id);
+  async function handleSubmit({item}) {
+    //await getProfessoUser(item.id);
     console.log(item.id);
     //navigation.navigate('TeacherConfirmation', {item});
   }

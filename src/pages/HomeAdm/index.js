@@ -21,7 +21,7 @@ export default function HomeAdm({navigation}) {
     }
   ]);
   const {signOut} = useContext(AuthContext)
-  const {getProfessorList, getReportedUsers} = useContext(AdmContext);
+  const {getProfessorList, getReportedUsers, getProfessoUser, students} = useContext(AdmContext);
 
   return (
     <Theme>
@@ -41,6 +41,7 @@ export default function HomeAdm({navigation}) {
               else if (item.id === '171') {
                 nextScreen = 'ReportedUsers';
                 await getReportedUsers();
+                await getProfessoUser(students[0].id);
               } else {
                 nextScreen = 'HomeAdm';
               }
