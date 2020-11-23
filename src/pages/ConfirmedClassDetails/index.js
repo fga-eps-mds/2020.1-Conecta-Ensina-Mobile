@@ -122,7 +122,7 @@ export default function ConfirmedClassDetails({navigation}) {
         }
       />
       <ContinueContainer
-        onPress={() => navigation.navigate('ConfirmedClass')}
+        onPress={() => navigation.navigate('StudentAvaliation')}
       />
     </Theme>
   );
