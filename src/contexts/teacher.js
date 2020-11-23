@@ -15,9 +15,16 @@ export default function TeacherProvider({children}) {
       setTeacher(response);
     }
   }
+  async function getTeacher(id) {
+    const response = await Teacher.getTeacher(Host, id);
+    if (teacher !== response) {
+      console.log(response);
+      setTeacher(response);
+    }
+  }
 
   return (
-    <TeacherContext.Provider value={{teacher, loadTeachers}}>
+    <TeacherContext.Provider value={{teacher, loadTeachers, getTeacher}}>
       {children}
     </TeacherContext.Provider>
   );

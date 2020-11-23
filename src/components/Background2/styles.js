@@ -20,7 +20,7 @@ export const WhiteContainer = styled.View`
 `;
 
 export const Container = styled.View`
-  background-color: ${(props) => props.theme.colors.fundoAzul}
+  background-color: ${(props) => props.theme.colors.fundoAzul};
   justify-content: center;
   align-items: center;
   flex: 1;

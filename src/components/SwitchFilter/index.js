@@ -12,7 +12,9 @@ function SwitchFilter({theme, onChange}) {
     <Container>
       <SwitchSelector
         options={estiloOptions}
+        defaultValue={0}
         initial={0}
+        value={0}
         onPress={(value) => onChange(value)}
         textColor={theme.colors.preto}
         selectedColor={theme.colors.branco}

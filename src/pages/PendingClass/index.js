@@ -12,7 +12,7 @@ import {
 import CustomText from '../../components/CustomText';
 
 export default function PendingClass({navigation}) {
-  const {user} = useContext(AuthContext);
+  const {user, Host} = useContext(AuthContext);
 
   const getClass = async () => {
     const settings = {
@@ -27,7 +27,7 @@ export default function PendingClass({navigation}) {
       }),
     };
     const fetchResponse1 = await fetch(
-      'http://192.168.15.17:3333/api/classroom/',
+      Host+'/api/classroom/',
       settings,
     );
     try {

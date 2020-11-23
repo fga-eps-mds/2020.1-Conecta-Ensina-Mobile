@@ -11,6 +11,7 @@ import {expect, jest, test} from '@jest/globals';
 import renderer from 'react-test-renderer';
 
 jest.useFakeTimers();
+jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
 
 it('renders correctly', async () => {
   renderer.create(<App />);

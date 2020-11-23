@@ -1,35 +1,41 @@
 import styled from 'styled-components/native';
 
+export const CalendarsContainer = styled.View`
+  flex: 4;
+`;
+
 export const Container = styled.View`
-  flex: 1;
-  justify-content: center;
-  position: absolute;
-  top: -30px;
+  flex: 9;
+  top: 0px;
   border: 4px solid ${(props) => props.theme.colors.fundoAzul};
   right: 0px;
   left: 0px;
-  bottom: 70px;
+  bottom: 80px;
+`;
+
+export const ScrollContainer = styled.ScrollView`
+  flex: 6;
 `;
 
 export const ContainerFiltros = styled.View`
+  flex: 6;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 10%;
+  padding-bottom: -15%;
+`;
+
+export const PickerContainer = styled.View`
+  flex: 2;
   flex-direction: row;
   justify-content: space-between;
   margin-right: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 `;
 
-export const DataButton = styled.TouchableOpacity`
-  background-color: ${(props) => props.theme.colors.fundoAzul};
-  width: 290px;
-  height: 50px;
-  border-radius: 5px;
-  align-self: center;
-  margin-bottom: 50px;
+export const ButtonContainer = styled.View`
+  flex: 2;
+  background-color: ${(props) => props.theme.colors.branco};
+  width: 100%;
   align-items: center;
-  justify-content: center;
-`;
-
-export const Texto = styled.Text`
-  color: white;
-  font-size: ${(props) => props.theme.fontSizes.smallMedium};
 `;

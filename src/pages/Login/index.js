@@ -1,5 +1,5 @@
-import React, {useState, useEffect, useContext} from 'react';
-import Theme, {theme} from '../../../Theme';
+import React, {useState, useContext} from 'react';
+import Theme from '../../../Theme';
 import Background2 from '../../components/Background2';
 import CustomText from '../../components/CustomText';
 import RegField from '../../components/RegField';
@@ -29,12 +29,15 @@ export default function Login({navigation}) {
   return (
     <Theme>
       <Background2
-        blue={<Logo source={require('../../assets/logo.png')} />}
+        blue={<Logo testID="Logo" source={require('../../assets/logo.png')} />}
         white={
           <Container>
             <LoginContainer>
               <UserContatiner>
-                <Icon source={require('../../assets/user_white.png')} />
+                <Icon
+                  testID="Icon"
+                  source={require('../../assets/user_white.png')}
+                />
               </UserContatiner>
               <RegField
                 placeholder="Email"
@@ -44,21 +47,21 @@ export default function Login({navigation}) {
               />
               <FieldContainer>
                 <PasswordInput
+                  testID="password"
                   value={password}
                   onChangeText={(text) => setPassword(text)}
                   secureTextEntry={true}
                 />
               </FieldContainer>
-              <ButtonEntrar onPress={handleLogin}>
+              <ButtonEntrar testID="signIn" onPress={handleLogin}>
                 <CustomText white medium>
                   Entrar
                 </CustomText>
               </ButtonEntrar>
-              <Link>
-                <LinkTexto
-                  onPress={() => navigation.navigate('StudentRegister')}>
-                  Registre-se
-                </LinkTexto>
+              <Link
+                testID="signUp"
+                onPress={() => navigation.navigate('StudentRegister')}>
+                <LinkTexto>Registre-se</LinkTexto>
               </Link>
             </LoginContainer>
           </Container>

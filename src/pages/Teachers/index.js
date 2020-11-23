@@ -1,4 +1,5 @@
 import React, {useState, useContext, useEffect} from 'react';
+import {Alert} from 'react-native';
 import Theme, {theme} from '../../../Theme';
 import SquareButton from '../../components/ContainerStars';
 import ContinueContainer from '../../components/ContinueContainer';
@@ -45,7 +46,13 @@ export default function Teachers({navigation}) {
           }}
         />
         <ContinueContainer
-          onPress={() => navigation.navigate('TeacherProfile', {selectedId})}
+          onPress={() => {
+            if (selectedId === null) {
+              Alert.alert('Você deve selecionar um professor');
+            } else {
+              navigation.navigate('TeacherProfile', {selectedId});
+            }
+          }}
           marginTop={{value: '128%'}}
         />
       </Background1>

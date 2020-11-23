@@ -11,7 +11,7 @@ export default function AuthProvider({children}) {
   const [student, setStudent] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const Host = 'http://192.168.1.132:3333';
+  const Host = 'http://10.10.10.102:3333';
 
   useEffect(() => {
     async function loadStorage() {
@@ -100,7 +100,7 @@ export default function AuthProvider({children}) {
     const fetchResponse1 = await fetch(`${Host}/api/user/login`, settings);
     try {
       const data = await fetchResponse1.json();
-      console.log('Success:', data);
+      console.log('Success');
       if (data.message) {
         if (data.message === 'Login efetuado com sucesso!') {
           console.log('login efetuado');
@@ -125,7 +125,6 @@ export default function AuthProvider({children}) {
   } //close signIn function
 
   async function registerAluno(values, {setStatus}) {
-    console.log(values);
     var ok = false;
     const settings = {
       method: 'POST',
@@ -153,15 +152,18 @@ export default function AuthProvider({children}) {
     const fetchResponse = await fetch(`${Host}/api/student/create`, settings);
     try {
       const data = await fetchResponse.json();
-      console.log('Success:', data);
+      console.log('Success');
       if (data.message) {
         if (data.message === 'Estudante criado com sucesso!') {
           ok = true;
-          
-          renderData(data.data.user.id, data.data.user.role, data.data.user.password);
+
+          renderData(
+            data.data.user.id,
+            data.data.user.role,
+            data.data.user.password,
+          );
           setTypeUser('Aluno');
           storageTypeUser(data.data.user.role);
-
         } else if (data.message.name) {
           if (
             data.message.name === 'SequelizeUniqueConstraintError' &&
@@ -185,7 +187,6 @@ export default function AuthProvider({children}) {
   } //close registerAluno fuction
 
   async function registerProf(values, {setStatus}) {
-    console.log(values);
     var ok = false;
     const settings = {
       method: 'POST',
@@ -220,11 +221,15 @@ export default function AuthProvider({children}) {
     const fetchResponse = await fetch(`${Host}/api/teacher/create`, settings);
     try {
       const data = await fetchResponse.json();
-      console.log('Success:', data);
+      console.log('Success');
       if (data.message) {
         if (data.message === 'Professor criado com sucesso!') {
           ok = true;
-          renderData(data.data.user.id, data.data.user.role, data.data.user.password);
+          renderData(
+            data.data.user.id,
+            data.data.user.role,
+            data.data.user.password,
+          );
           setTypeUser('Professor');
           storageTypeUser(data.data.user.role);
         } else if (data.message.name) {
@@ -352,7 +357,7 @@ export default function AuthProvider({children}) {
 
     try {
       const data = await fetchResponse1.json();
-      console.log('Success:', data);
+      console.log('Success');
     } catch (error) {
       console.error('Error:', error);
     }
@@ -382,7 +387,7 @@ export default function AuthProvider({children}) {
       );
       try {
         const data2 = await fetchResponse2.json();
-        console.log('Success:', data2);
+        console.log('Success');
       } catch (error) {
         console.error('Error:', error);
       }
@@ -409,13 +414,13 @@ export default function AuthProvider({children}) {
         );
         try {
           const data3 = await fetchResponse3.json();
-          console.log('Success:', data3);
+          console.log('Success');
         } catch (error) {
           console.error('Error:', error);
         }
       }
     }
-    renderData(user.id, user.role, user.password)
+    renderData(user.id, user.role, user.password);
   }
 
   async function storageTypeUser(data) {

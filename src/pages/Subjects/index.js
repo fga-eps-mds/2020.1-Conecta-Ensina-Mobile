@@ -1,16 +1,15 @@
 import React, {useState, useContext, useEffect} from 'react';
+import {Alert} from 'react-native';
 import Theme, {theme} from '../../../Theme';
-import {FiltersContext} from '../../contexts/filters';
 import {SubjectContext} from '../../contexts/subject';
 import SquareButton from '../../components/SquareButton';
 import ContinueContainer from '../../components/ContinueContainer';
 import Background1 from '../../components/Background1';
-import {ListSubjects, Container} from './styles';
+import {ListSubjects, Container, ContainerButton} from './styles';
 
-export default function Subjects({route, navigation}) {
+export default function Subjects({navigation}) {
   const [selectedId, setSelectedId] = useState(null);
 
-  const {setSubjectFilter} = useContext(FiltersContext);
   const {subject, loadSubjects} = useContext(SubjectContext);
 
   useEffect(() => {
@@ -42,14 +41,19 @@ export default function Subjects({route, navigation}) {
               );
             }}
           />
+          <ContainerButton>
+            <ContinueContainer
+              marginTop={{value: '23%'}}
+              onPress={() => {
+                if (selectedId === null) {
+                  Alert.alert('Você deve selecionar uma disciplina');
+                } else {
+                  navigation.navigate('Filters', {selectedId});
+                }
+              }}
+            />
+          </ContainerButton>
         </Container>
-        <ContinueContainer
-          marginTop={{value: '127.5%'}}
-          onPress={() => {
-            setSubjectFilter(selectedId);
-            navigation.navigate('Filters');
-          }}
-        />
       </Background1>
     </Theme>
   );
