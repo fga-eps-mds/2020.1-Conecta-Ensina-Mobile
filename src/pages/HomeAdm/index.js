@@ -15,7 +15,7 @@ export default function HomeAdm({navigation}) {
       img: require('../../assets/books.png'),
     },
   ]);
-  const {signOut} = useContext(AuthContext)
+  const {signOut} = useContext(AuthContext);
   const {getProfessorList} = useContext(AdmContext);
 
   return (
@@ -27,18 +27,18 @@ export default function HomeAdm({navigation}) {
           keyExtractor={(item) => item.id}
           renderItem={({item}) => {
             var nextScreen;
-        
+
             if (item.id === '101') {
               nextScreen = 'PendingTeacher';
             } else {
               nextScreen = 'HomeAdm';
             }
-        
+
             async function handleProf() {
               await getProfessorList();
               navigation.navigate(nextScreen);
             }
-        
+
             return (
               <SquareButton
                 data={item}
@@ -49,11 +49,12 @@ export default function HomeAdm({navigation}) {
           }}
         />
         <ContainerButton>
-          <SignOut onPress={()=>signOut()}>
-            <CustomText white bigSmall>Sair</CustomText>
+          <SignOut onPress={() => signOut()}>
+            <CustomText white bigSmall>
+              Sair
+            </CustomText>
           </SignOut>
         </ContainerButton>
-        
       </Background4>
     </Theme>
   );

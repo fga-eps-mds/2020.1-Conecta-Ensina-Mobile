@@ -1,6 +1,9 @@
 import React, {useEffect, useContext, useState} from 'react';
 import Theme, {theme} from '../../../Theme';
+import dateResolver from '../../services/dateResolver';
+import timeResolver from '../../services/timeResolver';
 import Background2 from '../../components/Background2';
+import ContinueContainer from '../../components/ContinueContainer';
 import RedContainerText from '../../components/RedContainerText';
 import CustomTextContainer from '../../components/CustomTextContainer';
 import CustomText from '../../components/CustomText';
@@ -27,7 +30,7 @@ import {
   ContainerColumnButton,
 } from './styles';
 
-export default function ConfirmedClassDetails({}) {
+export default function ConfirmedClassDetails({navigation}) {
   const {statusClass} = useContext(ClassroomContext);
   const {student, getStudent} = useContext(StudentContext);
   const {user, getUser} = useContext(UserContext);
@@ -86,7 +89,9 @@ export default function ConfirmedClassDetails({}) {
                   marginBot={{value: '1%'}}>
                   Inicio
                 </CustomTextContainer>
-                <RedContainerText medium>16:00</RedContainerText>
+                <RedContainerText medium>{`Horário: ${timeResolver(
+                  statusClass.dtclass,
+                )}`}</RedContainerText>
               </ContainerTextBox>
             </ContainerWUpper>
             <ContainerWUpper>
@@ -99,7 +104,7 @@ export default function ConfirmedClassDetails({}) {
                   Duração
                 </CustomTextContainer>
                 <RedContainerText medium>
-                  {statusClass && statusClass.duration + ' Hora'}
+                  {statusClass && statusClass.duration + ' Horas'}
                 </RedContainerText>
               </ContainerTextBox>
               <ContainerTextBox>
@@ -110,20 +115,14 @@ export default function ConfirmedClassDetails({}) {
                   marginBot={{value: '1%'}}>
                   Modalidade
                 </CustomTextContainer>
-                <RedContainerText medium>Presencial</RedContainerText>
+                <RedContainerText medium />
               </ContainerTextBox>
             </ContainerWUpper>
-
-            <CustomTextContainer
-              black
-              smallMedium
-              marginTop={{value: '2%'}}
-              marginBot={{value: '0%'}}>
-              Observação
-            </CustomTextContainer>
-            <RedContainerText>{statusClass.details}</RedContainerText>
           </ContainerW>
         }
+      />
+      <ContinueContainer
+        onPress={() => navigation.navigate('ConfirmedClass')}
       />
     </Theme>
   );
