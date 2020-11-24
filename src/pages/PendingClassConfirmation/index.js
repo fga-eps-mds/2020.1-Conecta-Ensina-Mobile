@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import {AuthContext} from '../../contexts/auth'
+import {AuthContext} from '../../contexts/auth';
 import Theme from '../../../Theme';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
@@ -22,9 +22,7 @@ export default function PendingClassConfirmation({route, navigation}) {
   const {getStudent2} = useContext(StudentContext)
 
   const getStudent = async () => {
-    const fetchResponse = await fetch(
-      Host+'/api/student/' + item.student,
-    );
+    const fetchResponse = await fetch(Host + '/api/student/' + item.student);
     try {
       const data = await fetchResponse.json();
       setStudent(data.data.student);
@@ -38,9 +36,7 @@ export default function PendingClassConfirmation({route, navigation}) {
   const params = student.id;
 
   const getUser = async () => {
-    const fetchResponse = await fetch(
-      Host+'/api/user/' + item.student,
-    );
+    const fetchResponse = await fetch(Host + '/api/user/' + item.student);
     try {
       const data = await fetchResponse.json();
       setUser(data.data.user);
@@ -64,7 +60,7 @@ export default function PendingClassConfirmation({route, navigation}) {
       }),
     };
     const fetchResponse1 = await fetch(
-      Host+'/api/classroom/status/' + id,
+      Host + '/api/classroom/status/' + id,
       settings,
     );
     try {

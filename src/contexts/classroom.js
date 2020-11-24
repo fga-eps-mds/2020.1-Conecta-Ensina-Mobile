@@ -12,6 +12,8 @@ export default function ClassroomProvider({children}) {
   const [firstClass, setFirstClass] = useState(null);
   const {Host, user} = useContext(AuthContext);
   const {filter} = useContext(FiltersContext);
+  const [statusClasses, setStatusClasses] = useState([]);
+  const [statusClass, setStatusClass] = useState({});
 
   async function loadNextClass() {
     const response = await Class.getNextClassroom(Host);
@@ -35,6 +37,15 @@ export default function ClassroomProvider({children}) {
     if (classroom !== response) {
       setClassroom(response);
     }
+  }
+
+  async function loadStatusClasses(status) {
+    const response = await Class.getStatusClassroom(Host, user.id, status);
+    if (classroom !== response) {
+      console.log(response);
+      setStatusClasses(response);
+    }
+    console.log(response);
   }
 
   async function readClass(id) {
@@ -65,7 +76,12 @@ export default function ClassroomProvider({children}) {
         createClass,
         loadUserClasses,
         firstClass,
+        loadStatusClasses,
         readClass,
+        statusClasses,
+        statusClass,
+        setStatusClass,
+        Host,
       }}>
       {children}
     </ClassroomContext.Provider>

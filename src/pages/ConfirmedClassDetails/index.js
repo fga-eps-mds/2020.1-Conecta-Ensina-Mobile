@@ -1,7 +1,9 @@
-import CountDown from 'react-native-countdown-component';
 import React, {useEffect, useContext, useState} from 'react';
 import Theme, {theme} from '../../../Theme';
+import dateResolver from '../../services/dateResolver';
+import timeResolver from '../../services/timeResolver';
 import Background2 from '../../components/Background2';
+import ContinueContainer from '../../components/ContinueContainer';
 import RedContainerText from '../../components/RedContainerText';
 import CustomTextContainer from '../../components/CustomTextContainer';
 import CustomText from '../../components/CustomText';
@@ -28,12 +30,23 @@ import {
   ContainerColumnButton,
 } from './styles';
 
-export default function TeacherClassDetails({navigation}) {
-  const {classroom, readClass} = useContext(ClassroomContext);
-  const {student} = useContext(StudentContext);
-  const {user} = useContext(UserContext);
+export default function ConfirmedClassDetails({navigation}) {
+  const {statusClass} = useContext(ClassroomContext);
+  const {student, getStudent} = useContext(StudentContext);
+  const {user, getUser} = useContext(UserContext);
   const [start, setStart] = useState(false);
   const [run, setRun] = useState(true);
+
+  useEffect(() => {
+    async function readUser() {
+      await getUser(statusClass.student);
+      await getStudent(statusClass.student);
+    }
+    readUser();
+
+    console.log(statusClass);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Theme>
@@ -66,7 +79,7 @@ export default function TeacherClassDetails({navigation}) {
                   Disciplina
                 </CustomTextContainer>
                 <RedContainerText medium>
-                  {classroom && classroom.subject}
+                  {statusClass && statusClass.subject}
                 </RedContainerText>
               </ContainerTextBox>
               <ContainerTextBox>
@@ -77,7 +90,9 @@ export default function TeacherClassDetails({navigation}) {
                   marginBot={{value: '1%'}}>
                   Inicio
                 </CustomTextContainer>
-                <RedContainerText medium>16:00</RedContainerText>
+                <RedContainerText medium>{`Horário: ${timeResolver(
+                  statusClass.dtclass,
+                )}`}</RedContainerText>
               </ContainerTextBox>
             </ContainerWUpper>
             <ContainerWUpper>
@@ -90,7 +105,7 @@ export default function TeacherClassDetails({navigation}) {
                   Duração
                 </CustomTextContainer>
                 <RedContainerText medium>
-                  {classroom && classroom.duration + ' Hora'}
+                  {statusClass && statusClass.duration + ' Horas'}
                 </RedContainerText>
               </ContainerTextBox>
               <ContainerTextBox>
@@ -101,85 +116,12 @@ export default function TeacherClassDetails({navigation}) {
                   marginBot={{value: '1%'}}>
                   Modalidade
                 </CustomTextContainer>
-                <RedContainerText medium>Presencial</RedContainerText>
+                <RedContainerText medium />
               </ContainerTextBox>
             </ContainerWUpper>
-
-            <CustomTextContainer
-              black
-              smallMedium
-              marginTop={{value: '2%'}}
-              marginBot={{value: '0%'}}>
-              Observação
-            </CustomTextContainer>
-            <RedContainerText>{classroom.details}</RedContainerText>
-            {start ? (
-              <ContainerWLower>
-                <ContainerColumnButton>
-                  <TimerButton>
-                    <CountDown
-                      running={run}
-                      until={60 * 60 * classroom.duration}
-                      size={15}
-                      onFinish={() => alert('Aula Finalizada')}
-                      digitStyle={{backgroundColor: theme.colors.fundoAzul}}
-                      digitTxtStyle={{color: theme.colors.branco}}
-                      timeToShow={['H', 'M', 'S']}
-                      timeLabels={{}}
-                    />
-                  </TimerButton>
-                  <FinishButton
-                    onPress={() => {
-                      navigation.navigate('FeedbackTeacher');
-                    }}>
-                    <CustomText white medium>
-                      Terminar Aula
-                    </CustomText>
-                  </FinishButton>
-                </ContainerColumnButton>
-              </ContainerWLower>
-            ) : (
-              <ContainerWLower>
-                <CustomTextContainer
-                  black
-                  smallMedium
-                  marginTop={{value: '-3%'}}
-                  marginBot={{value: '1%'}}>
-                  Endereço
-                </CustomTextContainer>
-                <RedContainerText>
-                  {classroom &&
-                    classroom.address.logradouro +
-                      ' n°: ' +
-                      classroom.number +
-                      ', \n' +
-                      classroom.address.bairro +
-                      ' - ' +
-                      classroom.address.uf}
-                </RedContainerText>
-                <ButtonContainer>
-                  <ChatButton>
-                    <CustomText white bigSmall>
-                      Chat
-                    </CustomText>
-                  </ChatButton>
-                  <StartButton
-                    testID="StartButton"
-                    onPress={() => {
-                      setStart(true);
-                    }}>
-                    <CustomText white bigSmall>
-                      Iniciar
-                    </CustomText>
-                  </StartButton>
-                  <RouteButton>
-                    <CustomText white bigSmall>
-                      Rota
-                    </CustomText>
-                  </RouteButton>
-                </ButtonContainer>
-              </ContainerWLower>
-            )}
+            <ContinueContainer
+              onPress={() => navigation.navigate('StudentAvaliation')}
+            />
           </ContainerW>
         }
       />
