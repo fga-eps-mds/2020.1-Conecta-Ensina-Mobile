@@ -31,9 +31,9 @@ export default function AulaMarcada({navigation}) {
           {show && <DatePicker date={newDate} onChange={onChange} />}
         </Container>
         <ContinueContainer
-          onPress={() => {
+          onPress={async () => {
+            await getClassroom(1);
             navigation.navigate('ShowClass');
-            getClassroom(1);
           }}
           marginTop={{value: '100%'}}
         />

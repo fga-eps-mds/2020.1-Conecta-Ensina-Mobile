@@ -61,14 +61,17 @@ export default function ClassroomProvider({children}) {
 
   async function updateStatusClassroom(id) {
     const response = await Class.getClass(Host, id);
-    if (response.status === 1){
+    if (response.status === 1) {
       const response = await Class.updateStatusClassroom(id, 2, Host);
       console.log(response.message);
-    } else if (response.status === 2){
+    } else if (response.status === 2) {
       const response = await Class.updateStatusClassroom(id, 3, Host);
       console.log(response.message);
-    }else if (response.status === 3){
+    } else if (response.status === 3) {
       const response = await Class.updateStatusClassroom(id, 4, Host);
+      console.log(response.message);
+    } else if (response.status === 4) {
+      const response = await Class.updateStatusClassroom(id, 5, Host);
       console.log(response.message);
     }
   }

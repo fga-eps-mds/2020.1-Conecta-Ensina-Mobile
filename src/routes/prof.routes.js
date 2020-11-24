@@ -13,7 +13,6 @@ import TeacherClassDetails from '../pages/TeacherClassDetails';
 import FeedbackTeacher from '../pages/FeedbackTeacher';
 //import FeedbackStudent from '../pages/FeedbackStudent';
 
-
 // import { Container } from './styles';
 const ProfStack = createStackNavigator();
 

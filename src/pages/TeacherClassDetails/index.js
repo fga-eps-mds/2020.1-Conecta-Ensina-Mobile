@@ -128,9 +128,10 @@ export default function TeacherClassDetails({navigation}) {
                       timeLabels={{}}
                     />
                   </TimerButton>
-                  <FinishButton onPress={() => {
-                    navigation.navigate('FeedbackTeacher')
-                  }}>
+                  <FinishButton
+                    onPress={() => {
+                      navigation.navigate('FeedbackTeacher');
+                    }}>
                     <CustomText white medium>
                       Terminar Aula
                     </CustomText>
@@ -147,7 +148,7 @@ export default function TeacherClassDetails({navigation}) {
                   Endereço
                 </CustomTextContainer>
                 <RedContainerText>
-                {classroom &&
+                  {classroom &&
                     classroom.address.logradouro +
                       ' n°: ' +
                       classroom.number +

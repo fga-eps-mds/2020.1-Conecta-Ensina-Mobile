@@ -10,7 +10,6 @@ export async function getStudent(Host, id) {
   }
 }
 
-
 export async function getStudent2(Host, id) {
   const response = await fetch(`${Host}/api/student/${id}`);
   try {
