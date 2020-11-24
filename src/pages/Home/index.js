@@ -15,6 +15,7 @@ import {
   Icon,
   ListFiltro,
 } from './styles';
+import { dateResolver } from '../../services/dateResolver';
 
 export default function Home({navigation}) {
   const [filtros] = useState([
@@ -26,17 +27,19 @@ export default function Home({navigation}) {
     ClassroomContext,
   );
   const [selectedId, setSelectedId] = useState(null);
-  const [] = useState(null);
+  const [date, setDate] = useState(null);
 
   useEffect(() => {
-    if (firstClass !== {}) {
+    if (firstClass === null) {
       loadNextClass();
+    }else{
+      setDate(dateResolver(firstClass.dtclass))
     }
     if (classroom !== {}) {
       loadUserClasses();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [firstClass]); 
 
   return (
     <Theme>
@@ -68,7 +71,7 @@ export default function Home({navigation}) {
             <CustomText bigSmall>Proxima Aula</CustomText>
           </ContainerHorizontal>
           <BigTextContainer>
-            <CustomText>{firstClass.dtclass}</CustomText>
+            <CustomText big>{date && date[0]+' '+date[1]}</CustomText>
           </BigTextContainer>
           <ContainerHorizontal>
             <CustomText bigSmall>16 - 18 Horas</CustomText>

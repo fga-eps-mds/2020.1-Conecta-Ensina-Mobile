@@ -51,11 +51,11 @@ export const ContainerHorizontal = styled.View`
 
 export const Icon = styled.Image`
   margin-right: 3%;
-  width: 36px;
-  height: 30px;
+  width: 28px;
+  height: 24px;
 `;
 
 export const BigTextContainer = styled.View`
-  padding-left: 7%;
+  margin-right: 30%;
   padding-bottom: 3%;
 `;

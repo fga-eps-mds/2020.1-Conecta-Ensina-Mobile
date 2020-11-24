@@ -9,7 +9,7 @@ export const ClassroomContext = createContext({});
 
 export default function ClassroomProvider({children}) {
   const [classroom, setClassroom] = useState({});
-  const [firstClass, setFirstClass] = useState({});
+  const [firstClass, setFirstClass] = useState(null);
   const {Host, user} = useContext(AuthContext);
   const {filter} = useContext(FiltersContext);
 
