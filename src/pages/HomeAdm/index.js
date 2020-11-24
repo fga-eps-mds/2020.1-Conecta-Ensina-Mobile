@@ -18,10 +18,15 @@ export default function HomeAdm({navigation}) {
       id: '171',
       name: 'Usuários Reportados',
       img: require('../../assets/books.png'),
-    }
+    },
   ]);
-  const {signOut} = useContext(AuthContext)
-  const {getProfessorList, getReportedUsers, getProfessoUser, students} = useContext(AdmContext);
+  const {signOut} = useContext(AuthContext);
+  const {
+    getProfessorList,
+    getReportedUsers,
+    getProfessoUser,
+    students,
+  } = useContext(AdmContext);
 
   return (
     <Theme>
@@ -37,17 +42,16 @@ export default function HomeAdm({navigation}) {
               if (item.id === '101') {
                 nextScreen = 'PendingTeacher';
                 await getProfessorList();
-              }
-              else if (item.id === '171') {
+              } else if (item.id === '171') {
                 nextScreen = 'ReportedUsers';
                 await getReportedUsers();
                 await getProfessoUser(students[0].id);
               } else {
                 nextScreen = 'HomeAdm';
               }
-                navigation.navigate(nextScreen);
+              navigation.navigate(nextScreen);
             }
-        
+
             return (
               <SquareButton
                 data={item}
@@ -58,11 +62,12 @@ export default function HomeAdm({navigation}) {
           }}
         />
         <ContainerButton>
-          <SignOut onPress={()=>signOut()}>
-            <CustomText white bigSmall>Sair</CustomText>
+          <SignOut testID="signout" onPress={() => signOut()}>
+            <CustomText white bigSmall>
+              Sair
+            </CustomText>
           </SignOut>
         </ContainerButton>
-        
       </Background4>
     </Theme>
   );
