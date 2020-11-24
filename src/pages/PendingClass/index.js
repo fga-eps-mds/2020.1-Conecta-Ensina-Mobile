@@ -26,10 +26,7 @@ export default function PendingClass({navigation}) {
         status: 0,
       }),
     };
-    const fetchResponse1 = await fetch(
-      Host+'/api/classroom/',
-      settings,
-    );
+    const fetchResponse1 = await fetch(Host + '/api/classroom/', settings);
     try {
       const data = await fetchResponse1.json();
       console.log(data.data.classroom);

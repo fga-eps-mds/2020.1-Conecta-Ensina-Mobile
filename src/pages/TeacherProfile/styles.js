@@ -29,5 +29,22 @@ export const UserContatiner = styled.View`
   background-color: ${(props) => props.theme.colors.branco};
   align-items: center;
   justify-content: center;
-  margin-top: 5.5%;
+`;
+
+export const ButtonContainer = styled.View`
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+  margin-left: 12.5%;
+  margin-top: 2%;
+`;
+
+export const ComplainButton = styled.TouchableOpacity`
+  background-color: ${(props) => props.theme.colors.vermelho};
+  width: 138px;
+  height: 31px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
 `;

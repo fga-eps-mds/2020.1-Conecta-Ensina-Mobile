@@ -11,13 +11,19 @@ export default function UserProvider({children}) {
   async function getStudent(id) {
     const response = await Student.getStudent(Host, id);
     if (student !== response) {
-      console.log(response);
+      setStudent(response);
+    }
+  }
+
+  async function getStudent2(id) {
+    const response = await Student.getStudent2(Host, id);
+    if (student !== response) {
       setStudent(response);
     }
   }
 
   return (
-    <StudentContext.Provider value={{student, getStudent}}>
+    <StudentContext.Provider value={{student, getStudent, getStudent2}}>
       {children}
     </StudentContext.Provider>
   );

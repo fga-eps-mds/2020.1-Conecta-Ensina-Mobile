@@ -28,22 +28,12 @@ import {
   ContainerColumnButton,
 } from './styles';
 
-export default function TeacherClassDetails({}) {
+export default function TeacherClassDetails({navigation}) {
   const {classroom, readClass} = useContext(ClassroomContext);
-  const {student, getStudent} = useContext(StudentContext);
-  const {user, getUser} = useContext(UserContext);
+  const {student} = useContext(StudentContext);
+  const {user} = useContext(UserContext);
   const [start, setStart] = useState(false);
   const [run, setRun] = useState(true);
-
-  useEffect(() => {
-    async function readUser() {
-      await getUser(classroom.student);
-      await getStudent(classroom.teacher);
-    }
-    readUser();
-    
-    console.log(classroom);
-  }, []);
 
   return (
     <Theme>
@@ -138,10 +128,10 @@ export default function TeacherClassDetails({}) {
                       timeLabels={{}}
                     />
                   </TimerButton>
-                  <FinishButton onPress={() => {
-                    setRun(false)
-                    alert('Aula Finalizada')
-                  }}>
+                  <FinishButton
+                    onPress={() => {
+                      navigation.navigate('FeedbackTeacher');
+                    }}>
                     <CustomText white medium>
                       Terminar Aula
                     </CustomText>
@@ -158,7 +148,7 @@ export default function TeacherClassDetails({}) {
                   Endereço
                 </CustomTextContainer>
                 <RedContainerText>
-                {classroom &&
+                  {classroom &&
                     classroom.address.logradouro +
                       ' n°: ' +
                       classroom.number +

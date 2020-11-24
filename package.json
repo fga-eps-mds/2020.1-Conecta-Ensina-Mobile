@@ -21,6 +21,7 @@
     "formik": "^2.1.7",
     "react": "16.13.1",
     "react-native": "0.63.2",
+    "react-native-calendars": "^1.403.0",
     "react-native-countdown-component": "^2.7.1",
     "react-native-gesture-handler": "^1.8.0",
     "react-native-masked-text": "^1.13.0",
@@ -44,6 +45,7 @@
     "codecov": "^3.7.2",
     "eslint": "^6.5.1",
     "jest": "^26.5.0",
+    "jest-extended": "^0.11.5",
     "jest-fetch-mock": "^3.0.3",
     "metro-react-native-babel-preset": "^0.59.0",
     "react-test-renderer": "16.13.1"
@@ -56,6 +58,9 @@
     "setupFiles": [
       "./node_modules/react-native-gesture-handler/jestSetup.js",
       "./jest.setup.js"
+    ],
+    "setupFilesAfterEnv": [
+      "jest-extended"
     ],
     "moduleFileExtensions": [
       "js",
