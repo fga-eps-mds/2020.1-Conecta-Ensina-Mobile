@@ -1,13 +1,16 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.ScrollView.attrs(() => ({
-  contentContainerStyle: {
-    alignItems: 'center',
-  },
-}))`
+export const Container = styled.ScrollView`
   width: 100%;
-  height: 64.28%;
   margin-bottom: 5%;
+  flex: 1;
+`;
+
+export const InfoContainer = styled.View`
+  align-items: center;
+  width: 100%;
+  flex: 1;
+  margin-bottom: 90%;
 `;
 
 export const ContainerGrande = styled.View`
@@ -45,6 +48,22 @@ export const ContainerGrupo = styled.View`
   height: 9%;
   margin-top: 8%;
   align-items: center;
+`;
+
+export const ContainerComplain = styled.View`
+  align-items: center;
+  justify-content: center;
+  margin-top: 8%;
+`;
+
+export const ComplainButton = styled.TouchableOpacity`
+  background-color: ${(props) => props.theme.colors.vermelho};
+  width: 138px;
+  height: 31px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
 `;
 
 export const ContainerButton = styled.View`

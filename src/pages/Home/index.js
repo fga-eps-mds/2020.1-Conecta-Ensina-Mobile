@@ -26,12 +26,9 @@ export default function Home({navigation}) {
     ClassroomContext,
   );
   const [selectedId, setSelectedId] = useState(null);
-  const [params, setParams] = useState(null);
+  const [] = useState(null);
 
   useEffect(() => {
-    if (selectedId !== null) {
-      setParams(selectedId);
-    }
     if (firstClass !== {}) {
       loadNextClass();
     }
@@ -45,6 +42,7 @@ export default function Home({navigation}) {
     <Theme>
       <Background1 navigation={navigation} page={'Profile'}>
         <ListFiltro
+          testID="listFiltro"
           horizontal
           data={filtros}
           extraData={selectedId}
@@ -94,8 +92,9 @@ export default function Home({navigation}) {
             </CustomText>
           </ButtonAulaUrgente>
           <ButtonMarcarAula
+            testID="MarcarAula"
             onPress={() => {
-              navigation.navigate('Subjects', {params}); /*}catch(error){}*/
+              navigation.navigate('Subjects'); /*}catch(error){}*/
             }}>
             <Icon source={require('../../assets/books.png')} />
             <CustomText white medium>

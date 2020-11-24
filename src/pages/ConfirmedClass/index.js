@@ -25,7 +25,7 @@ export default function AulaMarcada({navigation}) {
     <Theme>
       <Background1 navigation={navigation} page={'TeacherProfile2'}>
         <Container>
-          <DataButton onPress={handlerShowPicker}>
+          <DataButton testID="DataButton" onPress={handlerShowPicker}>
             <Texto>Data</Texto>
           </DataButton>
           {show && <DatePicker date={newDate} onChange={onChange} />}

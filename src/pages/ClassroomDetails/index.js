@@ -35,12 +35,12 @@ export default function ClassroomDetails({navigation, route}) {
   const {updateStatusClassroom} = useContext(ClassroomContext);
   const {user} = useContext(AuthContext);
   const {classroom, readClass} = useContext(ClassroomContext);
-  const {student, getStudent} = useContext(StudentContext);
+  const {student, getStudent2} = useContext(StudentContext);
   const {teacher, getTeacher} = useContext(TeacherContext);
 
   const [start, setStart] = useState(false);
   const [run, setRun] = useState(true);
-  
+
   /*const begin = () => {
     updateStatusClassroom(item.id);
     getClass(item.id);
@@ -51,29 +51,28 @@ export default function ClassroomDetails({navigation, route}) {
   };*/
 
   const finish = () => {
-   if (user.role == 2){
+    if (user.role == 2) {
       setRun(false);
       updateStatusClassroom(item.id);
       alert('Aula Finalizada');
-   } 
-  }
+    }
+  };
 
   useEffect(() => {
     async function readUser() {
       await getTeacher(item.teacher);
-      await getStudent(item.teacher);
+      await getStudent2(item.teacher);
+      console.log('Student');
+      console.log(student);
     }
-    readUser();
-
-    //readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
-    console.log(classroom);
-  }, []);
-
-  useEffect(() => {
     async function classRead() {
       await readClass(item.id);
     }
+
+    readUser();
     classRead();
+
+    //readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
   }, []);
 
   return (
@@ -87,10 +86,11 @@ export default function ClassroomDetails({navigation, route}) {
             </UserContainer>
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
-                {teacher && teacher.firstName + ' ' + teacher.lastName}
+                {student &&
+                  student.user.firstName + ' ' + student.user.lastName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '2%'}}>
-                {student && gradeResolver(student.grade)}
+                {student && gradeResolver(student.student.grade)}
               </CustomTextContainer>
             </ContainerTextBlue>
           </ContainerB>
@@ -159,6 +159,7 @@ export default function ClassroomDetails({navigation, route}) {
                 <ContainerColumnButton>
                   <TimerButton>
                     <CountDown
+                      testID="countdown"
                       running={run}
                       until={60 * 60 * item.duration}
                       size={15}
@@ -170,8 +171,12 @@ export default function ClassroomDetails({navigation, route}) {
                     />
                   </TimerButton>
                   <FinishButton
-                    onPress={() => {
-                      finish();
+                    testID="finishButton"
+                    onPress={async () => {
+                      await finish();
+                      //setRun(false);
+                      //alert('Aula Finalizada');
+                      navigation.navigate('FeedbackTeacher', {classroom});
                     }}>
                     <CustomText white medium>
                       Terminar Aula
@@ -189,9 +194,7 @@ export default function ClassroomDetails({navigation, route}) {
                   Endereço
                 </CustomTextContainer>
                 <RedContainerText>
-                  {item &&
-                      item.number +
-                      ', \n'}
+                  {item && item.number + ', \n'}
                 </RedContainerText>
                 <ButtonContainer>
                   <ChatButton>
@@ -204,9 +207,9 @@ export default function ClassroomDetails({navigation, route}) {
                     onPress={() => {
                       updateStatusClassroom(item.id);
                       //readClass(item.id);
-                      //if (classroom == 3){
-                      setStart(true);
-                      //}
+                      if (classroom.status === 3) {
+                        setStart(true);
+                      }
                     }}>
                     <CustomText white bigSmall>
                       Iniciar

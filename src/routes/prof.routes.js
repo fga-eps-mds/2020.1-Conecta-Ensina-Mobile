@@ -10,6 +10,8 @@ import EditTeacher from '../pages/EditTeacher';
 import ShowClass from '../pages/ShowClass';
 import ClassroomDetails from '../pages/ClassroomDetails';
 import TeacherClassDetails from '../pages/TeacherClassDetails';
+import FeedbackTeacher from '../pages/FeedbackTeacher';
+//import FeedbackStudent from '../pages/FeedbackStudent';
 
 
 // import { Container } from './styles';
@@ -63,6 +65,11 @@ function ProfRoutes() {
         component={ClassroomDetails}
         name="TeacherClassDetails"
         component={TeacherClassDetails}
+        options={{headerShown: false}}
+      />
+      <ProfStack.Screen
+        name="FeedbackTeacher"
+        component={FeedbackTeacher}
         options={{headerShown: false}}
       />
     </ProfStack.Navigator>

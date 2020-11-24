@@ -12,9 +12,6 @@ function AdmProvider({children}) {
 
   async function getProfessorList() {
     const fetchResponse = await fetch(`${Host}/api/student/status/0`);
-
-    console.log(Host);
-
     try {
       const data = await fetchResponse.json();
       setStudents(data.data.student);
@@ -41,7 +38,7 @@ function AdmProvider({children}) {
     );
     try {
       const data = await fetchResponse1.json();
-      console.log('Success:', data);
+      console.log('Success');
     } catch (error) {
       console.error('Error:', error);
     }
@@ -82,6 +79,17 @@ function AdmProvider({children}) {
     }
   }
 
+  async function getReportedUsers() {
+    const fetchResponse = await fetch(`${Host}/api/student/status/2`);
+    try {
+      const data = await fetchResponse.json();
+      console.log(data.data)
+      setStudents(data.data.student);
+    } catch (error) {
+      return error;
+    }
+  }
+
   return (
     <AdmContext.Provider
       value={{
@@ -91,6 +99,7 @@ function AdmProvider({children}) {
         getProfessorList,
         statusUpdate,
         getProfessoUser,
+        getReportedUsers,
       }}>
       {children}
     </AdmContext.Provider>

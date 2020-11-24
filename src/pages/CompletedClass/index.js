@@ -18,56 +18,6 @@ export default function CompletedClass({navigation}) {
     {id: '45', nome: 'ExemploAula04'},
   ]);
 
-  const renderItem = ({item}) => {
-    return (
-      <ContainerVisualAula>
-        <ContainerTexto>
-          <CustomText smaller black>
-            Horario: 16 - 17h
-          </CustomText>
-          <CustomText smaller black>
-            Conteudo
-          </CustomText>
-          <CustomText smaller black>
-            Modalidade
-          </CustomText>
-          <CustomText smaller black>
-            Distancia
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-          </CustomText>
-          <CustomText smaller black>
-            Dados do Aluno
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Nome
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Serie
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Endereço
-          </CustomText>
-          <CustomText smaller black>
-            {' '}
-            - Observação
-          </CustomText>
-        </ContainerTexto>
-        <ContainerButtons>
-          <ButtonVerMais>
-            <CustomText smaller white>
-              Ver mais
-            </CustomText>
-          </ButtonVerMais>
-        </ContainerButtons>
-      </ContainerVisualAula>
-    );
-  };
-
   return (
     <Theme>
       <Background1 navigation={navigation} page={'TeacherProfile2'}>
@@ -75,7 +25,53 @@ export default function CompletedClass({navigation}) {
           numColumns={2}
           data={aulas}
           keyExtractor={(item) => item.id}
-          renderItem={renderItem}
+          renderItem={() => {
+            <ContainerVisualAula>
+              <ContainerTexto>
+                <CustomText smaller black>
+                  Horario: 16 - 17h
+                </CustomText>
+                <CustomText smaller black>
+                  Conteudo
+                </CustomText>
+                <CustomText smaller black>
+                  Modalidade
+                </CustomText>
+                <CustomText smaller black>
+                  Distancia
+                </CustomText>
+                <CustomText smaller black>
+                  {' '}
+                </CustomText>
+                <CustomText smaller black>
+                  Dados do Aluno
+                </CustomText>
+                <CustomText smaller black>
+                  {' '}
+                  - Nome
+                </CustomText>
+                <CustomText smaller black>
+                  {' '}
+                  - Serie
+                </CustomText>
+                <CustomText smaller black>
+                  {' '}
+                  - Endereço
+                </CustomText>
+                <CustomText smaller black>
+                  {' '}
+                  - Observação
+                </CustomText>
+              </ContainerTexto>
+              <ContainerButtons>
+                <ButtonVerMais>
+                  <CustomText smaller white>
+                    Ver mais
+                  </CustomText>
+                </ButtonVerMais>
+              </ContainerButtons>
+            </ContainerVisualAula>;
+          }}
         />
       </Background1>
     </Theme>
