@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import Theme, {theme} from '../../../Theme';
 import SquareButton from '../../components/SquareButton';
 import Background1 from '../../components/Background1';
@@ -10,19 +10,20 @@ import {
   Icon,
   ListFuncoes,
 } from './styles';
-import { ClassroomContext } from '../../contexts/classroom';
+import {ClassroomContext} from '../../contexts/classroom';
 
 const Item = ({item, onPress, style}) => (
   <SquareButton data={item} onPress={onPress} style={[style]} />
 );
 
 export default function HomeProf({navigation}) {
-  const {readClass} = useContext(ClassroomContext)
+  const {readClass} = useContext(ClassroomContext);
   const [funcoes] = useState([
     {
-      id: '101', 
-      name: 'Aulas Marcadas', 
-      img: require('../../assets/books.png')},
+      id: '101',
+      name: 'Aulas Marcadas',
+      img: require('../../assets/books.png'),
+    },
     {
       id: '102',
       name: 'Aulas Pendentes',
@@ -52,8 +53,8 @@ export default function HomeProf({navigation}) {
       <Item
         item={item}
         onPress={async () => {
-          await readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312')
-          navigation.navigate(nextScreen)
+          await readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
+          navigation.navigate(nextScreen);
         }}
         style={{backgroundColor: theme.colors.cinzaClaro}}
       />

@@ -37,13 +37,12 @@ export default function ClassroomDetails({navigation}) {
 
   useEffect(() => {
     async function readUser() {
-      await getUser(classroom.teacher);
       await getStudent(classroom.teacher);
     }
 
     readUser();
     //readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
-  }, []);
+  }, [student]);
 
   return (
     <Theme>
@@ -56,10 +55,11 @@ export default function ClassroomDetails({navigation}) {
             </UserContainer>
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
-                {user && user.firstName + ' ' + user.lastName}
+                {student &&
+                  student.user.firstName + ' ' + student.user.lastName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '2%'}}>
-                {student && gradeResolver(student.grade)}
+                {student && gradeResolver(student.student.grade)}
               </CustomTextContainer>
             </ContainerTextBlue>
           </ContainerB>

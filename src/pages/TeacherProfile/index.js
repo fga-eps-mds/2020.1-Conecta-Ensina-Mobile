@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import Theme from '../../../Theme';
 import {AuthContext} from '../../contexts/auth';
 import {ClassroomContext} from '../../contexts/classroom';
+import {TeacherContext} from '../../contexts/teacher';
 import Background2 from '../../components/Background2';
 import ContinueContainer from '../../components/ContinueContainer';
 import RedContainerText from '../../components/RedContainerText';
@@ -20,11 +21,11 @@ import CustomText from '../../components/CustomText';
 import {StudentContext} from '../../contexts/student';
 
 export default function TeacherProfile({navigation, route}) {
-  const {Host} = useContext(AuthContext);
+  const {teacher} = useContext(TeacherContext);
   const {createClass, readClass} = useContext(ClassroomContext);
-  const {getStudent2} = useContext(StudentContext);
+  const {getStudent} = useContext(StudentContext);
 
-  const getTeacher = async () => {
+  /*const getTeacher = async () => {
     const teacherResponse = await fetch(
       `${Host}/api/teacher/` + route.params.selectedId,
     );
@@ -52,13 +53,11 @@ export default function TeacherProfile({navigation, route}) {
     } catch (error) {
       return error;
     }
-  };
+  };*/
 
   useEffect(() => {
     //console.log(teacher);
   }, [teacher]);
-
-  const [teacher, setTeacher] = useState(getTeacher);
 
   const params = route.params.selectedId;
 
@@ -72,7 +71,7 @@ export default function TeacherProfile({navigation, route}) {
               <Icon source={require('../../assets/user_blue.png')} />
             </UserContatiner>
             <CustomTextContainer white smallMedium marginTop={{value: '14%'}}>
-              {teacher && teacher.name}
+              {teacher && `${teacher.user.firstName} ${teacher.user.lastName}`}
             </CustomTextContainer>
           </ContainerB>
         }
@@ -86,7 +85,7 @@ export default function TeacherProfile({navigation, route}) {
               Disciplina
             </CustomTextContainer>
             <RedContainerText medium>
-              {teacher && teacher.graduation_area}
+              {teacher && teacher.teacher.graduation_area}
             </RedContainerText>
             <CustomTextContainer
               black
@@ -96,7 +95,7 @@ export default function TeacherProfile({navigation, route}) {
               Formação
             </CustomTextContainer>
             <RedContainerText medium>
-              {teacher && gradeResolver(teacher.grade)}
+              {teacher && gradeResolver(teacher.student.grade)}
             </RedContainerText>
             <CustomTextContainer
               black
@@ -106,7 +105,7 @@ export default function TeacherProfile({navigation, route}) {
               Universidade
             </CustomTextContainer>
             <RedContainerText medium>
-              {teacher && teacher.institution}
+              {teacher && teacher.student.institution}
             </RedContainerText>
             <CustomTextContainer
               black
@@ -123,7 +122,7 @@ export default function TeacherProfile({navigation, route}) {
               <ComplainButton
                 testID="ComplainButton"
                 onPress={async () => {
-                  await getStudent2(route.params.selectedId);
+                  await getStudent(route.params.selectedId);
                   navigation.navigate('FeedbackTeacher', {params});
                 }}>
                 <CustomText white bigSmall>
@@ -133,8 +132,9 @@ export default function TeacherProfile({navigation, route}) {
               <ContinueContainer
                 testID="ContinueButton"
                 onPress={async () => {
+                  await getStudent(teacher.id);
                   await readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
-                  createClass(teacher.id);
+                  await createClass(teacher.id);
                   navigation.navigate('ClassroomDetails');
                 }}
               />

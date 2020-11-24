@@ -15,15 +15,8 @@ export default function UserProvider({children}) {
     }
   }
 
-  async function getStudent2(id) {
-    const response = await Student.getStudent2(Host, id);
-    if (student !== response) {
-      setStudent(response);
-    }
-  }
-
   return (
-    <StudentContext.Provider value={{student, getStudent, getStudent2}}>
+    <StudentContext.Provider value={{student, getStudent}}>
       {children}
     </StudentContext.Provider>
   );
