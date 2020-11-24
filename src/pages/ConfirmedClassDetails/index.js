@@ -45,6 +45,7 @@ export default function ConfirmedClassDetails({navigation}) {
     readUser();
 
     console.log(statusClass);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

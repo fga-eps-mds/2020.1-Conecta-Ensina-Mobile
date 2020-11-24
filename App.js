@@ -10,6 +10,7 @@ import FiltersProvider from './src/contexts/filters';
 import TeacherProvider from './src/contexts/teacher';
 import UserProvider from './src/contexts/user';
 import StudentProvider from './src/contexts/student';
+import RateProvider from './src/contexts/rate';
 
 export default function App() {
   return (
@@ -22,7 +23,9 @@ export default function App() {
                 <TeacherProvider>
                   <StudentProvider>
                     <ClassroomProvider>
-                      <Routes />
+                      <RateProvider>
+                        <Routes />
+                      </RateProvider>
                     </ClassroomProvider>
                   </StudentProvider>
                 </TeacherProvider>
