@@ -7,6 +7,7 @@ import CustomText from '../../components/CustomText';
 import {ClassroomContext} from '../../contexts/classroom';
 import {UserContext} from '../../contexts/user';
 import {StudentContext} from '../../contexts/student';
+import gradeResolver from '../../services/gradeResolver';
 import {
     ContainerB,
     ContainerW,
@@ -17,8 +18,22 @@ import {
     RedCommentContainer,
     SubmitReview,
   } from './styles';
+
 export default function StudentAvaliation({}){
 
+    const {statusClass} = useContext(ClassroomContext);
+    const {student, getStudent} = useContext(StudentContext);
+    const {user, getUser} = useContext(UserContext);
+
+    useEffect(() => {
+      async function readUser() {
+        await getUser(statusClass.student);
+        await getStudent(statusClass.student);
+      }
+      readUser();
+  
+      console.log(statusClass);
+    }, []);
 
     return (
         <Theme>
@@ -31,10 +46,10 @@ export default function StudentAvaliation({}){
                     </UserContainer>
                     <ContainerTextBlue>
                     <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
-                        FIXO
+                      {user && user.firstName + ' ' + user.lastName}
                     </CustomTextContainer>
                     <CustomTextContainer white smallMedium marginTop={{value: '2%'}}>
-                        FIXO2
+                      {student && gradeResolver(student.grade)}
                     </CustomTextContainer>
                     </ContainerTextBlue>
                 </ContainerB>

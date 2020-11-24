@@ -118,11 +118,11 @@ export default function ConfirmedClassDetails({navigation}) {
                 <RedContainerText medium />
               </ContainerTextBox>
             </ContainerWUpper>
+            <ContinueContainer
+              onPress={() => navigation.navigate('StudentAvaliation')}
+            />
           </ContainerW>
         }
-      />
-      <ContinueContainer
-        onPress={() => navigation.navigate('StudentAvaliation')}
       />
     </Theme>
   );
