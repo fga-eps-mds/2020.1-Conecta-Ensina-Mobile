@@ -19,11 +19,12 @@ import {
     SubmitReview,
   } from './styles';
 
-export default function StudentAvaliation({}){
+export default function StudentAvaliation({props}){
 
     const {statusClass} = useContext(ClassroomContext);
     const {student, getStudent} = useContext(StudentContext);
     const {user, getUser} = useContext(UserContext);
+    const [text, setText] = useState('');
 
     useEffect(() => {
       async function readUser() {
@@ -56,7 +57,16 @@ export default function StudentAvaliation({}){
                 }
                 white={
                     <ContainerW>
-                        <RedCommentContainer/>
+                        <RedCommentContainer
+                        {...props}
+                        editable
+                        maxLength={280}
+                        multiline
+                        placeholder="Insira um comentário"
+                        onChangeText={text => setText(text)}
+                        defaultValue={text}
+                        />
+                        {console.log(text)}
                         <SubmitReview>
                             <CustomTextContainer white medium>
                                 Enviar Avaliação

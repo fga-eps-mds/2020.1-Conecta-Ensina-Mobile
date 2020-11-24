@@ -42,6 +42,8 @@ export const ContainerTextBlue = styled.View`
 `;
 export const RedCommentContainer = styled.TextInput`
   background-color: ${(props) => props.theme.colors.vermelho};
+  color: ${(props) => props.theme.colors.branco};
+  textAlign: center;
   align-self: center;
   width: 85%;
   height: 56%;
