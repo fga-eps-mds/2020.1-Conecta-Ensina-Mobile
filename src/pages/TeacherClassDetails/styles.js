@@ -110,7 +110,7 @@ export const ContainerColumnButton = styled.View`
 `;
 
 export const TimerButton = styled.TouchableOpacity`
-  background-color: ${(props) => props.theme.colors.fundoAzul}
+  background-color: ${(props) => props.theme.colors.fundoAzul};
   width: 195px;
   height: 48px;
   border-radius: 10px;
@@ -121,7 +121,7 @@ export const TimerButton = styled.TouchableOpacity`
 `;
 
 export const FinishButton = styled.TouchableOpacity`
-  background-color: ${(props) => props.theme.colors.vermelho}
+  background-color: ${(props) => props.theme.colors.vermelho};
   width: 195px;
   height: 48px;
   border-radius: 10px;

@@ -1,0 +1,686 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Home page Should renders page 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#184E79",
+        "display": "flex",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "flex-end",
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "flexBasis": 0,
+        "flexDirection": "row-reverse",
+        "flexGrow": 22,
+        "flexShrink": 1,
+        "marginLeft": 30,
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 1000,
+          "height": 58,
+          "justifyContent": "center",
+          "marginBottom": 30,
+          "marginLeft": 40,
+          "opacity": 1,
+          "width": 58,
+        }
+      }
+      testID="userAvatar"
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../src/assets/user_blue.png",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "height": 38,
+              "width": 33,
+            },
+          ]
+        }
+      />
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "marginBottom": 40,
+            "marginRight": 35,
+          },
+        ]
+      }
+    >
+      <Text
+        medium={true}
+        style={
+          Array [
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "Roboto",
+              "fontSize": 25,
+              "textAlign": "center",
+            },
+          ]
+        }
+        white={true}
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderTopLeftRadius": 20,
+          "borderTopRightRadius": 20,
+          "display": "flex",
+          "flexBasis": 0,
+          "flexGrow": 78,
+          "flexShrink": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <RCTScrollView
+      data={
+        Array [
+          Object {
+            "id": "1",
+            "img": Object {
+              "testUri": "../../../src/assets/books.png",
+            },
+            "name": "Reforço Escolar",
+          },
+          Object {
+            "id": "2",
+            "img": Object {
+              "testUri": "../../../src/assets/books.png",
+            },
+            "name": "Idiomas",
+          },
+          Object {
+            "id": "3",
+            "img": Object {
+              "testUri": "../../../src/assets/books.png",
+            },
+            "name": "Vestibular",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      extraData={null}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={true}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "paddingBottom": "120%",
+            "position": "absolute",
+          },
+        ]
+      }
+      testID="listFiltro"
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#D9D9D9",
+                "borderRadius": 10,
+                "height": 95,
+                "marginBottom": 20,
+                "marginRight": 20,
+                "opacity": 1,
+                "width": 95,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../src/assets/books.png",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "height": 50,
+                    "marginTop": 8,
+                    "width": 60,
+                  },
+                ]
+              }
+            />
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingTop": 10,
+                  },
+                ]
+              }
+            >
+              <Text
+                black={true}
+                smaller={true}
+                style={
+                  Array [
+                    Object {
+                      "color": "black",
+                      "fontFamily": "Roboto",
+                      "fontSize": 12,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                Reforço Escolar
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#D9D9D9",
+                "borderRadius": 10,
+                "height": 95,
+                "marginBottom": 20,
+                "marginRight": 20,
+                "opacity": 1,
+                "width": 95,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../src/assets/books.png",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "height": 50,
+                    "marginTop": 8,
+                    "width": 60,
+                  },
+                ]
+              }
+            />
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingTop": 10,
+                  },
+                ]
+              }
+            >
+              <Text
+                black={true}
+                smaller={true}
+                style={
+                  Array [
+                    Object {
+                      "color": "black",
+                      "fontFamily": "Roboto",
+                      "fontSize": 12,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                Idiomas
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#D9D9D9",
+                "borderRadius": 10,
+                "height": 95,
+                "marginBottom": 20,
+                "marginRight": 20,
+                "opacity": 1,
+                "width": 95,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../src/assets/books.png",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "height": 50,
+                    "marginTop": 8,
+                    "width": 60,
+                  },
+                ]
+              }
+            />
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingTop": 10,
+                  },
+                ]
+              }
+            >
+              <Text
+                black={true}
+                smaller={true}
+                style={
+                  Array [
+                    Object {
+                      "color": "black",
+                      "fontFamily": "Roboto",
+                      "fontSize": 12,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                Vestibular
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+    <View
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "backgroundColor": "#D9D9D9",
+            "borderRadius": 20,
+            "height": "33%",
+            "marginBottom": "15%",
+            "marginTop": "15%",
+            "width": "78%",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexDirection": "row",
+              "flexGrow": 3,
+              "flexShrink": 1,
+              "justifyContent": "space-around",
+              "paddingBottom": "2%",
+              "paddingLeft": "2%",
+              "paddingTop": "6%",
+            },
+          ]
+        }
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../src/assets/books.png",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "height": 30,
+                "marginRight": "3%",
+                "width": 36,
+              },
+            ]
+          }
+        />
+        <Text
+          bigSmall={true}
+          style={
+            Array [
+              Object {
+                "color": "#596C7C",
+                "fontFamily": "Roboto",
+                "fontSize": 16,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Proxima Aula
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingBottom": "3%",
+              "paddingLeft": "7%",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#596C7C",
+                "fontFamily": "Roboto",
+                "fontSize": 20,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          2020-11-12
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexDirection": "row",
+              "flexGrow": 3,
+              "flexShrink": 1,
+              "justifyContent": "space-around",
+              "paddingBottom": "2%",
+              "paddingLeft": "2%",
+              "paddingTop": "6%",
+            },
+          ]
+        }
+      >
+        <Text
+          bigSmall={true}
+          style={
+            Array [
+              Object {
+                "color": "#596C7C",
+                "fontFamily": "Roboto",
+                "fontSize": 16,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          16 - 18 Horas
+        </Text>
+        <Text
+          bigSmall={true}
+          style={
+            Array [
+              Object {
+                "color": "#596C7C",
+                "fontFamily": "Roboto",
+                "fontSize": 16,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Matemática
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "height": "25%",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#E46270",
+            "borderRadius": 10,
+            "display": "flex",
+            "flexDirection": "row",
+            "height": 50,
+            "justifyContent": "center",
+            "opacity": 1,
+            "width": 200,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../src/assets/books.png",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "height": 30,
+                "marginRight": "3%",
+                "width": 36,
+              },
+            ]
+          }
+        />
+        <Text
+          medium={true}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Roboto",
+                "fontSize": 25,
+                "textAlign": "center",
+              },
+            ]
+          }
+          white={true}
+        >
+          Aula Urgente
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#184E79",
+            "borderRadius": 10,
+            "display": "flex",
+            "flexDirection": "row",
+            "height": 50,
+            "justifyContent": "center",
+            "marginTop": "7.3%",
+            "opacity": 1,
+            "width": 200,
+          }
+        }
+        testID="MarcarAula"
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../src/assets/books.png",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "height": 30,
+                "marginRight": "3%",
+                "width": 36,
+              },
+            ]
+          }
+        />
+        <Text
+          medium={true}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Roboto",
+                "fontSize": 25,
+                "textAlign": "center",
+              },
+            ]
+          }
+          white={true}
+        >
+          Marcar Aula
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

@@ -11,7 +11,6 @@ export default function UserProvider({children}) {
   async function getUser(id) {
     const response = await User.getUser(Host, id);
     if (User !== response) {
-      console.log(response);
       setUser(response);
     }
   }

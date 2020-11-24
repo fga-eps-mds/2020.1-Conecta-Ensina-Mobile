@@ -10,6 +10,8 @@ import PendingClassConfirmation from '../pages/PendingClassConfirmation';
 import EditTeacher from '../pages/EditTeacher';
 import TeacherClassDetails from '../pages/TeacherClassDetails';
 import StudentAvaliation from '../pages/StudentAvaliation';
+import FeedbackTeacher from '../pages/FeedbackTeacher';
+//import FeedbackStudent from '../pages/FeedbackStudent';
 
 // import { Container } from './styles';
 const ProfStack = createStackNavigator();
@@ -65,6 +67,11 @@ function ProfRoutes() {
       <ProfStack.Screen
         name="StudentAvaliation"
         component={StudentAvaliation}
+        options={{headerShown: false}}
+      />
+      <ProfStack.Screen
+        name="FeedbackTeacher"
+        component={FeedbackTeacher}
         options={{headerShown: false}}
       />
     </ProfStack.Navigator>

@@ -6,6 +6,7 @@ export default function PasswordInput(props) {
   return (
     <FieldContainer>
       <TextInput
+        testID={props.testID}
         placeholder="Senha"
         autoCapitalize="none"
         value={props.value}

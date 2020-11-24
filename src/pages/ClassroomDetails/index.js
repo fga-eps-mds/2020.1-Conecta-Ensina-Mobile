@@ -28,7 +28,7 @@ import {
   ContainerColumnButton,
 } from './styles';
 
-export default function ClassroomDetails({}) {
+export default function ClassroomDetails({navigation}) {
   const {classroom} = useContext(ClassroomContext);
   const {student, getStudent} = useContext(StudentContext);
   const {user, getUser} = useContext(UserContext);
@@ -40,9 +40,9 @@ export default function ClassroomDetails({}) {
       await getUser(classroom.teacher);
       await getStudent(classroom.teacher);
     }
+
     readUser();
     //readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
-    console.log(classroom);
   }, []);
 
   return (
@@ -128,6 +128,7 @@ export default function ClassroomDetails({}) {
                 <ContainerColumnButton>
                   <TimerButton>
                     <CountDown
+                      testID="countdown"
                       running={run}
                       until={60 * 60 * classroom.duration}
                       size={15}
@@ -139,9 +140,12 @@ export default function ClassroomDetails({}) {
                     />
                   </TimerButton>
                   <FinishButton
+                    testID="finishButton"
                     onPress={() => {
-                      setRun(false);
-                      alert('Aula Finalizada');
+                      //setRun(false);
+                      //alert('Aula Finalizada');
+                      navigation.navigate('FeedbackTeacher', {classroom});
+                      console.log('pressionado');
                     }}>
                     <CustomText white medium>
                       Terminar Aula
@@ -176,9 +180,7 @@ export default function ClassroomDetails({}) {
                   </ChatButton>
                   <StartButton
                     testID="StartButton"
-                    onPress={() => {
-                      setStart(true);
-                    }}>
+                    onPress={() => setStart(true)}>
                     <CustomText white bigSmall>
                       Iniciar
                     </CustomText>

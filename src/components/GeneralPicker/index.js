@@ -41,9 +41,9 @@ function SeriePicker(props) {
   ];
 
   const timeItems = [
-    {label: '19', value: '1', color: props.theme.colors.cinzaEscuro},
-    {label: '18', value: '2', color: props.theme.colors.cinzaEscuro},
-    {label: '17', value: '3', color: props.theme.colors.cinzaEscuro},
+    {label: '19', value: '19:00:00', color: props.theme.colors.cinzaEscuro},
+    {label: '18', value: '18:00:00', color: props.theme.colors.cinzaEscuro},
+    {label: '17', value: '17:00:00', color: props.theme.colors.cinzaEscuro},
   ];
 
   const gradeItems = [

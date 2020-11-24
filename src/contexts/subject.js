@@ -11,7 +11,6 @@ export default function SubjectProvider({children}) {
   async function loadSubjects() {
     const response = await Subj.getAllSubjects(Host);
     if (subject !== response) {
-      console.log(response);
       setSubject(response);
     }
   }

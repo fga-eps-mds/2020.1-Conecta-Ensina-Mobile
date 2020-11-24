@@ -14,9 +14,19 @@ export default function HomeAdm({navigation}) {
       name: 'Professores Pendentes',
       img: require('../../assets/books.png'),
     },
+    {
+      id: '171',
+      name: 'Usuários Reportados',
+      img: require('../../assets/books.png'),
+    },
   ]);
   const {signOut} = useContext(AuthContext);
-  const {getProfessorList} = useContext(AdmContext);
+  const {
+    getProfessorList,
+    getReportedUsers,
+    getProfessoUser,
+    students,
+  } = useContext(AdmContext);
 
   return (
     <Theme>
@@ -26,16 +36,19 @@ export default function HomeAdm({navigation}) {
           data={funcoes}
           keyExtractor={(item) => item.id}
           renderItem={({item}) => {
-            var nextScreen;
-
-            if (item.id === '101') {
-              nextScreen = 'PendingTeacher';
-            } else {
-              nextScreen = 'HomeAdm';
-            }
-
             async function handleProf() {
-              await getProfessorList();
+              var nextScreen;
+
+              if (item.id === '101') {
+                nextScreen = 'PendingTeacher';
+                await getProfessorList();
+              } else if (item.id === '171') {
+                nextScreen = 'ReportedUsers';
+                await getReportedUsers();
+                await getProfessoUser(students[0].id);
+              } else {
+                nextScreen = 'HomeAdm';
+              }
               navigation.navigate(nextScreen);
             }
 

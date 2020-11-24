@@ -18,6 +18,7 @@ export default function Background1({children, navigation, page}) {
       <BlueContainer>
         <UserContainer>
           <UserAvatar
+            testID="userAvatar"
             onPress={() => {
               navigation.navigate(page, {user}); /*}catch(error){}*/
             }}>

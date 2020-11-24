@@ -100,7 +100,7 @@ export default function AuthProvider({children}) {
     const fetchResponse1 = await fetch(`${Host}/api/user/login`, settings);
     try {
       const data = await fetchResponse1.json();
-      console.log('Success:', data);
+      console.log('Success');
       if (data.message) {
         if (data.message === 'Login efetuado com sucesso!') {
           console.log('login efetuado');
@@ -125,7 +125,6 @@ export default function AuthProvider({children}) {
   } //close signIn function
 
   async function registerAluno(values, {setStatus}) {
-    console.log(values);
     var ok = false;
     const settings = {
       method: 'POST',
@@ -153,7 +152,7 @@ export default function AuthProvider({children}) {
     const fetchResponse = await fetch(`${Host}/api/student/create`, settings);
     try {
       const data = await fetchResponse.json();
-      console.log('Success:', data);
+      console.log('Success');
       if (data.message) {
         if (data.message === 'Estudante criado com sucesso!') {
           ok = true;
@@ -188,7 +187,6 @@ export default function AuthProvider({children}) {
   } //close registerAluno fuction
 
   async function registerProf(values, {setStatus}) {
-    console.log(values);
     var ok = false;
     const settings = {
       method: 'POST',
@@ -223,7 +221,7 @@ export default function AuthProvider({children}) {
     const fetchResponse = await fetch(`${Host}/api/teacher/create`, settings);
     try {
       const data = await fetchResponse.json();
-      console.log('Success:', data);
+      console.log('Success');
       if (data.message) {
         if (data.message === 'Professor criado com sucesso!') {
           ok = true;
@@ -359,7 +357,7 @@ export default function AuthProvider({children}) {
 
     try {
       const data = await fetchResponse1.json();
-      console.log('Success:', data);
+      console.log('Success');
     } catch (error) {
       console.error('Error:', error);
     }
@@ -389,7 +387,7 @@ export default function AuthProvider({children}) {
       );
       try {
         const data2 = await fetchResponse2.json();
-        console.log('Success:', data2);
+        console.log('Success');
       } catch (error) {
         console.error('Error:', error);
       }
@@ -416,7 +414,7 @@ export default function AuthProvider({children}) {
         );
         try {
           const data3 = await fetchResponse3.json();
-          console.log('Success:', data3);
+          console.log('Success');
         } catch (error) {
           console.error('Error:', error);
         }
