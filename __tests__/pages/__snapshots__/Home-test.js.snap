@@ -456,9 +456,9 @@ exports[`Testing Home page Should renders page 1`] = `
           style={
             Array [
               Object {
-                "height": 30,
+                "height": 24,
                 "marginRight": "3%",
-                "width": 36,
+                "width": 28,
               },
             ]
           }
@@ -483,25 +483,26 @@ exports[`Testing Home page Should renders page 1`] = `
         style={
           Array [
             Object {
+              "marginRight": "30%",
               "paddingBottom": "3%",
-              "paddingLeft": "7%",
             },
           ]
         }
       >
         <Text
+          big={true}
           style={
             Array [
               Object {
                 "color": "#596C7C",
                 "fontFamily": "Roboto",
-                "fontSize": 20,
+                "fontSize": 45,
                 "textAlign": "center",
               },
             ]
           }
         >
-          2020-11-12
+          12 Nov
         </Text>
       </View>
       <View
@@ -597,9 +598,9 @@ exports[`Testing Home page Should renders page 1`] = `
           style={
             Array [
               Object {
-                "height": 30,
+                "height": 24,
                 "marginRight": "3%",
-                "width": 36,
+                "width": 28,
               },
             ]
           }
@@ -656,9 +657,9 @@ exports[`Testing Home page Should renders page 1`] = `
           style={
             Array [
               Object {
-                "height": 30,
+                "height": 24,
                 "marginRight": "3%",
-                "width": 36,
+                "width": 28,
               },
             ]
           }
