@@ -51,6 +51,29 @@ export async function createClass(user, teacher, filter, student, Host) {
   console.log(response);
 }
 
+export async function updateStatus (id, status, Host) {
+  const settings = {
+    method: 'PUT',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      status: status,
+    }),
+  };
+  const fetchResponse1 = await fetch(
+    Host+'/api/classroom/status/' + id,
+    settings,
+  );
+  try {
+    const data = await fetchResponse1.json();
+    console.log('Success:', data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+
 export async function getClass(Host, id) {
   const fetchResponse = await fetch(`${Host}/api/classroom/${id}`);
   try {

@@ -10,6 +10,7 @@ export const ClassroomContext = createContext({});
 export default function ClassroomProvider({children}) {
   const [classroom, setClassroom] = useState({});
   const [firstClass, setFirstClass] = useState(null);
+  const [classes, setClasses] = useState(null);
   const {Host, user} = useContext(AuthContext);
   const {filter} = useContext(FiltersContext);
 
@@ -57,15 +58,49 @@ export default function ClassroomProvider({children}) {
       setClassroom(responseClass);
     }
   }
+
+  async function getClass() {
+    const settings = {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        teacher: user.id,
+        status: 0,
+      }),
+    };
+    const fetchResponse1 = await fetch(
+      Host+'/api/classroom/',
+      settings,
+    );
+    try {
+      const data = await fetchResponse1.json();
+      setClasses(data.data.classroom);
+    } catch (error) {
+      return error;
+    }
+  };
+
+  async function updateStatusClasses(id, status) {
+    const response = await Class.updateStatus(id, status, Host)
+    if (classroom !== response) {
+      setClassroom(response);
+    }
+  }
   return (
     <ClassroomContext.Provider
       value={{
         classroom,
+        firstClass,
+        classes,
         loadNextClass,
         createClass,
         loadUserClasses,
-        firstClass,
+        getClass,
         readClass,
+        updateStatusClasses,
       }}>
       {children}
     </ClassroomContext.Provider>
