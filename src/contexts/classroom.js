@@ -89,6 +89,7 @@ export default function ClassroomProvider({children}) {
     const address = await Address.findAddress(response.cep);
     let responseClass = {
       id: response.role,
+      status: response.status,
       teacher: response.teacher,
       student: response.student,
       grade: response.grade,

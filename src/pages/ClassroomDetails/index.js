@@ -67,13 +67,14 @@ export default function ClassroomDetails({navigation, route}) {
     }
     async function classRead() {
       await readClass(item.id);
+      if (classroom.status === 3) {
+        setStart(true);
+      }
     }
-
     readUser();
     classRead();
-
     //readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
-  }, []);
+  }, [classroom]);
 
   return (
     <Theme>
@@ -197,19 +198,16 @@ export default function ClassroomDetails({navigation, route}) {
                   {item && item.number + ', \n'}
                 </RedContainerText>
                 <ButtonContainer>
-                  <ChatButton>
+                  <ChatButton onPress={() => console.log('chat')}>
                     <CustomText white bigSmall>
                       Chat
                     </CustomText>
                   </ChatButton>
                   <StartButton
                     testID="StartButton"
-                    onPress={() => {
-                      updateStatusClassroom(item.id);
+                    onPress={async () => {
+                      await updateStatusClassroom(item.id);
                       //readClass(item.id);
-                      if (classroom.status === 3) {
-                        setStart(true);
-                      }
                     }}>
                     <CustomText white bigSmall>
                       Iniciar
