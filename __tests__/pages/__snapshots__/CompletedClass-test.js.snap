@@ -124,20 +124,16 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
       data={
         Array [
           Object {
-            "id": "15",
-            "nome": "ExemploAula01",
+            "cep": "11111111",
+            "details": "complemento",
+            "dtclass": "2020-11-24T17:54:32.582Z",
+            "number": 305,
           },
           Object {
-            "id": "25",
-            "nome": "ExemploAula02",
-          },
-          Object {
-            "id": "35",
-            "nome": "ExemploAula03",
-          },
-          Object {
-            "id": "45",
-            "nome": "ExemploAula04",
+            "cep": "22222222",
+            "details": "complemento",
+            "dtclass": "2020-11-24T17:54:32.582Z",
+            "number": 154,
           },
         ]
       }
@@ -163,8 +159,7 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
         Array [
           Object {
             "alignSelf": "center",
-            "paddingBottom": "25%",
-            "position": "absolute",
+            "marginBottom": 10,
           },
         ]
       }
@@ -183,19 +178,410 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                 "flexDirection": "row",
               }
             }
-          />
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
+          >
+            <RCTScrollView
+              numColumns={1}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#D9D9D9",
+                    "borderRadius": 10,
+                    "height": 220,
+                    "marginBottom": 100,
+                    "marginLeft": "4%",
+                    "marginRight": "4%",
+                    "width": 145,
+                  },
+                ]
               }
-            }
-          />
+            >
+              <View>
+                <Text
+                  black={true}
+                  small={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Informações Aula
+                </Text>
+                <Text
+                  black={true}
+                  small={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  CEP: 11111111
+                </Text>
+                <Text
+                  black={true}
+                  small={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Numero: 305
+                </Text>
+                <Text
+                  black={true}
+                  small={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Complemento: complemento
+                </Text>
+                <Text
+                  black={true}
+                  small={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Data: 24/11/2020
+                </Text>
+                <Text
+                  black={true}
+                  small={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Horário: 17:54:32
+                </Text>
+                <Text
+                  black={true}
+                  small={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Informações Aluno
+                </Text>
+                <Text
+                  black={true}
+                  small={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                />
+                <Text
+                  black={true}
+                  smaller={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 12,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Série: Invalid Grade
+                </Text>
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "alignSelf": "center",
+                      "backgroundColor": "#184E79",
+                      "borderRadius": 5,
+                      "height": 22.5,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": 103,
+                    }
+                  }
+                >
+                  <Text
+                    smaller={true}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#ffffff",
+                          "fontFamily": "Roboto",
+                          "fontSize": 12,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                    white={true}
+                  >
+                    Ver Mais
+                  </Text>
+                </View>
+              </View>
+            </RCTScrollView>
+            <RCTScrollView
+              numColumns={1}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#D9D9D9",
+                    "borderRadius": 10,
+                    "height": 220,
+                    "marginBottom": 100,
+                    "marginLeft": "4%",
+                    "marginRight": "4%",
+                    "width": 145,
+                  },
+                ]
+              }
+            >
+              <View>
+                <Text
+                  black={true}
+                  small={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Informações Aula
+                </Text>
+                <Text
+                  black={true}
+                  small={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  CEP: 22222222
+                </Text>
+                <Text
+                  black={true}
+                  small={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Numero: 154
+                </Text>
+                <Text
+                  black={true}
+                  small={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Complemento: complemento
+                </Text>
+                <Text
+                  black={true}
+                  small={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Data: 24/11/2020
+                </Text>
+                <Text
+                  black={true}
+                  small={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Horário: 17:54:32
+                </Text>
+                <Text
+                  black={true}
+                  small={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Informações Aluno
+                </Text>
+                <Text
+                  black={true}
+                  small={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 14,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                />
+                <Text
+                  black={true}
+                  smaller={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 12,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Série: Invalid Grade
+                </Text>
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "alignSelf": "center",
+                      "backgroundColor": "#184E79",
+                      "borderRadius": 5,
+                      "height": 22.5,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "width": 103,
+                    }
+                  }
+                >
+                  <Text
+                    smaller={true}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#ffffff",
+                          "fontFamily": "Roboto",
+                          "fontSize": 12,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                    white={true}
+                  >
+                    Ver Mais
+                  </Text>
+                </View>
+              </View>
+            </RCTScrollView>
+          </View>
         </View>
       </View>
     </RCTScrollView>

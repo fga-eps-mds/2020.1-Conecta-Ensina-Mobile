@@ -9,7 +9,7 @@ import {ContainerVisualAula, ListaVisualAula, ButtonVerMais} from './styles';
 import CustomText from '../../components/CustomText';
 
 export default function CompletedClass({navigation}) {
-  const {setStatusClass, statusClasses, loadStatusClasses, Host} = useContext(
+  const {statusClasses, setStatusClass, loadStatusClasses, Host} = useContext(
     ClassroomContext,
   );
   //const [student, setStudent] = useState('');
