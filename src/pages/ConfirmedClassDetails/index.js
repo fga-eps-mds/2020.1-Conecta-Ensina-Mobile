@@ -19,15 +19,6 @@ import {
   UserContainer,
   ContainerTextBox,
   ContainerTextBlue,
-  ContainerWUpper,
-  ContainerWLower,
-  StartButton,
-  ChatButton,
-  RouteButton,
-  ButtonContainer,
-  FinishButton,
-  TimerButton,
-  ContainerColumnButton,
 } from './styles';
 
 export default function ConfirmedClassDetails({navigation}) {
@@ -124,6 +115,7 @@ export default function ConfirmedClassDetails({navigation}) {
             </ContainerTextBox>
 
             <ContinueContainer
+              testID="ContinueContainer"
               onPress={() => {
                 navigation.navigate('StudentAvaliation');
               }}
