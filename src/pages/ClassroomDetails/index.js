@@ -50,13 +50,17 @@ export default function ClassroomDetails({navigation, route}) {
 
   };*/
 
-  const finish = () => {
+  /*const finish = () => {
     if (user.role == 2) {
       setRun(false);
       updateStatusClassroom(item.id);
       alert('Aula Finalizada');
     }
-  };
+  };*/
+
+  const [press, setPress] = useState(false);
+  const [press2, setPress2] = useState(false);
+
 
   useEffect(() => {
     async function readUser() {
@@ -69,6 +73,10 @@ export default function ClassroomDetails({navigation, route}) {
       await readClass(item.id);
       if (classroom.status === 3) {
         setStart(true);
+      }
+
+      if (classroom.status === 5) {
+        setStart(false);
       }
     }
     readUser();
@@ -174,11 +182,10 @@ export default function ClassroomDetails({navigation, route}) {
                   <FinishButton
                     testID="finishButton"
                     onPress={async () => {
-                      await finish();
-                      //setRun(false);
-                      //alert('Aula Finalizada');
-                      navigation.navigate('FeedbackTeacher', {classroom});
-                    }}>
+                      await updateStatusClassroom(item.id);
+                      setPress2(true);
+                    }}
+                    disabled={press2}>
                     <CustomText white medium>
                       Terminar Aula
                     </CustomText>
@@ -207,8 +214,10 @@ export default function ClassroomDetails({navigation, route}) {
                     testID="StartButton"
                     onPress={async () => {
                       await updateStatusClassroom(item.id);
-                      //readClass(item.id);
-                    }}>
+                      setPress(true);
+                    }}
+                    disabled={press}
+                    >
                     <CustomText white bigSmall>
                       Iniciar
                     </CustomText>
