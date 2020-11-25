@@ -67,6 +67,7 @@ export default function Filters({navigation, route}) {
         </Container>
         <ButtonContainer>
           <ContinueContainer
+            testID="ContinueContainer"
             onPress={async () => {
               if (selected === null || duration === null || horario === '') {
                 Alert.alert('Você deve preencher todos os campos');
