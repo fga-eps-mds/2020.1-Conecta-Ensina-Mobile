@@ -22,7 +22,7 @@ export default function UserProvider({children}) {
 
   return (
     <StudentContext.Provider
-      value={{student, getStudent, studentStack, stackStudents}}>
+      value={{student, getStudent, studentStack, stackStudents, setStudent}}>
       {children}
     </StudentContext.Provider>
   );

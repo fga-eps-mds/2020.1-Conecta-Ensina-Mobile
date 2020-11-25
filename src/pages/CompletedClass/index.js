@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Theme from '../../../Theme';
 import {ClassroomContext} from '../../contexts/classroom';
 import {StudentContext} from '../../contexts/student';
@@ -11,17 +11,15 @@ import CustomText from '../../components/CustomText';
 
 export default function CompletedClass({navigation}) {
   const {statusClasses, setStatusClass} = useContext(ClassroomContext);
-  const {studentStack} = useContext(StudentContext);
-  //const [student, setStudent] = useState('');
+  const {studentStack, setStudent} = useContext(StudentContext);
 
   useEffect(() => {
     console.log(studentStack);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   const renderClass = ({item, index}) => {
     return (
-      <ContainerVisualAula numColumns={1}>
+      <ContainerVisualAula numColumns={1} nestedScrollEnabled>
         <CustomText small black>
           Informações Aula
         </CustomText>
@@ -53,8 +51,9 @@ export default function CompletedClass({navigation}) {
         </CustomText>
         <ButtonVerMais
           onPress={() => {
-            navigation.navigate('ConfirmedClassDetails');
             setStatusClass(item);
+            setStudent(studentStack[index]);
+            navigation.navigate('ConfirmedClassDetails');
           }}>
           <CustomText smaller white>
             Ver Mais

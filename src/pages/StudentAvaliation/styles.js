@@ -40,10 +40,17 @@ export const ContainerTextBlue = styled.View`
   justify-content: center;
   flex: 0.8;
 `;
-export const RedCommentContainer = styled.TextInput`
+export const RedCommentContainer = styled.TextInput.attrs({
+  editable: true,
+  maxLength: 280,
+  placeholder: 'Insira um comentário',
+  placeholderTextColor: '#F6F6F6',
+  textAlign: 'center',
+  multiline: true,
+})`
   background-color: ${(props) => props.theme.colors.vermelho};
   color: ${(props) => props.theme.colors.branco};
-  textalign: center;
+  text-align: center;
   align-self: center;
   width: 85%;
   height: 56%;

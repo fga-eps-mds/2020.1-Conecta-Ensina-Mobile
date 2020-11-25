@@ -19,7 +19,6 @@ import {
 
 export default function StudentAvaliation({props, navigation}) {
   const {student} = useContext(StudentContext);
-  const {user} = useContext(UserContext);
   const {createRate} = useContext(RateContext);
   const [comment, setComment] = useState('');
 
@@ -34,10 +33,14 @@ export default function StudentAvaliation({props, navigation}) {
             </UserContainer>
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
-                {user && user.firstName + ' ' + user.lastName}
+                {student &&
+                  student.user &&
+                  student.user.firstName + ' ' + student.user.lastName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '2%'}}>
-                {student && gradeResolver(student.grade)}
+                {student &&
+                  student.student &&
+                  gradeResolver(student.student.grade)}
               </CustomTextContainer>
             </ContainerTextBlue>
           </ContainerB>
@@ -46,10 +49,6 @@ export default function StudentAvaliation({props, navigation}) {
           <ContainerW>
             <RedCommentContainer
               {...props}
-              editable
-              maxLength={280}
-              multiline
-              placeholder="Insira um comentário"
               onChangeText={(text) => setComment(text)}
               defaultValue={comment}
             />
