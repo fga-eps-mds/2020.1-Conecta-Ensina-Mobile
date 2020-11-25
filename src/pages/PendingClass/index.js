@@ -44,6 +44,7 @@ export default function PendingClass({navigation}) {
         </ContainerTexto>
         <ContainerButtons>
           <ButtonVerMais
+            testID="VerMais"
             onPress={async () => {
               await getStudent(item.student);
               navigation.navigate('PendingClassConfirmation', {item});
