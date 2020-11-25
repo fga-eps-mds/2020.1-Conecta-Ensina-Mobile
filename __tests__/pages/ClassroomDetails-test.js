@@ -11,7 +11,7 @@ describe('Testing Classroom Details', () => {
     navigate: jest.fn(),
   };
 
-  let classroom = {
+  const classroom = {
     details: '',
     address: {
       logradouro: '',
@@ -20,7 +20,6 @@ describe('Testing Classroom Details', () => {
     },
     number: 1231,
   };
-  const getUser = jest.fn();
 
   const getStudent = jest.fn();
 
@@ -45,15 +44,12 @@ describe('Testing Classroom Details', () => {
   test('Should test contexts functions', async () => {
     render(
       <StudentContext.Provider value={{getStudent}}>
-        <UserContext.Provider value={{getUser}}>
-          <ClassroomContext.Provider value={{classroom}}>
-            <ClassroomDetails />
-          </ClassroomContext.Provider>
-        </UserContext.Provider>
+        <ClassroomContext.Provider value={{classroom}}>
+          <ClassroomDetails />
+        </ClassroomContext.Provider>
       </StudentContext.Provider>,
     );
 
-    await expect(getUser).toHaveBeenCalled();
     await expect(getStudent).toHaveBeenCalled();
   });
 

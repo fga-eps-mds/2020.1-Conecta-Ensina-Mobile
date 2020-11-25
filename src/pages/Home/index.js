@@ -18,7 +18,7 @@ import {
   Icon,
   FilterList,
 } from './styles';
-import {dateResolver} from '../../services/dateResolver';
+import dateResolver from '../../services/dateResolver';
 
 export default function Home({navigation}) {
   const [filtros] = useState([

@@ -25,36 +25,6 @@ export default function TeacherProfile({navigation, route}) {
   const {createClass, readClass} = useContext(ClassroomContext);
   const {getStudent} = useContext(StudentContext);
 
-  /*const getTeacher = async () => {
-    const teacherResponse = await fetch(
-      `${Host}/api/teacher/` + route.params.selectedId,
-    );
-    const studentResponse = await fetch(
-      `${Host}/api/student/` + route.params.selectedId,
-    );
-    const userResponse = await fetch(
-      `${Host}/api/user/` + route.params.selectedId,
-    );
-    try {
-      const dataTeacher = await teacherResponse.json();
-      const dataStudent = await studentResponse.json();
-      const dataUser = await userResponse.json();
-
-      let teacher = {
-        id: route.params.selectedId,
-        name: `${dataUser.data.user.firstName} ${dataUser.data.user.lastName}`,
-        graduation_area: dataTeacher.data.teacher.graduation_area,
-        institution: dataStudent.data.student.institution,
-        grade: dataStudent.data.student.grade,
-      };
-      console.log(teacher);
-      setTeacher(teacher);
-      return dataTeacher.data;
-    } catch (error) {
-      return error;
-    }
-  };*/
-
   useEffect(() => {
     //console.log(teacher);
   }, [teacher]);

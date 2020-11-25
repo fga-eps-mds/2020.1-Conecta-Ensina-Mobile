@@ -159,7 +159,7 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
         Array [
           Object {
             "alignSelf": "center",
-            "marginBottom": 10,
+            "top": "-7%",
           },
         ]
       }
@@ -180,6 +180,7 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
             }
           >
             <RCTScrollView
+              nestedScrollEnabled={true}
               numColumns={1}
               style={
                 Array [
@@ -187,9 +188,9 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                     "backgroundColor": "#D9D9D9",
                     "borderRadius": 10,
                     "height": 220,
-                    "marginBottom": 100,
                     "marginLeft": "4%",
                     "marginRight": "4%",
+                    "marginTop": "5%",
                     "width": 145,
                   },
                 ]
@@ -274,7 +275,7 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                     ]
                   }
                 >
-                  Data: 24/11/2020
+                  Data: 24 de Nov de 2020
                 </Text>
                 <Text
                   black={true}
@@ -321,7 +322,9 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                       },
                     ]
                   }
-                />
+                >
+                   
+                </Text>
                 <Text
                   black={true}
                   smaller={true}
@@ -381,6 +384,7 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
               </View>
             </RCTScrollView>
             <RCTScrollView
+              nestedScrollEnabled={true}
               numColumns={1}
               style={
                 Array [
@@ -388,9 +392,9 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                     "backgroundColor": "#D9D9D9",
                     "borderRadius": 10,
                     "height": 220,
-                    "marginBottom": 100,
                     "marginLeft": "4%",
                     "marginRight": "4%",
+                    "marginTop": "5%",
                     "width": 145,
                   },
                 ]
@@ -475,7 +479,7 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                     ]
                   }
                 >
-                  Data: 24/11/2020
+                  Data: 24 de Nov de 2020
                 </Text>
                 <Text
                   black={true}

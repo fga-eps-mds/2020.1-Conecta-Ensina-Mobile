@@ -3,6 +3,9 @@ import {render, fireEvent} from '@testing-library/react-native';
 import Home from '../../src/pages/Home';
 import {ClassroomContext} from '../../src/contexts/classroom';
 import SquareButton from '../../src/components/SquareButton';
+import dateResolver from '../../src/services/dateResolver';
+
+jest.mock('../../src/services/dateResolver');
 
 describe('Testing Home page', () => {
   const firstClass = {
@@ -15,6 +18,7 @@ describe('Testing Home page', () => {
   };
 
   test('Should renders page', () => {
+    dateResolver.mockReturnValue('25 de Nov de 2020');
     const tree = render(
       <ClassroomContext.Provider
         value={{firstClass, loadNextClass, loadUserClasses}}>

@@ -2,11 +2,14 @@ import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
 import CompletedClass from '../../src/pages/CompletedClass';
 import {ClassroomContext} from '../../src/contexts/classroom';
+import {StudentContext} from '../../src/contexts/student';
+
 describe('Testing CompletedClass page', () => {
   const navigation = {
     navigate: jest.fn(),
   };
   let statusClasses;
+  const studentStack = [{user: {firstName: '', lastName: ''}}];
   beforeEach(() => {
     statusClasses = [
       {
@@ -25,9 +28,11 @@ describe('Testing CompletedClass page', () => {
   });
   test('Should match snapshot', () => {
     const tree = render(
-      <ClassroomContext.Provider value={{statusClasses}}>
-        <CompletedClass navigation={navigation} />
-      </ClassroomContext.Provider>,
+      <StudentContext.Provider value={{studentStack}}>
+        <ClassroomContext.Provider value={{statusClasses}}>
+          <CompletedClass navigation={navigation} />
+        </ClassroomContext.Provider>
+      </StudentContext.Provider>,
     );
 
     expect(tree).toMatchSnapshot();
