@@ -10,32 +10,17 @@ import {
   ButtonVerMais,
 } from './styles';
 import CustomText from '../../components/CustomText';
+import {ClassroomContext} from '../../contexts/classroom';
+import {StudentContext} from '../../contexts/student';
 
 export default function PendingClass({navigation}) {
-  const {user, Host} = useContext(AuthContext);
+  const {getStudent} = useContext(StudentContext);
+  const {getClass, classes} = useContext(ClassroomContext);
 
-  const getClass = async () => {
-    const settings = {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        teacher: user.id,
-        status: 0,
-      }),
-    };
-    const fetchResponse1 = await fetch(Host + '/api/classroom/', settings);
-    try {
-      const data = await fetchResponse1.json();
-      console.log(data.data.classroom);
-      setClasses(data.data.classroom);
-    } catch (error) {
-      return error;
-    }
-  };
-  const [classes, setClasses] = useState(getClass);
+  useEffect(() => {
+    getClass();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [classes]);
 
   const renderItem = ({item}) => {
     return (
@@ -59,9 +44,10 @@ export default function PendingClass({navigation}) {
         </ContainerTexto>
         <ContainerButtons>
           <ButtonVerMais
-            onPress={() =>
-              navigation.navigate('PendingClassConfirmation', {item})
-            }>
+            onPress={async () => {
+              await getStudent(item.student);
+              navigation.navigate('PendingClassConfirmation', {item});
+            }}>
             <CustomText white bigSmall>
               Ver mais
             </CustomText>
