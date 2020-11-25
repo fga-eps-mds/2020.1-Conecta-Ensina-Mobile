@@ -4,6 +4,7 @@ import * as Class from '../services/classroom';
 import * as Student from '../services/student';
 import * as Address from '../services/findAddress';
 import {FiltersContext} from '../contexts/filters';
+import {StudentContext} from '../contexts/student';
 
 export const ClassroomContext = createContext({});
 
@@ -12,6 +13,7 @@ export default function ClassroomProvider({children}) {
   const [firstClass, setFirstClass] = useState(null);
   const [classes, setClasses] = useState(null);
   const {Host, user} = useContext(AuthContext);
+  const {stackStudents} = useContext(StudentContext);
   const {filter} = useContext(FiltersContext);
   const [statusClasses, setStatusClasses] = useState([]);
   const [statusClass, setStatusClass] = useState({});
@@ -42,11 +44,23 @@ export default function ClassroomProvider({children}) {
 
   async function loadStatusClasses(status) {
     const response = await Class.getStatusClassroom(Host, user.id, status);
-    if (classroom !== response) {
-      console.log(response);
-      setStatusClasses(response);
+    if (statusClasses !== response) {
+      await setStatusClasses(response);
     }
     console.log(response);
+    return response;
+  }
+
+  async function loadStatusClassesStudents(status) {
+    const response = await loadStatusClasses(status);
+    let studentList = await {list: []};
+    await Promise.all(
+      response.map(async (item) => {
+        const student = await Student.getStudent2(Host, item.student);
+        studentList.list = await studentList.list.concat(student);
+      }),
+    );
+    await stackStudents(studentList.list);
   }
 
   async function readClass(id) {
@@ -111,9 +125,11 @@ export default function ClassroomProvider({children}) {
         statusClasses,
         statusClass,
         setStatusClass,
+        setStatusClasses,
         Host,
         getClass,
         updateStatusClasses,
+        loadStatusClassesStudents,
       }}>
       {children}
     </ClassroomContext.Provider>

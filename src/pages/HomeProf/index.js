@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import Theme, {theme} from '../../../Theme';
 import SquareButton from '../../components/SquareButton';
 import Background1 from '../../components/Background1';
@@ -17,7 +17,7 @@ const Item = ({item, onPress, style}) => (
 );
 
 export default function HomeProf({navigation}) {
-  const {readClass} = useContext(ClassroomContext);
+  const {readClass, loadStatusClassesStudents} = useContext(ClassroomContext);
   const [funcoes] = useState([
     {
       id: '101',
@@ -54,6 +54,9 @@ export default function HomeProf({navigation}) {
         item={item}
         onPress={async () => {
           await readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
+          if (nextScreen === 'CompletedClass') {
+            await loadStatusClassesStudents(4);
+          }
           navigation.navigate(nextScreen);
         }}
         style={{backgroundColor: theme.colors.cinzaClaro}}

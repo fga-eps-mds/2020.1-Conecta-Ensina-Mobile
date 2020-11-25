@@ -2,4 +2,5 @@ import mockAsyncStorage from '@react-native-community/async-storage/jest/async-s
 
 global.fetch = require('jest-fetch-mock');
 
+// eslint-disable-next-line no-undef
 jest.mock('@react-native-community/async-storage', () => mockAsyncStorage);

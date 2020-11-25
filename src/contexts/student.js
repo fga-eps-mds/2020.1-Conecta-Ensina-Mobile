@@ -6,17 +6,23 @@ export const StudentContext = createContext({});
 
 export default function UserProvider({children}) {
   const [student, setStudent] = useState({});
+  const [studentStack, setStudentStack] = useState([]);
   const {Host} = useContext(AuthContext);
 
   async function getStudent(id) {
     const response = await Student.getStudent(Host, id);
     if (student !== response) {
-      setStudent(response);
+      await setStudent(response);
     }
   }
 
+  async function stackStudents(list) {
+    setStudentStack(list);
+  }
+
   return (
-    <StudentContext.Provider value={{student, getStudent}}>
+    <StudentContext.Provider
+      value={{student, getStudent, studentStack, stackStudents}}>
       {children}
     </StudentContext.Provider>
   );

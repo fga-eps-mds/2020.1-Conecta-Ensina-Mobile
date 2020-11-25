@@ -63,7 +63,7 @@ export async function createClass(user, teacher, filter, student, Host) {
   console.log(response);
 }
 
-export async function updateStatus (id, status, Host) {
+export async function updateStatus(id, status, Host) {
   const settings = {
     method: 'PUT',
     headers: {
@@ -75,7 +75,7 @@ export async function updateStatus (id, status, Host) {
     }),
   };
   const fetchResponse1 = await fetch(
-    Host+'/api/classroom/status/' + id,
+    Host + '/api/classroom/status/' + id,
     settings,
   );
   try {
@@ -84,7 +84,7 @@ export async function updateStatus (id, status, Host) {
   } catch (error) {
     console.error('Error:', error);
   }
-};
+}
 
 export async function getClass(Host, id) {
   const fetchResponse = await fetch(`${Host}/api/classroom/${id}`);

@@ -5,7 +5,7 @@ import SwitchFilter from '../../src/components/SwitchFilter';
 import Theme from '../../Theme';
 
 describe('Testing SwitchFilter Component', () => {
-/*  const onChange = jest.fn();
+  /*  const onChange = jest.fn();
 
   test('SwitchSelector should be pressed', () => {
     const {getByTestId, UNSAFE_getByType} = render(

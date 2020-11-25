@@ -42,6 +42,7 @@ export default function ClassroomDetails({navigation}) {
 
     readUser();
     //readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [student]);
 
   return (

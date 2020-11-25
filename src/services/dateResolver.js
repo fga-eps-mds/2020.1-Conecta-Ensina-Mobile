@@ -1,15 +1,9 @@
 import {format} from 'date-fns';
 
-export function dateResolver(date) {
+export default function dateResolver(date) {
   //format(date, 'yyyy/MM/dd')
-  let dateToken = date.split('-');
-  let token2 = dateToken[2].split('T');
-  console.log(dateToken);
-  console.log(token2);
-
-  dateToken[0] = token2[0];
-
-  console.log(typeof dateToken[1]);
+  let token2 = date.split('T');
+  let dateToken = token2[0].split('-');
 
   switch (dateToken[1]) {
     case '1':
@@ -51,8 +45,5 @@ export function dateResolver(date) {
     default:
       dateToken[1] = 'Invalid Month';
   }
-
-  console.log(dateToken);
-
-  return dateToken;
+  return `${dateToken[2]} de ${dateToken[1]} de ${dateToken[0]}`;
 }
