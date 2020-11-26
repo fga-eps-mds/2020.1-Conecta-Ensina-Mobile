@@ -1,5 +1,4 @@
 import React, {useContext} from 'react';
-import {AuthContext} from '../../contexts/auth';
 import Theme from '../../../Theme';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
@@ -18,33 +17,9 @@ import {ClassroomContext} from '../../contexts/classroom';
 
 export default function PendingClassConfirmation({route, navigation}) {
   const {item} = route.params;
-  const {Host} = useContext(AuthContext);
   const {getStudent, student} = useContext(StudentContext);
   const {updateStatusClasses} = useContext(ClassroomContext);
   const params = student.id;
-
-  const updateStatus = async (id, status) => {
-    const settings = {
-      method: 'PUT',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        status: status,
-      }),
-    };
-    const fetchResponse1 = await fetch(
-      Host + '/api/classroom/status/' + id,
-      settings,
-    );
-    try {
-      const data = await fetchResponse1.json();
-      console.log('Success:', data);
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
 
   return (
     <Theme>

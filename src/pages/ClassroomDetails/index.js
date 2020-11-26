@@ -6,7 +6,6 @@ import RedContainerText from '../../components/RedContainerText';
 import CustomTextContainer from '../../components/CustomTextContainer';
 import CustomText from '../../components/CustomText';
 import {ClassroomContext} from '../../contexts/classroom';
-import {UserContext} from '../../contexts/user';
 import {StudentContext} from '../../contexts/student';
 import gradeResolver from '../../services/gradeResolver';
 import {
@@ -31,7 +30,6 @@ import {
 export default function ClassroomDetails({navigation}) {
   const {classroom} = useContext(ClassroomContext);
   const {student, getStudent} = useContext(StudentContext);
-  const {user, getUser} = useContext(UserContext);
   const [start, setStart] = useState(false);
   const [run, setRun] = useState(true);
 

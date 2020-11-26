@@ -4,7 +4,8 @@ export async function getUser(Host, id) {
     const data = await response.json();
 
     //setSubjects(data.data.subject);
-    console.log(data);
+    /*console.log('opa');
+    console.log(data.data.user);*/
     return data.data.user;
   } catch (error) {
     return error;
