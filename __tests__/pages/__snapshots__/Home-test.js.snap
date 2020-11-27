@@ -514,9 +514,7 @@ exports[`Testing Home page Should renders page 1`] = `
                 },
               ]
             }
-          >
-            2 5
-          </Text>
+          />
         </View>
         <View
           style={

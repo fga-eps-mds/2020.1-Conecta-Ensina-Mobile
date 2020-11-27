@@ -18,7 +18,7 @@ import {
   Icon,
   FilterList,
 } from './styles';
-import dateResolver from '../../services/dateResolver';
+import {getDate} from '../../services/dateResolver';
 
 export default function Home({navigation}) {
   const [filtros] = useState([
@@ -38,7 +38,7 @@ export default function Home({navigation}) {
     if (firstClass === null) {
       loadNextClass();
     } else {
-      setDate(dateResolver(firstClass.dtclass));
+      setDate(getDate(firstClass.dtclass));
     }
     if (classroom !== {}) {
       loadUserClasses();
@@ -77,7 +77,7 @@ export default function Home({navigation}) {
               <CustomText bigSmall>Proxima Aula</CustomText>
             </ContainerClassUpper>
             <BigTextContainer>
-              <CustomText big>{date && date[0] + ' ' + date[1]}</CustomText>
+              <CustomText big>{date && date[2] + ' ' + date[1]}</CustomText>
             </BigTextContainer>
             <ContainerClassLower>
               <CustomText bigSmall>16 - 18 Horas</CustomText>

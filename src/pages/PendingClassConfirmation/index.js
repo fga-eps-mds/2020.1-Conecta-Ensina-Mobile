@@ -64,6 +64,7 @@ export default function PendingClassConfirmation({route, navigation}) {
             </ContainerGrande>
             <ContainerComplain>
               <ComplainButton
+                testID="Reportar"
                 onPress={async () => {
                   await getStudent(student.student.id);
                   navigation.navigate('FeedbackTeacher', {params});
@@ -75,6 +76,7 @@ export default function PendingClassConfirmation({route, navigation}) {
         </Container>
         <ContainerButton>
           <ButtonConfirmar
+            testID="Aceitar"
             onPress={() => {
               updateStatusClasses(item.id, 1);
               navigation.navigate('PendingClass');
@@ -84,8 +86,9 @@ export default function PendingClassConfirmation({route, navigation}) {
             </CustomText>
           </ButtonConfirmar>
           <ButtonRecusar
-            onPress={() => {
-              updateStatus(item.id, -1);
+            testID="Recusar"
+            onPress={async () => {
+              await updateStatusClasses(item.id, -1);
               navigation.navigate('PendingClass');
             }}>
             <CustomText white bigSmall>

@@ -2042,7 +2042,7 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                           }
                         >
                           <View
-                            accessibilityLabel="today Wednesday 25 November 2020 "
+                            accessibilityLabel=" Wednesday 25 November 2020 "
                             accessibilityRole="button"
                             accessible={true}
                             focusable={true}
@@ -2056,8 +2056,6 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                             style={
                               Object {
                                 "alignItems": "center",
-                                "backgroundColor": undefined,
-                                "borderRadius": 16,
                                 "height": 32,
                                 "opacity": 1,
                                 "width": 32,
@@ -2076,9 +2074,6 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                                     "fontSize": 16,
                                     "fontWeight": "300",
                                     "marginTop": 6,
-                                  },
-                                  Object {
-                                    "color": "#00BBF2",
                                   },
                                 ]
                               }
@@ -2171,7 +2166,7 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                           }
                         >
                           <View
-                            accessibilityLabel=" Friday 27 November 2020 "
+                            accessibilityLabel="today Friday 27 November 2020 "
                             accessibilityRole="button"
                             accessible={true}
                             focusable={true}
@@ -2185,6 +2180,8 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                             style={
                               Object {
                                 "alignItems": "center",
+                                "backgroundColor": undefined,
+                                "borderRadius": 16,
                                 "height": 32,
                                 "opacity": 1,
                                 "width": 32,
@@ -2203,6 +2200,9 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                                     "fontSize": 16,
                                     "fontWeight": "300",
                                     "marginTop": 6,
+                                  },
+                                  Object {
+                                    "color": "#00BBF2",
                                   },
                                 ]
                               }
@@ -3535,19 +3535,89 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                               "value": null,
                             },
                             Object {
-                              "label": "19",
+                              "label": "10:00",
                               "textColor": 4284050556,
-                              "value": "19:00:00",
+                              "value": "10:00:00",
                             },
                             Object {
-                              "label": "18",
+                              "label": "10:30",
                               "textColor": 4284050556,
-                              "value": "18:00:00",
+                              "value": "10:30:00",
                             },
                             Object {
-                              "label": "17",
+                              "label": "11:00",
+                              "textColor": 4284050556,
+                              "value": "11:00:00",
+                            },
+                            Object {
+                              "label": "11:30",
+                              "textColor": 4284050556,
+                              "value": "11:30:00",
+                            },
+                            Object {
+                              "label": "12:00",
+                              "textColor": 4284050556,
+                              "value": "12:00:00",
+                            },
+                            Object {
+                              "label": "12:30",
+                              "textColor": 4284050556,
+                              "value": "12:30:00",
+                            },
+                            Object {
+                              "label": "13:00",
+                              "textColor": 4284050556,
+                              "value": "13:00:00",
+                            },
+                            Object {
+                              "label": "13:30",
+                              "textColor": 4284050556,
+                              "value": "13:30:00",
+                            },
+                            Object {
+                              "label": "14:00",
+                              "textColor": 4284050556,
+                              "value": "14:00:00",
+                            },
+                            Object {
+                              "label": "14:30",
+                              "textColor": 4284050556,
+                              "value": "14:30:00",
+                            },
+                            Object {
+                              "label": "15:00",
+                              "textColor": 4284050556,
+                              "value": "15:00:00",
+                            },
+                            Object {
+                              "label": "15:30",
+                              "textColor": 4284050556,
+                              "value": "15:30:00",
+                            },
+                            Object {
+                              "label": "16:00",
+                              "textColor": 4284050556,
+                              "value": "16:00:00",
+                            },
+                            Object {
+                              "label": "16:30",
+                              "textColor": 4284050556,
+                              "value": "16:30:00",
+                            },
+                            Object {
+                              "label": "17:00",
                               "textColor": 4284050556,
                               "value": "17:00:00",
+                            },
+                            Object {
+                              "label": "17:30",
+                              "textColor": 4284050556,
+                              "value": "17:30:00",
+                            },
+                            Object {
+                              "label": "18:00",
+                              "textColor": 4284050556,
+                              "value": "18:00:00",
                             },
                           ]
                         }
