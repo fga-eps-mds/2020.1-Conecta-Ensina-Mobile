@@ -1,12 +1,11 @@
 import CountDown from 'react-native-countdown-component';
-import React, {useEffect, useContext, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import Theme, {theme} from '../../../Theme';
 import Background2 from '../../components/Background2';
 import RedContainerText from '../../components/RedContainerText';
 import CustomTextContainer from '../../components/CustomTextContainer';
 import CustomText from '../../components/CustomText';
 import {ClassroomContext} from '../../contexts/classroom';
-import {UserContext} from '../../contexts/user';
 import {StudentContext} from '../../contexts/student';
 import gradeResolver from '../../services/gradeResolver';
 import {
@@ -30,8 +29,7 @@ import {
 
 export default function TeacherClassDetails({navigation}) {
   const {classroom, readClass} = useContext(ClassroomContext);
-  const {student} = useContext(StudentContext);
-  const {user} = useContext(UserContext);
+  const {student, getStudent} = useContext(StudentContext);
   const [start, setStart] = useState(false);
   const [run, setRun] = useState(true);
 
@@ -131,7 +129,7 @@ export default function TeacherClassDetails({navigation}) {
                   </TimerButton>
                   <FinishButton
                     onPress={() => {
-                      navigation.navigate('FeedbackTeacher');
+                      navigation.navigate('HomeProf');
                     }}>
                     <CustomText white medium>
                       Terminar Aula

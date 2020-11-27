@@ -6,7 +6,7 @@ import RedContainerText from '../../components/RedContainerText';
 import CustomTextContainer from '../../components/CustomTextContainer';
 import CustomText from '../../components/CustomText';
 import {ClassroomContext} from '../../contexts/classroom';
-import {StudentContext} from '../../contexts/student';
+import { StudentContext } from '../../contexts/student';
 import gradeResolver from '../../services/gradeResolver';
 import {
   ContainerB,
@@ -29,19 +29,9 @@ import {
 
 export default function ClassroomDetails({navigation}) {
   const {classroom} = useContext(ClassroomContext);
-  const {student, getStudent} = useContext(StudentContext);
+  const {student} = useContext(StudentContext);
   const [start, setStart] = useState(false);
   const [run, setRun] = useState(true);
-
-  useEffect(() => {
-    async function readUser() {
-      await getStudent(classroom.teacher);
-    }
-
-    readUser();
-    //readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [student]);
 
   return (
     <Theme>
@@ -143,8 +133,8 @@ export default function ClassroomDetails({navigation}) {
                     onPress={() => {
                       //setRun(false);
                       //alert('Aula Finalizada');
-                      navigation.navigate('FeedbackTeacher', {classroom});
-                      console.log('pressionado');
+                      //navigation.navigate('FeedbackTeacher', {classroom});
+                      navigation.navigate('Home')
                     }}>
                     <CustomText white medium>
                       Terminar Aula

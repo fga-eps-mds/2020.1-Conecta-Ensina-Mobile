@@ -11,13 +11,16 @@ import {
   ListFuncoes,
 } from './styles';
 import {ClassroomContext} from '../../contexts/classroom';
+import { StudentContext } from '../../contexts/student';
+import { get } from 'react-native/Libraries/Utilities/PixelRatio';
 
 const Item = ({item, onPress, style}) => (
   <SquareButton data={item} onPress={onPress} style={[style]} />
 );
 
 export default function HomeProf({navigation}) {
-  const {readClass, loadStatusClassesStudents} = useContext(ClassroomContext);
+  const {getStudent} = useContext(StudentContext)
+  const {readClass, loadStatusClassesStudents, classroom} = useContext(ClassroomContext);
   const [funcoes] = useState([
     {
       id: '101',
@@ -56,6 +59,11 @@ export default function HomeProf({navigation}) {
           await readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
           if (nextScreen === 'CompletedClass') {
             await loadStatusClassesStudents(4);
+          }
+          if (nextScreen === 'TeacherClassDetails'){
+            console.log('melpal')
+            console.log(classroom)
+            await getStudent(classroom.student)
           }
           navigation.navigate(nextScreen);
         }}

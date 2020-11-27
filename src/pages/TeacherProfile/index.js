@@ -102,10 +102,10 @@ export default function TeacherProfile({navigation, route}) {
               <ContinueContainer
                 testID="ContinueButton"
                 onPress={async () => {
-                  await getStudent(teacher.id);
+                  await getStudent(route.params.selectedId);
                   await readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
                   await createClass(teacher.id);
-                  navigation.navigate('ClassroomDetails');
+                  navigation.navigate('ClassroomDetails', {params});
                 }}
               />
             </ButtonContainer>
