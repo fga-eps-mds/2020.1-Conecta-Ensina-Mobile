@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import Theme, {theme} from '../../../Theme';
 import SquareButton from '../../components/SquareButton';
 import Background4 from '../../components/Background4';
@@ -24,26 +24,29 @@ export default function HomeAdm({navigation}) {
 
   const {signOut} = useContext(AuthContext);
   const {
-    getProfessorList,
+    getTeacherList,
     getReportedUsers,
     getProfessoUser,
     students,
   } = useContext(AdmContext);
 
-  async function handleProf(item) {
-    var nextScreen;
-
-    if (item.id === '101') {
-      nextScreen = 'PendingTeacher';
-      await getProfessorList();
-    } else if (item.id === '171' && students !== null) {
-      nextScreen = 'ReportedUsers';
-      await getReportedUsers();
+  useEffect(() => {
+    async function renderTeachersUsers() {
       await getProfessoUser(students[0].id);
-    } else {
-      nextScreen = 'HomeAdm';
     }
-    navigation.navigate(nextScreen);
+    if (students !== null) {
+      renderTeachersUsers();
+    }
+  }, [students]);
+
+  async function handleProf({item}) {
+    if (item.id === '101') {
+      await getTeacherList();
+      navigation.navigate('PendingTeacher');
+    } else if (item.id === '171') {
+      await getReportedUsers();
+      navigation.navigate('ReportedUsers');
+    }
   }
 
   return (
@@ -56,7 +59,7 @@ export default function HomeAdm({navigation}) {
           renderItem={({item}) => (
             <SquareButton
               data={item}
-              onPress={() => handleProf(item)}
+              onPress={() => handleProf({item})}
               style={{backgroundColor: theme.colors.cinzaClaro}}
             />
           )}

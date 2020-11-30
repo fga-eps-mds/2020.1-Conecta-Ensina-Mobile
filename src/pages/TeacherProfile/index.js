@@ -1,6 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Theme from '../../../Theme';
-import {AuthContext} from '../../contexts/auth';
 import {ClassroomContext} from '../../contexts/classroom';
 import {TeacherContext} from '../../contexts/teacher';
 import Background2 from '../../components/Background2';
@@ -104,7 +103,7 @@ export default function TeacherProfile({navigation, route}) {
                 onPress={async () => {
                   await getStudent(route.params.selectedId);
                   await readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
-                  await createClass(teacher.id);
+                  await createClass(teacher.teacher.id);
                   navigation.navigate('ClassroomDetails', {params});
                 }}
               />
