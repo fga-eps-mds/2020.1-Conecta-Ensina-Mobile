@@ -57,7 +57,7 @@ export default function ClassroomProvider({children}) {
     let studentList = await {list: []};
     await Promise.all(
       response.map(async (item) => {
-        const student = await Student.getStudent2(Host, item.student);
+        const student = await Student.getStudent(Host, item.student);
         studentList.list = await studentList.list.concat(student);
       }),
     );
@@ -65,7 +65,7 @@ export default function ClassroomProvider({children}) {
   }
 
   async function readClass(id) {
-    const response = await Class.getClass(Host, id);
+    const response = await Class.readClass(Host, id);
     const address = await Address.findAddress(response.cep);
     let responseClass = {
       id: response.role,
@@ -86,24 +86,8 @@ export default function ClassroomProvider({children}) {
   }
 
   async function getClass() {
-    const settings = {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        teacher: user.id,
-        status: 0,
-      }),
-    };
-    const fetchResponse1 = await fetch(Host + '/api/classroom/', settings);
-    try {
-      const data = await fetchResponse1.json();
-      setClasses(data.data.classroom);
-    } catch (error) {
-      return error;
-    }
+    const response = await Class.getClass(Host, user);
+    setClasses(response);
   }
 
   async function updateStatusClasses(id, status) {

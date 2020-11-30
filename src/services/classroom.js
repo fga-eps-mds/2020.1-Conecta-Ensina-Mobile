@@ -86,10 +86,31 @@ export async function updateStatus(id, status, Host) {
   }
 }
 
-export async function getClass(Host, id) {
+export async function readClass(Host, id) {
   const fetchResponse = await fetch(`${Host}/api/classroom/${id}`);
   try {
     const data = await fetchResponse.json();
+    return data.data.classroom;
+  } catch (error) {
+    return error;
+  }
+}
+
+export async function getClass(Host, user) {
+  const settings = {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      teacher: user.id,
+      status: 0,
+    }),
+  };
+  const fetchResponse1 = await fetch(Host + '/api/classroom/', settings);
+  try {
+    const data = await fetchResponse1.json();
     return data.data.classroom;
   } catch (error) {
     return error;

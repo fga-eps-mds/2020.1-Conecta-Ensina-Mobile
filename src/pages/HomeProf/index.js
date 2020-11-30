@@ -11,16 +11,18 @@ import {
   ListFuncoes,
 } from './styles';
 import {ClassroomContext} from '../../contexts/classroom';
-import { StudentContext } from '../../contexts/student';
-import { get } from 'react-native/Libraries/Utilities/PixelRatio';
+import {StudentContext} from '../../contexts/student';
+import {get} from 'react-native/Libraries/Utilities/PixelRatio';
 
 const Item = ({item, onPress, style}) => (
   <SquareButton data={item} onPress={onPress} style={[style]} />
 );
 
 export default function HomeProf({navigation}) {
-  const {getStudent} = useContext(StudentContext)
-  const {readClass, loadStatusClassesStudents, classroom} = useContext(ClassroomContext);
+  const {getStudent} = useContext(StudentContext);
+  const {readClass, loadStatusClassesStudents, classroom} = useContext(
+    ClassroomContext,
+  );
   const [funcoes] = useState([
     {
       id: '101',
@@ -60,8 +62,8 @@ export default function HomeProf({navigation}) {
           if (nextScreen === 'CompletedClass') {
             await loadStatusClassesStudents(4);
           }
-          if (nextScreen === 'TeacherClassDetails'){
-            await getStudent(classroom.student)
+          if (nextScreen === 'TeacherClassDetails') {
+            await getStudent(classroom.student);
           }
           navigation.navigate(nextScreen);
         }}
@@ -79,7 +81,7 @@ export default function HomeProf({navigation}) {
           keyExtractor={(item) => item.id}
           renderItem={renderItem}
         />
-        <ContainerAula onPress={()=>navigation.navigate('ConfirmedClass')}>
+        <ContainerAula onPress={() => navigation.navigate('ConfirmedClass')}>
           <ContainerHorizontal>
             <Icon source={require('../../assets/books.png')} />
             <CustomText white bigSmall>
