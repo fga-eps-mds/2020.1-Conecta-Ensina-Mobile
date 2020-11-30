@@ -41,18 +41,6 @@ describe('Testing Classroom Details', () => {
     fireEvent.press(button);
   });
 
-  test('Should test contexts functions', async () => {
-    render(
-      <StudentContext.Provider value={{getStudent}}>
-        <ClassroomContext.Provider value={{classroom}}>
-          <ClassroomDetails />
-        </ClassroomContext.Provider>
-      </StudentContext.Provider>,
-    );
-
-    await expect(getStudent).toHaveBeenCalled();
-  });
-
   test('Should tests timer', async () => {
     const {getByTestId, UNSAFE_getByType} = render(
       <ClassroomContext.Provider value={{classroom}}>

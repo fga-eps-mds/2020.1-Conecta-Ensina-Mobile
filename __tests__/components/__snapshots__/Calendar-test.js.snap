@@ -1991,7 +1991,7 @@ exports[`Should render component 1`] = `
             }
           >
             <View
-              accessibilityLabel="today Friday 27 November 2020 false"
+              accessibilityLabel=" Friday 27 November 2020 false"
               accessibilityRole="button"
               accessible={true}
               focusable={true}
@@ -2005,8 +2005,6 @@ exports[`Should render component 1`] = `
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": undefined,
-                  "borderRadius": 16,
                   "height": 32,
                   "opacity": 1,
                   "width": 32,
@@ -2025,9 +2023,6 @@ exports[`Should render component 1`] = `
                       "fontSize": 16,
                       "fontWeight": "300",
                       "marginTop": 6,
-                    },
-                    Object {
-                      "color": "#00BBF2",
                     },
                   ]
                 }
@@ -2193,7 +2188,7 @@ exports[`Should render component 1`] = `
             }
           >
             <View
-              accessibilityLabel=" Monday 30 November 2020 false"
+              accessibilityLabel="today Monday 30 November 2020 false"
               accessibilityRole="button"
               accessible={true}
               focusable={true}
@@ -2207,6 +2202,8 @@ exports[`Should render component 1`] = `
               style={
                 Object {
                   "alignItems": "center",
+                  "backgroundColor": undefined,
+                  "borderRadius": 16,
                   "height": 32,
                   "opacity": 1,
                   "width": 32,
@@ -2225,6 +2222,9 @@ exports[`Should render component 1`] = `
                       "fontSize": 16,
                       "fontWeight": "300",
                       "marginTop": 6,
+                    },
+                    Object {
+                      "color": "#00BBF2",
                     },
                   ]
                 }

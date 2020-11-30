@@ -3,9 +3,6 @@ import {fireEvent, render} from '@testing-library/react-native';
 import ConfirmedClassDetais from '../../src/pages/ConfirmedClassDetails';
 import {ClassroomContext} from '../../src/contexts/classroom';
 import {StudentContext} from '../../src/contexts/student';
-import dateResolver from '../../src/services/dateResolver';
-import timeResolver from '../../src/services/timeResolver';
-import ContinueContainer from '../../src/components/ContinueContainer';
 
 jest.mock('../../src/services/dateResolver');
 jest.mock('../../src/services/timeResolver');
