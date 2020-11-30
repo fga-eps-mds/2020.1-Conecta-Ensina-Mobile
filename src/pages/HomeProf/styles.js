@@ -24,7 +24,7 @@ export const ButtonAulaUrgente = styled(ButtonGeral)`
   flex-direction: row;
 `;
 
-export const ContainerAula = styled.View`
+export const ContainerAula = styled.TouchableOpacity`
   background-color: ${(props) => props.theme.colors.vermelho};
   width: 78%;
   height: 33%;

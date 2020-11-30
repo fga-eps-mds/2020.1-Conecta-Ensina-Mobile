@@ -61,8 +61,6 @@ export default function HomeProf({navigation}) {
             await loadStatusClassesStudents(4);
           }
           if (nextScreen === 'TeacherClassDetails'){
-            console.log('melpal')
-            console.log(classroom)
             await getStudent(classroom.student)
           }
           navigation.navigate(nextScreen);
@@ -81,7 +79,7 @@ export default function HomeProf({navigation}) {
           keyExtractor={(item) => item.id}
           renderItem={renderItem}
         />
-        <ContainerAula>
+        <ContainerAula onPress={()=>navigation.navigate('ConfirmedClass')}>
           <ContainerHorizontal>
             <Icon source={require('../../assets/books.png')} />
             <CustomText white bigSmall>
