@@ -35,7 +35,7 @@ export default function ClassroomDetails({navigation, route}) {
   const {updateStatusClassroom} = useContext(ClassroomContext);
   const {user} = useContext(AuthContext);
   const {classroom, readClass} = useContext(ClassroomContext);
-  const {student, getStudent2} = useContext(StudentContext);
+  const {student, getStudent} = useContext(StudentContext);
   const {teacher, getTeacher} = useContext(TeacherContext);
 
   const [start, setStart] = useState(false);
@@ -61,11 +61,10 @@ export default function ClassroomDetails({navigation, route}) {
   const [press, setPress] = useState(false);
   const [press2, setPress2] = useState(false);
 
-
   useEffect(() => {
     async function readUser() {
       await getTeacher(item.teacher);
-      await getStudent2(item.teacher);
+      await getStudent(item.teacher);
       console.log('Student');
       console.log(student);
     }
@@ -216,8 +215,7 @@ export default function ClassroomDetails({navigation, route}) {
                       await updateStatusClassroom(item.id);
                       setPress(true);
                     }}
-                    disabled={press}
-                    >
+                    disabled={press}>
                     <CustomText white bigSmall>
                       Iniciar
                     </CustomText>

@@ -303,7 +303,9 @@ exports[`Testing Classroom Details Should matches snapshot page 1`] = `
                 ]
               }
               white={true}
-            />
+            >
+              
+            </Text>
           </View>
         </View>
         <View
@@ -491,7 +493,9 @@ exports[`Testing Classroom Details Should matches snapshot page 1`] = `
                 ]
               }
               white={true}
-            />
+            >
+              
+            </Text>
           </View>
         </View>
         <View
@@ -732,7 +736,9 @@ exports[`Testing Classroom Details Should matches snapshot page 1`] = `
               ]
             }
             white={true}
-          />
+          >
+            
+          </Text>
         </View>
         <View
           style={
@@ -751,7 +757,7 @@ exports[`Testing Classroom Details Should matches snapshot page 1`] = `
         >
           <View
             accessible={true}
-            focusable={false}
+            focusable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
