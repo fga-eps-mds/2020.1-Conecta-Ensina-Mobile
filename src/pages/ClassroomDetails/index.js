@@ -76,6 +76,11 @@ export default function ClassroomDetails({navigation, route}) {
 
       if (classroom.status === 5) {
         setStart(false);
+        if (user.role === 3) {
+          navigation.navigate('FeedbackStudent');
+        } else if (user.role === 2) {
+          navigation.navigate('FeedbackTeacher');
+        }
       }
     }
     readUser();
