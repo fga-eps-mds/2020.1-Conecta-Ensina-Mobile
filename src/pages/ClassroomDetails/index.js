@@ -35,7 +35,7 @@ export default function ClassroomDetails({navigation, route}) {
   const {updateStatusClassroom} = useContext(ClassroomContext);
   const {user} = useContext(AuthContext);
   const {classroom, readClass} = useContext(ClassroomContext);
-  const {student, getStudent} = useContext(StudentContext);
+  const {student, getStudent2} = useContext(StudentContext);
   const {teacher, getTeacher} = useContext(TeacherContext);
 
   const [start, setStart] = useState(false);
@@ -64,7 +64,7 @@ export default function ClassroomDetails({navigation, route}) {
   useEffect(() => {
     async function readUser() {
       await getTeacher(item.teacher);
-      await getStudent(item.teacher);
+      await getStudent2(item.teacher);
       console.log('Student');
       console.log(student);
     }

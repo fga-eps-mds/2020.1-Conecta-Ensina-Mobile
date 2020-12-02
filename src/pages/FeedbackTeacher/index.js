@@ -20,7 +20,7 @@ import CustomText from '../../components/CustomText';
 import {ComplainContext} from '../../contexts/complain';
 
 export default function FeedbackTeacher({navigation, route}) {
-  const {student, getStudent2} = useContext(StudentContext);
+  const {student} = useContext(StudentContext);
   const {createComplain} = useContext(ComplainContext);
   const [commentary, setCommentary] = useState('');
 
@@ -31,6 +31,8 @@ export default function FeedbackTeacher({navigation, route}) {
 
   useEffect(() => {
     console.log(route.params);
+    console.log(student);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

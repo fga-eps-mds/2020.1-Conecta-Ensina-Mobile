@@ -2,6 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeProf from '../pages/HomeProf';
 import ConfirmedClass from '../pages/ConfirmedClass';
+import ConfirmedClassDetails from '../pages/ConfirmedClassDetails';
 import PendingClass from '../pages/PendingClass';
 import CompletedClass from '../pages/CompletedClass';
 import TeacherProfile2 from '../pages/TeacherProfile2';
@@ -10,6 +11,7 @@ import EditTeacher from '../pages/EditTeacher';
 import ShowClass from '../pages/ShowClass';
 import ClassroomDetails from '../pages/ClassroomDetails';
 import TeacherClassDetails from '../pages/TeacherClassDetails';
+import StudentAvaliation from '../pages/StudentAvaliation';
 import FeedbackTeacher from '../pages/FeedbackTeacher';
 //import FeedbackStudent from '../pages/FeedbackStudent';
 
@@ -27,6 +29,11 @@ function ProfRoutes() {
       <ProfStack.Screen
         name="ConfirmedClass"
         component={ConfirmedClass}
+        options={{headerShown: false}}
+      />
+      <ProfStack.Screen
+        name="ConfirmedClassDetails"
+        component={ConfirmedClassDetails}
         options={{headerShown: false}}
       />
       <ProfStack.Screen
@@ -64,6 +71,11 @@ function ProfRoutes() {
         component={ClassroomDetails}
         name="TeacherClassDetails"
         component={TeacherClassDetails}
+        options={{headerShown: false}}
+      />
+      <ProfStack.Screen
+        name="StudentAvaliation"
+        component={StudentAvaliation}
         options={{headerShown: false}}
       />
       <ProfStack.Screen

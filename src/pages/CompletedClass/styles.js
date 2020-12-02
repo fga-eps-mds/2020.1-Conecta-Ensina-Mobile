@@ -1,19 +1,18 @@
 import styled from 'styled-components/native';
 
-export const ContainerVisualAula = styled.View`
+export const ContainerVisualAula = styled.ScrollView`
   background-color: ${(props) => props.theme.colors.cinzaClaro};
-  padding: 3%;
-  width: 144px;
-  height: 223px;
+  width: 145px;
+  height: 220px;
   border-radius: 10px;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
+  margin-left: 4%;
+  margin-right: 4%;
 `;
 
 export const ListaVisualAula = styled.FlatList`
-  position: absolute;
-  padding-bottom: 25%;
   align-self: center;
+  margin-bottom: 10px;
 `;
 
 export const ButtonVerMais = styled.TouchableOpacity`
@@ -21,17 +20,7 @@ export const ButtonVerMais = styled.TouchableOpacity`
   width: 103px;
   height: 22.5px;
   border-radius: 5px;
+  align-self: center;
   align-items: center;
   justify-content: center;
-`;
-
-export const ContainerButtons = styled.View`
-  justify-content: space-around;
-  align-self: center;
-  flex-direction: row;
-`;
-
-export const ContainerTexto = styled.View`
-  justify-content: flex-start;
-  margin-bottom: 10px;
 `;
