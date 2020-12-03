@@ -173,7 +173,7 @@ export default function ClassroomDetails({navigation}) {
                       classroom.address.uf}
                 </RedContainerText>
                 <ButtonContainer>
-                  <ChatButton>
+                  <ChatButton onPress={ () => navigation.navigate('Chat')}>
                     <CustomText white bigSmall>
                       Chat
                     </CustomText>

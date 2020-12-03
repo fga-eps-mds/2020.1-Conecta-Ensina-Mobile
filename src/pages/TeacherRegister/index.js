@@ -1,9 +1,11 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
+import CheckBox from '@react-native-community/checkbox';
 import Theme from '../../../Theme';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import {TextInputMask} from 'react-native-masked-text';
 import {AuthContext} from '../../contexts/auth';
+import {SubjectContext} from '../../contexts/subject';
 
 import {
   UserContatiner,
@@ -12,6 +14,7 @@ import {
   ButtonRegistrar,
   ContainerRowFlex,
   Container,
+  ListSubjects,
 } from './styles';
 
 import Background3 from '../../components/Background3';
@@ -24,7 +27,16 @@ import PasswordInput from '../../components/PasswordInput';
 
 export default function TeacherRegister({navigation}) {
   const {registerProf} = useContext(AuthContext);
+  const {subject, loadSubjects} = useContext(SubjectContext);
 
+  useEffect(() => {
+    if (subject !== {}) {
+      loadSubjects();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  console.log(subject);
   let initials = {
     name: '',
     surname: '',
@@ -195,6 +207,7 @@ export default function TeacherRegister({navigation}) {
                     }}
                     placeholder="Data de nascimento"
                     placeholderTextColor="#F6F6F6"
+                    // eslint-disable-next-line react-native/no-inline-styles
                     style={{
                       color: '#FFFFFF',
                       fontSize: 14,
@@ -330,6 +343,14 @@ export default function TeacherRegister({navigation}) {
                     {errors.degree}
                   </CustomText>
                 )}
+                <ListSubjects
+                  data={subject}
+                  keyExtractor={(item) => item.id}
+                  renderItem={({item}) => {
+                    return <CheckBox data={item} />;
+                  }}
+                />
+
                 <RegField
                   placeholder="Banco"
                   autoCapitalize="none"
