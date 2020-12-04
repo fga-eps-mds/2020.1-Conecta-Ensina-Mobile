@@ -13,7 +13,7 @@ describe('', () => {
       students,
       userDB,
       teacher,
-      getProfessorList,
+      getTeacherList,
       statusUpdate,
       getProfessoUser,
       getReportedUsers,
@@ -23,7 +23,7 @@ describe('', () => {
         <TouchableOpacity
           testID="TeacherList"
           onPress={async () => {
-            await getProfessorList();
+            await getTeacherList();
           }}
         />
         <TouchableOpacity
@@ -47,7 +47,7 @@ describe('', () => {
       </View>
     );
   };
-  test('Should triggers getProfessorList', async () => {
+  test('Should triggers getTeacherList', async () => {
     const {getByTestId} = render(
       <AdmProvider>
         <TestComponent />

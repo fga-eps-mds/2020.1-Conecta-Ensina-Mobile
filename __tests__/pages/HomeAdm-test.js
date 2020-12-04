@@ -10,7 +10,7 @@ describe('Testing HomeAdm Page', () => {
     navigate: jest.fn(),
   };
   const students = [{id: ''}];
-  const getProfessorList = jest.fn();
+  const getTeacherList = jest.fn();
   const getReportedUsers = jest.fn();
   const getProfessoUser = jest.fn();
   const signOut = jest.fn();
@@ -20,7 +20,7 @@ describe('Testing HomeAdm Page', () => {
         <AdmContext.Provider
           value={{
             students,
-            getProfessorList,
+            getTeacherList,
             getProfessoUser,
             getReportedUsers,
           }}>
@@ -37,7 +37,7 @@ describe('Testing HomeAdm Page', () => {
         <AdmContext.Provider
           value={{
             students,
-            getProfessorList,
+            getTeacherList,
             getProfessoUser,
             getReportedUsers,
           }}>
@@ -57,7 +57,7 @@ describe('Testing HomeAdm Page', () => {
         <AdmContext.Provider
           value={{
             students,
-            getProfessorList,
+            getTeacherList,
             getProfessoUser,
             getReportedUsers,
           }}>
