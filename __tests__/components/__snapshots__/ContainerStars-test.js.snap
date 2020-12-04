@@ -23,6 +23,7 @@ exports[`Testing ContainerStars component Should render component 1`] = `
       "width": 95,
     }
   }
+  testID="ContainerStars"
 >
   <Image
     style={

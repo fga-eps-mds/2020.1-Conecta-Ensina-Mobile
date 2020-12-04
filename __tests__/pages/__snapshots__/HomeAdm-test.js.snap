@@ -130,6 +130,7 @@ exports[`Testing HomeAdm Page Should renders page 1`] = `
                 "width": 95,
               }
             }
+            testID="SquareButton"
           >
             <Image
               style={
@@ -203,6 +204,7 @@ exports[`Testing HomeAdm Page Should renders page 1`] = `
                 "width": 95,
               }
             }
+            testID="SquareButton"
           >
             <Image
               style={

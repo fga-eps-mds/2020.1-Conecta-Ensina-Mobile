@@ -213,6 +213,7 @@ exports[`Testing Home page Should renders page 1`] = `
                 "width": 95,
               }
             }
+            testID="SquareButton"
           >
             <Image
               source={
@@ -291,6 +292,7 @@ exports[`Testing Home page Should renders page 1`] = `
                 "width": 95,
               }
             }
+            testID="SquareButton"
           >
             <Image
               source={
@@ -369,6 +371,7 @@ exports[`Testing Home page Should renders page 1`] = `
                 "width": 95,
               }
             }
+            testID="SquareButton"
           >
             <Image
               source={

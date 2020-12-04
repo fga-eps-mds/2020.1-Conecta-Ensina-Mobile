@@ -4,7 +4,7 @@ import {Container, Imagem, Nome} from './styles';
 
 export default function SquareButton({img, data, onPress, style}) {
   return (
-    <Container onPress={onPress} style={[style]}>
+    <Container testID="SquareButton" onPress={onPress} style={[style]}>
       <Imagem source={img} />
       <Nome>
         <CustomText black smaller>

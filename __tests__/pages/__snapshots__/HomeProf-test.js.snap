@@ -212,6 +212,7 @@ exports[`Testing HomeProf page Should renders page 1`] = `
                 "width": 95,
               }
             }
+            testID="SquareButton"
           >
             <Image
               style={
@@ -285,6 +286,7 @@ exports[`Testing HomeProf page Should renders page 1`] = `
                 "width": 95,
               }
             }
+            testID="SquareButton"
           >
             <Image
               style={
@@ -358,6 +360,7 @@ exports[`Testing HomeProf page Should renders page 1`] = `
                 "width": 95,
               }
             }
+            testID="SquareButton"
           >
             <Image
               style={
