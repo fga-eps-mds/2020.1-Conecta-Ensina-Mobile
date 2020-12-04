@@ -23,6 +23,7 @@ exports[`Testing ContainerTeacher component Should render component 1`] = `
       "width": 152,
     }
   }
+  testID="ContainerTeacher"
 >
   <Image
     style={
