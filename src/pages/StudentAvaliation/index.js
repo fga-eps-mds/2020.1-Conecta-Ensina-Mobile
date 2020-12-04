@@ -2,7 +2,6 @@ import React, {useEffect, useContext, useState} from 'react';
 import Theme from '../../../Theme';
 import Background2 from '../../components/Background2';
 import CustomTextContainer from '../../components/CustomTextContainer';
-import {UserContext} from '../../contexts/user';
 import {StudentContext} from '../../contexts/student';
 import {RateContext} from '../../contexts/rate';
 import gradeResolver from '../../services/gradeResolver';
@@ -49,10 +48,12 @@ export default function StudentAvaliation({props, navigation}) {
           <ContainerW>
             <RedCommentContainer
               {...props}
+              testID="RedComment"
               onChangeText={(text) => setComment(text)}
               defaultValue={comment}
             />
             <SubmitReview
+              testID="Submit"
               onPress={() => {
                 createRate(comment, 3);
                 navigation.navigate('HomeProf');
