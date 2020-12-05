@@ -48,12 +48,7 @@ export default function ClassroomProvider({children}) {
       student = user.id;
       teacher = '';
     }
-    const response = await Class.getClassroom(
-      (student = student),
-      (teacher = teacher),
-      status,
-      Host,
-    );
+    const response = await Class.getClassroom(student, teacher, status, Host);
     if (classroom !== response) {
       console.log(response);
       setClassroom(response);
