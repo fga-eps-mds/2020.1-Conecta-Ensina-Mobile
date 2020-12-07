@@ -8,7 +8,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest --coverage",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "android-release": "cd android && ./gradlew assembleRelease --daemon"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.0",
@@ -17,7 +18,9 @@
     "@react-native-community/picker": "^1.8.0",
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",
+    "aws-sdk": "^2.804.0",
     "date-fns": "^2.16.1",
+    "dotenv": "^8.2.0",
     "formik": "^2.1.7",
     "react": "16.13.1",
     "react-native": "0.63.2",
