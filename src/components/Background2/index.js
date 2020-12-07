@@ -5,7 +5,7 @@ import Theme from '../../../Theme';
 export default function Background2(props) {
   return (
     <Theme>
-      <Container testID = 'background'>
+      <Container testID="background">
         <BlueContainer>{props.blue}</BlueContainer>
         <WhiteContainer>{props.white}</WhiteContainer>
       </Container>

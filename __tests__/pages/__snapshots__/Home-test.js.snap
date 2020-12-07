@@ -566,6 +566,64 @@ exports[`Testing Home page Should renders page 1`] = `
     >
       <View
         accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#184E79",
+            "borderRadius": 10,
+            "display": "flex",
+            "flexDirection": "row",
+            "height": 50,
+            "justifyContent": "center",
+            "marginTop": "5%",
+            "opacity": 1,
+            "width": 200,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../src/assets/books.png",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "height": 30,
+                "marginRight": "3%",
+                "width": 36,
+              },
+            ]
+          }
+        />
+        <Text
+          medium={true}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Roboto",
+                "fontSize": 25,
+                "textAlign": "center",
+              },
+            ]
+          }
+          white={true}
+        >
+          Aula Marcada
+        </Text>
+      </View>
+      <View
+        accessible={true}
         focusable={false}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -583,6 +641,7 @@ exports[`Testing Home page Should renders page 1`] = `
             "flexDirection": "row",
             "height": 50,
             "justifyContent": "center",
+            "marginTop": "5%",
             "opacity": 1,
             "width": 200,
           }
@@ -640,7 +699,7 @@ exports[`Testing Home page Should renders page 1`] = `
             "flexDirection": "row",
             "height": 50,
             "justifyContent": "center",
-            "marginTop": "7.3%",
+            "marginTop": "5%",
             "opacity": 1,
             "width": 200,
           }

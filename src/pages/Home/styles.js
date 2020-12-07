@@ -8,7 +8,7 @@ export const ListFiltro = styled.FlatList`
 `;
 
 export const ButtonMarcarAula = styled(ButtonGeral)`
-  margin-top: 7.3%;
+  margin-top: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,6 +21,7 @@ export const ButtonAulaUrgente = styled(ButtonGeral)`
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  margin-top: 5%;
 `;
 
 export const ContainerAula = styled.View`

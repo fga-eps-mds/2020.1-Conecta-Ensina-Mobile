@@ -4,9 +4,11 @@ import {AdmContext} from '../../contexts/admin';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
 import {Container, ContainerGrande, ContainerButton, Button} from './styles';
+import {AuthContext} from '../../contexts/auth';
 
 export default function TeacherConfirmation({route, navigation}) {
   const {item} = route.params;
+  const {signOut} = useContext(AuthContext);
   const {userDB, teacher, statusUpdate} = useContext(AdmContext);
 
   const handleSubmit = async () => {
@@ -15,7 +17,7 @@ export default function TeacherConfirmation({route, navigation}) {
 
   return (
     <Theme>
-      <Background1>
+      <Background1 navigation={navigation} page={'TeacherProfile2'}>
         <Container>
           <ContainerGrande>
             <CustomText white>{userDB && userDB.firstName}</CustomText>
@@ -51,7 +53,7 @@ export default function TeacherConfirmation({route, navigation}) {
               Aceitar
             </CustomText>
           </Button>
-          <Button onPress={() => navigation.navigate('PendingTeacher')}>
+          <Button onPress={() => signOut()}>
             <CustomText white bigSmall>
               Recusar
             </CustomText>

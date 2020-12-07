@@ -76,6 +76,15 @@ export default function Home({navigation}) {
           </ContainerHorizontal>
         </ContainerAula>
         <ContainerButtons>
+          <ButtonMarcarAula
+            onPress={() => {
+              navigation.navigate('ConfirmedClass'); /*}catch(error){}*/
+            }}>
+            <Icon source={require('../../assets/books.png')} />
+            <CustomText white medium>
+              Aula Marcada
+            </CustomText>
+          </ButtonMarcarAula>
           <ButtonAulaUrgente>
             <Icon source={require('../../assets/books.png')} />
             <CustomText white medium>

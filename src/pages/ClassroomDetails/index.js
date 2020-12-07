@@ -7,6 +7,7 @@ import CustomTextContainer from '../../components/CustomTextContainer';
 import CustomText from '../../components/CustomText';
 import {ClassroomContext} from '../../contexts/classroom';
 import {UserContext} from '../../contexts/user';
+import {TeacherContext} from '../../contexts/teacher';
 import {StudentContext} from '../../contexts/student';
 import gradeResolver from '../../services/gradeResolver';
 import {
@@ -27,23 +28,65 @@ import {
   TimerButton,
   ContainerColumnButton,
 } from './styles';
+import {AuthContext} from '../../contexts/auth';
 
-export default function ClassroomDetails({navigation}) {
-  const {classroom} = useContext(ClassroomContext);
-  const {student, getStudent} = useContext(StudentContext);
-  const {user, getUser} = useContext(UserContext);
+export default function ClassroomDetails({navigation, route}) {
+  const {item} = route.params;
+  const {updateStatusClassroom} = useContext(ClassroomContext);
+  const {user} = useContext(AuthContext);
+  const {classroom, readClass} = useContext(ClassroomContext);
+  const {student, getStudent2} = useContext(StudentContext);
+  const {teacher, getTeacher} = useContext(TeacherContext);
+
   const [start, setStart] = useState(false);
   const [run, setRun] = useState(true);
 
-  useEffect(() => {
-    async function readUser() {
-      await getUser(classroom.teacher);
-      await getStudent(classroom.teacher);
+  /*const begin = () => {
+    updateStatusClassroom(item.id);
+    getClass(item.id);
+    if (classroom == 3){
+      setStart(true);
     }
 
+  };*/
+
+  /*const finish = () => {
+    if (user.role == 2) {
+      setRun(false);
+      updateStatusClassroom(item.id);
+      alert('Aula Finalizada');
+    }
+  };*/
+
+  const [press, setPress] = useState(false);
+  const [press2, setPress2] = useState(false);
+
+  useEffect(() => {
+    async function readUser() {
+      await getTeacher(item.teacher);
+      await getStudent2(item.teacher);
+      console.log('Student');
+      console.log(student);
+    }
+    async function classRead() {
+      await readClass(item.id);
+      if (classroom.status === 3) {
+        setStart(true);
+      }
+
+      if (classroom.status === 5) {
+        setStart(false);
+        if (user.role === 3) {
+          navigation.navigate('FeedbackStudent');
+        } else if (user.role === 2) {
+          navigation.navigate('FeedbackTeacher');
+        }
+      }
+    }
     readUser();
+    classRead();
     //readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
-  }, []);
+  }, [classroom]);
 
   return (
     <Theme>
@@ -56,10 +99,11 @@ export default function ClassroomDetails({navigation}) {
             </UserContainer>
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
-                {user && user.firstName + ' ' + user.lastName}
+                {student &&
+                  student.user.firstName + ' ' + student.user.lastName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '2%'}}>
-                {student && gradeResolver(student.grade)}
+                {student && gradeResolver(student.student.grade)}
               </CustomTextContainer>
             </ContainerTextBlue>
           </ContainerB>
@@ -76,7 +120,7 @@ export default function ClassroomDetails({navigation}) {
                   Disciplina
                 </CustomTextContainer>
                 <RedContainerText medium>
-                  {classroom && classroom.subject}
+                  {item && item.subject}
                 </RedContainerText>
               </ContainerTextBox>
               <ContainerTextBox>
@@ -100,7 +144,7 @@ export default function ClassroomDetails({navigation}) {
                   Duração
                 </CustomTextContainer>
                 <RedContainerText medium>
-                  {classroom && classroom.duration + ' Hora'}
+                  {item && item.duration + ' Hora'}
                 </RedContainerText>
               </ContainerTextBox>
               <ContainerTextBox>
@@ -130,7 +174,7 @@ export default function ClassroomDetails({navigation}) {
                     <CountDown
                       testID="countdown"
                       running={run}
-                      until={60 * 60 * classroom.duration}
+                      until={60 * 60 * item.duration}
                       size={15}
                       onFinish={() => alert('Aula Finalizada')}
                       digitStyle={{backgroundColor: theme.colors.fundoAzul}}
@@ -141,12 +185,11 @@ export default function ClassroomDetails({navigation}) {
                   </TimerButton>
                   <FinishButton
                     testID="finishButton"
-                    onPress={() => {
-                      //setRun(false);
-                      //alert('Aula Finalizada');
-                      navigation.navigate('FeedbackTeacher', {classroom});
-                      console.log('pressionado');
-                    }}>
+                    onPress={async () => {
+                      await updateStatusClassroom(item.id);
+                      setPress2(true);
+                    }}
+                    disabled={press2}>
                     <CustomText white medium>
                       Terminar Aula
                     </CustomText>
@@ -163,24 +206,21 @@ export default function ClassroomDetails({navigation}) {
                   Endereço
                 </CustomTextContainer>
                 <RedContainerText>
-                  {classroom &&
-                    classroom.address.logradouro +
-                      ' n°: ' +
-                      classroom.number +
-                      ', \n' +
-                      classroom.address.bairro +
-                      ' - ' +
-                      classroom.address.uf}
+                  {item && item.number + ', \n'}
                 </RedContainerText>
                 <ButtonContainer>
-                  <ChatButton>
+                  <ChatButton onPress={() => console.log('chat')}>
                     <CustomText white bigSmall>
                       Chat
                     </CustomText>
                   </ChatButton>
                   <StartButton
                     testID="StartButton"
-                    onPress={() => setStart(true)}>
+                    onPress={async () => {
+                      await updateStatusClassroom(item.id);
+                      setPress(true);
+                    }}
+                    disabled={press}>
                     <CustomText white bigSmall>
                       Iniciar
                     </CustomText>

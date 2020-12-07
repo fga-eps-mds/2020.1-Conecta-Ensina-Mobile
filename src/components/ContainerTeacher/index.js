@@ -7,10 +7,10 @@ import {withTheme} from 'styled-components/native';
 function ContainerTeacher({data, onPressProf}) {
   return (
     <Container onPress={onPressProf}>
-      <Imagem/>
+      <Imagem />
       <ContainerTexto>
         <CustomText smaller black>
-          {data.firstName+' '+data.lastName}
+          {data.firstName + ' ' + data.lastName}
         </CustomText>
       </ContainerTexto>
     </Container>
