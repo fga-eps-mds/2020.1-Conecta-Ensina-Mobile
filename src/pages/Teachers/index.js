@@ -47,6 +47,7 @@ export default function Teachers({navigation}) {
         />
         <ContainerButtons>
           <ContinueContainer
+            testID="Continue"
             onPress={async () => {
               if (selectedId === null) {
                 Alert.alert('Você deve selecionar um professor');
