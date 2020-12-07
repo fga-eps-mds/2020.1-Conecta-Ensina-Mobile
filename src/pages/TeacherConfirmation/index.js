@@ -61,12 +61,14 @@ export default function TeacherConfirmation({route, navigation}) {
           </ContainerGrande>
         </Container>
         <ContainerButton>
-          <Button onPress={handleSubmit}>
+          <Button testID="Aceitar" onPress={handleSubmit}>
             <CustomText white bigSmall>
               Aceitar
             </CustomText>
           </Button>
-          <Button onPress={() => navigation.navigate('PendingTeacher')}>
+          <Button
+            testID="Recusar"
+            onPress={() => navigation.navigate('PendingTeacher')}>
             <CustomText white bigSmall>
               Recusar
             </CustomText>

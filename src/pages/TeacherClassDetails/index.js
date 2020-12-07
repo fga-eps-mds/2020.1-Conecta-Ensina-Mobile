@@ -128,6 +128,7 @@ export default function TeacherClassDetails({navigation}) {
                     />
                   </TimerButton>
                   <FinishButton
+                    testID="FinishButton"
                     onPress={() => {
                       navigation.navigate('HomeProf');
                     }}>

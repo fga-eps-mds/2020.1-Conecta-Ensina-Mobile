@@ -16,6 +16,7 @@ describe('Testing Subjects page', () => {
   const navigation = {
     navigate: jest.fn(),
   };
+
   test('Should renders page', () => {
     const tree = render(
       <SubjectContext.Provider value={{subject, loadSubjects}}>
@@ -25,6 +26,7 @@ describe('Testing Subjects page', () => {
 
     expect(tree).toMatchSnapshot();
   });
+
   test('Should press square buttons', () => {
     const {getAllByTestId} = render(
       <SubjectContext.Provider value={{subject, loadSubjects}}>
@@ -36,6 +38,7 @@ describe('Testing Subjects page', () => {
     fireEvent.press(button[0]);
     fireEvent.press(button[1]);
   });
+
   test("Should press 'Continue' button", () => {
     const {getByTestId} = render(
       <SubjectContext.Provider value={{subject, loadSubjects}}>
@@ -44,6 +47,23 @@ describe('Testing Subjects page', () => {
     );
 
     const button = getByTestId('ContinueContainer');
+
+    fireEvent.press(button);
+  });
+
+  test("Should press 'Continue' button before select a square button", () => {
+    const {getByTestId, getAllByTestId} = render(
+      <SubjectContext.Provider value={{subject, loadSubjects}}>
+        <Subjects navigation={navigation} />
+      </SubjectContext.Provider>,
+    );
+
+    const button = getByTestId('ContinueContainer');
+
+    const buttons = getAllByTestId('SquareButton');
+
+    fireEvent.press(buttons[0]);
+    fireEvent.press(buttons[1]);
 
     fireEvent.press(button);
   });
