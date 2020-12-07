@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, TouchableOpacity} from 'react-native';
 import {render, fireEvent, act} from '@testing-library/react-native';
 import AdmProvider, {AdmContext} from '../../src/contexts/admin';
 import {AuthContext} from '../../src/contexts/auth';
@@ -10,9 +10,6 @@ describe('', () => {
   };
   const TestComponent = () => {
     const {
-      students,
-      userDB,
-      teacher,
       getTeacherList,
       statusUpdate,
       getProfessoUser,
