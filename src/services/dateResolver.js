@@ -1,36 +1,33 @@
-import {format} from 'date-fns';
-
 export default function dateResolver(date) {
-  //format(date, 'yyyy/MM/dd')
-  let token2 = date.split('T');
-  let dateToken = token2[0].split('-');
+  const token2 = date.split('T');
+  const dateToken = token2[0].split('-');
 
   switch (dateToken[1]) {
-    case '1':
+    case '01':
       dateToken[1] = 'Jan';
       break;
-    case '2':
+    case '02':
       dateToken[1] = 'Fev';
       break;
-    case '3':
+    case '03':
       dateToken[1] = 'Mar';
       break;
-    case '4':
+    case '04':
       dateToken[1] = 'Abr';
       break;
-    case '5':
+    case '05':
       dateToken[1] = 'Mai';
       break;
-    case '6':
+    case '06':
       dateToken[1] = 'Jun';
       break;
-    case '7':
+    case '07':
       dateToken[1] = 'Jul';
       break;
-    case '8':
+    case '08':
       dateToken[1] = 'Ago';
       break;
-    case '9':
+    case '09':
       dateToken[1] = 'Set';
       break;
     case '10':
@@ -49,35 +46,35 @@ export default function dateResolver(date) {
 }
 
 export function getDate(date) {
-  let token2 = date.split('T');
-  let dateToken = token2[0].split('-');
+  const token2 = date.split('T');
+  const dateToken = token2[0].split('-');
 
   switch (dateToken[1]) {
-    case '1':
+    case '01':
       dateToken[1] = 'Jan';
       break;
-    case '2':
+    case '02':
       dateToken[1] = 'Fev';
       break;
-    case '3':
+    case '03':
       dateToken[1] = 'Mar';
       break;
-    case '4':
+    case '04':
       dateToken[1] = 'Abr';
       break;
-    case '5':
+    case '05':
       dateToken[1] = 'Mai';
       break;
-    case '6':
+    case '06':
       dateToken[1] = 'Jun';
       break;
-    case '7':
+    case '07':
       dateToken[1] = 'Jul';
       break;
-    case '8':
+    case '08':
       dateToken[1] = 'Ago';
       break;
-    case '9':
+    case '09':
       dateToken[1] = 'Set';
       break;
     case '10':

@@ -1,8 +1,7 @@
 export async function getTeacherList(Host) {
-  const fetchResponse = await fetch(`${Host}/api/student/status/0`);
   try {
+    const fetchResponse = await fetch(`${Host}/api/student/status/0`);
     const data = await fetchResponse.json();
-    console.log(data);
     if (data.message !== 'Nenhum professor pendente') {
       return data.data.student;
     } else {
@@ -14,8 +13,8 @@ export async function getTeacherList(Host) {
 }
 
 export async function getReportedUsers(Host) {
-  const fetchResponse = await fetch(`${Host}/api/student/status/2`);
   try {
+    const fetchResponse = await fetch(`${Host}/api/student/status/2`);
     const data = await fetchResponse.json();
     if (data.message !== 'Nenhum professor pendente') {
       return data.data.student;
@@ -28,8 +27,8 @@ export async function getReportedUsers(Host) {
 }
 
 export async function getProfessoUser(Host, id) {
-  const response = await fetch(`${Host}/api/teacher/${id}`);
   try {
+    const response = await fetch(`${Host}/api/teacher/${id}`);
     const data = await response.json();
     return data.data;
   } catch (error) {
@@ -49,14 +48,14 @@ export async function statusUpdate(Host, user, id) {
       agentRole: user.role,
     }),
   };
-  const fetchResponse1 = await fetch(
-    `${Host}/api/student/status/${id}`,
-    settings,
-  );
   try {
+    const fetchResponse1 = await fetch(
+      `${Host}/api/student/status/${id}`,
+      settings,
+    );
     const data = await fetchResponse1.json();
-    console.log('Success: ' + data.message);
+    return data;
   } catch (error) {
-    console.error('Error:', error);
+    return error;
   }
 }
