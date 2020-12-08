@@ -4,7 +4,7 @@ import { Container, Texto } from './styles';
 export default function TextCard2({data}) {
  return (
    <Container>
-     <Texto>{data.name}</Texto>
+     <Texto>{data.text}</Texto>
    </Container>
   );
 }

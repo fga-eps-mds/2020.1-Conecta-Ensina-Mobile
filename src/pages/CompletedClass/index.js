@@ -14,7 +14,6 @@ export default function CompletedClass({navigation}) {
   );
   //const [student, setStudent] = useState('');
   const [user, setUser] = useState([]);
-
   const getUser = async (id) => {
     const fetchResponse = await fetch(`${Host}/api/user/${id}`);
     try {

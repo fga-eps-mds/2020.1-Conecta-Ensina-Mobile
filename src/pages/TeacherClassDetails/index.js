@@ -27,11 +27,13 @@ import {
   TimerButton,
   ContainerColumnButton,
 } from './styles';
+import { chatContext } from '../../contexts/chat';
 
 export default function TeacherClassDetails({navigation}) {
   const {classroom, readClass} = useContext(ClassroomContext);
   const {student} = useContext(StudentContext);
   const {user} = useContext(UserContext);
+  const {readChat} = useContext(chatContext);
   const [start, setStart] = useState(false);
   const [run, setRun] = useState(true);
 
@@ -149,7 +151,7 @@ export default function TeacherClassDetails({navigation}) {
                 </CustomTextContainer>
                 <RedContainerText>
                   {classroom &&
-                    classroom.address.logradouro +
+                    //classroom.address.logradouro +
                       ' n°: ' +
                       classroom.number +
                       ', \n' +
@@ -158,7 +160,10 @@ export default function TeacherClassDetails({navigation}) {
                       classroom.address.uf}
                 </RedContainerText>
                 <ButtonContainer>
-                  <ChatButton>
+                  <ChatButton onPress={()=>{
+                    readChat()
+                    navigation.navigate('Chat')
+                    }}>
                     <CustomText white bigSmall>
                       Chat
                     </CustomText>

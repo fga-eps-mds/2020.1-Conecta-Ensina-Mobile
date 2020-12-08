@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import Theme from '../../../Theme';
 
 import {
@@ -13,34 +13,47 @@ import {
 } from './styles';
 import TextCard from '../../components/TextCard';
 import TextCard2 from '../../components/TextCard2';
+import { chatContext } from '../../contexts/chat';
+import { AuthContext } from '../../contexts/auth';
 
 export default function Chat() {
-  const [mensagem] = useState([
-    {id: '1', name: 'oi gatinha', mode: '1'},
-    {id: '2', name: 'melpal', mode: '2'},
-    {id: '3', name: 'eae', mode: '1'},
-  ]);
+  const {user} = useContext(AuthContext);
+  const {chat, createChat, readChat} = useContext(chatContext);
+  const [message, setMessage] = useState('')
+
+  useEffect(() => {
+    readChat()
+  }, [chat])
+   
+  function handleSubmit(){
+    createChat(message);
+    setMessage('');
+  }
+
   return (
     <Theme>
       <Background>
         <Header>
-          <Nome>Carlos</Nome>
+          <Nome>{user && user.firstName}</Nome>
         </Header>
         <Lista
-          data={mensagem}
+          data={chat}
           keyExtractor={(item) => item.id}
           renderItem={({item}) =>
-            item.mode === '1' ? (
+            item.create_by === user.id ? (
               <TextCard data={item} />
             ) : (
               <TextCard2 data={item} />
             )
           }
-          inverted
         />
         <SubmitContainer>
-          <CampoDeTexto />
-          <SubimitButton>
+          <CampoDeTexto 
+            autoCapitalize="none"
+            value={message}
+            onChangeText={(text) => setMessage(text)}
+          />
+          <SubimitButton onPress={handleSubmit}>
             <Texto>Enviar</Texto>
           </SubimitButton>
         </SubmitContainer>

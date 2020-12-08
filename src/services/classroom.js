@@ -67,6 +67,7 @@ export async function getClass(Host, id) {
   const fetchResponse = await fetch(`${Host}/api/classroom/${id}`);
   try {
     const data = await fetchResponse.json();
+    
     return data.data.classroom;
   } catch (error) {
     return error;
