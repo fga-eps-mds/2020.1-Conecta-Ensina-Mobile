@@ -29,7 +29,7 @@ import {
 } from './styles';
 
 export default function TeacherClassDetails({navigation}) {
-  const {classroom, readClass} = useContext(ClassroomContext);
+  const {classroom, readClass, geoCode} = useContext(ClassroomContext);
   const {student} = useContext(StudentContext);
   const {user} = useContext(UserContext);
   const [start, setStart] = useState(false);
@@ -112,7 +112,9 @@ export default function TeacherClassDetails({navigation}) {
               marginBot={{value: '0%'}}>
               Observação
             </CustomTextContainer>
-            <RedContainerText>{classroom.details}</RedContainerText>
+            <RedContainerText>
+              {classroom.details ? classroom.details : 'Não informado'}
+            </RedContainerText>
             {start ? (
               <ContainerWLower>
                 <ContainerColumnButton>
@@ -172,7 +174,11 @@ export default function TeacherClassDetails({navigation}) {
                       Iniciar
                     </CustomText>
                   </StartButton>
-                  <RouteButton>
+                  <RouteButton
+                    onPress={() => {
+                      geoCode(classroom.cep);
+                      navigation.navigate('Maps');
+                    }}>
                     <CustomText white bigSmall>
                       Rota
                     </CustomText>

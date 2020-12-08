@@ -11,6 +11,7 @@ import {
   ListFuncoes,
 } from './styles';
 import {ClassroomContext} from '../../contexts/classroom';
+import {HOST} from '@env';
 
 const Item = ({item, onPress, style}) => (
   <SquareButton data={item} onPress={onPress} style={[style]} />
@@ -54,6 +55,7 @@ export default function HomeProf({navigation}) {
         item={item}
         onPress={async () => {
           await readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
+          console.log(HOST);
           navigation.navigate(nextScreen);
         }}
         style={{backgroundColor: theme.colors.cinzaClaro}}

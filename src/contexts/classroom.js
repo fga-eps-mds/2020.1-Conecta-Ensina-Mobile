@@ -3,6 +3,7 @@ import {AuthContext} from './auth';
 import * as Class from '../services/classroom';
 import * as Student from '../services/student';
 import * as Address from '../services/findAddress';
+import * as GeoCode from '../services/geocode';
 import {FiltersContext} from '../contexts/filters';
 
 export const ClassroomContext = createContext({});
@@ -14,6 +15,7 @@ export default function ClassroomProvider({children}) {
   const {filter} = useContext(FiltersContext);
   const [statusClasses, setStatusClasses] = useState([]);
   const [statusClass, setStatusClass] = useState({});
+  const [coordenates, setCoordenates] = useState({});
 
   async function loadNextClass() {
     const response = await Class.getNextClassroom(Host);
@@ -102,6 +104,15 @@ export default function ClassroomProvider({children}) {
       setClassroom(responseClass);
     }
   }
+
+  async function geoCode(cep) {
+    const response = await GeoCode.geocode(cep);
+    if (coordenates !== response) {
+      console.log(response.results[0].geometry.location);
+      setCoordenates(response.results[0].geometry.location);
+    }
+  }
+
   return (
     <ClassroomContext.Provider
       value={{
@@ -118,6 +129,8 @@ export default function ClassroomProvider({children}) {
         statusClass,
         setStatusClass,
         Host,
+        geoCode,
+        coordenates,
       }}>
       {children}
     </ClassroomContext.Provider>

@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Maps Should match snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#184E79",
+        "display": "flex",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "flex-end",
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "flexBasis": 0,
+        "flexDirection": "row-reverse",
+        "flexGrow": 22,
+        "flexShrink": 1,
+        "marginLeft": 30,
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 1000,
+          "height": 58,
+          "justifyContent": "center",
+          "marginBottom": 30,
+          "marginLeft": 40,
+          "opacity": 1,
+          "width": 58,
+        }
+      }
+      testID="userAvatar"
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../src/assets/user_blue.png",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "height": 38,
+              "width": 33,
+            },
+          ]
+        }
+      />
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "marginBottom": 40,
+            "marginRight": 35,
+          },
+        ]
+      }
+    >
+      <Text
+        medium={true}
+        style={
+          Array [
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "Roboto",
+              "fontSize": 25,
+              "textAlign": "center",
+            },
+          ]
+        }
+        white={true}
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderTopLeftRadius": 20,
+          "borderTopRightRadius": 20,
+          "display": "flex",
+          "flexBasis": 0,
+          "flexGrow": 78,
+          "flexShrink": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <AIRMap
+      handlePanDrag={false}
+      initialRegion={
+        Object {
+          "latitude": -15.8644976,
+          "latitudeDelta": 0.0922,
+          "longitude": -48.0351302,
+          "longitudeDelta": 0.0421,
+        }
+      }
+      onChange={[Function]}
+      onLayout={[Function]}
+      onMapReady={[Function]}
+      onMarkerPress={[Function]}
+      region={null}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <AIRMapMarker
+        coordinate={
+          Object {
+            "latitude": -15.8644976,
+            "longitude": -48.0351302,
+          }
+        }
+        description="Local onde ocorrerá a aula"
+        onPress={[Function]}
+        stopPropagation={false}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "position": "absolute",
+            },
+            undefined,
+          ]
+        }
+        title="Local de aula"
+      />
+    </AIRMap>
+  </View>
+</View>
+`;
