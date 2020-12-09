@@ -1,7 +1,7 @@
 import * as GeoCode from '../../src/services/geocode';
 //import {} from '@react-native-community/datetimepicker';
 
-describe('Testing CompletedClass page', () => {
+describe('Testing geoCode services', () => {
   beforeEach(() => {
     fetch.resetMocks();
   });

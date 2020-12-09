@@ -13,9 +13,9 @@ export async function getTeacher(Host, id) {
   const response = await fetch(`${Host}/api/teacher/${id}`);
   try {
     const data = await response.json();
-    console.log(data.data.teacher);
+    console.log(data.data);
     //setSubjects(data.data.subject);
-    return data.data.teacher;
+    return data.data;
   } catch (error) {
     return error;
   }

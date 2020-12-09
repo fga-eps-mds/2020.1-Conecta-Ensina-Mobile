@@ -111,12 +111,14 @@ export default function TeacherProfile2({navigation}) {
           </InfoContainer>
         </Container>
         <ContainerBotao>
-          <ButtonContainer onPress={() => navigation.navigate('EditTeacher')}>
+          <ButtonContainer
+            testID="Editar"
+            onPress={() => navigation.navigate('EditTeacher')}>
             <CustomText white bigSmall>
               Editar
             </CustomText>
           </ButtonContainer>
-          <ButtonContainer onPress={() => signOut()}>
+          <ButtonContainer testID="Sair" onPress={() => signOut()}>
             <CustomText white bigSmall>
               Sair
             </CustomText>

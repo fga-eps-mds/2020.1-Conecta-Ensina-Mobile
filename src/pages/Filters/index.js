@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, {useState, useContext, useEffect} from 'react';
 import {Alert} from 'react-native';
 import Theme, {theme} from '../../../Theme';
@@ -7,6 +6,8 @@ import Background1 from '../../components/Background1';
 import ContinueContainer from '../../components/ContinueContainer';
 import GeneralPicker from '../../components/GeneralPicker';
 import SwitchFilter from '../../components/SwitchFilter';
+import {TeacherContext} from '../../contexts/teacher';
+
 import {
   ScrollContainer,
   CalendarsContainer,
@@ -24,6 +25,7 @@ export default function Filters({navigation, route}) {
   const [selected, setSelected] = useState(null);
   const [newDate, setNewDate] = useState(new Date());
 
+  const {loadTeachers} = useContext(TeacherContext);
   const {setFilters} = useContext(FiltersContext);
 
   useEffect(() => {
@@ -65,10 +67,12 @@ export default function Filters({navigation, route}) {
         </Container>
         <ButtonContainer>
           <ContinueContainer
-            onPress={() => {
+            testID="ContinueContainer"
+            onPress={async () => {
               if (selected === null || duration === null || horario === '') {
                 Alert.alert('Você deve preencher todos os campos');
               } else {
+                await loadTeachers();
                 navigation.navigate('Teachers');
               }
             }}

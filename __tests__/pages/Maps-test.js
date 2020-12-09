@@ -3,7 +3,7 @@ import {render} from '@testing-library/react-native';
 import Maps from '../../src/pages/Maps';
 import {ClassroomContext} from '../../src/contexts/classroom';
 
-describe('Testing Maps', () => {
+describe('Testing Maps page', () => {
   jest.mock('react-native-maps', () => {
     const {View} = require('react-native');
     const MockMapView = (props: any) => {

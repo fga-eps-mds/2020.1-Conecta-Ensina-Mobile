@@ -5,10 +5,10 @@ import SquareButton from '../../components/ContainerStars';
 import ContinueContainer from '../../components/ContinueContainer';
 import {TeacherContext} from '../../contexts/teacher';
 import Background1 from '../../components/Background1';
-import {TeacherList} from './styles';
+import {TeacherList, ContainerButtons} from './styles';
 
 export default function Teachers({navigation}) {
-  const {teacher, loadTeachers} = useContext(TeacherContext);
+  const {teacher, loadTeachers, getTeacher} = useContext(TeacherContext);
   const [selectedId, setSelectedId] = useState(null);
 
   useEffect(() => {
@@ -45,16 +45,20 @@ export default function Teachers({navigation}) {
             );
           }}
         />
-        <ContinueContainer
-          onPress={() => {
-            if (selectedId === null) {
-              Alert.alert('Você deve selecionar um professor');
-            } else {
-              navigation.navigate('TeacherProfile', {selectedId});
-            }
-          }}
-          marginTop={{value: '128%'}}
-        />
+        <ContainerButtons>
+          <ContinueContainer
+            testID="Continue"
+            onPress={async () => {
+              if (selectedId === null) {
+                Alert.alert('Você deve selecionar um professor');
+              } else {
+                await getTeacher(selectedId);
+                navigation.navigate('TeacherProfile', {selectedId});
+              }
+            }}
+            marginTop={{value: '128%'}}
+          />
+        </ContainerButtons>
       </Background1>
     </Theme>
   );

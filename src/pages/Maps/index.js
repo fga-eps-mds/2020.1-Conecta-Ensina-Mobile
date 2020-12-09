@@ -3,9 +3,10 @@ import Theme from '../../../Theme';
 import Background1 from '../../components/Background1';
 import MapView from 'react-native-maps';
 import {ClassroomContext} from '../../contexts/classroom';
+
 export default function Maps({navigation}) {
   const {coordenates} = useContext(ClassroomContext);
-
+  console.log(coordenates);
   return (
     <Theme>
       <Background1>

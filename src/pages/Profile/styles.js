@@ -17,6 +17,7 @@ export const InfoContainer = styled.ScrollView.attrs(() => ({
     alignItems: 'center',
   },
 }))`
+  flex: 1;
   width: 100%;
   height: 64.28%;
   margin-top: 7.6%;
@@ -41,7 +42,8 @@ export const ButtonContainer = styled.TouchableOpacity`
   border-radius: 5px;
 `;
 export const ContainerBotao = styled.View`
-  margin-top: 125%;
+  flex:1;
+  margin-top: 110%;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;

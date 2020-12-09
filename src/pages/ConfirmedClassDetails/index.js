@@ -19,32 +19,15 @@ import {
   UserContainer,
   ContainerTextBox,
   ContainerTextBlue,
-  ContainerWUpper,
-  ContainerWLower,
-  StartButton,
-  ChatButton,
-  RouteButton,
-  ButtonContainer,
-  FinishButton,
-  TimerButton,
-  ContainerColumnButton,
 } from './styles';
 
 export default function ConfirmedClassDetails({navigation}) {
   const {statusClass} = useContext(ClassroomContext);
-  const {student, getStudent} = useContext(StudentContext);
-  const {user, getUser} = useContext(UserContext);
-  const [start, setStart] = useState(false);
-  const [run, setRun] = useState(true);
+  const {student} = useContext(StudentContext);
 
   useEffect(() => {
-    async function readUser() {
-      await getUser(statusClass.student);
-      await getStudent(statusClass.student);
-    }
-    readUser();
-
     console.log(statusClass);
+    console.log(student);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -59,68 +42,83 @@ export default function ConfirmedClassDetails({navigation}) {
             </UserContainer>
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
-                {user && user.firstName + ' ' + user.lastName}
+                {student.user &&
+                  student.user.firstName + ' ' + student.user.lastName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '2%'}}>
-                {student && gradeResolver(student.grade)}
+                {student &&
+                  student.student &&
+                  gradeResolver(student.student.grade)}
               </CustomTextContainer>
             </ContainerTextBlue>
           </ContainerB>
         }
         white={
           <ContainerW>
-            <ContainerWUpper>
-              <ContainerTextBox>
-                <CustomTextContainer
-                  black
-                  smallMedium
-                  marginTop={{value: '2%'}}
-                  marginBot={{value: '1%'}}>
-                  Disciplina
-                </CustomTextContainer>
-                <RedContainerText medium>
-                  {statusClass && statusClass.subject}
-                </RedContainerText>
-              </ContainerTextBox>
-              <ContainerTextBox>
-                <CustomTextContainer
-                  black
-                  smallMedium
-                  marginTop={{value: '2%'}}
-                  marginBot={{value: '1%'}}>
-                  Inicio
-                </CustomTextContainer>
-                <RedContainerText medium>{`Horário: ${timeResolver(
-                  statusClass.dtclass,
-                )}`}</RedContainerText>
-              </ContainerTextBox>
-            </ContainerWUpper>
-            <ContainerWUpper>
-              <ContainerTextBox>
-                <CustomTextContainer
-                  black
-                  smallMedium
-                  marginTop={{value: '2%'}}
-                  marginBot={{value: '1%'}}>
-                  Duração
-                </CustomTextContainer>
-                <RedContainerText medium>
-                  {statusClass && statusClass.duration + ' Horas'}
-                </RedContainerText>
-              </ContainerTextBox>
-              <ContainerTextBox>
-                <CustomTextContainer
-                  black
-                  smallMedium
-                  marginTop={{value: '2%'}}
-                  marginBot={{value: '1%'}}>
-                  Modalidade
-                </CustomTextContainer>
-                <RedContainerText medium />
-              </ContainerTextBox>
-            </ContainerWUpper>
+            <ContainerTextBox>
+              <CustomTextContainer
+                black
+                smallMedium
+                marginTop={{value: '2%'}}
+                marginBot={{value: '1%'}}>
+                Disciplina
+              </CustomTextContainer>
+              <RedContainerText medium>
+                {statusClass && statusClass.subject}
+              </RedContainerText>
+            </ContainerTextBox>
+            <ContainerTextBox>
+              <CustomTextContainer
+                black
+                smallMedium
+                marginTop={{value: '2%'}}
+                marginBot={{value: '1%'}}>
+                Data
+              </CustomTextContainer>
+              <RedContainerText medium>
+                {statusClass && dateResolver(statusClass.dtclass)}
+              </RedContainerText>
+            </ContainerTextBox>
+            <ContainerTextBox>
+              <CustomTextContainer
+                black
+                smallMedium
+                marginTop={{value: '2%'}}
+                marginBot={{value: '1%'}}>
+                Horário
+              </CustomTextContainer>
+              <RedContainerText medium>
+                {timeResolver(statusClass.dtclass)}
+              </RedContainerText>
+            </ContainerTextBox>
+            <ContainerTextBox>
+              <CustomTextContainer
+                black
+                smallMedium
+                marginTop={{value: '2%'}}
+                marginBot={{value: '1%'}}>
+                Duração
+              </CustomTextContainer>
+              <RedContainerText medium>
+                {statusClass && statusClass.duration + ' Horas'}
+              </RedContainerText>
+            </ContainerTextBox>
+            <ContainerTextBox>
+              <CustomTextContainer
+                black
+                smallMedium
+                marginTop={{value: '2%'}}
+                marginBot={{value: '1%'}}>
+                Modalidade
+              </CustomTextContainer>
+              <RedContainerText medium />
+            </ContainerTextBox>
+
             <ContinueContainer
-              onPress={() => navigation.navigate('StudentAvaliation')}
+              testID="ContinueContainer"
+              onPress={() => {
+                navigation.navigate('StudentAvaliation');
+              }}
             />
           </ContainerW>
         }

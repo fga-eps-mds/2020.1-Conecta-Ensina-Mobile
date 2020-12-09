@@ -4,8 +4,6 @@ import Theme from '../../../Theme';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
 
-import gradeResolver from '../../services/gradeResolver';
-
 import {AuthContext} from '../../contexts/auth';
 
 import {
@@ -76,12 +74,14 @@ export default function Profile({navigation}) {
           </InfoContainer>
         </Container>
         <ContainerBotao>
-          <ButtonContainer onPress={() => navigation.navigate('Edit')}>
+          <ButtonContainer
+            testID="Editar"
+            onPress={() => navigation.navigate('Edit')}>
             <CustomText white bigSmall>
               Editar
             </CustomText>
           </ButtonContainer>
-          <ButtonContainer onPress={() => signOut()}>
+          <ButtonContainer testID="Sair" onPress={() => signOut()}>
             <CustomText white bigSmall>
               Sair
             </CustomText>

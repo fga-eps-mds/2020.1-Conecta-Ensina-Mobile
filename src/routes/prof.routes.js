@@ -68,8 +68,6 @@ function ProfRoutes() {
         options={{headerShown: false}}
       />
       <ProfStack.Screen
-        name="ClassroomDetails"
-        component={ClassroomDetails}
         name="TeacherClassDetails"
         component={TeacherClassDetails}
         options={{headerShown: false}}

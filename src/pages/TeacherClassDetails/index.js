@@ -1,13 +1,13 @@
 import CountDown from 'react-native-countdown-component';
-import React, {useEffect, useContext, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import Theme, {theme} from '../../../Theme';
 import Background2 from '../../components/Background2';
 import RedContainerText from '../../components/RedContainerText';
 import CustomTextContainer from '../../components/CustomTextContainer';
 import CustomText from '../../components/CustomText';
 import {ClassroomContext} from '../../contexts/classroom';
-import {UserContext} from '../../contexts/user';
 import {StudentContext} from '../../contexts/student';
+import {UserContext} from '../../contexts/user';
 import gradeResolver from '../../services/gradeResolver';
 import {
   ContainerB,
@@ -29,8 +29,8 @@ import {
 } from './styles';
 
 export default function TeacherClassDetails({navigation}) {
+  const {student, getStudent} = useContext(StudentContext);
   const {classroom, readClass, geoCode} = useContext(ClassroomContext);
-  const {student} = useContext(StudentContext);
   const {user} = useContext(UserContext);
   const [start, setStart] = useState(false);
   const [run, setRun] = useState(true);
@@ -46,10 +46,11 @@ export default function TeacherClassDetails({navigation}) {
             </UserContainer>
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
-                {user && user.firstName + ' ' + user.lastName}
+                {student &&
+                  student.user.firstName + ' ' + student.user.lastName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '2%'}}>
-                {student && gradeResolver(student.grade)}
+                {student && gradeResolver(student.student.grade)}
               </CustomTextContainer>
             </ContainerTextBlue>
           </ContainerB>
@@ -131,8 +132,9 @@ export default function TeacherClassDetails({navigation}) {
                     />
                   </TimerButton>
                   <FinishButton
+                    testID="FinishButton"
                     onPress={() => {
-                      navigation.navigate('FeedbackTeacher');
+                      navigation.navigate('HomeProf');
                     }}>
                     <CustomText white medium>
                       Terminar Aula
@@ -175,8 +177,8 @@ export default function TeacherClassDetails({navigation}) {
                     </CustomText>
                   </StartButton>
                   <RouteButton
-                    onPress={() => {
-                      geoCode(classroom.cep);
+                    onPress={async () => {
+                      await geoCode(classroom.cep);
                       navigation.navigate('Maps');
                     }}>
                     <CustomText white bigSmall>
