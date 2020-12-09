@@ -13,6 +13,7 @@ import ClassroomDetails from '../pages/ClassroomDetails';
 import TeacherClassDetails from '../pages/TeacherClassDetails';
 import StudentAvaliation from '../pages/StudentAvaliation';
 import FeedbackTeacher from '../pages/FeedbackTeacher';
+import Maps from '../pages/Maps';
 //import FeedbackStudent from '../pages/FeedbackStudent';
 
 // import { Container } from './styles';
@@ -67,8 +68,6 @@ function ProfRoutes() {
         options={{headerShown: false}}
       />
       <ProfStack.Screen
-        name="ClassroomDetails"
-        component={ClassroomDetails}
         name="TeacherClassDetails"
         component={TeacherClassDetails}
         options={{headerShown: false}}
@@ -81,6 +80,11 @@ function ProfRoutes() {
       <ProfStack.Screen
         name="FeedbackTeacher"
         component={FeedbackTeacher}
+        options={{headerShown: false}}
+      />
+      <ProfStack.Screen
+        name="Maps"
+        component={Maps}
         options={{headerShown: false}}
       />
     </ProfStack.Navigator>

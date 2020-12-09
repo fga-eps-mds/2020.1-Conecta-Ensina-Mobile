@@ -12,6 +12,7 @@ import {
 } from './styles';
 import {ClassroomContext} from '../../contexts/classroom';
 import {StudentContext} from '../../contexts/student';
+import {HOST} from '@env';
 
 export default function HomeProf({navigation}) {
   const {getStudent} = useContext(StudentContext);

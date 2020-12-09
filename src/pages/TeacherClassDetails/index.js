@@ -7,6 +7,7 @@ import CustomTextContainer from '../../components/CustomTextContainer';
 import CustomText from '../../components/CustomText';
 import {ClassroomContext} from '../../contexts/classroom';
 import {StudentContext} from '../../contexts/student';
+import {UserContext} from '../../contexts/user';
 import gradeResolver from '../../services/gradeResolver';
 import {
   ContainerB,
@@ -28,8 +29,9 @@ import {
 } from './styles';
 
 export default function TeacherClassDetails({navigation}) {
-  const {classroom, readClass} = useContext(ClassroomContext);
   const {student, getStudent} = useContext(StudentContext);
+  const {classroom, readClass, geoCode} = useContext(ClassroomContext);
+  const {user} = useContext(UserContext);
   const [start, setStart] = useState(false);
   const [run, setRun] = useState(true);
 
@@ -111,7 +113,9 @@ export default function TeacherClassDetails({navigation}) {
               marginBot={{value: '0%'}}>
               Observação
             </CustomTextContainer>
-            <RedContainerText>{classroom.details}</RedContainerText>
+            <RedContainerText>
+              {classroom.details ? classroom.details : 'Não informado'}
+            </RedContainerText>
             {start ? (
               <ContainerWLower>
                 <ContainerColumnButton>
@@ -172,7 +176,11 @@ export default function TeacherClassDetails({navigation}) {
                       Iniciar
                     </CustomText>
                   </StartButton>
-                  <RouteButton>
+                  <RouteButton
+                    onPress={async () => {
+                      await geoCode(classroom.cep);
+                      navigation.navigate('Maps');
+                    }}>
                     <CustomText white bigSmall>
                       Rota
                     </CustomText>

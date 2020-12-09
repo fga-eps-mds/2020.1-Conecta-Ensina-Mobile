@@ -652,7 +652,7 @@ exports[`Testing TeacherClassDetails page Should renders page when timer is out 
           }
           white={true}
         >
-          
+          Não informado
         </Text>
       </View>
       <View
@@ -849,7 +849,7 @@ exports[`Testing TeacherClassDetails page Should renders page when timer is out 
           </View>
           <View
             accessible={true}
-            focusable={false}
+            focusable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1549,7 +1549,7 @@ exports[`Testing TeacherClassDetails page Should renders page when timer is up 1
           }
           white={true}
         >
-          
+          Não informado
         </Text>
       </View>
       <View
@@ -1746,7 +1746,7 @@ exports[`Testing TeacherClassDetails page Should renders page when timer is up 1
           </View>
           <View
             accessible={true}
-            focusable={false}
+            focusable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
