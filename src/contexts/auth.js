@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import React, {createContext, useState, useEffect} from 'react';
 import {Alert} from 'react-native';
+import {HOST} from '@env';
 
 export const AuthContext = createContext({});
 
@@ -11,7 +12,7 @@ export default function AuthProvider({children}) {
   const [student, setStudent] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const Host = 'http://192.168.15.15:3333';
+  const Host = `${HOST}`;
 
   useEffect(() => {
     async function loadStorage() {

@@ -12,7 +12,7 @@ import renderer from 'react-test-renderer';
 
 jest.useFakeTimers();
 jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
-
+let HOST = 'http://192.168.0.14:3333';
 it('renders correctly', async () => {
-  renderer.create(<App />);
+  renderer.create(<App HOST />);
 });
