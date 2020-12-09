@@ -159,7 +159,8 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
         Array [
           Object {
             "alignSelf": "center",
-            "top": "-7%",
+            "paddingBottom": "25%",
+            "position": "absolute",
           },
         ]
       }
@@ -179,151 +180,52 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
               }
             }
           >
-            <RCTScrollView
-              nestedScrollEnabled={true}
-              numColumns={1}
+            <View
               style={
                 Array [
                   Object {
+                    "alignItems": "center",
                     "backgroundColor": "#D9D9D9",
                     "borderRadius": 10,
-                    "height": 220,
-                    "marginLeft": "4%",
-                    "marginRight": "4%",
-                    "marginTop": "5%",
-                    "width": 145,
+                    "justifyContent": "center",
+                    "marginBottom": 20,
+                    "marginRight": 20,
+                    "paddingBottom": "3%",
+                    "paddingLeft": "3%",
+                    "paddingRight": "3%",
+                    "paddingTop": "3%",
+                    "width": 144,
                   },
                 ]
               }
             >
-              <View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "justifyContent": "flex-start",
+                      "marginBottom": 10,
+                    },
+                  ]
+                }
+              >
                 <Text
                   black={true}
-                  small={true}
+                  smaller={true}
                   style={
                     Array [
                       Object {
                         "color": "black",
                         "fontFamily": "Roboto",
-                        "fontSize": 14,
+                        "fontSize": 12,
                         "textAlign": "center",
                       },
                     ]
                   }
                 >
-                  Informações Aula
-                </Text>
-                <Text
-                  black={true}
-                  small={true}
-                  style={
-                    Array [
-                      Object {
-                        "color": "black",
-                        "fontFamily": "Roboto",
-                        "fontSize": 14,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  CEP: 11111111
-                </Text>
-                <Text
-                  black={true}
-                  small={true}
-                  style={
-                    Array [
-                      Object {
-                        "color": "black",
-                        "fontFamily": "Roboto",
-                        "fontSize": 14,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  Numero: 305
-                </Text>
-                <Text
-                  black={true}
-                  small={true}
-                  style={
-                    Array [
-                      Object {
-                        "color": "black",
-                        "fontFamily": "Roboto",
-                        "fontSize": 14,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  Complemento: complemento
-                </Text>
-                <Text
-                  black={true}
-                  small={true}
-                  style={
-                    Array [
-                      Object {
-                        "color": "black",
-                        "fontFamily": "Roboto",
-                        "fontSize": 14,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  Data: 24 de Nov de 2020
-                </Text>
-                <Text
-                  black={true}
-                  small={true}
-                  style={
-                    Array [
-                      Object {
-                        "color": "black",
-                        "fontFamily": "Roboto",
-                        "fontSize": 14,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  Horário: 17:54:32
-                </Text>
-                <Text
-                  black={true}
-                  small={true}
-                  style={
-                    Array [
-                      Object {
-                        "color": "black",
-                        "fontFamily": "Roboto",
-                        "fontSize": 14,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  Informações Aluno
-                </Text>
-                <Text
-                  black={true}
-                  small={true}
-                  style={
-                    Array [
-                      Object {
-                        "color": "black",
-                        "fontFamily": "Roboto",
-                        "fontSize": 14,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                   
+                  Horario:
+                  
+2020-11-24T17:54:32.582Z
                 </Text>
                 <Text
                   black={true}
@@ -339,8 +241,40 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                     ]
                   }
                 >
-                  Série: Invalid Grade
+                  Conteudo:
+                  
+undefined
                 </Text>
+                <Text
+                  black={true}
+                  smaller={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 12,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Distancia:
+                  
+11111111
+                </Text>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignSelf": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "space-around",
+                    },
+                  ]
+                }
+              >
                 <View
                   accessible={true}
                   focusable={true}
@@ -354,7 +288,6 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "alignSelf": "center",
                       "backgroundColor": "#184E79",
                       "borderRadius": 5,
                       "height": 22.5,
@@ -379,155 +312,40 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                     }
                     white={true}
                   >
-                    Ver Mais
+                    Ver mais
                   </Text>
                 </View>
               </View>
-            </RCTScrollView>
-            <RCTScrollView
-              nestedScrollEnabled={true}
-              numColumns={1}
+            </View>
+            <View
               style={
                 Array [
                   Object {
+                    "alignItems": "center",
                     "backgroundColor": "#D9D9D9",
                     "borderRadius": 10,
-                    "height": 220,
-                    "marginLeft": "4%",
-                    "marginRight": "4%",
-                    "marginTop": "5%",
-                    "width": 145,
+                    "justifyContent": "center",
+                    "marginBottom": 20,
+                    "marginRight": 20,
+                    "paddingBottom": "3%",
+                    "paddingLeft": "3%",
+                    "paddingRight": "3%",
+                    "paddingTop": "3%",
+                    "width": 144,
                   },
                 ]
               }
             >
-              <View>
-                <Text
-                  black={true}
-                  small={true}
-                  style={
-                    Array [
-                      Object {
-                        "color": "black",
-                        "fontFamily": "Roboto",
-                        "fontSize": 14,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  Informações Aula
-                </Text>
-                <Text
-                  black={true}
-                  small={true}
-                  style={
-                    Array [
-                      Object {
-                        "color": "black",
-                        "fontFamily": "Roboto",
-                        "fontSize": 14,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  CEP: 22222222
-                </Text>
-                <Text
-                  black={true}
-                  small={true}
-                  style={
-                    Array [
-                      Object {
-                        "color": "black",
-                        "fontFamily": "Roboto",
-                        "fontSize": 14,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  Numero: 154
-                </Text>
-                <Text
-                  black={true}
-                  small={true}
-                  style={
-                    Array [
-                      Object {
-                        "color": "black",
-                        "fontFamily": "Roboto",
-                        "fontSize": 14,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  Complemento: complemento
-                </Text>
-                <Text
-                  black={true}
-                  small={true}
-                  style={
-                    Array [
-                      Object {
-                        "color": "black",
-                        "fontFamily": "Roboto",
-                        "fontSize": 14,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  Data: 24 de Nov de 2020
-                </Text>
-                <Text
-                  black={true}
-                  small={true}
-                  style={
-                    Array [
-                      Object {
-                        "color": "black",
-                        "fontFamily": "Roboto",
-                        "fontSize": 14,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  Horário: 17:54:32
-                </Text>
-                <Text
-                  black={true}
-                  small={true}
-                  style={
-                    Array [
-                      Object {
-                        "color": "black",
-                        "fontFamily": "Roboto",
-                        "fontSize": 14,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  Informações Aluno
-                </Text>
-                <Text
-                  black={true}
-                  small={true}
-                  style={
-                    Array [
-                      Object {
-                        "color": "black",
-                        "fontFamily": "Roboto",
-                        "fontSize": 14,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "justifyContent": "flex-start",
+                      "marginBottom": 10,
+                    },
+                  ]
+                }
+              >
                 <Text
                   black={true}
                   smaller={true}
@@ -542,8 +360,58 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                     ]
                   }
                 >
-                  Série: Invalid Grade
+                  Horario:
+                  
+2020-11-24T17:54:32.582Z
                 </Text>
+                <Text
+                  black={true}
+                  smaller={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 12,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Conteudo:
+                  
+undefined
+                </Text>
+                <Text
+                  black={true}
+                  smaller={true}
+                  style={
+                    Array [
+                      Object {
+                        "color": "black",
+                        "fontFamily": "Roboto",
+                        "fontSize": 12,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Distancia:
+                  
+22222222
+                </Text>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignSelf": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "space-around",
+                    },
+                  ]
+                }
+              >
                 <View
                   accessible={true}
                   focusable={true}
@@ -557,7 +425,6 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
-                      "alignSelf": "center",
                       "backgroundColor": "#184E79",
                       "borderRadius": 5,
                       "height": 22.5,
@@ -582,11 +449,11 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                     }
                     white={true}
                   >
-                    Ver Mais
+                    Ver mais
                   </Text>
                 </View>
               </View>
-            </RCTScrollView>
+            </View>
           </View>
         </View>
       </View>

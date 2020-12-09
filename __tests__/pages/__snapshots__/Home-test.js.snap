@@ -425,10 +425,10 @@ exports[`Testing Home page Should renders page 1`] = `
           Object {
             "alignItems": "center",
             "flexBasis": 0,
-            "flexGrow": 4,
+            "flexGrow": 5,
             "flexShrink": 1,
             "justifyContent": "center",
-            "marginTop": "10%",
+            "marginTop": "5%",
           },
         ]
       }
@@ -576,6 +576,7 @@ exports[`Testing Home page Should renders page 1`] = `
             "flexGrow": 2,
             "flexShrink": 1,
             "justifyContent": "center",
+            "marginBottom": "15%",
           },
         ]
       }
@@ -586,12 +587,73 @@ exports[`Testing Home page Should renders page 1`] = `
             Object {
               "alignItems": "center",
               "alignSelf": "center",
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
               "height": "25%",
               "justifyContent": "center",
             },
           ]
         }
       >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#184E79",
+              "borderRadius": 10,
+              "display": "flex",
+              "flexDirection": "row",
+              "height": 50,
+              "justifyContent": "center",
+              "marginTop": "5%",
+              "opacity": 1,
+              "width": 200,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../src/assets/books.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 24,
+                  "marginRight": "3%",
+                  "width": 28,
+                },
+              ]
+            }
+          />
+          <Text
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          >
+            Aula Marcada
+          </Text>
+        </View>
         <View
           accessible={true}
           focusable={false}
@@ -611,6 +673,7 @@ exports[`Testing Home page Should renders page 1`] = `
               "flexDirection": "row",
               "height": 50,
               "justifyContent": "center",
+              "marginTop": "5%",
               "opacity": 1,
               "width": 200,
             }
@@ -668,7 +731,7 @@ exports[`Testing Home page Should renders page 1`] = `
               "flexDirection": "row",
               "height": 50,
               "justifyContent": "center",
-              "marginTop": "7.3%",
+              "marginTop": "5%",
               "opacity": 1,
               "width": 200,
             }

@@ -15,9 +15,12 @@ import {StudentContext} from '../../contexts/student';
 
 export default function HomeProf({navigation}) {
   const {getStudent} = useContext(StudentContext);
-  const {readClass, loadStatusClassesStudents, classroom} = useContext(
-    ClassroomContext,
-  );
+  const {
+    readClass,
+    loadStatusClassesStudents,
+    classroom,
+    getClassroom,
+  } = useContext(ClassroomContext);
   const [funcoes] = useState([
     {
       id: '101',
@@ -47,7 +50,7 @@ export default function HomeProf({navigation}) {
             var nextScreen;
 
             if (item.id === '101') {
-              nextScreen = 'TeacherClassDetails';
+              nextScreen = 'ShowClass';
             } else if (item.id === '102') {
               nextScreen = 'PendingClass';
             } else if (item.id === '103') {
@@ -59,6 +62,9 @@ export default function HomeProf({navigation}) {
                 data={item}
                 onPress={async () => {
                   await readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
+                  if (nextScreen === 'ShowClass') {
+                    await getClassroom(1);
+                  }
                   if (nextScreen === 'CompletedClass') {
                     await loadStatusClassesStudents(4);
                   }

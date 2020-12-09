@@ -8,7 +8,7 @@ export const FilterList = styled.FlatList`
 `;
 
 export const MarkClassButton = styled(ButtonGeral)`
-  margin-top: 7.3%;
+  margin-top: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,6 +21,7 @@ export const UrgentClassButton = styled(ButtonGeral)`
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  margin-top: 5%;
 `;
 
 export const ClassContainer = styled.View`
@@ -33,6 +34,7 @@ export const ClassContainer = styled.View`
 
 export const ContainerButtons = styled.View`
   height: 25%;
+  flex: 1;
   align-items: center;
   justify-content: center;
   align-self: center;
@@ -65,14 +67,15 @@ export const BigTextContainer = styled.View`
 `;
 
 export const CenterContainer = styled.View`
-  margin-top: 10%;
+  margin-top: 5%;
   justify-content: center;
   align-items: center;
-  flex: 4;
+  flex: 5;
 `;
 
 export const LowerContainer = styled.View`
   justify-content: center;
   align-items: center;
   flex: 2;
+  margin-bottom: 15%;
 `;

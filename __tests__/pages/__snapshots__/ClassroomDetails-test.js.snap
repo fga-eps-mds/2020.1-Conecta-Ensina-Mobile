@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing Classroom Details Should matches snapshot page 1`] = `
+exports[`Testing Classroom Details Should renders first snapshot page 1`] = `
 <View
   style={
     Array [
@@ -303,7 +303,9 @@ exports[`Testing Classroom Details Should matches snapshot page 1`] = `
                 ]
               }
               white={true}
-            />
+            >
+              
+            </Text>
           </View>
         </View>
         <View
@@ -491,7 +493,9 @@ exports[`Testing Classroom Details Should matches snapshot page 1`] = `
                 ]
               }
               white={true}
-            />
+            >
+              
+            </Text>
           </View>
         </View>
         <View
@@ -668,83 +672,14 @@ exports[`Testing Classroom Details Should matches snapshot page 1`] = `
         }
       >
         <View
-          marginBot={
-            Object {
-              "value": "1%",
-            }
-          }
-          marginTop={
-            Object {
-              "value": "-3%",
-            }
-          }
-          style={
-            Array [
-              Object {
-                "marginBottom": "1%",
-                "marginTop": "-3%",
-              },
-            ]
-          }
-        >
-          <Text
-            black={true}
-            smallMedium={true}
-            style={
-              Array [
-                Object {
-                  "color": "black",
-                  "fontFamily": "Roboto",
-                  "fontSize": 20,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Endereço
-          </Text>
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#E46270",
-                "borderRadius": 15,
-                "height": 60,
-                "justifyContent": "center",
-                "textAlign": "center",
-                "width": 280,
-              },
-            ]
-          }
-        >
-          <Text
-            small={true}
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "Roboto",
-                  "fontSize": 14,
-                  "textAlign": "center",
-                },
-              ]
-            }
-            white={true}
-          />
-        </View>
-        <View
           style={
             Array [
               Object {
                 "flexBasis": 0,
-                "flexDirection": "row",
-                "flexGrow": 1,
+                "flexDirection": "column",
+                "flexGrow": 2,
                 "flexShrink": 1,
                 "justifyContent": "center",
-                "marginBottom": "1.5%",
-                "marginTop": "1.5%",
               },
             ]
           }
@@ -762,35 +697,208 @@ exports[`Testing Classroom Details Should matches snapshot page 1`] = `
             style={
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#297FB8",
-                "borderRadius": 5,
-                "height": 37,
+                "backgroundColor": "#184E79",
+                "borderRadius": 10,
+                "height": 48,
                 "justifyContent": "center",
-                "marginBottom": "1%",
-                "marginLeft": "1%",
-                "marginRight": "1%",
+                "marginBottom": "3%",
                 "marginTop": "1%",
                 "opacity": 1,
-                "width": 93,
+                "width": 195,
               }
             }
           >
-            <Text
-              bigSmall={true}
-              style={
-                Array [
+            <View>
+              <View
+                style={
                   Object {
-                    "color": "#ffffff",
-                    "fontFamily": "Roboto",
-                    "fontSize": 16,
-                    "textAlign": "center",
-                  },
-                ]
-              }
-              white={true}
-            >
-              Chat
-            </Text>
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "borderRadius": 5,
+                            "justifyContent": "center",
+                            "marginHorizontal": 2,
+                          },
+                          Object {
+                            "height": 39,
+                            "width": 34.5,
+                          },
+                          Object {
+                            "backgroundColor": "#184E79",
+                          },
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "white",
+                              "fontVariant": Array [
+                                "tabular-nums",
+                              ],
+                              "fontWeight": "bold",
+                            },
+                            Object {
+                              "fontSize": 15,
+                            },
+                            Object {
+                              "color": "#ffffff",
+                            },
+                          ]
+                        }
+                      >
+                        -NaN
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "borderRadius": 5,
+                            "justifyContent": "center",
+                            "marginHorizontal": 2,
+                          },
+                          Object {
+                            "height": 39,
+                            "width": 34.5,
+                          },
+                          Object {
+                            "backgroundColor": "#184E79",
+                          },
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "white",
+                              "fontVariant": Array [
+                                "tabular-nums",
+                              ],
+                              "fontWeight": "bold",
+                            },
+                            Object {
+                              "fontSize": 15,
+                            },
+                            Object {
+                              "color": "#ffffff",
+                            },
+                          ]
+                        }
+                      >
+                        -NaN
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "borderRadius": 5,
+                            "justifyContent": "center",
+                            "marginHorizontal": 2,
+                          },
+                          Object {
+                            "height": 39,
+                            "width": 34.5,
+                          },
+                          Object {
+                            "backgroundColor": "#184E79",
+                          },
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "white",
+                              "fontVariant": Array [
+                                "tabular-nums",
+                              ],
+                              "fontWeight": "bold",
+                            },
+                            Object {
+                              "fontSize": 15,
+                            },
+                            Object {
+                              "color": "#ffffff",
+                            },
+                          ]
+                        }
+                      >
+                        -NaN
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
           </View>
           <View
             accessible={true}
@@ -805,37 +913,726 @@ exports[`Testing Classroom Details Should matches snapshot page 1`] = `
             style={
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#7ED957",
-                "borderRadius": 5,
-                "height": 37,
+                "backgroundColor": "#E46270",
+                "borderRadius": 10,
+                "height": 48,
                 "justifyContent": "center",
-                "marginBottom": "1%",
-                "marginLeft": "1%",
-                "marginRight": "1%",
+                "marginBottom": "3%",
                 "marginTop": "1%",
                 "opacity": 1,
-                "width": 118,
+                "width": 195,
               }
             }
-            testID="StartButton"
+            testID="finishButton"
           >
             <Text
-              bigSmall={true}
+              medium={true}
               style={
                 Array [
                   Object {
                     "color": "#ffffff",
                     "fontFamily": "Roboto",
-                    "fontSize": 16,
+                    "fontSize": 25,
                     "textAlign": "center",
                   },
                 ]
               }
               white={true}
             >
-              Iniciar
+              Terminar Aula
             </Text>
           </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Testing Classroom Details Should renders second snapshot page 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#184E79",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+  testID="background"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#184E79",
+          "flexBasis": 0,
+          "flexGrow": 0.7,
+          "flexShrink": 1,
+          "justifyContent": "center",
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "marginBottom": "8.4%",
+          },
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../src/assets/logo.png",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexGrow": 2,
+              "flexShrink": 1,
+              "height": 120,
+              "width": 120,
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 100,
+              "flexBasis": 0,
+              "flexGrow": 1.2,
+              "flexShrink": 1,
+              "height": 58,
+              "justifyContent": "center",
+              "marginTop": "5.5%",
+              "width": 58,
+            },
+          ]
+        }
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../src/assets/user_blue.png",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "height": "63%",
+                "width": "52%",
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexGrow": 0.8,
+              "flexShrink": 1,
+              "justifyContent": "center",
+              "marginTop": "5%",
+              "paddingTop": "1%",
+            },
+          ]
+        }
+      >
+        <View
+          marginTop={
+            Object {
+              "value": "2%",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "marginBottom": 0,
+                "marginTop": "2%",
+              },
+            ]
+          }
+        >
+          <Text
+            bigMedium={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 30,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          />
+        </View>
+        <View
+          marginTop={
+            Object {
+              "value": "2%",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "marginBottom": 0,
+                "marginTop": "2%",
+              },
+            ]
+          }
+        >
+          <Text
+            smallMedium={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 20,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderTopLeftRadius": 20,
+          "borderTopRightRadius": 20,
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+            "width": "100%",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexDirection": "row",
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "height": "10%",
+              "justifyContent": "space-around",
+              "marginBottom": "5%",
+              "marginLeft": "5%",
+              "marginRight": "5%",
+              "marginTop": "5%",
+              "width": "100%",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexBasis": 0,
+                "flexDirection": "column",
+                "flexGrow": 0.8,
+                "flexShrink": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            marginBot={
+              Object {
+                "value": "1%",
+              }
+            }
+            marginTop={
+              Object {
+                "value": "2%",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "marginBottom": "1%",
+                  "marginTop": "2%",
+                },
+              ]
+            }
+          >
+            <Text
+              black={true}
+              smallMedium={true}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                    "fontFamily": "Roboto",
+                    "fontSize": 20,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+            >
+              Disciplina
+            </Text>
+          </View>
+          <View
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#E46270",
+                  "borderRadius": 15,
+                  "height": 40,
+                  "justifyContent": "center",
+                  "textAlign": "center",
+                  "width": 196,
+                },
+              ]
+            }
+          >
+            <Text
+              small={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "Roboto",
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+              white={true}
+            >
+              
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexBasis": 0,
+                "flexDirection": "column",
+                "flexGrow": 0.8,
+                "flexShrink": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            marginBot={
+              Object {
+                "value": "1%",
+              }
+            }
+            marginTop={
+              Object {
+                "value": "2%",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "marginBottom": "1%",
+                  "marginTop": "2%",
+                },
+              ]
+            }
+          >
+            <Text
+              black={true}
+              smallMedium={true}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                    "fontFamily": "Roboto",
+                    "fontSize": 20,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+            >
+              Inicio
+            </Text>
+          </View>
+          <View
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#E46270",
+                  "borderRadius": 15,
+                  "height": 40,
+                  "justifyContent": "center",
+                  "textAlign": "center",
+                  "width": 196,
+                },
+              ]
+            }
+          >
+            <Text
+              small={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "Roboto",
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+              white={true}
+            >
+              16:00
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexDirection": "row",
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "height": "10%",
+              "justifyContent": "space-around",
+              "marginBottom": "5%",
+              "marginLeft": "5%",
+              "marginRight": "5%",
+              "marginTop": "5%",
+              "width": "100%",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexBasis": 0,
+                "flexDirection": "column",
+                "flexGrow": 0.8,
+                "flexShrink": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            marginBot={
+              Object {
+                "value": "1%",
+              }
+            }
+            marginTop={
+              Object {
+                "value": "2%",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "marginBottom": "1%",
+                  "marginTop": "2%",
+                },
+              ]
+            }
+          >
+            <Text
+              black={true}
+              smallMedium={true}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                    "fontFamily": "Roboto",
+                    "fontSize": 20,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+            >
+              Duração
+            </Text>
+          </View>
+          <View
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#E46270",
+                  "borderRadius": 15,
+                  "height": 40,
+                  "justifyContent": "center",
+                  "textAlign": "center",
+                  "width": 196,
+                },
+              ]
+            }
+          >
+            <Text
+              small={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "Roboto",
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+              white={true}
+            >
+              
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexBasis": 0,
+                "flexDirection": "column",
+                "flexGrow": 0.8,
+                "flexShrink": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            marginBot={
+              Object {
+                "value": "1%",
+              }
+            }
+            marginTop={
+              Object {
+                "value": "2%",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "marginBottom": "1%",
+                  "marginTop": "2%",
+                },
+              ]
+            }
+          >
+            <Text
+              black={true}
+              smallMedium={true}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                    "fontFamily": "Roboto",
+                    "fontSize": 20,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+            >
+              Modalidade
+            </Text>
+          </View>
+          <View
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#E46270",
+                  "borderRadius": 15,
+                  "height": 40,
+                  "justifyContent": "center",
+                  "textAlign": "center",
+                  "width": 196,
+                },
+              ]
+            }
+          >
+            <Text
+              small={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "Roboto",
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+              white={true}
+            >
+              Presencial
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        marginBot={
+          Object {
+            "value": "0%",
+          }
+        }
+        marginTop={
+          Object {
+            "value": "2%",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "marginBottom": "0%",
+              "marginTop": "2%",
+            },
+          ]
+        }
+      >
+        <Text
+          black={true}
+          smallMedium={true}
+          style={
+            Array [
+              Object {
+                "color": "black",
+                "fontFamily": "Roboto",
+                "fontSize": 20,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Observação
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#E46270",
+              "borderRadius": 15,
+              "height": 60,
+              "justifyContent": "center",
+              "textAlign": "center",
+              "width": 280,
+            },
+          ]
+        }
+      >
+        <Text
+          small={true}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "textAlign": "center",
+              },
+            ]
+          }
+          white={true}
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexBasis": 0,
+              "flexGrow": 5,
+              "flexShrink": 1,
+              "height": "5%",
+              "justifyContent": "center",
+              "marginBottom": "-5%",
+              "paddingBottom": "3%",
+              "paddingLeft": "3%",
+              "paddingRight": "3%",
+              "paddingTop": "3%",
+              "width": "100%",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexBasis": 0,
+                "flexDirection": "column",
+                "flexGrow": 2,
+                "flexShrink": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
           <View
             accessible={true}
             focusable={false}
@@ -849,34 +1646,249 @@ exports[`Testing Classroom Details Should matches snapshot page 1`] = `
             style={
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#297FB8",
-                "borderRadius": 5,
-                "height": 37,
+                "backgroundColor": "#184E79",
+                "borderRadius": 10,
+                "height": 48,
                 "justifyContent": "center",
-                "marginBottom": "1%",
-                "marginLeft": "1%",
-                "marginRight": "1%",
+                "marginBottom": "3%",
                 "marginTop": "1%",
                 "opacity": 1,
-                "width": 93,
+                "width": 195,
               }
             }
           >
+            <View>
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "borderRadius": 5,
+                            "justifyContent": "center",
+                            "marginHorizontal": 2,
+                          },
+                          Object {
+                            "height": 39,
+                            "width": 34.5,
+                          },
+                          Object {
+                            "backgroundColor": "#184E79",
+                          },
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "white",
+                              "fontVariant": Array [
+                                "tabular-nums",
+                              ],
+                              "fontWeight": "bold",
+                            },
+                            Object {
+                              "fontSize": 15,
+                            },
+                            Object {
+                              "color": "#ffffff",
+                            },
+                          ]
+                        }
+                      >
+                        -NaN
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "borderRadius": 5,
+                            "justifyContent": "center",
+                            "marginHorizontal": 2,
+                          },
+                          Object {
+                            "height": 39,
+                            "width": 34.5,
+                          },
+                          Object {
+                            "backgroundColor": "#184E79",
+                          },
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "white",
+                              "fontVariant": Array [
+                                "tabular-nums",
+                              ],
+                              "fontWeight": "bold",
+                            },
+                            Object {
+                              "fontSize": 15,
+                            },
+                            Object {
+                              "color": "#ffffff",
+                            },
+                          ]
+                        }
+                      >
+                        -NaN
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "borderRadius": 5,
+                            "justifyContent": "center",
+                            "marginHorizontal": 2,
+                          },
+                          Object {
+                            "height": 39,
+                            "width": 34.5,
+                          },
+                          Object {
+                            "backgroundColor": "#184E79",
+                          },
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "white",
+                              "fontVariant": Array [
+                                "tabular-nums",
+                              ],
+                              "fontWeight": "bold",
+                            },
+                            Object {
+                              "fontSize": 15,
+                            },
+                            Object {
+                              "color": "#ffffff",
+                            },
+                          ]
+                        }
+                      >
+                        -NaN
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#E46270",
+                "borderRadius": 10,
+                "height": 48,
+                "justifyContent": "center",
+                "marginBottom": "3%",
+                "marginTop": "1%",
+                "opacity": 1,
+                "width": 195,
+              }
+            }
+            testID="finishButton"
+          >
             <Text
-              bigSmall={true}
+              medium={true}
               style={
                 Array [
                   Object {
                     "color": "#ffffff",
                     "fontFamily": "Roboto",
-                    "fontSize": 16,
+                    "fontSize": 25,
                     "textAlign": "center",
                   },
                 ]
               }
               white={true}
             >
-              Rota
+              Terminar Aula
             </Text>
           </View>
         </View>

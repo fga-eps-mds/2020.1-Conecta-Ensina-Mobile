@@ -21,14 +21,14 @@ import {StudentContext} from '../../contexts/student';
 
 export default function TeacherProfile({navigation, route}) {
   const {teacher} = useContext(TeacherContext);
-  const {createClass, readClass} = useContext(ClassroomContext);
+  const {classroom, createClass} = useContext(ClassroomContext);
   const {getStudent} = useContext(StudentContext);
 
   useEffect(() => {
     //console.log(teacher);
   }, [teacher]);
 
-  const params = route.params.selectedId;
+  const item = classroom;
 
   return (
     <Theme>
@@ -92,7 +92,7 @@ export default function TeacherProfile({navigation, route}) {
                 testID="ComplainButton"
                 onPress={async () => {
                   await getStudent(route.params.selectedId);
-                  navigation.navigate('FeedbackTeacher', {params});
+                  navigation.navigate('FeedbackTeacher', {item});
                 }}>
                 <CustomText white bigSmall>
                   Reportar
@@ -101,10 +101,8 @@ export default function TeacherProfile({navigation, route}) {
               <ContinueContainer
                 testID="ContinueButton"
                 onPress={async () => {
-                  await getStudent(route.params.selectedId);
-                  await readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
                   await createClass(teacher.teacher.id);
-                  navigation.navigate('ClassroomDetails', {params});
+                  navigation.navigate('Home');
                 }}
               />
             </ButtonContainer>

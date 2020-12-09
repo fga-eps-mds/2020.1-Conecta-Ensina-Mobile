@@ -9,6 +9,8 @@ describe('Testing CompletedClass page', () => {
     navigate: jest.fn(),
   };
   let statusClasses;
+  const setStudent = jest.fn();
+  const setStatusClass = jest.fn();
   const studentStack = [{user: {firstName: '', lastName: ''}}];
   beforeEach(() => {
     statusClasses = [
@@ -36,5 +38,19 @@ describe('Testing CompletedClass page', () => {
     );
 
     expect(tree).toMatchSnapshot();
+  });
+  test("Should press button 'VerMais'", () => {
+    const {getAllByTestId} = render(
+      <StudentContext.Provider value={{setStudent, studentStack}}>
+        <ClassroomContext.Provider value={{setStatusClass, statusClasses}}>
+          <CompletedClass navigation={navigation} />
+        </ClassroomContext.Provider>
+      </StudentContext.Provider>,
+    );
+
+    const button = getAllByTestId('VerMais');
+
+    fireEvent.press(button[0]);
+    fireEvent.press(button[1]);
   });
 });

@@ -6,7 +6,9 @@ import RedContainerText from '../../components/RedContainerText';
 import CustomTextContainer from '../../components/CustomTextContainer';
 import CustomText from '../../components/CustomText';
 import {ClassroomContext} from '../../contexts/classroom';
-import { StudentContext } from '../../contexts/student';
+import {UserContext} from '../../contexts/user';
+import {TeacherContext} from '../../contexts/teacher';
+import {StudentContext} from '../../contexts/student';
 import gradeResolver from '../../services/gradeResolver';
 import {
   ContainerB,
@@ -26,12 +28,41 @@ import {
   TimerButton,
   ContainerColumnButton,
 } from './styles';
+import {AuthContext} from '../../contexts/auth';
 
-export default function ClassroomDetails({navigation}) {
-  const {classroom} = useContext(ClassroomContext);
+export default function ClassroomDetails({navigation, route}) {
+  const {item} = route.params;
+  const {user} = useContext(AuthContext);
+  const {classroom, readClass, updateStatusClassroom} = useContext(
+    ClassroomContext,
+  );
   const {student} = useContext(StudentContext);
-  const [start, setStart] = useState(false);
+
+  const [start, setStart] = useState(!classroom);
   const [run, setRun] = useState(true);
+  const [press, setPress] = useState(false);
+  const [press2, setPress2] = useState(false);
+
+  useEffect(() => {
+    async function classRead() {
+      await readClass(item.id);
+
+      if (classroom.status === 3) {
+        setStart(true);
+      }
+
+      if (classroom.status === 5) {
+        setStart(false);
+        if (user.role === 3) {
+          navigation.navigate('FeedbackStudent');
+        } else if (user.role === 2) {
+          navigation.navigate('FeedbackTeacher');
+        }
+      }
+    }
+
+    classRead();
+  }, [classroom]);
 
   return (
     <Theme>
@@ -65,7 +96,7 @@ export default function ClassroomDetails({navigation}) {
                   Disciplina
                 </CustomTextContainer>
                 <RedContainerText medium>
-                  {classroom && classroom.subject}
+                  {item && item.subject}
                 </RedContainerText>
               </ContainerTextBox>
               <ContainerTextBox>
@@ -89,7 +120,7 @@ export default function ClassroomDetails({navigation}) {
                   Duração
                 </CustomTextContainer>
                 <RedContainerText medium>
-                  {classroom && classroom.duration + ' Hora'}
+                  {item && item.duration + ' Hora'}
                 </RedContainerText>
               </ContainerTextBox>
               <ContainerTextBox>
@@ -119,7 +150,7 @@ export default function ClassroomDetails({navigation}) {
                     <CountDown
                       testID="countdown"
                       running={run}
-                      until={60 * 60 * classroom.duration}
+                      until={60 * 60 * item.duration}
                       size={15}
                       onFinish={() => alert('Aula Finalizada')}
                       digitStyle={{backgroundColor: theme.colors.fundoAzul}}
@@ -130,12 +161,11 @@ export default function ClassroomDetails({navigation}) {
                   </TimerButton>
                   <FinishButton
                     testID="finishButton"
-                    onPress={() => {
-                      //setRun(false);
-                      //alert('Aula Finalizada');
-                      //navigation.navigate('FeedbackTeacher', {classroom});
-                      navigation.navigate('Home')
-                    }}>
+                    onPress={async () => {
+                      await updateStatusClassroom(item.id);
+                      setPress2(true);
+                    }}
+                    disabled={press2}>
                     <CustomText white medium>
                       Terminar Aula
                     </CustomText>
@@ -152,14 +182,7 @@ export default function ClassroomDetails({navigation}) {
                   Endereço
                 </CustomTextContainer>
                 <RedContainerText>
-                  {classroom &&
-                    classroom.address.logradouro +
-                      ' n°: ' +
-                      classroom.number +
-                      ', \n' +
-                      classroom.address.bairro +
-                      ' - ' +
-                      classroom.address.uf}
+                  {item && item.number + ', \n'}
                 </RedContainerText>
                 <ButtonContainer>
                   <ChatButton>
@@ -169,7 +192,11 @@ export default function ClassroomDetails({navigation}) {
                   </ChatButton>
                   <StartButton
                     testID="StartButton"
-                    onPress={() => setStart(true)}>
+                    onPress={async () => {
+                      await updateStatusClassroom(item.id);
+                      setPress(true);
+                    }}
+                    disabled={press}>
                     <CustomText white bigSmall>
                       Iniciar
                     </CustomText>

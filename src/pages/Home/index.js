@@ -89,6 +89,15 @@ export default function Home({navigation}) {
         </CenterContainer>
         <LowerContainer>
           <ContainerButtons>
+            <MarkClassButton
+              onPress={() => {
+                navigation.navigate('ConfirmedClass'); /*}catch(error){}*/
+              }}>
+              <Icon source={require('../../assets/books.png')} />
+              <CustomText white medium>
+                Aula Marcada
+              </CustomText>
+            </MarkClassButton>
             <UrgentClassButton>
               <Icon source={require('../../assets/books.png')} />
               <CustomText white medium>

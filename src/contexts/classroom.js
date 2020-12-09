@@ -43,6 +43,40 @@ export default function ClassroomProvider({children}) {
     }
   }
 
+  async function getClassroom(status) {
+    let teacher, student;
+    if (user.role === 2) {
+      student = '';
+      teacher = user.id;
+    } else {
+      student = user.id;
+      teacher = '';
+    }
+    const response = await Class.getClassroom(student, teacher, status, Host);
+
+    if (classroom !== response) {
+      console.log(response);
+      setStatusClasses(response);
+    }
+  }
+
+  async function updateStatusClassroom(id) {
+    let response = await Class.readClass(Host, id);
+    //console.log(response.status);
+    if (response.status === 1) {
+      response = await Class.updateStatusClassroom(id, 2, Host);
+      //console.log(response.message);
+    } else if (response.status === 2) {
+      response = await Class.updateStatusClassroom(id, 3, Host);
+      //console.log(response.message);
+    } else if (response.status === 3) {
+      response = await Class.updateStatusClassroom(id, 4, Host);
+      //console.log(response.message);
+    } else if (response.status === 4) {
+      response = await Class.updateStatusClassroom(id, 5, Host);
+      //console.log(response.message);
+    }
+  }
   async function loadStatusClasses(status) {
     const response = await Class.getStatusClassroom(Host, user.id, status);
     if (statusClasses !== response) {
@@ -69,6 +103,7 @@ export default function ClassroomProvider({children}) {
     const address = await Address.findAddress(response.cep);
     let responseClass = {
       id: response.role,
+      status: response.status,
       teacher: response.teacher,
       student: response.student,
       grade: response.grade,
@@ -80,9 +115,8 @@ export default function ClassroomProvider({children}) {
       details: response.details,
       address: address,
     };
-    if (classroom !== response) {
-      setClassroom(responseClass);
-    }
+
+    setClassroom(responseClass);
   }
 
   async function getClass() {
@@ -105,6 +139,8 @@ export default function ClassroomProvider({children}) {
         loadNextClass,
         createClass,
         loadUserClasses,
+        getClassroom,
+        updateStatusClassroom,
         loadStatusClasses,
         readClass,
         statusClasses,

@@ -50,6 +50,7 @@ export default function CompletedClass({navigation}) {
           {`Série: ${gradeResolver(item.grade)}`}
         </CustomText>
         <ButtonVerMais
+          testID="VerMais"
           onPress={() => {
             setStatusClass(item);
             setStudent(studentStack[index]);
