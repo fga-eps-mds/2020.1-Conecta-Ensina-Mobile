@@ -22,7 +22,7 @@ export async function createRate(
       rate_creator: rate_creator,
     }),
   };
-  const fetchResponse1 = await fetch(`${Host}/api/rate`, settings);
+  const fetchResponse1 = await fetch(`${Host}/api/rate/`, settings);
   try {
     const data = await fetchResponse1.json();
     console.log('Success:', data);

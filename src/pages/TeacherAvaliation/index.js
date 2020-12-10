@@ -6,6 +6,7 @@ import {UserContext} from '../../contexts/user';
 import {StudentContext} from '../../contexts/student';
 import {RateContext} from '../../contexts/rate';
 import gradeResolver from '../../services/gradeResolver';
+import {ClassroomContext} from '../../contexts/classroom';
 import {Rating} from 'react-native-ratings';
 import {
   ContainerB,
@@ -19,13 +20,13 @@ import {
   RatingContainer,
 } from './styles';
 
-export default function StudentAvaliation({props, navigation}) {
+export default function TeacherAvaliation({props, navigation}) {
   const {student} = useContext(StudentContext);
   const {user} = useContext(UserContext);
   const {createRate} = useContext(RateContext);
   const [comment, setComment] = useState('');
-  const [rating, setRating] = useState('');
-
+  const [rating, setRating] = useState(0);
+ 
   return (
     <Theme>
       <Background2
@@ -65,9 +66,8 @@ export default function StudentAvaliation({props, navigation}) {
             />
             <SubmitReview
               onPress={() => {
-                // createRate(comment, 3);
-                // navigation.navigate('HomeProf');
-                alert(rating);
+                  createRate(comment, 2, rating);
+                  navigation.navigate('Home');
               }}>
               <CustomTextContainer white medium>
                 Enviar Avaliação

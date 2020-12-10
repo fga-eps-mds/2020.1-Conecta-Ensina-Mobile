@@ -32,7 +32,8 @@ import {AuthContext} from '../../contexts/auth';
 
 export default function ClassroomDetails({navigation, route}) {
   const {item} = route.params;
-  const {updateStatusClassroom} = useContext(ClassroomContext);
+    
+  const {updateStatusClassroom, setStatusClass} = useContext(ClassroomContext);
   const {user} = useContext(AuthContext);
   const {classroom, readClass} = useContext(ClassroomContext);
   const {student, getStudent2} = useContext(StudentContext);
@@ -41,6 +42,7 @@ export default function ClassroomDetails({navigation, route}) {
   const [start, setStart] = useState(false);
   const [run, setRun] = useState(true);
 
+  setStatusClass(item);
   /*const begin = () => {
     updateStatusClassroom(item.id);
     getClass(item.id);
@@ -77,9 +79,9 @@ export default function ClassroomDetails({navigation, route}) {
       if (classroom.status === 5) {
         setStart(false);
         if (user.role === 3) {
-          navigation.navigate('FeedbackStudent');
+          navigation.navigate('TeacherAvaliation', {item});
         } else if (user.role === 2) {
-          navigation.navigate('FeedbackTeacher');
+          navigation.navigate('StudentAvaliation', {item});
         }
       }
     }
