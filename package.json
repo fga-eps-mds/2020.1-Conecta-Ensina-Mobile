@@ -26,7 +26,9 @@
     "react-native": "0.63.2",
     "react-native-calendars": "^1.403.0",
     "react-native-countdown-component": "^2.7.1",
+    "react-native-dotenv": "^2.4.3",
     "react-native-gesture-handler": "^1.8.0",
+    "react-native-maps": "0.27.1",
     "react-native-masked-text": "^1.13.0",
     "react-native-picker-select": "^8.0.0",
     "react-native-ratings": "^7.3.0",
@@ -60,7 +62,8 @@
     ],
     "setupFiles": [
       "./node_modules/react-native-gesture-handler/jestSetup.js",
-      "./jest.setup.js"
+      "./jest.setup.js",
+      "./.env.test"
     ],
     "setupFilesAfterEnv": [
       "jest-extended"

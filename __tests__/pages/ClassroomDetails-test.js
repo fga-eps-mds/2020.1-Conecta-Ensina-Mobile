@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, fireEvent} from '@testing-library/react-native';
+import {render, fireEvent, act} from '@testing-library/react-native';
 import ClassroomDetails from '../../src/pages/ClassroomDetails';
 import {ClassroomContext} from '../../src/contexts/classroom';
 import {StudentContext} from '../../src/contexts/student';
@@ -16,7 +16,7 @@ describe('Testing Classroom Details', () => {
     },
   };
 
-  let classroom = {
+  const classroom = {
     details: '',
     address: {
       logradouro: '',
@@ -24,16 +24,26 @@ describe('Testing Classroom Details', () => {
       uf: '',
     },
     number: 1231,
+    status: 3,
   };
-  const getUser = jest.fn();
 
   const getStudent = jest.fn();
 
   const updateStatusClassroom = jest.fn();
 
-  test('Should matches snapshot page', () => {
+  test('Should renders first snapshot page', () => {
     const tree = render(
       <ClassroomDetails navigation={navigation} route={route} />,
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  test('Should renders second snapshot page', () => {
+    const tree = render(
+      <ClassroomContext.Provider value={{updateStatusClassroom}}>
+        <ClassroomDetails navigation={navigation} route={route} />
+      </ClassroomContext.Provider>,
     ).toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -51,18 +61,6 @@ describe('Testing Classroom Details', () => {
     fireEvent.press(button);
   });
 
-  test('Should test contexts functions', async () => {
-    render(
-      <StudentContext.Provider value={{getStudent}}>
-        <UserContext.Provider>
-          <ClassroomContext.Provider value={{classroom}}>
-            <ClassroomDetails route={route} />
-          </ClassroomContext.Provider>
-        </UserContext.Provider>
-      </StudentContext.Provider>,
-    );
-  });
-
   test('Should tests timer', async () => {
     const {getByTestId, UNSAFE_getByType} = render(
       <ClassroomContext.Provider value={{classroom, updateStatusClassroom}}>
@@ -76,18 +74,5 @@ describe('Testing Classroom Details', () => {
     // const timer = UNSAFE_getByType(CountDown);
 
     // expect(timer.props.onFinish).toBeFunction();
-  });
-  test('Should press button finish', async () => {
-    const {getByTestId} = render(
-      <ClassroomContext.Provider value={{classroom, updateStatusClassroom}}>
-        <ClassroomDetails navigation={navigation} route={route} />
-      </ClassroomContext.Provider>,
-    );
-
-    const button = getByTestId('StartButton');
-    await fireEvent.press(button);
-
-    // const finish = getByTestId('finishButton');
-    // await fireEvent.press(finish);
   });
 });

@@ -8,7 +8,10 @@ import {withTheme} from 'styled-components/native';
 function ContainerStars({img, data, styleContainer, style, onPress}) {
   return (
     <Theme>
-      <Container onPress={onPress} style={[styleContainer]}>
+      <Container
+        testID="ContainerStars"
+        onPress={onPress}
+        style={[styleContainer]}>
         <Imagem source={img} />
         <Rating
           type="custom"

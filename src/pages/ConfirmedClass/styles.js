@@ -1,16 +1,5 @@
 import styled from 'styled-components/native';
 
-export const DataButton = styled.TouchableOpacity`
-  background-color: ${(props) => props.theme.colors.fundoAzul};
-  width: 290px;
-  height: 50px;
-  border-radius: 5px;
-  align-self: center;
-  margin-bottom: 50px;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const Container = styled.View`
   flex: 1;
   justify-content: center;
@@ -20,8 +9,4 @@ export const Container = styled.View`
   right: 0px;
   left: 0px;
   bottom: 70px;
-`;
-export const Texto = styled.Text`
-  color: white;
-  font-size: ${(props) => props.theme.fontSizes.smallMedium};
 `;

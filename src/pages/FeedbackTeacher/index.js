@@ -29,12 +29,6 @@ export default function FeedbackTeacher({navigation, route}) {
     navigation.navigate('Teachers');
   }
 
-  useEffect(() => {
-    console.log(route.params);
-    console.log(student);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <Theme>
       <Background2

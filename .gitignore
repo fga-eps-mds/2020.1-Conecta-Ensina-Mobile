@@ -62,3 +62,9 @@ buck-out/
 coverage/
 .vscode/
 .deploy.env
+
+#enviroment
+.env
+.env.development
+.env.production
+/android/app/conf.gradle

@@ -41,7 +41,8 @@ export const ButtonContainer = styled.TouchableOpacity`
   border-radius: 5px;
 `;
 export const ContainerBotao = styled.View`
-  margin-top: 125%;
+  flex: 1;
+  margin-top: 110%;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;

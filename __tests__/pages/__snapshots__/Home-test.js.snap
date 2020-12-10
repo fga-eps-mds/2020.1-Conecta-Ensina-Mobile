@@ -213,6 +213,7 @@ exports[`Testing Home page Should renders page 1`] = `
                 "width": 95,
               }
             }
+            testID="SquareButton"
           >
             <Image
               source={
@@ -291,6 +292,7 @@ exports[`Testing Home page Should renders page 1`] = `
                 "width": 95,
               }
             }
+            testID="SquareButton"
           >
             <Image
               source={
@@ -369,6 +371,7 @@ exports[`Testing Home page Should renders page 1`] = `
                 "width": 95,
               }
             }
+            testID="SquareButton"
           >
             <Image
               source={
@@ -420,13 +423,12 @@ exports[`Testing Home page Should renders page 1`] = `
       style={
         Array [
           Object {
-            "alignSelf": "center",
-            "backgroundColor": "#D9D9D9",
-            "borderRadius": 20,
-            "height": "33%",
-            "marginBottom": "15%",
-            "marginTop": "15%",
-            "width": "78%",
+            "alignItems": "center",
+            "flexBasis": 0,
+            "flexGrow": 5,
+            "flexShrink": 1,
+            "justifyContent": "center",
+            "marginTop": "5%",
           },
         ]
       }
@@ -435,121 +437,134 @@ exports[`Testing Home page Should renders page 1`] = `
         style={
           Array [
             Object {
-              "flexBasis": 0,
-              "flexDirection": "row",
-              "flexGrow": 3,
-              "flexShrink": 1,
-              "justifyContent": "space-around",
-              "paddingBottom": "2%",
-              "paddingLeft": "2%",
-              "paddingTop": "6%",
+              "alignSelf": "center",
+              "backgroundColor": "#D9D9D9",
+              "borderRadius": 20,
+              "height": "58%",
+              "width": "78%",
             },
           ]
         }
       >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../src/assets/books.png",
+        <View
+          style={
+            Array [
+              Object {
+                "flexBasis": 0,
+                "flexDirection": "row",
+                "flexGrow": 2,
+                "flexShrink": 1,
+                "paddingLeft": "6%",
+                "paddingTop": "6%",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../src/assets/books.png",
+              }
             }
-          }
+            style={
+              Array [
+                Object {
+                  "height": 24,
+                  "marginRight": "3%",
+                  "width": 28,
+                },
+              ]
+            }
+          />
+          <Text
+            bigSmall={true}
+            style={
+              Array [
+                Object {
+                  "color": "#596C7C",
+                  "fontFamily": "Roboto",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Proxima Aula
+          </Text>
+        </View>
+        <View
           style={
             Array [
               Object {
-                "height": 30,
-                "marginRight": "3%",
-                "width": 36,
-              },
-            ]
-          }
-        />
-        <Text
-          bigSmall={true}
-          style={
-            Array [
-              Object {
-                "color": "#596C7C",
-                "fontFamily": "Roboto",
-                "fontSize": 16,
-                "textAlign": "center",
-              },
-            ]
-          }
-        >
-          Proxima Aula
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "paddingBottom": "3%",
-              "paddingLeft": "7%",
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#596C7C",
-                "fontFamily": "Roboto",
-                "fontSize": 20,
-                "textAlign": "center",
+                "alignSelf": "center",
+                "flexBasis": 0,
+                "flexGrow": 4,
+                "flexShrink": 1,
+                "marginLeft": "-30%",
               },
             ]
           }
         >
-          2020-11-12
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "flexBasis": 0,
-              "flexDirection": "row",
-              "flexGrow": 3,
-              "flexShrink": 1,
-              "justifyContent": "space-around",
-              "paddingBottom": "2%",
-              "paddingLeft": "2%",
-              "paddingTop": "6%",
-            },
-          ]
-        }
-      >
-        <Text
-          bigSmall={true}
+          <Text
+            big={true}
+            style={
+              Array [
+                Object {
+                  "color": "#596C7C",
+                  "fontFamily": "Roboto",
+                  "fontSize": 45,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          />
+        </View>
+        <View
           style={
             Array [
               Object {
-                "color": "#596C7C",
-                "fontFamily": "Roboto",
-                "fontSize": 16,
-                "textAlign": "center",
+                "flexBasis": 0,
+                "flexDirection": "row",
+                "flexGrow": 2,
+                "flexShrink": 1,
+                "justifyContent": "space-around",
+                "paddingTop": "6%",
               },
             ]
           }
         >
-          16 - 18 Horas
-        </Text>
-        <Text
-          bigSmall={true}
-          style={
-            Array [
-              Object {
-                "color": "#596C7C",
-                "fontFamily": "Roboto",
-                "fontSize": 16,
-                "textAlign": "center",
-              },
-            ]
-          }
-        >
-          Matemática
-        </Text>
+          <Text
+            bigSmall={true}
+            style={
+              Array [
+                Object {
+                  "color": "#596C7C",
+                  "fontFamily": "Roboto",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            16 - 18 Horas
+          </Text>
+          <Text
+            bigSmall={true}
+            blue={true}
+            style={
+              Array [
+                Object {
+                  "color": "#184E79",
+                  "fontFamily": "Roboto",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Matemática
+          </Text>
+        </View>
       </View>
     </View>
     <View
@@ -557,187 +572,205 @@ exports[`Testing Home page Should renders page 1`] = `
         Array [
           Object {
             "alignItems": "center",
-            "alignSelf": "center",
-            "height": "25%",
+            "flexBasis": 0,
+            "flexGrow": 2,
+            "flexShrink": 1,
             "justifyContent": "center",
+            "marginBottom": "15%",
           },
         ]
       }
     >
       <View
-        accessible={true}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#184E79",
-            "borderRadius": 10,
-            "display": "flex",
-            "flexDirection": "row",
-            "height": 50,
-            "justifyContent": "center",
-            "marginTop": "5%",
-            "opacity": 1,
-            "width": 200,
-          }
+          Array [
+            Object {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "height": "25%",
+              "justifyContent": "center",
+            },
+          ]
         }
       >
-        <Image
-          source={
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
             Object {
-              "testUri": "../../../src/assets/books.png",
+              "alignItems": "center",
+              "backgroundColor": "#184E79",
+              "borderRadius": 10,
+              "display": "flex",
+              "flexDirection": "row",
+              "height": 50,
+              "justifyContent": "center",
+              "marginTop": "5%",
+              "opacity": 1,
+              "width": 200,
             }
           }
-          style={
-            Array [
-              Object {
-                "height": 30,
-                "marginRight": "3%",
-                "width": 36,
-              },
-            ]
-          }
-        />
-        <Text
-          medium={true}
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "Roboto",
-                "fontSize": 25,
-                "textAlign": "center",
-              },
-            ]
-          }
-          white={true}
         >
-          Aula Marcada
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        focusable={false}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#E46270",
-            "borderRadius": 10,
-            "display": "flex",
-            "flexDirection": "row",
-            "height": 50,
-            "justifyContent": "center",
-            "marginTop": "5%",
-            "opacity": 1,
-            "width": 200,
-          }
-        }
-      >
-        <Image
-          source={
+          <Image
+            source={
+              Object {
+                "testUri": "../../../src/assets/books.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 24,
+                  "marginRight": "3%",
+                  "width": 28,
+                },
+              ]
+            }
+          />
+          <Text
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          >
+            Aula Marcada
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
             Object {
-              "testUri": "../../../src/assets/books.png",
+              "alignItems": "center",
+              "backgroundColor": "#E46270",
+              "borderRadius": 10,
+              "display": "flex",
+              "flexDirection": "row",
+              "height": 50,
+              "justifyContent": "center",
+              "marginTop": "5%",
+              "opacity": 1,
+              "width": 200,
             }
           }
-          style={
-            Array [
-              Object {
-                "height": 30,
-                "marginRight": "3%",
-                "width": 36,
-              },
-            ]
-          }
-        />
-        <Text
-          medium={true}
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "Roboto",
-                "fontSize": 25,
-                "textAlign": "center",
-              },
-            ]
-          }
-          white={true}
         >
-          Aula Urgente
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#184E79",
-            "borderRadius": 10,
-            "display": "flex",
-            "flexDirection": "row",
-            "height": 50,
-            "justifyContent": "center",
-            "marginTop": "5%",
-            "opacity": 1,
-            "width": 200,
-          }
-        }
-        testID="MarcarAula"
-      >
-        <Image
-          source={
+          <Image
+            source={
+              Object {
+                "testUri": "../../../src/assets/books.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 24,
+                  "marginRight": "3%",
+                  "width": 28,
+                },
+              ]
+            }
+          />
+          <Text
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          >
+            Aula Urgente
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
             Object {
-              "testUri": "../../../src/assets/books.png",
+              "alignItems": "center",
+              "backgroundColor": "#184E79",
+              "borderRadius": 10,
+              "display": "flex",
+              "flexDirection": "row",
+              "height": 50,
+              "justifyContent": "center",
+              "marginTop": "5%",
+              "opacity": 1,
+              "width": 200,
             }
           }
-          style={
-            Array [
-              Object {
-                "height": 30,
-                "marginRight": "3%",
-                "width": 36,
-              },
-            ]
-          }
-        />
-        <Text
-          medium={true}
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontFamily": "Roboto",
-                "fontSize": 25,
-                "textAlign": "center",
-              },
-            ]
-          }
-          white={true}
+          testID="MarcarAula"
         >
-          Marcar Aula
-        </Text>
+          <Image
+            source={
+              Object {
+                "testUri": "../../../src/assets/books.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 24,
+                  "marginRight": "3%",
+                  "width": 28,
+                },
+              ]
+            }
+          />
+          <Text
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          >
+            Marcar Aula
+          </Text>
+        </View>
       </View>
     </View>
   </View>

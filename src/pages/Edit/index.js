@@ -212,7 +212,7 @@ export default function Edit({navigation}) {
                   </TextContainer>
                 </InfoContainer>
               </Container>
-              <ButtonContainer onPress={handleSubmit}>
+              <ButtonContainer onPress={handleSubmit} testID="button">
                 <CustomText white bigSmall>
                   Salvar
                 </CustomText>

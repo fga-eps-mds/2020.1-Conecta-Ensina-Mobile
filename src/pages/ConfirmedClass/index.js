@@ -1,36 +1,43 @@
 import React, {useState, useContext} from 'react';
-import {DataButton, Container, Texto} from './styles';
-import DatePicker from '../../components/DatePicker';
-import Theme from '../../../Theme';
+import {Container} from './styles';
+import Theme, {theme} from '../../../Theme';
 import ContinueContainer from '../../components/ContinueContainer';
 import Background1 from '../../components/Background1';
 import {ClassroomContext} from '../../contexts/classroom';
+import Calendars from '../../components/Calendar';
 
-export default function AulaMarcada({navigation}) {
+export default function ConfirmedClass({navigation}) {
   const {getClassroom} = useContext(ClassroomContext);
 
   const [newDate, setNewDate] = useState(new Date());
-  const [show, setShow] = useState(false);
+  const [type, setType] = useState('Online');
+  const [duration, setDuration] = useState(null);
+  const [horario, setHorario] = useState('');
+  const [selected, setSelected] = useState(null);
 
-  function handlerShowPicker() {
-    setShow(true);
-  }
-
-  const onChange = (date) => {
-    setNewDate(date);
-    setShow(false);
+  const onChange = (day) => {
+    let dateInc = day.dateString.split('-');
+    let horarioInc = horario.split(':');
+    setSelected(day.dateString);
+    setNewDate(new Date(dateInc[0], dateInc[1], dateInc[2], horarioInc[0] - 2));
   };
 
   return (
     <Theme>
       <Background1 navigation={navigation} page={'TeacherProfile2'}>
         <Container>
-          <DataButton testID="DataButton" onPress={handlerShowPicker}>
-            <Texto>Data</Texto>
-          </DataButton>
-          {show && <DatePicker date={newDate} onChange={onChange} />}
+          <Calendars
+            onDayPress={onChange}
+            markedDates={{
+              [selected]: {
+                selected: true,
+                selectedColor: theme.colors.azulClaro,
+              },
+            }}
+          />
         </Container>
         <ContinueContainer
+          testID="ContinueContainer"
           onPress={async () => {
             await getClassroom(1);
             navigation.navigate('ShowClass');
