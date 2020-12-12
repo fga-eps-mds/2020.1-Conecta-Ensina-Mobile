@@ -8,11 +8,11 @@ import {AuthContext} from '../../contexts/auth';
 
 export default function TeacherConfirmation({route, navigation}) {
   const {item} = route.params;
-  const {signOut} = useContext(AuthContext);
-  const {userDB, teacher, statusUpdate} = useContext(AdmContext);
+  const {usersAdmin, statusUpdate} = useContext(AdmContext);
 
   const handleSubmit = async () => {
-    statusUpdate(item.id);
+    await statusUpdate(item.id);
+    navigation.navigate('HomeAdm');
   };
 
   return (
@@ -20,40 +20,56 @@ export default function TeacherConfirmation({route, navigation}) {
       <Background1 navigation={navigation} page={'TeacherProfile2'}>
         <Container>
           <ContainerGrande>
-            <CustomText white>{userDB && userDB.firstName}</CustomText>
+            <CustomText white>
+              {usersAdmin && usersAdmin.user.firstName}
+            </CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{userDB && userDB.lastName}</CustomText>
+            <CustomText white>
+              {usersAdmin && usersAdmin.user.lastName}
+            </CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{userDB && userDB.email}</CustomText>
+            <CustomText white>{usersAdmin && usersAdmin.user.email}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{userDB && userDB.cellphone}</CustomText>
+            <CustomText white>
+              {usersAdmin && usersAdmin.user.cellphone}
+            </CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{teacher && teacher.description}</CustomText>
+            <CustomText white>
+              {usersAdmin && usersAdmin.teacher.description}
+            </CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{item.institution}</CustomText>
+            <CustomText white>{usersAdmin.student.institution}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{teacher && teacher.degree}</CustomText>
+            <CustomText white>
+              {usersAdmin && usersAdmin.teacher.degree}
+            </CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{teacher && teacher.graduation_area}</CustomText>
+            <CustomText white>
+              {usersAdmin && usersAdmin.teacher.graduation_area}
+            </CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{teacher && teacher.video}</CustomText>
+            <CustomText white>
+              {usersAdmin && usersAdmin.teacher.video}
+            </CustomText>
           </ContainerGrande>
         </Container>
         <ContainerButton>
-          <Button onPress={handleSubmit}>
+          <Button testID="Aceitar" onPress={handleSubmit}>
             <CustomText white bigSmall>
               Aceitar
             </CustomText>
           </Button>
-          <Button onPress={() => signOut()}>
+          <Button
+            testID="Recusar"
+            onPress={() => navigation.navigate('PendingTeacher')}>
             <CustomText white bigSmall>
               Recusar
             </CustomText>

@@ -60,3 +60,9 @@ buck-out/
 
 # Tests
 coverage/
+
+#enviroment
+.env
+.env.development
+.env.production
+/android/app/conf.gradle

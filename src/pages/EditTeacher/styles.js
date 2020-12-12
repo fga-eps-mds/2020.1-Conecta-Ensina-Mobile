@@ -33,10 +33,11 @@ export const TextContainer = styled.View`
 `;
 
 export const ButtonContainer = styled.TouchableOpacity`
+  flex: 1;
   height: 50px;
   width: 280px;
   background-color: ${(props) => props.theme.colors.vermelho};
-  margin-top: 125%;
+  margin-top: 110%;
   align-self: center;
   align-items: center;
   justify-content: center;

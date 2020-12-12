@@ -43,6 +43,7 @@ export default function Subjects({navigation}) {
           />
           <ContainerButton>
             <ContinueContainer
+              testID="ContinueContainer"
               marginTop={{value: '23%'}}
               onPress={() => {
                 if (selectedId === null) {

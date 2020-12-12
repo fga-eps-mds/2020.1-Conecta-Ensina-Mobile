@@ -32,46 +32,28 @@ import {AuthContext} from '../../contexts/auth';
 
 export default function ClassroomDetails({navigation, route}) {
   const {item} = route.params;
-    
-  const {updateStatusClassroom, setStatusClass} = useContext(ClassroomContext);
-  const {user} = useContext(AuthContext);
-  const {classroom, readClass} = useContext(ClassroomContext);
-  const {student, getStudent2} = useContext(StudentContext);
-  const {teacher, getTeacher} = useContext(TeacherContext);
 
-  const [start, setStart] = useState(false);
+  const {
+    updateStatusClassroom,
+    setStatusClass,
+    classroom,
+    readClass,
+  } = useContext(ClassroomContext);
+  const {user} = useContext(AuthContext);
+  const {student} = useContext(StudentContext);
+
+  const [start, setStart] = useState(!classroom);
   const [run, setRun] = useState(true);
 
   setStatusClass(item);
-  /*const begin = () => {
-    updateStatusClassroom(item.id);
-    getClass(item.id);
-    if (classroom == 3){
-      setStart(true);
-    }
-
-  };*/
-
-  /*const finish = () => {
-    if (user.role == 2) {
-      setRun(false);
-      updateStatusClassroom(item.id);
-      alert('Aula Finalizada');
-    }
-  };*/
 
   const [press, setPress] = useState(false);
   const [press2, setPress2] = useState(false);
 
   useEffect(() => {
-    async function readUser() {
-      await getTeacher(item.teacher);
-      await getStudent2(item.teacher);
-      console.log('Student');
-      console.log(student);
-    }
     async function classRead() {
       await readClass(item.id);
+
       if (classroom.status === 3) {
         setStart(true);
       }
@@ -85,9 +67,8 @@ export default function ClassroomDetails({navigation, route}) {
         }
       }
     }
-    readUser();
+
     classRead();
-    //readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
   }, [classroom]);
 
   return (
@@ -211,7 +192,7 @@ export default function ClassroomDetails({navigation, route}) {
                   {item && item.number + ', \n'}
                 </RedContainerText>
                 <ButtonContainer>
-                  <ChatButton onPress={() => console.log('chat')}>
+                  <ChatButton>
                     <CustomText white bigSmall>
                       Chat
                     </CustomText>

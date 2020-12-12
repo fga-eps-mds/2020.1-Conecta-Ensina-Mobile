@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Theme from '../../../Theme';
 import {ClassroomContext} from '../../contexts/classroom';
+import {StudentContext} from '../../contexts/student';
 import gradeResolver from '../../services/gradeResolver';
 import dateResolver from '../../services/dateResolver';
 import timeResolver from '../../services/timeResolver';
@@ -9,27 +10,16 @@ import {ContainerVisualAula, ListaVisualAula, ButtonVerMais} from './styles';
 import CustomText from '../../components/CustomText';
 
 export default function CompletedClass({navigation}) {
-  const {statusClasses, setStatusClass, loadStatusClasses, Host} = useContext(
-    ClassroomContext,
-  );
-  //const [student, setStudent] = useState('');
-  const [user, setUser] = useState([]);
+  const {statusClasses, setStatusClass} = useContext(ClassroomContext);
+  const {studentStack, setStudent} = useContext(StudentContext);
 
-  const getUser = async (id) => {
-    const fetchResponse = await fetch(`${Host}/api/user/${id}`);
-    try {
-      const data = await fetchResponse.json();
-      console.log(data);
-      await setUser(user.concat(data.data.user));
-      return data;
-    } catch (error) {
-      return error;
-    }
-  };
-
+  useEffect(() => {
+    console.log(studentStack);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const renderClass = ({item, index}) => {
     return (
-      <ContainerVisualAula numColumns={1}>
+      <ContainerVisualAula numColumns={1} nestedScrollEnabled>
         <CustomText small black>
           Informações Aula
         </CustomText>
@@ -52,15 +42,19 @@ export default function CompletedClass({navigation}) {
           Informações Aluno
         </CustomText>
         <CustomText small black>
-          {user[index] && `${user[index].firstName} ${user[index].lastName}`}
+          {studentStack[index] &&
+            studentStack[index].user &&
+            `${studentStack[index].user.firstName} ${studentStack[index].user.lastName}`}
         </CustomText>
         <CustomText smaller black>
           {`Série: ${gradeResolver(item.grade)}`}
         </CustomText>
         <ButtonVerMais
+          testID="VerMais"
           onPress={() => {
-            navigation.navigate('ConfirmedClassDetails');
             setStatusClass(item);
+            setStudent(studentStack[index]);
+            navigation.navigate('ConfirmedClassDetails');
           }}>
           <CustomText smaller white>
             Ver Mais
@@ -69,21 +63,6 @@ export default function CompletedClass({navigation}) {
       </ContainerVisualAula>
     );
   };
-  const getInfo = async () => {
-    await loadStatusClasses(4);
-  };
-  useEffect(() => {
-    if (statusClasses !== {}) {
-      getInfo();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  useEffect(() => {
-    statusClasses.map(async (item) => {
-      await getUser(item.student);
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [statusClasses]);
 
   return (
     <Theme>

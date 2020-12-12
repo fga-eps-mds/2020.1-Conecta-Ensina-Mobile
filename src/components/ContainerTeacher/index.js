@@ -6,7 +6,7 @@ import {withTheme} from 'styled-components/native';
 
 function ContainerTeacher({data, onPressProf}) {
   return (
-    <Container onPress={onPressProf}>
+    <Container testID="ContainerTeacher" onPress={onPressProf}>
       <Imagem />
       <ContainerTexto>
         <CustomText smaller black>

@@ -28,7 +28,6 @@ export async function createRate(
     console.log('Success:', data);
     if (data.message) {
       if (data.message === 'Avaliação criada com sucesso!') {
-        console.log('login efetuado');
         return data;
       }
     }

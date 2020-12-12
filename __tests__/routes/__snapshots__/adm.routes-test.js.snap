@@ -1,0 +1,503 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing AdmRoutes  Should Match Snapshot 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <RNCSafeAreaProvider
+    onInsetsChange={[Function]}
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      onLayout={[Function]}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        pointerEvents="box-none"
+        style={
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      >
+        <View
+          collapsable={false}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        />
+        <View
+          accessibilityElementsHidden={false}
+          closing={false}
+          gestureVelocityImpact={0.3}
+          importantForAccessibility="auto"
+          onClose={[Function]}
+          onGestureBegin={[Function]}
+          onGestureCanceled={[Function]}
+          onGestureEnd={[Function]}
+          onOpen={[Function]}
+          onTransitionStart={[Function]}
+          pointerEvents="box-none"
+          style={
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            }
+          }
+          transitionSpec={
+            Object {
+              "close": Object {
+                "animation": "spring",
+                "config": Object {
+                  "damping": 500,
+                  "mass": 3,
+                  "overshootClamping": true,
+                  "restDisplacementThreshold": 10,
+                  "restSpeedThreshold": 10,
+                  "stiffness": 1000,
+                },
+              },
+              "open": Object {
+                "animation": "spring",
+                "config": Object {
+                  "damping": 500,
+                  "mass": 3,
+                  "overshootClamping": true,
+                  "restDisplacementThreshold": 10,
+                  "restSpeedThreshold": 10,
+                  "stiffness": 1000,
+                },
+              },
+            }
+          }
+        >
+          <View
+            needsOffscreenAlphaCompositing={false}
+            pointerEvents="box-none"
+            style={
+              Object {
+                "flex": 1,
+                "marginTop": 0,
+              }
+            }
+          >
+            <View
+              collapsable={false}
+              forwardedRef={[Function]}
+              onGestureHandlerEvent={[Function]}
+              onGestureHandlerStateChange={[Function]}
+              style={
+                Object {
+                  "flex": 1,
+                  "transform": Array [
+                    Object {
+                      "translateX": 0,
+                    },
+                    Object {
+                      "translateX": 0,
+                    },
+                  ],
+                }
+              }
+            >
+              <View
+                pointerEvents="none"
+                style={
+                  Object {
+                    "backgroundColor": "rgb(242, 242, 242)",
+                    "bottom": 0,
+                    "left": 0,
+                    "position": "absolute",
+                    "shadowColor": "#000",
+                    "shadowOffset": Object {
+                      "height": 1,
+                      "width": -1,
+                    },
+                    "shadowOpacity": 0.3,
+                    "shadowRadius": 5,
+                    "top": 0,
+                    "width": 3,
+                  }
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "overflow": "hidden",
+                    },
+                    Array [
+                      Object {
+                        "backgroundColor": "rgb(242, 242, 242)",
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "flex": 1,
+                      "flexDirection": "column-reverse",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "flex": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "backgroundColor": "#184E79",
+                            "display": "flex",
+                            "flexBasis": 0,
+                            "flexGrow": 1,
+                            "flexShrink": 1,
+                            "justifyContent": "flex-end",
+                          },
+                        ]
+                      }
+                    >
+                      <View
+                        style={
+                          Array [
+                            Object {
+                              "alignItems": "center",
+                              "flexBasis": 0,
+                              "flexDirection": "row-reverse",
+                              "flexGrow": 10,
+                              "flexShrink": 1,
+                              "marginLeft": 30,
+                            },
+                          ]
+                        }
+                      />
+                      <View
+                        style={
+                          Array [
+                            Object {
+                              "backgroundColor": "#ffffff",
+                              "borderTopLeftRadius": 20,
+                              "borderTopRightRadius": 20,
+                              "display": "flex",
+                              "flexBasis": 0,
+                              "flexGrow": 78,
+                              "flexShrink": 1,
+                              "justifyContent": "center",
+                            },
+                          ]
+                        }
+                      >
+                        <RCTScrollView
+                          data={
+                            Array [
+                              Object {
+                                "id": "101",
+                                "img": Object {
+                                  "testUri": "../../../src/assets/books.png",
+                                },
+                                "name": "Professores Pendentes",
+                              },
+                              Object {
+                                "id": "171",
+                                "img": Object {
+                                  "testUri": "../../../src/assets/books.png",
+                                },
+                                "name": "Usuários Reportados",
+                              },
+                            ]
+                          }
+                          disableVirtualization={false}
+                          getItem={[Function]}
+                          getItemCount={[Function]}
+                          horizontal={true}
+                          initialNumToRender={10}
+                          keyExtractor={[Function]}
+                          maxToRenderPerBatch={10}
+                          onContentSizeChange={[Function]}
+                          onEndReachedThreshold={2}
+                          onLayout={[Function]}
+                          onMomentumScrollEnd={[Function]}
+                          onScroll={[Function]}
+                          onScrollBeginDrag={[Function]}
+                          onScrollEndDrag={[Function]}
+                          removeClippedSubviews={false}
+                          renderItem={[Function]}
+                          scrollEventThrottle={50}
+                          stickyHeaderIndices={Array []}
+                          style={
+                            Array [
+                              Object {
+                                "alignSelf": "center",
+                                "flexDirection": "row",
+                                "paddingBottom": "120%",
+                                "position": "absolute",
+                              },
+                            ]
+                          }
+                          updateCellsBatchingPeriod={50}
+                          viewabilityConfigCallbackPairs={Array []}
+                          windowSize={21}
+                        >
+                          <View>
+                            <View
+                              onLayout={[Function]}
+                              style={
+                                Array [
+                                  Object {
+                                    "flexDirection": "row",
+                                  },
+                                  null,
+                                ]
+                              }
+                            >
+                              <View
+                                accessible={true}
+                                focusable={true}
+                                onClick={[Function]}
+                                onResponderGrant={[Function]}
+                                onResponderMove={[Function]}
+                                onResponderRelease={[Function]}
+                                onResponderTerminate={[Function]}
+                                onResponderTerminationRequest={[Function]}
+                                onStartShouldSetResponder={[Function]}
+                                style={
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "#D9D9D9",
+                                    "borderRadius": 10,
+                                    "height": 95,
+                                    "marginBottom": 20,
+                                    "marginRight": 20,
+                                    "opacity": 1,
+                                    "width": 95,
+                                  }
+                                }
+                                testID="SquareButton"
+                              >
+                                <Image
+                                  style={
+                                    Array [
+                                      Object {
+                                        "height": 50,
+                                        "marginTop": 8,
+                                        "width": 60,
+                                      },
+                                    ]
+                                  }
+                                />
+                                <View
+                                  style={
+                                    Array [
+                                      Object {
+                                        "paddingTop": 10,
+                                      },
+                                    ]
+                                  }
+                                >
+                                  <Text
+                                    black={true}
+                                    smaller={true}
+                                    style={
+                                      Array [
+                                        Object {
+                                          "color": "black",
+                                          "fontFamily": "Roboto",
+                                          "fontSize": 12,
+                                          "textAlign": "center",
+                                        },
+                                      ]
+                                    }
+                                  >
+                                    Professores Pendentes
+                                  </Text>
+                                </View>
+                              </View>
+                            </View>
+                            <View
+                              onLayout={[Function]}
+                              style={
+                                Array [
+                                  Object {
+                                    "flexDirection": "row",
+                                  },
+                                  null,
+                                ]
+                              }
+                            >
+                              <View
+                                accessible={true}
+                                focusable={true}
+                                onClick={[Function]}
+                                onResponderGrant={[Function]}
+                                onResponderMove={[Function]}
+                                onResponderRelease={[Function]}
+                                onResponderTerminate={[Function]}
+                                onResponderTerminationRequest={[Function]}
+                                onStartShouldSetResponder={[Function]}
+                                style={
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "#D9D9D9",
+                                    "borderRadius": 10,
+                                    "height": 95,
+                                    "marginBottom": 20,
+                                    "marginRight": 20,
+                                    "opacity": 1,
+                                    "width": 95,
+                                  }
+                                }
+                                testID="SquareButton"
+                              >
+                                <Image
+                                  style={
+                                    Array [
+                                      Object {
+                                        "height": 50,
+                                        "marginTop": 8,
+                                        "width": 60,
+                                      },
+                                    ]
+                                  }
+                                />
+                                <View
+                                  style={
+                                    Array [
+                                      Object {
+                                        "paddingTop": 10,
+                                      },
+                                    ]
+                                  }
+                                >
+                                  <Text
+                                    black={true}
+                                    smaller={true}
+                                    style={
+                                      Array [
+                                        Object {
+                                          "color": "black",
+                                          "fontFamily": "Roboto",
+                                          "fontSize": 12,
+                                          "textAlign": "center",
+                                        },
+                                      ]
+                                    }
+                                  >
+                                    Usuários Reportados
+                                  </Text>
+                                </View>
+                              </View>
+                            </View>
+                          </View>
+                        </RCTScrollView>
+                        <View
+                          style={
+                            Array [
+                              Object {
+                                "alignItems": "center",
+                                "flexBasis": 0,
+                                "flexDirection": "column-reverse",
+                                "flexGrow": 1,
+                                "flexShrink": 1,
+                                "marginBottom": "10%",
+                              },
+                            ]
+                          }
+                        >
+                          <View
+                            accessible={true}
+                            focusable={true}
+                            onClick={[Function]}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Object {
+                                "backgroundColor": "#E46270",
+                                "borderRadius": 10,
+                                "height": 30,
+                                "justifyContent": "center",
+                                "opacity": 1,
+                                "width": "80%",
+                              }
+                            }
+                            testID="signout"
+                          >
+                            <Text
+                              bigSmall={true}
+                              style={
+                                Array [
+                                  Object {
+                                    "color": "#ffffff",
+                                    "fontFamily": "Roboto",
+                                    "fontSize": 16,
+                                    "textAlign": "center",
+                                  },
+                                ]
+                              }
+                              white={true}
+                            >
+                              Sair
+                            </Text>
+                          </View>
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      pointerEvents="box-none"
+      style={
+        Object {
+          "height": 64,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "zIndex": 1,
+        }
+      }
+    />
+  </RNCSafeAreaProvider>
+</View>
+`;

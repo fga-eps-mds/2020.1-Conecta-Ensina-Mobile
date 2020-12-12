@@ -5,14 +5,14 @@ export const ContainerVisualAula = styled.ScrollView`
   width: 145px;
   height: 220px;
   border-radius: 10px;
-  margin-bottom: 100px;
   margin-left: 4%;
   margin-right: 4%;
+  margin-top: 5%;
 `;
 
 export const ListaVisualAula = styled.FlatList`
   align-self: center;
-  margin-bottom: 10px;
+  top: -7%;
 `;
 
 export const ButtonVerMais = styled.TouchableOpacity`
