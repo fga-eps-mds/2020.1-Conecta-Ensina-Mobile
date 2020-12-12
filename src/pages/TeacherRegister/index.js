@@ -24,7 +24,6 @@ import PasswordInput from '../../components/PasswordInput';
 
 export default function TeacherRegister({navigation, route}) {
   const {registerProf} = useContext(AuthContext);
-  console.log(route.params.buttons);
   let initials = {
     name: '',
     surname: '',
@@ -47,6 +46,7 @@ export default function TeacherRegister({navigation, route}) {
     bank: '',
     agency: '',
     account: '',
+    subjects: route.params.buttons,
   };
 
   let Schema = yup.object().shape({

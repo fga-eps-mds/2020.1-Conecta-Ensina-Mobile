@@ -12,6 +12,9 @@ describe('Testing CompletedClass page', () => {
   const setStudent = jest.fn();
   const setStatusClass = jest.fn();
   const studentStack = [{user: {firstName: '', lastName: ''}}];
+  const classroom = {
+    length: '',
+  };
   beforeEach(() => {
     statusClasses = [
       {

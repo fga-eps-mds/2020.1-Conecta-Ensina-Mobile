@@ -252,6 +252,9 @@ export default function AuthProvider({children}) {
         '\n' +
         'account: ' +
         values.account +
+        '\n' +
+        'subjects: ' +
+        values.subjects +
         '\n',
     );
     const settings = {
@@ -282,6 +285,7 @@ export default function AuthProvider({children}) {
         bank: values.bank,
         agency: values.agency,
         account: values.account,
+        subjects: values.subjects,
       }),
     };
 

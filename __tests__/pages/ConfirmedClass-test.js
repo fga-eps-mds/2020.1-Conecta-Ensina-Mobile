@@ -4,19 +4,26 @@ import ConfirmedClass from '../../src/pages/ConfirmedClass';
 import {ClassroomContext} from '../../src/contexts/classroom';
 //import {} from '@react-native-community/datetimepicker';
 
-describe('Testing CompletedClass page', () => {
+describe('Testing ConfirmedClass page', () => {
   const navigation = {
     navigate: jest.fn(),
   };
   const getClassroom = jest.fn();
   test('Should match snapshot', () => {
-    const tree = render(<ConfirmedClass navigation={navigation} />);
+    const tree = render(
+      <ClassroomContext.Provider value={{classroom, getClassroom}}>
+        <ConfirmedClass navigation={navigation} />
+      </ClassroomContext.Provider>,
+    );
 
     expect(tree).toMatchSnapshot();
   });
+  const classroom = {
+    length: '',
+  };
   test('Should press Data and show calendar', async () => {
     const {getByTestId, UNSAFE_getByType} = render(
-      <ClassroomContext.Provider value={{getClassroom}}>
+      <ClassroomContext.Provider value={{classroom, getClassroom}}>
         <ConfirmedClass navigation={navigation} />
       </ClassroomContext.Provider>,
     );
@@ -30,7 +37,7 @@ describe('Testing CompletedClass page', () => {
   });
   test("Should press 'Continue' Button", async () => {
     const {getByTestId} = render(
-      <ClassroomContext.Provider value={{getClassroom}}>
+      <ClassroomContext.Provider value={{classroom, getClassroom}}>
         <ConfirmedClass navigation={navigation} />
       </ClassroomContext.Provider>,
     );
