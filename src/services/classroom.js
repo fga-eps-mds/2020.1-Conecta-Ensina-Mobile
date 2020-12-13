@@ -100,26 +100,27 @@ export async function getClassroom(student, teacher, status, Host) {
     return data.data.classroom;
   } catch (error) {
     console.log(error);
+    return error;
   }
 }
 
 export async function updateStatusClassroom(id, status, Host) {
-  const response = await fetch(`${Host}/api/classroom/status/${id}`, {
-    method: 'PUT',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      status: status,
-    }),
-  });
   try {
+    const response = await fetch(`${Host}/api/classroom/status/${id}`, {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        status: status,
+      }),
+    });
     const data = await response.json();
     //console.log('Success: ', data);
     return data;
   } catch (error) {
-    //console.log(error);
+    return error;
   }
   //console.log(response);
 }

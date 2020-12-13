@@ -8,10 +8,7 @@ import {SubjectContext} from '../../contexts/subject';
 import CustomText from '../../components/CustomText';
 
 export default function TeacherSubject({navigation}) {
-  const [selectedId, setSelectedId] = useState(null);
   const [listButtons] = useState([]);
-  const [selectedButtons] = useState([]);
-  //for (let index = 0; index < subject.length; index++) {}
   const {subject, loadSubjects} = useContext(SubjectContext);
 
   useEffect(() => {
@@ -73,6 +70,7 @@ export default function TeacherSubject({navigation}) {
         </Container>
         <ContainerButton>
           <NextButton
+            testID="NextButton"
             onPress={() => {
               let buttons = [];
 

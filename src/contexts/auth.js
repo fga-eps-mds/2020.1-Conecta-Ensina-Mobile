@@ -87,19 +87,19 @@ export default function AuthProvider({children}) {
   }, []);
 
   async function signIn(email, password) {
-    const settings = {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
-    };
-    const fetchResponse1 = await fetch(`${Host}/api/user/login`, settings);
     try {
+      const settings = {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      };
+      const fetchResponse1 = await fetch(`${Host}/api/user/login`, settings);
       const data = await fetchResponse1.json();
       console.log('Success');
       if (data.message) {
