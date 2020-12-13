@@ -67,4 +67,4 @@ coverage/
 .env
 .env.development
 .env.production
-/android/app/conf.gradle
+# /android/app/conf.gradle

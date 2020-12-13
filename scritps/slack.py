@@ -17,7 +17,7 @@ try:
     # Uploading files requires the `files:write` scope
     result = client.files_upload(
         channels=channel_id,
-        initial_comment="Here's my file :smile:",
+        initial_comment="Finalmente deploy do conecta-ensina? Talvez...",
         file=file_name,
     )
     # Log the result

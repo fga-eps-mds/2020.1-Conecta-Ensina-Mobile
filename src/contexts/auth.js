@@ -13,6 +13,7 @@ export default function AuthProvider({children}) {
   const [loading, setLoading] = useState(true);
 
   const Host = `${HOST}`;
+  console.log(Host);
 
   useEffect(() => {
     async function loadStorage() {
