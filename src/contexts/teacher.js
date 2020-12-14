@@ -8,10 +8,9 @@ export default function TeacherProvider({children}) {
   const [teacher, setTeacher] = useState({});
   const {Host} = useContext(AuthContext);
 
-  async function loadTeachers() {
-    const response = await Teacher.getAllTeachers(Host);
+  async function loadTeachers(subject) {
+    const response = await Teacher.getAllTeachers(Host, subject);
     if (teacher !== response) {
-      console.log(response);
       setTeacher(response);
     }
   }

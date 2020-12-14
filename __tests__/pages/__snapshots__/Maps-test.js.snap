@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Maps page Should match snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#184E79",
+        "display": "flex",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "flex-end",
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "flexBasis": 0,
+        "flexDirection": "row-reverse",
+        "flexGrow": 10,
+        "flexShrink": 1,
+        "marginBottom": "5%",
+        "opacity": 1,
+        "paddingBottom": "10%",
+        "paddingLeft": "10%",
+        "paddingRight": "10%",
+        "paddingTop": "10%",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Roboto",
+            "fontSize": 20,
+            "textAlign": "center",
+          },
+        ]
+      }
+      white={true}
+    >
+      Selecione as disciplinas em que deseja lecionar
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderTopLeftRadius": 20,
+          "borderTopRightRadius": 20,
+          "display": "flex",
+          "flexBasis": 0,
+          "flexGrow": 78,
+          "flexShrink": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <AIRMap
+      handlePanDrag={false}
+      initialRegion={
+        Object {
+          "latitude": -15.8644976,
+          "latitudeDelta": 0.0922,
+          "longitude": -48.0351302,
+          "longitudeDelta": 0.0421,
+        }
+      }
+      onChange={[Function]}
+      onLayout={[Function]}
+      onMapReady={[Function]}
+      onMarkerPress={[Function]}
+      region={null}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <AIRMapMarker
+        coordinate={
+          Object {
+            "latitude": -15.8644976,
+            "longitude": -48.0351302,
+          }
+        }
+        description="Local onde ocorrerá a aula"
+        onPress={[Function]}
+        stopPropagation={false}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "position": "absolute",
+            },
+            undefined,
+          ]
+        }
+        title="Local de aula"
+      />
+    </AIRMap>
+  </View>
+</View>
+`;

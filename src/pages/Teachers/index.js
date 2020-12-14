@@ -5,15 +5,17 @@ import SquareButton from '../../components/ContainerStars';
 import ContinueContainer from '../../components/ContinueContainer';
 import {TeacherContext} from '../../contexts/teacher';
 import Background1 from '../../components/Background1';
-import {TeacherList} from './styles';
+import {TeacherList, ContainerButtons} from './styles';
 
-export default function Teachers({navigation}) {
-  const {teacher, loadTeachers} = useContext(TeacherContext);
+export default function Teachers({navigation, route}) {
+  const {teacher, loadTeachers, getTeacher} = useContext(TeacherContext);
   const [selectedId, setSelectedId] = useState(null);
+
+  console.log(teacher);
 
   useEffect(() => {
     if (teacher !== {}) {
-      loadTeachers();
+      loadTeachers(route.params.subject);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -34,9 +36,16 @@ export default function Teachers({navigation}) {
               item.id === selectedId
                 ? theme.colors.azulClaro
                 : theme.colors.cinzaClaro;
+
+            console.log(
+              item.Student.User.firstName + ' ' + item.Student.User.lastName,
+            );
             return (
               <SquareButton
                 data={item}
+                name={
+                  item.Student.User.firstName + ' ' + item.Student.User.lastName
+                }
                 onPress={() => setSelectedId(item.id)}
                 img={require('../../assets/user_blue.png')}
                 styleContainer={{backgroundColor}}
@@ -45,16 +54,20 @@ export default function Teachers({navigation}) {
             );
           }}
         />
-        <ContinueContainer
-          onPress={() => {
-            if (selectedId === null) {
-              Alert.alert('Você deve selecionar um professor');
-            } else {
-              navigation.navigate('TeacherProfile', {selectedId});
-            }
-          }}
-          marginTop={{value: '128%'}}
-        />
+        <ContainerButtons>
+          <ContinueContainer
+            testID="Continue"
+            onPress={async () => {
+              if (selectedId === null) {
+                Alert.alert('Você deve selecionar um professor');
+              } else {
+                await getTeacher(selectedId);
+                navigation.navigate('TeacherProfile', {selectedId});
+              }
+            }}
+            marginTop={{value: '128%'}}
+          />
+        </ContainerButtons>
       </Background1>
     </Theme>
   );

@@ -2,11 +2,19 @@ import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
 import CompletedClass from '../../src/pages/CompletedClass';
 import {ClassroomContext} from '../../src/contexts/classroom';
+import {StudentContext} from '../../src/contexts/student';
+
 describe('Testing CompletedClass page', () => {
   const navigation = {
     navigate: jest.fn(),
   };
   let statusClasses;
+  const setStudent = jest.fn();
+  const setStatusClass = jest.fn();
+  const studentStack = [{user: {firstName: '', lastName: ''}}];
+  const classroom = {
+    length: '',
+  };
   beforeEach(() => {
     statusClasses = [
       {
@@ -25,11 +33,27 @@ describe('Testing CompletedClass page', () => {
   });
   test('Should match snapshot', () => {
     const tree = render(
-      <ClassroomContext.Provider value={{statusClasses}}>
-        <CompletedClass navigation={navigation} />
-      </ClassroomContext.Provider>,
+      <StudentContext.Provider value={{studentStack}}>
+        <ClassroomContext.Provider value={{statusClasses}}>
+          <CompletedClass navigation={navigation} />
+        </ClassroomContext.Provider>
+      </StudentContext.Provider>,
     );
 
     expect(tree).toMatchSnapshot();
+  });
+  test("Should press button 'VerMais'", () => {
+    const {getAllByTestId} = render(
+      <StudentContext.Provider value={{setStudent, studentStack}}>
+        <ClassroomContext.Provider value={{setStatusClass, statusClasses}}>
+          <CompletedClass navigation={navigation} />
+        </ClassroomContext.Provider>
+      </StudentContext.Provider>,
+    );
+
+    const button = getAllByTestId('VerMais');
+
+    fireEvent.press(button[0]);
+    fireEvent.press(button[1]);
   });
 });

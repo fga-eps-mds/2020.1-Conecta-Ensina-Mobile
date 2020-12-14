@@ -1,0 +1,351 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Subjects page Should renders page 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#184E79",
+        "display": "flex",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "flex-end",
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "flexBasis": 0,
+        "flexDirection": "row-reverse",
+        "flexGrow": 10,
+        "flexShrink": 1,
+        "marginBottom": "5%",
+        "opacity": 1,
+        "paddingBottom": "10%",
+        "paddingLeft": "10%",
+        "paddingRight": "10%",
+        "paddingTop": "10%",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "Roboto",
+            "fontSize": 20,
+            "textAlign": "center",
+          },
+        ]
+      }
+      white={true}
+    >
+      Selecione as disciplinas em que deseja lecionar
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderTopLeftRadius": 20,
+          "borderTopRightRadius": 20,
+          "display": "flex",
+          "flexBasis": 0,
+          "flexGrow": 78,
+          "flexShrink": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderRadius": 20,
+            "bottom": "13.3%",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": "-5.7%",
+          },
+        ]
+      }
+    >
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "id": 1,
+            },
+            Object {
+              "id": 2,
+            },
+          ]
+        }
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Array [
+            Object {
+              "alignSelf": "center",
+              "flexBasis": 0,
+              "flexGrow": 6,
+              "flexShrink": 1,
+            },
+          ]
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#D9D9D9",
+                    "borderRadius": 10,
+                    "height": 95,
+                    "marginBottom": 20,
+                    "marginRight": 20,
+                    "opacity": 1,
+                    "width": 95,
+                  }
+                }
+                testID="SquareButton"
+              >
+                <Image
+                  style={
+                    Array [
+                      Object {
+                        "height": 50,
+                        "marginTop": 8,
+                        "width": 60,
+                      },
+                    ]
+                  }
+                />
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "paddingTop": 10,
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    black={true}
+                    smaller={true}
+                    style={
+                      Array [
+                        Object {
+                          "color": "black",
+                          "fontFamily": "Roboto",
+                          "fontSize": 12,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  />
+                </View>
+              </View>
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#D9D9D9",
+                    "borderRadius": 10,
+                    "height": 95,
+                    "marginBottom": 20,
+                    "marginRight": 20,
+                    "opacity": 1,
+                    "width": 95,
+                  }
+                }
+                testID="SquareButton"
+              >
+                <Image
+                  style={
+                    Array [
+                      Object {
+                        "height": 50,
+                        "marginTop": 8,
+                        "width": 60,
+                      },
+                    ]
+                  }
+                />
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "paddingTop": 10,
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    black={true}
+                    smaller={true}
+                    style={
+                      Array [
+                        Object {
+                          "color": "black",
+                          "fontFamily": "Roboto",
+                          "fontSize": 12,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+      <View
+        style={
+          Array [
+            Object {
+              "alignSelf": "center",
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        <View
+          marginTop={
+            Object {
+              "value": "23%",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+                "marginTop": "23%",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "alignSelf": "center",
+                "backgroundColor": "#297FB8",
+                "borderRadius": 8,
+                "height": 31,
+                "justifyContent": "center",
+                "opacity": 1,
+                "width": 138,
+              }
+            }
+            testID="ContinueContainer"
+          >
+            <Text
+              bigSmall={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "Roboto",
+                    "fontSize": 16,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+              white={true}
+            >
+              Continuar
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

@@ -33,7 +33,7 @@ export const UserContatiner = styled.View`
 
 export const ButtonContainer = styled.View`
   flex-direction: row;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: center;
   margin-left: 12.5%;
   margin-top: 2%;

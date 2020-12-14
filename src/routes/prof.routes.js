@@ -8,10 +8,13 @@ import CompletedClass from '../pages/CompletedClass';
 import TeacherProfile2 from '../pages/TeacherProfile2';
 import PendingClassConfirmation from '../pages/PendingClassConfirmation';
 import EditTeacher from '../pages/EditTeacher';
+import ShowClass from '../pages/ShowClass';
+import ClassroomDetails from '../pages/ClassroomDetails';
 import TeacherClassDetails from '../pages/TeacherClassDetails';
 import StudentAvaliation from '../pages/StudentAvaliation';
 import FeedbackTeacher from '../pages/FeedbackTeacher';
 import Chat from '../pages/Chat';
+import Maps from '../pages/Maps';
 //import FeedbackStudent from '../pages/FeedbackStudent';
 
 // import { Container } from './styles';
@@ -61,6 +64,11 @@ function ProfRoutes() {
         options={{headerShown: false}}
       />
       <ProfStack.Screen
+        name="ShowClass"
+        component={ShowClass}
+        options={{headerShown: false}}
+      />
+      <ProfStack.Screen
         name="TeacherClassDetails"
         component={TeacherClassDetails}
         options={{headerShown: false}}
@@ -78,6 +86,11 @@ function ProfRoutes() {
       <ProfStack.Screen
         name="Chat"
         component={Chat}
+        options={{headerShown: false}}
+      />
+      <ProfStack.Screen
+        name="Maps"
+        component={Maps}
         options={{headerShown: false}}
       />
     </ProfStack.Navigator>

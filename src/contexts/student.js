@@ -6,6 +6,7 @@ export const StudentContext = createContext({});
 
 export default function UserProvider({children}) {
   const [student, setStudent] = useState({});
+  const [studentStack, setStudentStack] = useState([]);
   const {Host} = useContext(AuthContext);
 
   async function getStudent(id) {
@@ -15,15 +16,13 @@ export default function UserProvider({children}) {
     }
   }
 
-  async function getStudent2(id) {
-    const response = await Student.getStudent2(Host, id);
-    if (student !== response) {
-      setStudent(response);
-    }
+  async function stackStudents(list) {
+    setStudentStack(list);
   }
 
   return (
-    <StudentContext.Provider value={{student, getStudent, getStudent2}}>
+    <StudentContext.Provider
+      value={{student, getStudent, studentStack, stackStudents, setStudent}}>
       {children}
     </StudentContext.Provider>
   );

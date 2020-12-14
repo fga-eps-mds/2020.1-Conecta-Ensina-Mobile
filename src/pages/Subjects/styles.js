@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+
 export const ListSubjects = styled.FlatList`
   align-self: center;
   flex: 6;

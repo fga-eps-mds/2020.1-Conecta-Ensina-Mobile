@@ -1,9 +1,9 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import Theme from '../../../Theme';
 import {Formik} from 'formik';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
-import RegField from '../../components/RegField';
+import EditField from '../../components/EditField';
 import GeneralPicker from '../../components/GeneralPicker';
 import * as yup from 'yup';
 
@@ -14,26 +14,27 @@ import {
   Container,
   InfoContainer,
   ButtonContainer,
+  ContainerBotao,
 } from './styles';
 
 export default function Edit({navigation}) {
   const {user, student, updateUser} = useContext(AuthContext);
   function handleEdit(values) {
+    console.log('passei aqui');
     updateUser(values, user.id);
     navigation.navigate('Profile');
   }
-
   let initials = {
-    name: '' /*user && user.firstName*/,
-    surname: '' /*user && user.lastName*/,
-    email: '' /*user && user.email*/,
-    cellphone: '' /*student && student.cep*/,
-    grade: '',
-    school: '',
-    cep: '',
-    num: '',
-    details: '',
-    description: '',
+    name: user && user.firstName,
+    surname: user && user.lastName,
+    email: user && user.email,
+    cellphone: user && user.cellphone,
+    grade: student && student.grade,
+    school: student && student.institution,
+    cep: student && student.cep,
+    num: student && student.number,
+    details: student && student.details ? student.details : '',
+    description: student && student.description ? student.description : '',
   };
 
   let Schema = yup.object().shape({
@@ -64,16 +65,16 @@ export default function Edit({navigation}) {
     num: yup
       .number('Número do endereço deve ser um numero')
       .required('É necessário indicar um número do endereço'),
-    details: yup
-      .string('Complemento deve ser um texto')
-      .required('É necessário indicar o complemento'),
-    description: yup.string().required('É necessário indicar uma descriação'),
+    details: yup.string('Complemento deve ser um texto').nullable(),
+    description: yup.string().nullable(),
   });
+  let info;
 
   return (
     <Theme>
       <Background1>
         <Formik
+          enableReinitialize
           initialValues={initials}
           validateOnChange={false}
           validateOnBlur={false}
@@ -90,118 +91,84 @@ export default function Edit({navigation}) {
             <>
               <Container>
                 <InfoContainer>
-                  <TextContainer>
-                    <RegField
-                      placeholder={user && user.firstName}
-                      value={values.name}
-                      onChangeText={handleChange('name')}
-                    />
-                    {errors.name && touched.name && (
-                      <CustomText black small>
-                        {errors.name}
-                      </CustomText>
-                    )}
-                  </TextContainer>
-                  <TextContainer>
-                    <RegField
-                      placeholder={user && user.lastName}
-                      value={values.surname}
-                      onChangeText={handleChange('surname')}
-                    />
-                    {errors.surname && touched.surname && (
-                      <CustomText black small>
-                        {errors.surname}
-                      </CustomText>
-                    )}
-                  </TextContainer>
-                  <TextContainer>
-                    <RegField
-                      placeholder={user && user.email}
-                      value={values.email}
-                      onChangeText={handleChange('email')}
-                    />
-                    {errors.email && touched.email && (
-                      <CustomText black small>
-                        {errors.email}
-                      </CustomText>
-                    )}
-                  </TextContainer>
-                  <TextContainer>
-                    <RegField
-                      placeholder={user && user.cellphone}
-                      value={values.cellphone}
-                      onChangeText={handleChange('cellphone')}
-                    />
-                    {errors.cellphone && (
-                      <CustomText black small>
-                        {errors.cellphone}
-                      </CustomText>
-                    )}
-                  </TextContainer>
-                  <TextContainer>
-                    <RegField
-                      placeholder={student && student.cep}
-                      value={values.cep}
-                      onChangeText={handleChange('cep')}
-                    />
-                    {errors.cep && (
-                      <CustomText black small>
-                        {errors.cep}
-                      </CustomText>
-                    )}
-                  </TextContainer>
-                  <TextContainer>
-                    <RegField
-                      placeholder={student && student.number.toString()}
-                      value={values.num}
-                      onChangeText={handleChange('num')}
-                    />
-                    {errors.num && (
-                      <CustomText black small>
-                        {errors.num}
-                      </CustomText>
-                    )}
-                  </TextContainer>
-                  <TextContainer>
-                    <RegField
-                      placeholder={student && student.details}
-                      value={values.details}
-                      onChangeText={handleChange('details')}
-                    />
-                    {errors.details && (
-                      <CustomText black small>
-                        {errors.details}
-                      </CustomText>
-                    )}
-                  </TextContainer>
-                  <TextContainer>
-                    <RegField
-                      placeholder={student && student.description}
-                      value={values.description}
-                      onChangeText={handleChange('description')}
-                    />
-                    {errors.description && (
-                      <CustomText black small>
-                        {errors.description}
-                      </CustomText>
-                    )}
-                  </TextContainer>
-                  <TextContainer>
-                    <RegField
-                      placeholder={student && student.institution}
-                      value={values.school}
-                      onChangeText={handleChange('school')}
-                    />
-                    {errors.institution && (
-                      <CustomText black small>
-                        {errors.school}
-                      </CustomText>
-                    )}
-                  </TextContainer>
+                  {
+                    ((info = [
+                      {
+                        field: 'Nome',
+                        value: values.name,
+                        change: 'name',
+                        error: errors && errors.name,
+                      },
+                      {
+                        field: 'Sobrenome',
+                        value: values.surname,
+                        change: 'surname',
+                        error: errors && errors.surname,
+                      },
+                      {
+                        field: 'Email',
+                        value: values.email,
+                        change: 'email',
+                        error: errors && errors.email,
+                      },
+                      {
+                        field: 'Celular',
+                        value: values.cellphone,
+                        change: 'cellphone',
+                        error: errors && errors.cellphone,
+                      },
+                      {
+                        field: 'CEP',
+                        value: values.cep,
+                        change: 'cep',
+                        error: errors && errors.cep,
+                      },
+                      {
+                        field: 'Número do endereço',
+                        value: values.num,
+                        change: 'num',
+                        error: errors && errors.num,
+                        placeholder: values.num.toString(),
+                      },
+                      {
+                        field: 'Complemento do endereço',
+                        value: values.details,
+                        change: 'details',
+                        error: errors && errors.details,
+                      },
+                      {
+                        field: 'Descrição',
+                        value: values.description,
+                        change: 'description',
+                        error: errors && errors.description,
+                      },
+                      {
+                        field: 'Instituição',
+                        value: values.institution,
+                        change: 'institution',
+                        error: errors && errors.institution,
+                      },
+                    ]),
+                    info.map((item, index) => {
+                      return (
+                        <EditField
+                          key={index}
+                          field={item.field}
+                          placeholder={item.placeholder}
+                          value={item.value}
+                          onChangeText={handleChange(item.change)}
+                          errors={item.error}
+                        />
+                      );
+                    }))
+                  }
+                  <CustomText black medium>
+                    Série
+                  </CustomText>
                   <TextContainer>
                     <GeneralPicker
                       grade
-                      value={values.grade}
+                      placeholderValue={student && student.grade}
                       onChange={(value) => setFieldValue('grade', value, false)}
                     />
                     {errors.grade && (
@@ -212,11 +179,13 @@ export default function Edit({navigation}) {
                   </TextContainer>
                 </InfoContainer>
               </Container>
-              <ButtonContainer onPress={handleSubmit}>
-                <CustomText white bigSmall>
-                  Salvar
-                </CustomText>
-              </ButtonContainer>
+              <ContainerBotao>
+                <ButtonContainer onPress={handleSubmit} testID="button">
+                  <CustomText white bigSmall>
+                    Salvar
+                  </CustomText>
+                </ButtonContainer>
+              </ContainerBotao>
             </>
           )}
         </Formik>
@@ -224,3 +193,15 @@ export default function Edit({navigation}) {
     </Theme>
   );
 }
+/*(info = [
+                          {
+                            text:
+                              user && user.firstName
+                                ? user.firstName
+                                : 'Não informado',
+                            field: 'Nome',
+                            value: values.name,
+                            change: 'name',
+                            error: errors && errors.name,
+                          },
+                        ]),*/

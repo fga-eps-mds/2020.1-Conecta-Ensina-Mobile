@@ -1,0 +1,689 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing ConfirmedClassDetais page Should render page 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#184E79",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+  testID="background"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#184E79",
+          "flexBasis": 0,
+          "flexGrow": 0.7,
+          "flexShrink": 1,
+          "justifyContent": "center",
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "marginBottom": "8.4%",
+          },
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../src/assets/logo.png",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexGrow": 2,
+              "flexShrink": 1,
+              "height": 120,
+              "width": 120,
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 100,
+              "flexBasis": 0,
+              "flexGrow": 1.2,
+              "flexShrink": 1,
+              "height": 58,
+              "justifyContent": "center",
+              "marginTop": "5.5%",
+              "width": 58,
+            },
+          ]
+        }
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../src/assets/user_blue.png",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "height": "63%",
+                "width": "52%",
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexGrow": 0.8,
+              "flexShrink": 1,
+              "justifyContent": "center",
+              "marginTop": "5%",
+              "paddingTop": "1%",
+            },
+          ]
+        }
+      >
+        <View
+          marginTop={
+            Object {
+              "value": "2%",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "marginBottom": 0,
+                "marginTop": "2%",
+              },
+            ]
+          }
+        >
+          <Text
+            bigMedium={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 30,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          >
+            first last
+          </Text>
+        </View>
+        <View
+          marginTop={
+            Object {
+              "value": "2%",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "marginBottom": 0,
+                "marginTop": "2%",
+              },
+            ]
+          }
+        >
+          <Text
+            smallMedium={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 20,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          >
+            Invalid Grade
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderTopLeftRadius": 20,
+          "borderTopRightRadius": 20,
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+            "width": "100%",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexBasis": 0,
+              "flexDirection": "column",
+              "flexGrow": 0.8,
+              "flexShrink": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          marginBot={
+            Object {
+              "value": "1%",
+            }
+          }
+          marginTop={
+            Object {
+              "value": "2%",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "marginBottom": "1%",
+                "marginTop": "2%",
+              },
+            ]
+          }
+        >
+          <Text
+            black={true}
+            smallMedium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 20,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Disciplina
+          </Text>
+        </View>
+        <View
+          medium={true}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#E46270",
+                "borderRadius": 15,
+                "height": 40,
+                "justifyContent": "center",
+                "textAlign": "center",
+                "width": 196,
+              },
+            ]
+          }
+        >
+          <Text
+            small={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          >
+            subject
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexBasis": 0,
+              "flexDirection": "column",
+              "flexGrow": 0.8,
+              "flexShrink": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          marginBot={
+            Object {
+              "value": "1%",
+            }
+          }
+          marginTop={
+            Object {
+              "value": "2%",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "marginBottom": "1%",
+                "marginTop": "2%",
+              },
+            ]
+          }
+        >
+          <Text
+            black={true}
+            smallMedium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 20,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Data
+          </Text>
+        </View>
+        <View
+          medium={true}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#E46270",
+                "borderRadius": 15,
+                "height": 40,
+                "justifyContent": "center",
+                "textAlign": "center",
+                "width": 196,
+              },
+            ]
+          }
+        >
+          <Text
+            small={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexBasis": 0,
+              "flexDirection": "column",
+              "flexGrow": 0.8,
+              "flexShrink": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          marginBot={
+            Object {
+              "value": "1%",
+            }
+          }
+          marginTop={
+            Object {
+              "value": "2%",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "marginBottom": "1%",
+                "marginTop": "2%",
+              },
+            ]
+          }
+        >
+          <Text
+            black={true}
+            smallMedium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 20,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Horário
+          </Text>
+        </View>
+        <View
+          medium={true}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#E46270",
+                "borderRadius": 15,
+                "height": 40,
+                "justifyContent": "center",
+                "textAlign": "center",
+                "width": 196,
+              },
+            ]
+          }
+        >
+          <Text
+            small={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexBasis": 0,
+              "flexDirection": "column",
+              "flexGrow": 0.8,
+              "flexShrink": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          marginBot={
+            Object {
+              "value": "1%",
+            }
+          }
+          marginTop={
+            Object {
+              "value": "2%",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "marginBottom": "1%",
+                "marginTop": "2%",
+              },
+            ]
+          }
+        >
+          <Text
+            black={true}
+            smallMedium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 20,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Duração
+          </Text>
+        </View>
+        <View
+          medium={true}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#E46270",
+                "borderRadius": 15,
+                "height": 40,
+                "justifyContent": "center",
+                "textAlign": "center",
+                "width": 196,
+              },
+            ]
+          }
+        >
+          <Text
+            small={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          >
+            11 Horas
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexBasis": 0,
+              "flexDirection": "column",
+              "flexGrow": 0.8,
+              "flexShrink": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          marginBot={
+            Object {
+              "value": "1%",
+            }
+          }
+          marginTop={
+            Object {
+              "value": "2%",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "marginBottom": "1%",
+                "marginTop": "2%",
+              },
+            ]
+          }
+        >
+          <Text
+            black={true}
+            smallMedium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 20,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Modalidade
+          </Text>
+        </View>
+        <View
+          medium={true}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#E46270",
+                "borderRadius": 15,
+                "height": 40,
+                "justifyContent": "center",
+                "textAlign": "center",
+                "width": 196,
+              },
+            ]
+          }
+        >
+          <Text
+            small={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "justifyContent": "center",
+              "marginTop": 0,
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "backgroundColor": "#297FB8",
+              "borderRadius": 8,
+              "height": 31,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": 138,
+            }
+          }
+          testID="ContinueContainer"
+        >
+          <Text
+            bigSmall={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          >
+            Continuar
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

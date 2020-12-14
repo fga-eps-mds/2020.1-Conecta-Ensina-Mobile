@@ -23,33 +23,6 @@ export const ContainerGrande = styled.View`
   align-items: center;
 `;
 
-export const ContainerMedio = styled.View`
-  background-color: ${(props) => props.theme.colors.fundoAzul};
-  width: 75%;
-  height: 100%;
-  border-radius: 9px;
-  justify-content: center;
-  align-items: center;
-`;
-export const ContainerPequeno = styled.View`
-  background-color: ${(props) => props.theme.colors.fundoAzul};
-  width: 20%;
-  height: 100%;
-  border-radius: 9px;
-  margin-right: 5%;
-  align-items: center;
-  justify-content: center;
-`;
-export const ContainerGrupo = styled.View`
-  background-color: ${(props) => props.theme.colors.branco};
-  display: flex;
-  flex-direction: row;
-  width: 78%;
-  height: 9%;
-  margin-top: 8%;
-  align-items: center;
-`;
-
 export const ContainerComplain = styled.View`
   align-items: center;
   justify-content: center;
