@@ -1,0 +1,60 @@
+name: Generate APK
+
+on:
+  push:
+    branches: [feature/112-continuos-delivey]
+jobs:
+  build:
+    name: CI Build
+    # needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Modules
+        run: npm ci
+      - uses: actions/checkout@v2
+      - name: Build container
+        env:
+          HOST: ${{ secrets.HOST }}
+          MAPS_API_KEY: ${{ secrets.MAPS_API_KEY }}
+        run: |
+          echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+          npm ci
+          cd ./android
+          ./gradlew assembleRelease
+      - uses: actions/upload-artifact@master
+        with:
+          name: apk
+          path: ./android/app/build/outputs/apk/release/
+  release:
+    name: 'Release'
+    needs: build
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Downlaod APK File
+        uses: actions/download-artifact@master
+        with:
+          name: apk
+      - name: Github Release
+        uses: 'marvinpinto/action-automatic-releases@latest'
+        with:
+          repo_token: '${{ secrets.GITHUB_TOKEN }}'
+          automatic_release_tag: 'latest'
+          prerelease: false
+          files: |
+            LICENSE.txt
+            *.apk
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+      - name: Slack Script
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          CONVERSATION_ID: ${{ secrets.CONVERSATION_ID }}
+        run: |
+          ls
+          pip3 install slack_sdk
+          python slack.py
