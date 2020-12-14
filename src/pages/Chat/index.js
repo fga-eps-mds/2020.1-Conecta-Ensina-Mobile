@@ -4,28 +4,29 @@ import Theme from '../../../Theme';
 import {
   Background,
   Header,
-  Nome,
-  Lista,
+  Name,
+  List,
   SubmitContainer,
-  Texto,
-  CampoDeTexto,
-  SubimitButton,
+  Text,
+  TextContainer,
+  SubmitButton,
 } from './styles';
 import TextCard from '../../components/TextCard';
 import TextCard2 from '../../components/TextCard2';
-import { chatContext } from '../../contexts/chat';
-import { AuthContext } from '../../contexts/auth';
+import {chatContext} from '../../contexts/chat';
+import {AuthContext} from '../../contexts/auth';
 
 export default function Chat() {
   const {user} = useContext(AuthContext);
   const {chat, createChat, readChat} = useContext(chatContext);
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
-    readChat()
-  }, [chat])
-   
-  function handleSubmit(){
+    readChat();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chat]);
+
+  function handleSubmit() {
     createChat(message);
     setMessage('');
   }
@@ -34,9 +35,9 @@ export default function Chat() {
     <Theme>
       <Background>
         <Header>
-          <Nome>{user && user.firstName}</Nome>
+          <Name>{user && user.firstName}</Name>
         </Header>
-        <Lista
+        <List
           data={chat}
           keyExtractor={(item) => item.id}
           renderItem={({item}) =>
@@ -48,14 +49,15 @@ export default function Chat() {
           }
         />
         <SubmitContainer>
-          <CampoDeTexto 
+          <TextContainer
+            testID="textContainer"
             autoCapitalize="none"
             value={message}
             onChangeText={(text) => setMessage(text)}
           />
-          <SubimitButton onPress={handleSubmit}>
-            <Texto>Enviar</Texto>
-          </SubimitButton>
+          <SubmitButton testID="submitButton" onPress={handleSubmit}>
+            <Text>Enviar</Text>
+          </SubmitButton>
         </SubmitContainer>
       </Background>
     </Theme>

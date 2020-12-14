@@ -12,14 +12,14 @@ export const Header = styled.View`
   justify-content: center;
 `;
 
-export const Nome = styled.Text`
+export const Name = styled.Text`
   color: ${(props) => props.theme.colors.branco};
   font-size: 18px;
 `;
 
-export const Lista = styled.FlatList``;
+export const List = styled.FlatList``;
 
-export const CampoDeTexto = styled.TextInput`
+export const TextContainer = styled.TextInput`
   height: 40px;
   width: 240px;
   border-radius: 20px;
@@ -33,7 +33,7 @@ export const SubmitContainer = styled.View`
   margin-bottom: 10%;
 `;
 
-export const SubimitButton = styled.TouchableOpacity`
+export const SubmitButton = styled.TouchableOpacity`
   margin-left: 35px;
   height: 40px;
   width: 75px;
@@ -43,7 +43,7 @@ export const SubimitButton = styled.TouchableOpacity`
   justify-content: center;
 `;
 
-export const Texto = styled.Text`
+export const Text = styled.Text`
   color: ${(props) => props.theme.colors.branco};
   font-size: 14px;
 `;

@@ -1,7 +1,7 @@
 import React, {createContext, useState, useContext, useEffect} from 'react';
 import {AuthContext} from './auth';
 import * as Chat from '../services/chat';
-import { ClassroomContext } from './classroom';
+import {ClassroomContext} from './classroom';
 
 export const chatContext = createContext({});
 
@@ -11,21 +11,22 @@ export default function ChatProvider({children}) {
   const [chat, setChat] = useState(null);
 
   useEffect(() => {
-      readChat()
-  }, [])
+    readChat();
+  }, []);
 
   async function createChat(text) {
     const response = await Chat.createMessage(
-        user.id, 
-        text, 
-        classroom.id, 
-        classroom.teacher, 
-        classroom.student, 
-        Host)
+      user.id,
+      text,
+      classroom.id,
+      classroom.teacher,
+      classroom.student,
+      Host,
+    );
   }
 
   async function readChat() {
-    console.log(classroom)
+    console.log(classroom);
     const response = await Chat.getChat(Host, classroom.id);
     if (chat !== response) {
       setChat(response);
@@ -36,7 +37,7 @@ export default function ChatProvider({children}) {
       value={{
         readChat,
         createChat,
-        chat
+        chat,
       }}>
       {children}
     </chatContext.Provider>
