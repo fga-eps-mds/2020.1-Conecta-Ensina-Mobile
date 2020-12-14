@@ -29,7 +29,7 @@ export const RegsContainer = styled.ScrollView.attrs(() => ({
 `;
 
 export const ButtonRegistrar = styled.Button.attrs((props) => ({
-  title: 'registrar',
+  title: 'Próximo',
   color: props.theme.colors.azulClaro,
 }))``;
 

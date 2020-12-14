@@ -24,7 +24,7 @@ export const UrgentClassButton = styled(ButtonGeral)`
   margin-top: 5%;
 `;
 
-export const ClassContainer = styled.View`
+export const ClassContainer = styled.TouchableOpacity`
   background-color: ${(props) => props.theme.colors.cinzaClaro};
   width: 78%;
   height: 58%;

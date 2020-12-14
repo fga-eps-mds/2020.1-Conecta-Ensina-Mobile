@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {BlueContainer, WhiteContainer, Logo, ButtonRegistrar} from './styles';
 import CustomText from '../CustomText';
 import Theme from '../../../Theme';
+import {SubjectContext} from '../../contexts/subject';
 
 export default function Background3({children, navigation, student}) {
+  const {loadSubjects} = useContext(SubjectContext);
   return (
     <Theme>
       <BlueContainer>
@@ -12,7 +14,10 @@ export default function Background3({children, navigation, student}) {
         {student && (
           <ButtonRegistrar
             testID="buttonRegistrar"
-            onPress={() => navigation.navigate('TeacherRegister')}>
+            onPress={async () => {
+              await loadSubjects();
+              navigation.navigate('TeacherSubject');
+            }}>
             <CustomText white small>
               Seja Professor
             </CustomText>

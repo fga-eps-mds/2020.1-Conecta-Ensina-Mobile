@@ -6,7 +6,7 @@ describe('Testing geoCode services', () => {
     fetch.resetMocks();
   });
 
-  test('Should return ', async () => {
+  test('Should geocode works and return location', async () => {
     fetch.mockResponseOnce(
       JSON.stringify({
         results: [
@@ -35,15 +35,14 @@ describe('Testing geoCode services', () => {
       status: 'OK',
     });
   });
-  /*test('Should press Data and show calendar', () => {
-    const {getByTestId, debug} = render(
-      <ConfirmedClass navigation={navigation} />,
+  test('Should geocode failed and return error', async () => {
+    fetch.mockReject(() => Promise.reject('Geocode Failure'));
+    let response = await GeoCode.geocode('71234567');
+
+    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(fetch).toHaveBeenCalledWith(
+      'https://maps.googleapis.com/maps/api/geocode/json?address=71234567&key=APIKEYHERE',
     );
-
-    const button = getByTestId('DataButton');
-
-    fireEvent.press(button);
-
-    debug();
-  });*/
+    expect(response).toEqual('Geocode Failure');
+  });
 });

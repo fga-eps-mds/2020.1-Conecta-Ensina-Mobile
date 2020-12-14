@@ -69,8 +69,8 @@ export default function HomeProf({navigation}) {
                   if (nextScreen === 'CompletedClass') {
                     await loadStatusClassesStudents(4);
                   }
-                  if (nextScreen === 'TeacherClassDetails') {
-                    await getStudent(classroom.student);
+                  if (nextScreen === 'PendingClass') {
+                    await loadStatusClassesStudents(1);
                   }
                   navigation.navigate(nextScreen);
                 }}

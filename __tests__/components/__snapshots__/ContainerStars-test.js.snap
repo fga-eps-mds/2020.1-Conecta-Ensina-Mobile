@@ -59,9 +59,7 @@ exports[`Testing ContainerStars component Should render component 1`] = `
           },
         ]
       }
-    >
-      name
-    </Text>
+    />
   </View>
 </View>
 `;
