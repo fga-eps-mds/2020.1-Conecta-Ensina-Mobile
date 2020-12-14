@@ -24,8 +24,6 @@ export default function ConfirmedClass({navigation}) {
     setNewDate(new Date(dateInc[0], dateInc[1], dateInc[2], horarioInc[0] - 2));
   };
 
-  console.log(dates);
-
   return (
     <Theme>
       <Background1 navigation={navigation} page={'TeacherProfile2'}>
