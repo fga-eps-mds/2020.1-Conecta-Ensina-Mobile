@@ -3,11 +3,12 @@ import Theme from '../../../Theme';
 
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
+import ProfileFields from '../../components/ProfileFields';
+import gradeResolver from '../../services/gradeResolver';
 
 import {AuthContext} from '../../contexts/auth';
 
 import {
-  TextContainer,
   Container,
   InfoContainer,
   ButtonContainer,
@@ -16,61 +17,67 @@ import {
 
 export default function Profile({navigation}) {
   const {user, student, signOut} = useContext(AuthContext);
+  let infoList = [
+    {
+      text: user && user.firstName ? user.firstName : 'Não informado',
+      field: 'Nome',
+    },
+    {
+      text: user && user.lastName ? user.lastName : 'Não informado',
+      field: 'Sobrenome',
+    },
+    {
+      text: user && user.email ? user.email : 'Não informado',
+      field: 'Email',
+    },
+    {
+      text: user && user.cellphone ? user.cellphone : 'Não informado',
+      field: 'Celular',
+    },
+    {
+      text: student && student.cep ? student.cep : 'Não informado',
+      field: 'CEP',
+    },
+    {
+      text: student && student.number ? student.number : 'Não informado',
+      field: 'Número do endereço',
+    },
+    {
+      text: student && student.details ? student.details : 'Não informado',
+      field: 'Complemento do endereço',
+    },
+    {
+      text: student && student.cpf ? student.cpf : 'Não informado',
+      field: 'CPF',
+    },
+    {
+      text:
+        student && student.grade
+          ? gradeResolver(student.grade)
+          : 'Não informado',
+      field: 'Grau de estudo',
+    },
+    {
+      text:
+        student && student.description ? student.description : 'Não informado',
+      field: 'Descrição',
+    },
+    {
+      text:
+        student && student.institution ? student.institution : 'Não informado',
+      field: 'Instituição de estudo',
+    },
+  ];
   return (
     <Theme>
       <Background1 navigation={navigation}>
         <Container>
           <InfoContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {user && user.firstName}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {user && user.lastName}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {user && user.email}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {user && user.cellphone}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {student && student.cep}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {student && student.number}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {student && student.details}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {student && student.cpf}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {student && student.description}
-              </CustomText>
-            </TextContainer>
-            <TextContainer>
-              <CustomText white medium>
-                {student && student.institution}
-              </CustomText>
-            </TextContainer>
+            {infoList.map((item, key) => (
+              <ProfileFields key={key} field={item.field}>
+                {item.text}
+              </ProfileFields>
+            ))}
           </InfoContainer>
         </Container>
         <ContainerBotao>

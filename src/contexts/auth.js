@@ -427,7 +427,8 @@ export default function AuthProvider({children}) {
     const fetchResponse1 = await fetch(`${Host}/api/user/${id}`, settings1);
 
     try {
-      const data = await fetchResponse1.json();
+      //const data = await fetchResponse1.json();
+      await fetchResponse1.json();
       console.log('Success');
     } catch (error) {
       console.error('Error:', error);
@@ -447,8 +448,8 @@ export default function AuthProvider({children}) {
           cpf: student.cpf,
           cep: values.cep,
           number: values.num,
-          details: values.details,
-          description: values.description,
+          details: values.details === '' ? null : values.details,
+          description: values.description === '' ? null : values.decription,
           special: student.special,
         }),
       };
@@ -457,7 +458,8 @@ export default function AuthProvider({children}) {
         settings2,
       );
       try {
-        const data2 = await fetchResponse2.json();
+        //const data2 = await fetchResponse2.json();
+        await fetchResponse2.json();
         console.log('Success');
       } catch (error) {
         console.error('Error:', error);

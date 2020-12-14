@@ -81,15 +81,10 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
             "borderRadius": 20,
             "borderStyle": "solid",
             "borderWidth": 4,
-            "bottom": "13.3%",
             "flexBasis": 0,
             "flexGrow": 1,
             "flexShrink": 1,
             "justifyContent": "center",
-            "left": 0,
-            "position": "absolute",
-            "right": 0,
-            "top": "-5.7%",
           },
         ]
       }
@@ -104,13 +99,28 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
           Array [
             Object {
               "height": "64.28%",
-              "marginTop": "7.6%",
               "width": "100%",
             },
           ]
         }
       >
         <View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Nome
+          </Text>
           <View
             style={
               Array [
@@ -120,7 +130,6 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
                   "width": 280,
                 },
               ]
@@ -130,6 +139,7 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               allowFontScaling={true}
               multiline={true}
               onChangeText={[Function]}
+              placeholder="Não informado"
               placeholderTextColor="#F6F6F6"
               rejectResponderTermination={true}
               style={
@@ -150,6 +160,22 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               underlineColorAndroid="transparent"
             />
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Sobrenome
+          </Text>
           <View
             style={
               Array [
@@ -159,7 +185,6 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
                   "width": 280,
                 },
               ]
@@ -169,6 +194,7 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               allowFontScaling={true}
               multiline={true}
               onChangeText={[Function]}
+              placeholder="Não informado"
               placeholderTextColor="#F6F6F6"
               rejectResponderTermination={true}
               style={
@@ -189,6 +215,22 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               underlineColorAndroid="transparent"
             />
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Email
+          </Text>
           <View
             style={
               Array [
@@ -198,7 +240,6 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
                   "width": 280,
                 },
               ]
@@ -208,6 +249,7 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               allowFontScaling={true}
               multiline={true}
               onChangeText={[Function]}
+              placeholder="Não informado"
               placeholderTextColor="#F6F6F6"
               rejectResponderTermination={true}
               style={
@@ -228,6 +270,22 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               underlineColorAndroid="transparent"
             />
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Celular
+          </Text>
           <View
             style={
               Array [
@@ -237,7 +295,6 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
                   "width": 280,
                 },
               ]
@@ -247,6 +304,7 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               allowFontScaling={true}
               multiline={true}
               onChangeText={[Function]}
+              placeholder="Não informado"
               placeholderTextColor="#F6F6F6"
               rejectResponderTermination={true}
               style={
@@ -267,6 +325,22 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               underlineColorAndroid="transparent"
             />
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            CEP
+          </Text>
           <View
             style={
               Array [
@@ -276,7 +350,6 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
                   "width": 280,
                 },
               ]
@@ -286,6 +359,7 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               allowFontScaling={true}
               multiline={true}
               onChangeText={[Function]}
+              placeholder="Não informado"
               placeholderTextColor="#F6F6F6"
               rejectResponderTermination={true}
               style={
@@ -306,6 +380,22 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               underlineColorAndroid="transparent"
             />
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Número do endereço
+          </Text>
           <View
             style={
               Array [
@@ -315,7 +405,6 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
                   "width": 280,
                 },
               ]
@@ -325,6 +414,7 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               allowFontScaling={true}
               multiline={true}
               onChangeText={[Function]}
+              placeholder="100"
               placeholderTextColor="#F6F6F6"
               rejectResponderTermination={true}
               style={
@@ -345,6 +435,22 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               underlineColorAndroid="transparent"
             />
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Complemento do endereço
+          </Text>
           <View
             style={
               Array [
@@ -354,7 +460,6 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
                   "width": 280,
                 },
               ]
@@ -364,6 +469,7 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               allowFontScaling={true}
               multiline={true}
               onChangeText={[Function]}
+              placeholder="Não informado"
               placeholderTextColor="#F6F6F6"
               rejectResponderTermination={true}
               style={
@@ -384,6 +490,22 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               underlineColorAndroid="transparent"
             />
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Descrição
+          </Text>
           <View
             style={
               Array [
@@ -393,7 +515,6 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
                   "width": 280,
                 },
               ]
@@ -403,6 +524,7 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               allowFontScaling={true}
               multiline={true}
               onChangeText={[Function]}
+              placeholder="Não informado"
               placeholderTextColor="#F6F6F6"
               rejectResponderTermination={true}
               style={
@@ -423,6 +545,22 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               underlineColorAndroid="transparent"
             />
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Instituição
+          </Text>
           <View
             style={
               Array [
@@ -432,7 +570,6 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
                   "width": 280,
                 },
               ]
@@ -442,6 +579,7 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               allowFontScaling={true}
               multiline={true}
               onChangeText={[Function]}
+              placeholder="Não informado"
               placeholderTextColor="#F6F6F6"
               rejectResponderTermination={true}
               style={
@@ -462,6 +600,22 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               underlineColorAndroid="transparent"
             />
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Video
+          </Text>
           <View
             style={
               Array [
@@ -471,7 +625,281 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
+                  "width": 280,
+                },
+              ]
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              multiline={true}
+              onChangeText={[Function]}
+              placeholder="Não informado"
+              placeholderTextColor="#F6F6F6"
+              rejectResponderTermination={true}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#184E79",
+                    "borderRadius": 10,
+                    "color": "#ffffff",
+                    "height": 45,
+                    "justifyContent": "center",
+                    "marginTop": "5%",
+                    "width": 280,
+                  },
+                ]
+              }
+              textAlign="center"
+              underlineColorAndroid="transparent"
+            />
+          </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Diploma
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#184E79",
+                  "borderRadius": 9,
+                  "height": 50,
+                  "justifyContent": "center",
+                  "width": 280,
+                },
+              ]
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              multiline={true}
+              onChangeText={[Function]}
+              placeholder="Não informado"
+              placeholderTextColor="#F6F6F6"
+              rejectResponderTermination={true}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#184E79",
+                    "borderRadius": 10,
+                    "color": "#ffffff",
+                    "height": 45,
+                    "justifyContent": "center",
+                    "marginTop": "5%",
+                    "width": 280,
+                  },
+                ]
+              }
+              textAlign="center"
+              underlineColorAndroid="transparent"
+            />
+          </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Banco
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#184E79",
+                  "borderRadius": 9,
+                  "height": 50,
+                  "justifyContent": "center",
+                  "width": 280,
+                },
+              ]
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              multiline={true}
+              onChangeText={[Function]}
+              placeholder="Não informado"
+              placeholderTextColor="#F6F6F6"
+              rejectResponderTermination={true}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#184E79",
+                    "borderRadius": 10,
+                    "color": "#ffffff",
+                    "height": 45,
+                    "justifyContent": "center",
+                    "marginTop": "5%",
+                    "width": 280,
+                  },
+                ]
+              }
+              textAlign="center"
+              underlineColorAndroid="transparent"
+            />
+          </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Agência
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#184E79",
+                  "borderRadius": 9,
+                  "height": 50,
+                  "justifyContent": "center",
+                  "width": 280,
+                },
+              ]
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              multiline={true}
+              onChangeText={[Function]}
+              placeholder="Não informado"
+              placeholderTextColor="#F6F6F6"
+              rejectResponderTermination={true}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#184E79",
+                    "borderRadius": 10,
+                    "color": "#ffffff",
+                    "height": 45,
+                    "justifyContent": "center",
+                    "marginTop": "5%",
+                    "width": 280,
+                  },
+                ]
+              }
+              textAlign="center"
+              underlineColorAndroid="transparent"
+            />
+          </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Conta
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#184E79",
+                  "borderRadius": 9,
+                  "height": 50,
+                  "justifyContent": "center",
+                  "width": 280,
+                },
+              ]
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              multiline={true}
+              onChangeText={[Function]}
+              placeholder="Não informado"
+              placeholderTextColor="#F6F6F6"
+              rejectResponderTermination={true}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#184E79",
+                    "borderRadius": 10,
+                    "color": "#ffffff",
+                    "height": 45,
+                    "justifyContent": "center",
+                    "marginTop": "5%",
+                    "width": 280,
+                  },
+                ]
+              }
+              textAlign="center"
+              underlineColorAndroid="transparent"
+            />
+          </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Série
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#184E79",
+                  "borderRadius": 9,
+                  "height": 50,
+                  "justifyContent": "center",
                   "width": 280,
                 },
               ]
@@ -901,247 +1329,62 @@ exports[`Testing EditTeacher page Should renders page 1`] = `
               </View>
             </View>
           </View>
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#184E79",
-                  "borderRadius": 9,
-                  "height": 50,
-                  "justifyContent": "center",
-                  "marginTop": 20,
-                  "width": 280,
-                },
-              ]
-            }
-          >
-            <TextInput
-              allowFontScaling={true}
-              multiline={true}
-              onChangeText={[Function]}
-              placeholderTextColor="#F6F6F6"
-              rejectResponderTermination={true}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#184E79",
-                    "borderRadius": 10,
-                    "color": "#ffffff",
-                    "height": 45,
-                    "justifyContent": "center",
-                    "marginTop": "5%",
-                    "width": 280,
-                  },
-                ]
-              }
-              textAlign="center"
-              underlineColorAndroid="transparent"
-            />
-          </View>
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#184E79",
-                  "borderRadius": 9,
-                  "height": 50,
-                  "justifyContent": "center",
-                  "marginTop": 20,
-                  "width": 280,
-                },
-              ]
-            }
-          >
-            <TextInput
-              allowFontScaling={true}
-              multiline={true}
-              onChangeText={[Function]}
-              placeholderTextColor="#F6F6F6"
-              rejectResponderTermination={true}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#184E79",
-                    "borderRadius": 10,
-                    "color": "#ffffff",
-                    "height": 45,
-                    "justifyContent": "center",
-                    "marginTop": "5%",
-                    "width": 280,
-                  },
-                ]
-              }
-              textAlign="center"
-              underlineColorAndroid="transparent"
-            />
-          </View>
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#184E79",
-                  "borderRadius": 9,
-                  "height": 50,
-                  "justifyContent": "center",
-                  "marginTop": 20,
-                  "width": 280,
-                },
-              ]
-            }
-          >
-            <TextInput
-              allowFontScaling={true}
-              multiline={true}
-              onChangeText={[Function]}
-              placeholderTextColor="#F6F6F6"
-              rejectResponderTermination={true}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#184E79",
-                    "borderRadius": 10,
-                    "color": "#ffffff",
-                    "height": 45,
-                    "justifyContent": "center",
-                    "marginTop": "5%",
-                    "width": 280,
-                  },
-                ]
-              }
-              textAlign="center"
-              underlineColorAndroid="transparent"
-            />
-          </View>
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#184E79",
-                  "borderRadius": 9,
-                  "height": 50,
-                  "justifyContent": "center",
-                  "marginTop": 20,
-                  "width": 280,
-                },
-              ]
-            }
-          >
-            <TextInput
-              allowFontScaling={true}
-              multiline={true}
-              onChangeText={[Function]}
-              placeholderTextColor="#F6F6F6"
-              rejectResponderTermination={true}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#184E79",
-                    "borderRadius": 10,
-                    "color": "#ffffff",
-                    "height": 45,
-                    "justifyContent": "center",
-                    "marginTop": "5%",
-                    "width": 280,
-                  },
-                ]
-              }
-              textAlign="center"
-              underlineColorAndroid="transparent"
-            />
-          </View>
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#184E79",
-                  "borderRadius": 9,
-                  "height": 50,
-                  "justifyContent": "center",
-                  "marginTop": 20,
-                  "width": 280,
-                },
-              ]
-            }
-          >
-            <TextInput
-              allowFontScaling={true}
-              multiline={true}
-              onChangeText={[Function]}
-              placeholderTextColor="#F6F6F6"
-              rejectResponderTermination={true}
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#184E79",
-                    "borderRadius": 10,
-                    "color": "#ffffff",
-                    "height": 45,
-                    "justifyContent": "center",
-                    "marginTop": "5%",
-                    "width": 280,
-                  },
-                ]
-              }
-              textAlign="center"
-              underlineColorAndroid="transparent"
-            />
-          </View>
         </View>
       </RCTScrollView>
     </View>
     <View
-      accessible={true}
-      focusable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "alignItems": "center",
-          "alignSelf": "center",
-          "backgroundColor": "#E46270",
-          "borderRadius": 5,
-          "flexBasis": 0,
-          "flexGrow": 1,
-          "flexShrink": 1,
-          "height": 50,
-          "justifyContent": "center",
-          "marginTop": "110%",
-          "opacity": 1,
-          "width": 280,
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexBasis": 0,
+            "flexGrow": 0.15,
+            "flexShrink": 1,
+            "justifyContent": "center",
+          },
+        ]
       }
     >
-      <Text
-        bigSmall={true}
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "Roboto",
-              "fontSize": 16,
-              "textAlign": "center",
-            },
-          ]
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "backgroundColor": "#E46270",
+            "borderRadius": 5,
+            "height": 50,
+            "justifyContent": "center",
+            "opacity": 1,
+            "width": 280,
+          }
         }
-        white={true}
       >
-        Salvar
-      </Text>
+        <Text
+          bigSmall={true}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "Roboto",
+                "fontSize": 16,
+                "textAlign": "center",
+              },
+            ]
+          }
+          white={true}
+        >
+          Salvar
+        </Text>
+      </View>
     </View>
   </View>
 </View>

@@ -12,7 +12,7 @@ import CustomText from '../../components/CustomText';
 export default function CompletedClass({navigation}) {
   const {statusClasses, setStatusClass} = useContext(ClassroomContext);
   const {studentStack, setStudent} = useContext(StudentContext);
-
+  console.log(statusClasses);
   useEffect(() => {
     console.log(studentStack);
     // eslint-disable-next-line react-hooks/exhaustive-deps
