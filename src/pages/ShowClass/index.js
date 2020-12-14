@@ -15,14 +15,16 @@ import {StudentContext} from '../../contexts/student';
 
 export default function ShowClass({navigation}) {
   const {user} = useContext(AuthContext);
-  const {statusClasses} = useContext(ClassroomContext);
+  const {statusClasses, readClass} = useContext(ClassroomContext);
   const {getStudent} = useContext(StudentContext);
 
   async function handleButton({item}) {
     if (user.role === 2) {
+      await readClass(item.id);
       await getStudent(item.student);
       navigation.navigate('TeacherClassDetails', {item});
     } else {
+      await readClass(item.id);
       await getStudent(item.teacher);
       navigation.navigate('ClassroomDetails', {item});
     }

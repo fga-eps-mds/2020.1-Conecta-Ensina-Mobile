@@ -22,6 +22,8 @@ describe('Testing Classroom Context', () => {
       getClass,
       updateStatusClasses,
       loadStatusClassesStudents,
+      updateStatusClassroom,
+      getClassroom,
     } = useContext(ClassroomContext);
     return (
       <View>
@@ -58,6 +60,14 @@ describe('Testing Classroom Context', () => {
         <TouchableOpacity
           testID="loadStatusClassesStudents"
           onPress={() => loadStatusClassesStudents()}
+        />
+        <TouchableOpacity
+          testID="updateStatusClassroom"
+          onPress={() => updateStatusClassroom()}
+        />
+        <TouchableOpacity
+          testID="getClassroom"
+          onPress={() => getClassroom()}
         />
       </View>
     );
@@ -163,6 +173,37 @@ describe('Testing Classroom Context', () => {
     );
 
     const button = getByTestId('updateStatusClasses');
+
+    await act(async () => {
+      await fireEvent.press(button);
+    });
+  });
+
+  test('Should triggers updateStatusClassroom', async () => {
+    const {getByTestId} = render(
+      <AuthContext.Provider value={{user}}>
+        <ClassroomProvider>
+          <TestComponent />
+        </ClassroomProvider>
+      </AuthContext.Provider>,
+    );
+
+    const button = getByTestId('updateStatusClassroom');
+
+    await act(async () => {
+      await fireEvent.press(button);
+    });
+  });
+  test('Should triggers getClassroom', async () => {
+    const {getByTestId} = render(
+      <AuthContext.Provider value={{user}}>
+        <ClassroomProvider>
+          <TestComponent />
+        </ClassroomProvider>
+      </AuthContext.Provider>,
+    );
+
+    const button = getByTestId('getClassroom');
 
     await act(async () => {
       await fireEvent.press(button);

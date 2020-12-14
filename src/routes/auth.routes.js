@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Login from '../pages/Login';
 import StudentRegister from '../pages/StudentRegister';
 import TeacherRegister from '../pages/TeacherRegister';
+import TeacherSubject from '../pages/TeacherSubject';
 
 const AuthStack = createStackNavigator();
 
@@ -22,6 +23,11 @@ function AuthRoutes() {
       <AuthStack.Screen
         name="TeacherRegister"
         component={TeacherRegister}
+        options={{headerShown: false}}
+      />
+      <AuthStack.Screen
+        name="TeacherSubject"
+        component={TeacherSubject}
         options={{headerShown: false}}
       />
     </AuthStack.Navigator>

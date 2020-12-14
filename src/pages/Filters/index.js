@@ -24,9 +24,10 @@ export default function Filters({navigation, route}) {
   const [horario, setHorario] = useState('');
   const [selected, setSelected] = useState(null);
   const [newDate, setNewDate] = useState(new Date());
-
   const {loadTeachers} = useContext(TeacherContext);
   const {setFilters} = useContext(FiltersContext);
+
+  const subject = route.params.selectedId;
 
   useEffect(() => {
     setFilters(type, newDate, duration, route.params.selectedId);
@@ -72,8 +73,8 @@ export default function Filters({navigation, route}) {
               if (selected === null || duration === null || horario === '') {
                 Alert.alert('Você deve preencher todos os campos');
               } else {
-                await loadTeachers();
-                navigation.navigate('Teachers');
+                await loadTeachers(subject);
+                navigation.navigate('Teachers', {subject});
               }
             }}
             marginTop={{value: '0%'}}

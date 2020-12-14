@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing Subjects page Should renders page 1`] = `
+exports[`Testing TeacherSubject page Should renders page 1`] = `
 <View
   style={
     Array [
@@ -124,9 +124,8 @@ exports[`Testing Subjects page Should renders page 1`] = `
         style={
           Array [
             Object {
-              "alignSelf": "center",
               "flexBasis": 0,
-              "flexGrow": 6,
+              "flexGrow": 1,
               "flexShrink": 1,
             },
           ]
@@ -271,79 +270,61 @@ exports[`Testing Subjects page Should renders page 1`] = `
           </View>
         </View>
       </RCTScrollView>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "flex-end",
+            "marginBottom": "10%",
+          },
+        ]
+      }
+    >
       <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "alignSelf": "center",
-              "flexBasis": 0,
-              "flexGrow": 1,
-              "flexShrink": 1,
-            },
-          ]
-        }
-      >
-        <View
-          marginTop={
-            Object {
-              "value": "23%",
-            }
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "backgroundColor": "#297FB8",
+            "borderRadius": 8,
+            "height": 31,
+            "justifyContent": "center",
+            "opacity": 1,
+            "width": 138,
           }
+        }
+        testID="NextButton"
+      >
+        <Text
+          small={true}
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "flexBasis": 0,
-                "flexGrow": 1,
-                "flexShrink": 1,
-                "justifyContent": "center",
-                "marginTop": "23%",
+                "color": "#ffffff",
+                "fontFamily": "Roboto",
+                "fontSize": 14,
+                "textAlign": "center",
               },
             ]
           }
+          white={true}
         >
-          <View
-            accessible={true}
-            focusable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "alignItems": "center",
-                "alignSelf": "center",
-                "backgroundColor": "#297FB8",
-                "borderRadius": 8,
-                "height": 31,
-                "justifyContent": "center",
-                "opacity": 1,
-                "width": 138,
-              }
-            }
-            testID="ContinueContainer"
-          >
-            <Text
-              bigSmall={true}
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontFamily": "Roboto",
-                    "fontSize": 16,
-                    "textAlign": "center",
-                  },
-                ]
-              }
-              white={true}
-            >
-              Continuar
-            </Text>
-          </View>
-        </View>
+          Próxima
+        </Text>
       </View>
     </View>
   </View>

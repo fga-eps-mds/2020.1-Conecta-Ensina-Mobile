@@ -1,12 +1,10 @@
-import React, {useEffect, useContext, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import Theme from '../../../Theme';
 import Background2 from '../../components/Background2';
 import CustomTextContainer from '../../components/CustomTextContainer';
-import {UserContext} from '../../contexts/user';
 import {StudentContext} from '../../contexts/student';
 import {RateContext} from '../../contexts/rate';
 import gradeResolver from '../../services/gradeResolver';
-import {ClassroomContext} from '../../contexts/classroom';
 import {Rating} from 'react-native-ratings';
 import {
   ContainerB,
@@ -22,11 +20,10 @@ import {
 
 export default function TeacherAvaliation({props, navigation}) {
   const {student} = useContext(StudentContext);
-  const {user} = useContext(UserContext);
   const {createRate} = useContext(RateContext);
   const [comment, setComment] = useState('');
   const [rating, setRating] = useState(0);
- 
+
   return (
     <Theme>
       <Background2
@@ -38,7 +35,8 @@ export default function TeacherAvaliation({props, navigation}) {
             </UserContainer>
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
-                {user && user.firstName + ' ' + user.lastName}
+                {student &&
+                  student.User.firstName + ' ' + student.User.lastName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '2%'}}>
                 {student && gradeResolver(student.grade)}
@@ -65,9 +63,9 @@ export default function TeacherAvaliation({props, navigation}) {
               defaultValue={comment}
             />
             <SubmitReview
-              onPress={() => {
-                  createRate(comment, 2, rating);
-                  navigation.navigate('Home');
+              onPress={async () => {
+                await createRate(comment, 2, rating);
+                navigation.navigate('Home');
               }}>
               <CustomTextContainer white medium>
                 Enviar Avaliação

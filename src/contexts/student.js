@@ -12,7 +12,7 @@ export default function UserProvider({children}) {
   async function getStudent(id) {
     const response = await Student.getStudent(Host, id);
     if (student !== response) {
-      await setStudent(response);
+      setStudent(response);
     }
   }
 

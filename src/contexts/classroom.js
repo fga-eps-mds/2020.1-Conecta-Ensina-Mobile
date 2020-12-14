@@ -57,7 +57,7 @@ export default function ClassroomProvider({children}) {
     const response = await Class.getClassroom(student, teacher, status, Host);
 
     if (classroom !== response) {
-      console.log(response);
+      //console.log(response);
       setStatusClasses(response);
     }
   }
@@ -84,7 +84,7 @@ export default function ClassroomProvider({children}) {
     if (statusClasses !== response) {
       await setStatusClasses(response);
     }
-    console.log(response);
+    //console.log(response);
     return response;
   }
 
@@ -136,7 +136,7 @@ export default function ClassroomProvider({children}) {
   async function geoCode(cep) {
     const response = await GeoCode.geocode(cep);
     if (coordenates !== response) {
-      console.log(response.results[0].geometry.location);
+      //console.log(response.results[0].geometry.location);
       setCoordenates(response.results[0].geometry.location);
     }
   }
