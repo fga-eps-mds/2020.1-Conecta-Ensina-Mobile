@@ -42,8 +42,7 @@ export default function ClassroomDetails({navigation, route}) {
   const {student} = useContext(StudentContext);
 
   const [start, setStart] = useState(!classroom);
-  const [run, setRun] = useState(true);
-
+  const [run] = useState(true);
   const [press, setPress] = useState(false);
   const [press2, setPress2] = useState(false);
 
