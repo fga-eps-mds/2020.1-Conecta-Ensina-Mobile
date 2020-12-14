@@ -1,25 +1,23 @@
 sudo: required
 
+branches:
+  except:
+  - master
+
 language:
   - node_js
-  - python
 
 node_js:
   - "12.18.1"
 
-python:
-  - "3.8"
+# services:
+#   - docker
 
 stages:
   - Tests
-  - Upload APK to slack
 
 before_install:
-  - pip3 install --upgrade pip
-
-install:
   - yarn install
-  - pip install slack_sdk
 
 jobs:
   include:
@@ -29,10 +27,3 @@ jobs:
         # run tests
         - yarn test --coverage
         - ./node_modules/.bin/codecov -t ${CODECOV_MOBILE_TOKEN}
-
-    - stage: "Upload APK to slack"
-      name: "Upload APK to slack"
-      if: (NOT type IN (pull_request)) AND branch = feature/112-continuous-delivey
-      script:
-        - yarn android-release
-        - python3 ./scripts/slack.py
