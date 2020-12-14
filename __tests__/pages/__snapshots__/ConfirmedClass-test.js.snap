@@ -1379,7 +1379,7 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                   }
                 >
                   <View
-                    accessibilityLabel="today Sunday 13 December 2020 "
+                    accessibilityLabel=" Sunday 13 December 2020 "
                     accessibilityRole="button"
                     accessible={true}
                     focusable={true}
@@ -1393,8 +1393,6 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                     style={
                       Object {
                         "alignItems": "center",
-                        "backgroundColor": undefined,
-                        "borderRadius": 16,
                         "height": 32,
                         "opacity": 1,
                         "width": 32,
@@ -1413,9 +1411,6 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                             "fontSize": 16,
                             "fontWeight": "300",
                             "marginTop": 6,
-                          },
-                          Object {
-                            "color": "#00BBF2",
                           },
                         ]
                       }
@@ -1446,7 +1441,7 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                   }
                 >
                   <View
-                    accessibilityLabel=" Monday 14 December 2020 "
+                    accessibilityLabel="today Monday 14 December 2020 "
                     accessibilityRole="button"
                     accessible={true}
                     focusable={true}
@@ -1460,6 +1455,8 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                     style={
                       Object {
                         "alignItems": "center",
+                        "backgroundColor": undefined,
+                        "borderRadius": 16,
                         "height": 32,
                         "opacity": 1,
                         "width": 32,
@@ -1478,6 +1475,9 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                             "fontSize": 16,
                             "fontWeight": "300",
                             "marginTop": 6,
+                          },
+                          Object {
+                            "color": "#00BBF2",
                           },
                         ]
                       }
