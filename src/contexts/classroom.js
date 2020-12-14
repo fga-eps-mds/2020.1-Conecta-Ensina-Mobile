@@ -104,7 +104,7 @@ export default function ClassroomProvider({children}) {
     const response = await Class.readClass(Host, id);
     const address = await Address.findAddress(response.cep);
     let responseClass = {
-      id: response.role,
+      id: response.id,
       status: response.status,
       teacher: response.teacher,
       student: response.student,

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Container, Texto } from './styles';
+import {Container, TextMessage} from './styles';
 
 export default function TextCard({data}) {
- return (
-   <Container>
-     <Texto>{data.text}</Texto>
-   </Container>
+  return (
+    <Container>
+      <TextMessage>{data.text}</TextMessage>
+    </Container>
   );
 }

@@ -89,7 +89,7 @@ exports[`Testing Chat page should view all the chat message 1`] = `
               Object {
                 "alignItems": "center",
                 "alignSelf": "flex-end",
-                "backgroundColor": "#297FB8",
+                "backgroundColor": "#297fb8",
                 "borderRadius": 20,
                 "justifyContent": "center",
                 "marginBottom": 10,
@@ -120,7 +120,7 @@ exports[`Testing Chat page should view all the chat message 1`] = `
               Object {
                 "alignItems": "center",
                 "alignSelf": "flex-start",
-                "backgroundColor": "#7ED957",
+                "backgroundColor": "#7ed957",
                 "borderRadius": 20,
                 "justifyContent": "center",
                 "marginBottom": 10,
