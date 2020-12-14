@@ -7,9 +7,20 @@ describe('Testing Teachers page', () => {
   const navigation = {
     navigate: jest.fn(),
   };
+  const route = {
+    params: {
+      subject: '',
+    },
+  };
   const teacher = [
     {
       id: '',
+      Student: {
+        User: {
+          firstName: '',
+          lastName: '',
+        },
+      },
     },
   ];
   const getTeacher = jest.fn();
@@ -17,7 +28,7 @@ describe('Testing Teachers page', () => {
   test('Should renders page', () => {
     const tree = render(
       <TeacherContext.Provider value={{teacher, getTeacher, loadTeachers}}>
-        <Teachers navigation={navigation} />
+        <Teachers navigation={navigation} route={route} />
       </TeacherContext.Provider>,
     );
 
@@ -26,7 +37,7 @@ describe('Testing Teachers page', () => {
   test('Should press a teacher button', () => {
     const {getAllByTestId} = render(
       <TeacherContext.Provider value={{teacher, getTeacher, loadTeachers}}>
-        <Teachers navigation={navigation} />
+        <Teachers navigation={navigation} route={route} />
       </TeacherContext.Provider>,
     );
     const buttons = getAllByTestId('ContainerStars');
@@ -37,7 +48,7 @@ describe('Testing Teachers page', () => {
   test('Should press continue before press a teacher', async () => {
     const {getByTestId, getAllByTestId} = render(
       <TeacherContext.Provider value={{teacher, getTeacher, loadTeachers}}>
-        <Teachers navigation={navigation} />
+        <Teachers navigation={navigation} route={route} />
       </TeacherContext.Provider>,
     );
     const button = getByTestId('Continue');
@@ -54,7 +65,7 @@ describe('Testing Teachers page', () => {
   test('Should press continue after press a teacher', async () => {
     const {getByTestId} = render(
       <TeacherContext.Provider value={{teacher, getTeacher, loadTeachers}}>
-        <Teachers navigation={navigation} />
+        <Teachers navigation={navigation} route={route} />
       </TeacherContext.Provider>,
     );
     const button = getByTestId('Continue');

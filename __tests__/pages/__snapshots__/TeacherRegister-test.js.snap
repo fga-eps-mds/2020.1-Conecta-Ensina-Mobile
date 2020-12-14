@@ -202,6 +202,7 @@ exports[`Testing TeacherRegister page Should renders page 1`] = `
             <TextInput
               allowFontScaling={true}
               autoCapitalize="none"
+              onChangeText={[Function]}
               placeholder="Senha"
               placeholderTextColor="#F6F6F6"
               rejectResponderTermination={true}
@@ -215,6 +216,7 @@ exports[`Testing TeacherRegister page Should renders page 1`] = `
                 }
               }
               underlineColorAndroid="transparent"
+              value=""
             />
           </View>
           <TextInput
@@ -1284,7 +1286,7 @@ exports[`Testing TeacherRegister page Should renders page 1`] = `
               ]
             }
           >
-            registrar
+            Próximo
           </Text>
         </View>
       </View>

@@ -26,9 +26,13 @@ export default function Home({navigation}) {
     {id: '2', name: 'Idiomas', img: require('../../assets/books.png')},
     {id: '3', name: 'Vestibular', img: require('../../assets/books.png')},
   ]);
-  const {classroom, loadNextClass, firstClass, loadUserClasses} = useContext(
-    ClassroomContext,
-  );
+  const {
+    classroom,
+    loadNextClass,
+    firstClass,
+    loadUserClasses,
+    getClassroom,
+  } = useContext(ClassroomContext);
   const {loadSubjects} = useContext(SubjectContext);
 
   const [selectedId, setSelectedId] = useState(null);
@@ -71,7 +75,11 @@ export default function Home({navigation}) {
           }}
         />
         <CenterContainer>
-          <ClassContainer>
+          <ClassContainer
+            onPress={async () => {
+              await getClassroom(1);
+              navigation.navigate('ConfirmedClass');
+            }}>
             <ContainerClassUpper>
               <Icon source={require('../../assets/books.png')} />
               <CustomText bigSmall>Proxima Aula</CustomText>
@@ -89,15 +97,6 @@ export default function Home({navigation}) {
         </CenterContainer>
         <LowerContainer>
           <ContainerButtons>
-            <MarkClassButton
-              onPress={() => {
-                navigation.navigate('ConfirmedClass'); /*}catch(error){}*/
-              }}>
-              <Icon source={require('../../assets/books.png')} />
-              <CustomText white medium>
-                Aula Marcada
-              </CustomText>
-            </MarkClassButton>
             <UrgentClassButton>
               <Icon source={require('../../assets/books.png')} />
               <CustomText white medium>

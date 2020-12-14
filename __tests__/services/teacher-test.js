@@ -6,7 +6,7 @@ beforeEach(() => {
 
 describe('Testing Teacher services', () => {
   test('Should get all teachers', async () => {
-    fetch.mockResponseOnce(JSON.stringify({data: {user: 'José'}}));
+    fetch.mockResponseOnce(JSON.stringify({data: {teacher: 'José'}}));
 
     const data = await getAllTeachers('http://10.0.0.103:3333');
 

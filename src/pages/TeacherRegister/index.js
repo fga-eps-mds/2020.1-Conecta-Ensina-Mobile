@@ -22,9 +22,8 @@ import GeneralPicker from '../../components/GeneralPicker';
 import {FieldContainer} from '../../components/FieldContainer/styles';
 import PasswordInput from '../../components/PasswordInput';
 
-export default function TeacherRegister({navigation}) {
+export default function TeacherRegister({navigation, route}) {
   const {registerProf} = useContext(AuthContext);
-
   let initials = {
     name: '',
     surname: '',
@@ -47,6 +46,7 @@ export default function TeacherRegister({navigation}) {
     bank: '',
     agency: '',
     account: '',
+    subjects: route.params.buttons,
   };
 
   let Schema = yup.object().shape({
@@ -165,11 +165,11 @@ export default function TeacherRegister({navigation}) {
                     {errors.email}
                   </CustomText>
                 )}
-                <PasswordInput>
+                <PasswordInput
                   value={values.password}
                   onChangeText={handleChange('password')}
-                </PasswordInput>
-                {errors.password && (
+                />
+                {errors.password && touched.password && (
                   <CustomText black small>
                     {errors.password}
                   </CustomText>
@@ -347,7 +347,7 @@ export default function TeacherRegister({navigation}) {
                   value={values.agency}
                   onChangeText={handleChange('agency')}
                 />
-                {errors.agecy && (
+                {errors.agency && (
                   <CustomText black small>
                     {errors.agency}
                   </CustomText>

@@ -30,79 +30,32 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
         "alignItems": "center",
         "flexBasis": 0,
         "flexDirection": "row-reverse",
-        "flexGrow": 22,
+        "flexGrow": 10,
         "flexShrink": 1,
-        "marginLeft": 30,
+        "marginBottom": "5%",
         "opacity": 1,
+        "paddingBottom": "10%",
+        "paddingLeft": "10%",
+        "paddingRight": "10%",
+        "paddingTop": "10%",
       }
     }
   >
-    <View
-      accessible={true}
-      focusable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#ffffff",
-          "borderRadius": 1000,
-          "height": 58,
-          "justifyContent": "center",
-          "marginBottom": 30,
-          "marginLeft": 40,
-          "opacity": 1,
-          "width": 58,
-        }
-      }
-      testID="userAvatar"
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../src/assets/user_blue.png",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "height": 38,
-              "width": 33,
-            },
-          ]
-        }
-      />
-    </View>
-    <View
+    <Text
       style={
         Array [
           Object {
-            "marginBottom": 40,
-            "marginRight": 35,
+            "color": "#ffffff",
+            "fontFamily": "Roboto",
+            "fontSize": 20,
+            "textAlign": "center",
           },
         ]
       }
+      white={true}
     >
-      <Text
-        medium={true}
-        style={
-          Array [
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "Roboto",
-              "fontSize": 25,
-              "textAlign": "center",
-            },
-          ]
-        }
-        white={true}
-      />
-    </View>
+      Selecione as disciplinas em que deseja lecionar
+    </Text>
   </View>
   <View
     style={
@@ -1415,7 +1368,7 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                           }
                         >
                           <View
-                            accessibilityLabel=" Sunday 13 December 2020 "
+                            accessibilityLabel="today Sunday 13 December 2020 "
                             accessibilityRole="button"
                             accessible={true}
                             focusable={true}
@@ -1429,6 +1382,8 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                             style={
                               Object {
                                 "alignItems": "center",
+                                "backgroundColor": undefined,
+                                "borderRadius": 16,
                                 "height": 32,
                                 "opacity": 1,
                                 "width": 32,
@@ -1447,6 +1402,9 @@ exports[`Testing CompletedClass page Should match snapshot 1`] = `
                                     "fontSize": 16,
                                     "fontWeight": "300",
                                     "marginTop": 6,
+                                  },
+                                  Object {
+                                    "color": "#00BBF2",
                                   },
                                 ]
                               }

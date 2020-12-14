@@ -5,15 +5,17 @@ import ContinueContainer from '../../components/ContinueContainer';
 import Background1 from '../../components/Background1';
 import {ClassroomContext} from '../../contexts/classroom';
 import Calendars from '../../components/Calendar';
+import {resolveCalendarList} from '../../services/classroomCalendarList';
 
 export default function ConfirmedClass({navigation}) {
-  const {getClassroom} = useContext(ClassroomContext);
-
+  const {classroom, getClassroom} = useContext(ClassroomContext);
   const [newDate, setNewDate] = useState(new Date());
   const [type, setType] = useState('Online');
   const [duration, setDuration] = useState(null);
   const [horario, setHorario] = useState('');
   const [selected, setSelected] = useState(null);
+
+  const dates = resolveCalendarList(classroom);
 
   const onChange = (day) => {
     let dateInc = day.dateString.split('-');
@@ -22,19 +24,13 @@ export default function ConfirmedClass({navigation}) {
     setNewDate(new Date(dateInc[0], dateInc[1], dateInc[2], horarioInc[0] - 2));
   };
 
+  console.log(dates);
+
   return (
     <Theme>
       <Background1 navigation={navigation} page={'TeacherProfile2'}>
         <Container>
-          <Calendars
-            onDayPress={onChange}
-            markedDates={{
-              [selected]: {
-                selected: true,
-                selectedColor: theme.colors.azulClaro,
-              },
-            }}
-          />
+          <Calendars onDayPress={onChange} markedDates={dates} />
         </Container>
         <ContinueContainer
           testID="ContinueContainer"

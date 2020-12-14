@@ -87,19 +87,19 @@ export default function AuthProvider({children}) {
   }, []);
 
   async function signIn(email, password) {
-    const settings = {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
-    };
-    const fetchResponse1 = await fetch(`${Host}/api/user/login`, settings);
     try {
+      const settings = {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      };
+      const fetchResponse1 = await fetch(`${Host}/api/user/login`, settings);
       const data = await fetchResponse1.json();
       console.log('Success');
       if (data.message) {
@@ -189,6 +189,74 @@ export default function AuthProvider({children}) {
 
   async function registerProf(values, {setStatus}) {
     var ok = false;
+    console.log(
+      'firstName: ' +
+        values.name +
+        '\n' +
+        'lastName: ' +
+        values.surname +
+        '\n' +
+        'email: ' +
+        values.email +
+        '\n' +
+        'password: ' +
+        values.password +
+        '\n' +
+        'cellphone: ' +
+        values.cellphone +
+        '\n' +
+        'birthdate: ' +
+        values.birthdate +
+        '\n' +
+        'grade: ' +
+        values.grade +
+        '\n' +
+        'institution: ' +
+        values.school +
+        '\n' +
+        'cpf: ' +
+        values.cpf +
+        '\n' +
+        'cep: ' +
+        values.cep +
+        '\n' +
+        'number: ' +
+        values.num +
+        '\n' +
+        'details: ' +
+        values.details +
+        '\n' +
+        'description: ' +
+        values.description +
+        '\n' +
+        'special: ' +
+        values.special +
+        '\n' +
+        'photo: ' +
+        values.photo +
+        '\n' +
+        'video: ' +
+        values.video +
+        '\n' +
+        'graduation_area: ' +
+        values.graduation_area +
+        '\n' +
+        'degree: ' +
+        values.degree +
+        '\n' +
+        'bank: ' +
+        values.bank +
+        '\n' +
+        'agency: ' +
+        values.agency +
+        '\n' +
+        'account: ' +
+        values.account +
+        '\n' +
+        'subjects: ' +
+        values.subjects +
+        '\n',
+    );
     const settings = {
       method: 'POST',
       headers: {
@@ -206,7 +274,7 @@ export default function AuthProvider({children}) {
         institution: values.school,
         cpf: values.cpf,
         cep: values.cep,
-        number: values.number,
+        number: values.num,
         details: values.details,
         description: values.description,
         special: values.special,
@@ -217,8 +285,10 @@ export default function AuthProvider({children}) {
         bank: values.bank,
         agency: values.agency,
         account: values.account,
+        subjects: values.subjects,
       }),
     };
+
     const fetchResponse = await fetch(`${Host}/api/teacher/create`, settings);
     try {
       const data = await fetchResponse.json();
