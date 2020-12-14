@@ -4,6 +4,8 @@ import {Container, PickerView} from './styles';
 import {withTheme} from 'styled-components/native';
 
 function SeriePicker(props) {
+  const placeholderGeneral = {};
+
   const placeholderDuration = {
     label: 'Duração',
     value: null,
@@ -203,7 +205,7 @@ function SeriePicker(props) {
               ? placeholderDuration
               : props.time
               ? placeholderTime
-              : null
+              : placeholderGeneral
           }
           items={
             props.grade

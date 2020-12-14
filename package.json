@@ -6,10 +6,10 @@
     "android-linux": "npx react-native run-android && react-native start",
     "android": "npx react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start --reset-cache",
-    "test": "jest --coverage",
-    "lint": "eslint .",
-    "android-release": "cd android && ./gradlew assembleRelease --daemon"
+    "start": "react-native start",
+    "android-release": "cd android && ./gradlew assembleRelease --daemon",
+    "test": "jest -u",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.0",

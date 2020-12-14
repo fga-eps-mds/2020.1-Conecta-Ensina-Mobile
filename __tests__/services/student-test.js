@@ -10,7 +10,7 @@ describe('Testing Student services', () => {
 
     const data = await getStudent('http://10.0.0.103:3333');
 
-    expect(data).toEqual({student: 1});
+    expect(data).toEqual(1);
     expect(fetch).toHaveBeenCalledTimes(1);
   });
 });

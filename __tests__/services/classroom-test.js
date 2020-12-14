@@ -6,6 +6,8 @@ import {
   createClass,
   updateStatus,
   readClass,
+  updateStatusClassroom,
+  getClassroom,
 } from '../../src/services/classroom';
 
 beforeEach(() => {
@@ -141,6 +143,29 @@ describe('Testing classroom services', () => {
     expect(fetch).toBeCalledTimes(1);
   });
 
+  test('Should getClassroom function works', async () => {
+    fetch.mockResponseOnce(JSON.stringify({data: {classroom: 'Success'}}));
+
+    const data = await getClassroom(
+      {firstName: 'João'},
+      {firstName: 'José'},
+      1,
+      'http://10.0.0.103:3333',
+    );
+
+    expect(data).toEqual('Success');
+    expect(fetch).toBeCalledTimes(1);
+  });
+
+  test('Should updateStatusClassroom function works', async () => {
+    fetch.mockResponseOnce(JSON.stringify({data: {classroom: 'Success'}}));
+
+    const data = await updateStatusClassroom('id', 1, 'http://10.0.0.103:3333');
+
+    expect(data).toEqual({data: {classroom: 'Success'}});
+    expect(fetch).toBeCalledTimes(1);
+  });
+
   test('Should readClass function catch errors', async () => {
     fetch.mockReject(() => Promise.reject('API failure'));
 
@@ -162,6 +187,27 @@ describe('Testing classroom services', () => {
     fetch.mockReject(() => Promise.reject('API failure'));
 
     const data = await getClass('http://10.0.0.103:3333', '1');
+
+    expect(data).toEqual('API failure');
+    expect(fetch).toBeCalledTimes(1);
+  });
+  test('Should getClassroom function catch errors', async () => {
+    fetch.mockReject(() => Promise.reject('API failure'));
+
+    const data = await getClassroom(
+      {firstName: 'João'},
+      {firstName: 'José'},
+      1,
+      'http://10.0.0.103:3333',
+    );
+
+    expect(data).toEqual('API failure');
+    expect(fetch).toBeCalledTimes(1);
+  });
+  test('Should updateStatusClassroom function catch errors', async () => {
+    fetch.mockReject(() => Promise.reject('API failure'));
+
+    const data = await updateStatusClassroom('id', 1, 'http://10.0.0.103:3333');
 
     expect(data).toEqual('API failure');
     expect(fetch).toBeCalledTimes(1);

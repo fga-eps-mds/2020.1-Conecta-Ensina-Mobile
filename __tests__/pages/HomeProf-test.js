@@ -17,7 +17,7 @@ describe('Testing HomeProf page', async () => {
 
     expect(tree).toMatchSnapshot();
   });
-  test('Should press square buttons', () => {
+  test("Should press 'Aulas Marcadas' button", () => {
     const {UNSAFE_queryAllByType} = render(
       <ClassroomContext.Provider
         value={{readClass, loadStatusClassesStudents, classroom}}>
@@ -27,7 +27,27 @@ describe('Testing HomeProf page', async () => {
     const button = UNSAFE_queryAllByType(SquareButton);
 
     fireEvent.press(button[0]);
+  });
+  test("Should press 'Aulas Pendentes' button", () => {
+    const {UNSAFE_queryAllByType} = render(
+      <ClassroomContext.Provider
+        value={{readClass, loadStatusClassesStudents, classroom}}>
+        <HomeProf navigation={navigation} />
+      </ClassroomContext.Provider>,
+    );
+    const button = UNSAFE_queryAllByType(SquareButton);
+
     fireEvent.press(button[1]);
+  });
+  test("Should press 'Aulas Realizadas' button", () => {
+    const {UNSAFE_queryAllByType} = render(
+      <ClassroomContext.Provider
+        value={{readClass, loadStatusClassesStudents, classroom}}>
+        <HomeProf navigation={navigation} />
+      </ClassroomContext.Provider>,
+    );
+    const button = UNSAFE_queryAllByType(SquareButton);
+
     fireEvent.press(button[2]);
   });
   test("Should press 'Continue' button", () => {

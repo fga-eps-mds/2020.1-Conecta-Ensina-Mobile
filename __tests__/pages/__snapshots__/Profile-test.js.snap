@@ -130,15 +130,13 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
             "borderRadius": 20,
             "borderStyle": "solid",
             "borderWidth": 4,
-            "bottom": "13.3%",
             "flexBasis": 0,
             "flexGrow": 1,
             "flexShrink": 1,
+            "height": 100,
             "justifyContent": "center",
             "left": 0,
-            "position": "absolute",
             "right": 0,
-            "top": "-5.7%",
           },
         ]
       }
@@ -155,14 +153,28 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
               "flexBasis": 0,
               "flexGrow": 1,
               "flexShrink": 1,
-              "height": "64.28%",
-              "marginTop": "7.6%",
               "width": "100%",
             },
           ]
         }
       >
         <View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Nome
+          </Text>
           <View
             style={
               Array [
@@ -172,7 +184,7 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
+                  "marginTop": 8,
                   "width": 280,
                 },
               ]
@@ -192,9 +204,25 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
               }
               white={true}
             >
-              
+              Não informado
             </Text>
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Sobrenome
+          </Text>
           <View
             style={
               Array [
@@ -204,7 +232,7 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
+                  "marginTop": 8,
                   "width": 280,
                 },
               ]
@@ -224,9 +252,25 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
               }
               white={true}
             >
-              
+              Não informado
             </Text>
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Email
+          </Text>
           <View
             style={
               Array [
@@ -236,7 +280,7 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
+                  "marginTop": 8,
                   "width": 280,
                 },
               ]
@@ -256,9 +300,25 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
               }
               white={true}
             >
-              
+              Não informado
             </Text>
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Celular
+          </Text>
           <View
             style={
               Array [
@@ -268,7 +328,7 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
+                  "marginTop": 8,
                   "width": 280,
                 },
               ]
@@ -288,9 +348,25 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
               }
               white={true}
             >
-              
+              Não informado
             </Text>
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            CEP
+          </Text>
           <View
             style={
               Array [
@@ -300,7 +376,7 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
+                  "marginTop": 8,
                   "width": 280,
                 },
               ]
@@ -320,9 +396,25 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
               }
               white={true}
             >
-              
+              Não informado
             </Text>
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Número do endereço
+          </Text>
           <View
             style={
               Array [
@@ -332,7 +424,7 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
+                  "marginTop": 8,
                   "width": 280,
                 },
               ]
@@ -352,9 +444,25 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
               }
               white={true}
             >
-              
+              Não informado
             </Text>
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Complemento do endereço
+          </Text>
           <View
             style={
               Array [
@@ -364,7 +472,7 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
+                  "marginTop": 8,
                   "width": 280,
                 },
               ]
@@ -384,9 +492,25 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
               }
               white={true}
             >
-              
+              Não informado
             </Text>
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            CPF
+          </Text>
           <View
             style={
               Array [
@@ -396,7 +520,7 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
+                  "marginTop": 8,
                   "width": 280,
                 },
               ]
@@ -416,9 +540,25 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
               }
               white={true}
             >
-              
+              Não informado
             </Text>
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Grau de estudo
+          </Text>
           <View
             style={
               Array [
@@ -428,7 +568,7 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
+                  "marginTop": 8,
                   "width": 280,
                 },
               ]
@@ -448,9 +588,25 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
               }
               white={true}
             >
-              
+              Não informado
             </Text>
           </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Descrição
+          </Text>
           <View
             style={
               Array [
@@ -460,7 +616,7 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
                   "borderRadius": 9,
                   "height": 50,
                   "justifyContent": "center",
-                  "marginTop": 20,
+                  "marginTop": 8,
                   "width": 280,
                 },
               ]
@@ -480,7 +636,55 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
               }
               white={true}
             >
-              
+              Não informado
+            </Text>
+          </View>
+          <Text
+            black={true}
+            medium={true}
+            style={
+              Array [
+                Object {
+                  "color": "black",
+                  "fontFamily": "Roboto",
+                  "fontSize": 25,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Instituição de estudo
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#184E79",
+                  "borderRadius": 9,
+                  "height": 50,
+                  "justifyContent": "center",
+                  "marginTop": 8,
+                  "width": 280,
+                },
+              ]
+            }
+          >
+            <Text
+              medium={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "Roboto",
+                    "fontSize": 25,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+              white={true}
+            >
+              Não informado
             </Text>
           </View>
         </View>
@@ -493,10 +697,9 @@ exports[`Testing Profile page Should matches snapshot 1`] = `
             "alignItems": "center",
             "flexBasis": 0,
             "flexDirection": "row",
-            "flexGrow": 1,
+            "flexGrow": 0.15,
             "flexShrink": 1,
             "justifyContent": "space-around",
-            "marginTop": "110%",
           },
         ]
       }

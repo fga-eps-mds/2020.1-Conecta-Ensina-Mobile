@@ -6,8 +6,6 @@ import RedContainerText from '../../components/RedContainerText';
 import CustomTextContainer from '../../components/CustomTextContainer';
 import CustomText from '../../components/CustomText';
 import {ClassroomContext} from '../../contexts/classroom';
-import {UserContext} from '../../contexts/user';
-import {TeacherContext} from '../../contexts/teacher';
 import {StudentContext} from '../../contexts/student';
 import gradeResolver from '../../services/gradeResolver';
 import {
@@ -32,14 +30,19 @@ import {AuthContext} from '../../contexts/auth';
 
 export default function ClassroomDetails({navigation, route}) {
   const {item} = route.params;
+
+  const {
+    updateStatusClassroom,
+    setStatusClass,
+    classroom,
+    readClass,
+  } = useContext(ClassroomContext);
+
   const {user} = useContext(AuthContext);
-  const {classroom, readClass, updateStatusClassroom} = useContext(
-    ClassroomContext,
-  );
   const {student} = useContext(StudentContext);
 
   const [start, setStart] = useState(!classroom);
-  const [run, setRun] = useState(true);
+  const [run] = useState(true);
   const [press, setPress] = useState(false);
   const [press2, setPress2] = useState(false);
 
@@ -51,12 +54,13 @@ export default function ClassroomDetails({navigation, route}) {
         setStart(true);
       }
 
-      if (classroom.status === 5) {
+      if (classroom.status === 5 && press2) {
         setStart(false);
+        setPress2(false);
         if (user.role === 3) {
-          navigation.navigate('FeedbackStudent');
+          navigation.navigate('TeacherAvaliation');
         } else if (user.role === 2) {
-          navigation.navigate('FeedbackTeacher');
+          navigation.navigate('StudentAvaliation');
         }
       }
     }
@@ -76,10 +80,10 @@ export default function ClassroomDetails({navigation, route}) {
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
                 {student &&
-                  student.user.firstName + ' ' + student.user.lastName}
+                  student.User.firstName + ' ' + student.User.lastName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '2%'}}>
-                {student && gradeResolver(student.student.grade)}
+                {student && gradeResolver(student.grade)}
               </CustomTextContainer>
             </ContainerTextBlue>
           </ContainerB>
@@ -162,6 +166,7 @@ export default function ClassroomDetails({navigation, route}) {
                   <FinishButton
                     testID="finishButton"
                     onPress={async () => {
+                      await setStatusClass(item);
                       await updateStatusClassroom(item.id);
                       setPress2(true);
                     }}

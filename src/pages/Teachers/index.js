@@ -7,13 +7,15 @@ import {TeacherContext} from '../../contexts/teacher';
 import Background1 from '../../components/Background1';
 import {TeacherList, ContainerButtons} from './styles';
 
-export default function Teachers({navigation}) {
+export default function Teachers({navigation, route}) {
   const {teacher, loadTeachers, getTeacher} = useContext(TeacherContext);
   const [selectedId, setSelectedId] = useState(null);
 
+  console.log(teacher);
+
   useEffect(() => {
     if (teacher !== {}) {
-      loadTeachers();
+      loadTeachers(route.params.subject);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -34,9 +36,16 @@ export default function Teachers({navigation}) {
               item.id === selectedId
                 ? theme.colors.azulClaro
                 : theme.colors.cinzaClaro;
+
+            console.log(
+              item.Student.User.firstName + ' ' + item.Student.User.lastName,
+            );
             return (
               <SquareButton
                 data={item}
+                name={
+                  item.Student.User.firstName + ' ' + item.Student.User.lastName
+                }
                 onPress={() => setSelectedId(item.id)}
                 img={require('../../assets/user_blue.png')}
                 styleContainer={{backgroundColor}}
