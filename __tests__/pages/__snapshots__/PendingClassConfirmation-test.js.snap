@@ -1,0 +1,573 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Pending Class Page Should renders page 1`] = `
+Array [
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#184E79",
+          "display": "flex",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "flex-end",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flexBasis": 0,
+          "flexDirection": "row-reverse",
+          "flexGrow": 10,
+          "flexShrink": 1,
+          "marginBottom": "5%",
+          "opacity": 1,
+          "paddingBottom": "10%",
+          "paddingLeft": "10%",
+          "paddingRight": "10%",
+          "paddingTop": "10%",
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "Roboto",
+              "fontSize": 20,
+              "textAlign": "center",
+            },
+          ]
+        }
+        white={true}
+      >
+        Selecione as disciplinas em que deseja lecionar
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderTopLeftRadius": 20,
+            "borderTopRightRadius": 20,
+            "display": "flex",
+            "flexBasis": 0,
+            "flexGrow": 78,
+            "flexShrink": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <RCTScrollView
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "marginBottom": "5%",
+              "width": "100%",
+            },
+          ]
+        }
+      >
+        <View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "marginBottom": "90%",
+                  "width": "100%",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#184E79",
+                    "borderRadius": 9,
+                    "height": "9%",
+                    "justifyContent": "center",
+                    "marginTop": "8%",
+                    "width": "78%",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "Roboto",
+                      "fontSize": 20,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+                white={true}
+              >
+                 Data: 
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#184E79",
+                    "borderRadius": 9,
+                    "height": "9%",
+                    "justifyContent": "center",
+                    "marginTop": "8%",
+                    "width": "78%",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "Roboto",
+                      "fontSize": 20,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+                white={true}
+              >
+                Distância: 
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#184E79",
+                    "borderRadius": 9,
+                    "height": "9%",
+                    "justifyContent": "center",
+                    "marginTop": "8%",
+                    "width": "78%",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "Roboto",
+                      "fontSize": 20,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+                white={true}
+              >
+                Duração: 
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#184E79",
+                    "borderRadius": 9,
+                    "height": "9%",
+                    "justifyContent": "center",
+                    "marginTop": "8%",
+                    "width": "78%",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "Roboto",
+                      "fontSize": 20,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+                white={true}
+              >
+                Matéria: 
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#184E79",
+                    "borderRadius": 9,
+                    "height": "9%",
+                    "justifyContent": "center",
+                    "marginTop": "8%",
+                    "width": "78%",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "Roboto",
+                      "fontSize": 20,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+                white={true}
+              >
+                Nome: 
+                 
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#184E79",
+                    "borderRadius": 9,
+                    "height": "9%",
+                    "justifyContent": "center",
+                    "marginTop": "8%",
+                    "width": "78%",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "Roboto",
+                      "fontSize": 20,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+                white={true}
+              >
+                Instituição: 
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#184E79",
+                    "borderRadius": 9,
+                    "height": "9%",
+                    "justifyContent": "center",
+                    "marginTop": "8%",
+                    "width": "78%",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "Roboto",
+                      "fontSize": 20,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+                white={true}
+              >
+                Série: 
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#184E79",
+                    "borderRadius": 9,
+                    "height": "9%",
+                    "justifyContent": "center",
+                    "marginTop": "8%",
+                    "width": "78%",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "Roboto",
+                      "fontSize": 20,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+                white={true}
+              >
+                Especial: 
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#184E79",
+                    "borderRadius": 9,
+                    "height": "9%",
+                    "justifyContent": "center",
+                    "marginTop": "8%",
+                    "width": "78%",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "Roboto",
+                      "fontSize": 20,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+                white={true}
+              >
+                Descrição: 
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#184E79",
+                    "borderRadius": 9,
+                    "height": "9%",
+                    "justifyContent": "center",
+                    "marginTop": "8%",
+                    "width": "78%",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "Roboto",
+                      "fontSize": 20,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+                white={true}
+              >
+                Detalhe:
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "marginTop": "8%",
+                  },
+                ]
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "center",
+                    "backgroundColor": "#E46270",
+                    "borderRadius": 8,
+                    "height": 31,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "width": 138,
+                  }
+                }
+                testID="Reportar"
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                        "fontFamily": "Roboto",
+                        "fontSize": 20,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                  white={true}
+                >
+                  Reportar
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+      <View
+        style={
+          Array [
+            Object {
+              "alignSelf": "center",
+              "flexDirection": "row",
+              "height": 45,
+              "justifyContent": "space-around",
+              "width": "90%",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#2D9D49",
+              "borderRadius": 8,
+              "height": 35,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": 150,
+            }
+          }
+          testID="Aceitar"
+        >
+          <Text
+            bigSmall={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          >
+            Aceitar
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#E46270",
+              "borderRadius": 8,
+              "height": 35,
+              "justifyContent": "center",
+              "opacity": 1,
+              "width": 150,
+            }
+          }
+          testID="Recusar"
+        >
+          <Text
+            bigSmall={true}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "Roboto",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+            white={true}
+          >
+            Recusar
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>,
+  ").toJSON();",
+]
+`;

@@ -43,3 +43,11 @@ export const UserImage = styled.Image`
   width: 33px;
   height: 38px;
 `;
+
+export const ContainerUpText = styled.TouchableOpacity`
+  flex-direction: row-reverse;
+  flex: 10;
+  padding: 10%;
+  margin-bottom: 5%;
+  align-items: center;
+`;

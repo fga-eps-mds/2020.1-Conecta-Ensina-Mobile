@@ -4,17 +4,21 @@ import SquareButton from '../../components/SquareButton';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
 import {ClassroomContext} from '../../contexts/classroom';
-
+import {SubjectContext} from '../../contexts/subject';
 import {
+  CenterContainer,
+  LowerContainer,
   BigTextContainer,
-  ButtonAulaUrgente,
-  ButtonMarcarAula,
+  UrgentClassButton,
+  MarkClassButton,
   ContainerButtons,
-  ContainerAula,
-  ContainerHorizontal,
+  ClassContainer,
+  ContainerClassUpper,
+  ContainerClassLower,
   Icon,
-  ListFiltro,
+  FilterList,
 } from './styles';
+import {getDate} from '../../services/dateResolver';
 
 export default function Home({navigation}) {
   const [filtros] = useState([
@@ -22,26 +26,34 @@ export default function Home({navigation}) {
     {id: '2', name: 'Idiomas', img: require('../../assets/books.png')},
     {id: '3', name: 'Vestibular', img: require('../../assets/books.png')},
   ]);
-  const {classroom, loadNextClass, firstClass, loadUserClasses} = useContext(
-    ClassroomContext,
-  );
+  const {
+    classroom,
+    loadNextClass,
+    firstClass,
+    loadUserClasses,
+    getClassroom,
+  } = useContext(ClassroomContext);
+  const {loadSubjects} = useContext(SubjectContext);
+
   const [selectedId, setSelectedId] = useState(null);
-  const [] = useState(null);
+  const [date, setDate] = useState(null);
 
   useEffect(() => {
-    if (firstClass !== {}) {
+    if (firstClass === null) {
       loadNextClass();
+    } else {
+      setDate(getDate(firstClass.dtclass));
     }
     if (classroom !== {}) {
       loadUserClasses();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [firstClass]);
 
   return (
     <Theme>
       <Background1 navigation={navigation} page={'Profile'}>
-        <ListFiltro
+        <FilterList
           testID="listFiltro"
           horizontal
           data={filtros}
@@ -62,37 +74,48 @@ export default function Home({navigation}) {
             );
           }}
         />
-        <ContainerAula>
-          <ContainerHorizontal>
-            <Icon source={require('../../assets/books.png')} />
-            <CustomText bigSmall>Proxima Aula</CustomText>
-          </ContainerHorizontal>
-          <BigTextContainer>
-            <CustomText>{firstClass.dtclass}</CustomText>
-          </BigTextContainer>
-          <ContainerHorizontal>
-            <CustomText bigSmall>16 - 18 Horas</CustomText>
-            <CustomText bigSmall>Matemática</CustomText>
-          </ContainerHorizontal>
-        </ContainerAula>
-        <ContainerButtons>
-          <ButtonAulaUrgente>
-            <Icon source={require('../../assets/books.png')} />
-            <CustomText white medium>
-              Aula Urgente
-            </CustomText>
-          </ButtonAulaUrgente>
-          <ButtonMarcarAula
-            testID="MarcarAula"
-            onPress={() => {
-              navigation.navigate('Subjects'); /*}catch(error){}*/
+        <CenterContainer>
+          <ClassContainer
+            onPress={async () => {
+              await getClassroom(1);
+              navigation.navigate('ConfirmedClass');
             }}>
-            <Icon source={require('../../assets/books.png')} />
-            <CustomText white medium>
-              Marcar Aula
-            </CustomText>
-          </ButtonMarcarAula>
-        </ContainerButtons>
+            <ContainerClassUpper>
+              <Icon source={require('../../assets/books.png')} />
+              <CustomText bigSmall>Proxima Aula</CustomText>
+            </ContainerClassUpper>
+            <BigTextContainer>
+              <CustomText big>{date && date[2] + ' ' + date[1]}</CustomText>
+            </BigTextContainer>
+            <ContainerClassLower>
+              <CustomText bigSmall>16 - 18 Horas</CustomText>
+              <CustomText bigSmall blue>
+                Matemática
+              </CustomText>
+            </ContainerClassLower>
+          </ClassContainer>
+        </CenterContainer>
+        <LowerContainer>
+          <ContainerButtons>
+            <UrgentClassButton>
+              <Icon source={require('../../assets/books.png')} />
+              <CustomText white medium>
+                Aula Urgente
+              </CustomText>
+            </UrgentClassButton>
+            <MarkClassButton
+              testID="MarcarAula"
+              onPress={async () => {
+                await loadSubjects();
+                navigation.navigate('Subjects'); /*}catch(error){}*/
+              }}>
+              <Icon source={require('../../assets/books.png')} />
+              <CustomText white medium>
+                Marcar Aula
+              </CustomText>
+            </MarkClassButton>
+          </ContainerButtons>
+        </LowerContainer>
       </Background1>
     </Theme>
   );

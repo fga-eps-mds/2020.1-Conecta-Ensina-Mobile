@@ -20,18 +20,14 @@ import CustomText from '../../components/CustomText';
 import {ComplainContext} from '../../contexts/complain';
 
 export default function FeedbackTeacher({navigation, route}) {
-  const {student, getStudent2} = useContext(StudentContext);
+  const {student} = useContext(StudentContext);
   const {createComplain} = useContext(ComplainContext);
   const [commentary, setCommentary] = useState('');
 
   async function handleComplain() {
-    await createComplain(commentary, student.user.id);
-    navigation.navigate('Teachers');
+    await createComplain(commentary, student.id);
+    navigation.navigate('Home');
   }
-
-  useEffect(() => {
-    console.log(route.params);
-  }, []);
 
   return (
     <Theme>
@@ -44,10 +40,11 @@ export default function FeedbackTeacher({navigation, route}) {
             </UserContatiner>
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
-                {student && student.user.firstName}
+                {student &&
+                  student.User.firstName + ' ' + student.User.lastName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '-1%'}}>
-                {student && gradeResolver(student.student.grade)}
+                {student && gradeResolver(student.grade)}
               </CustomTextContainer>
             </ContainerTextBlue>
           </ContainerB>

@@ -1,5 +1,4 @@
-import React, {useState, useContext} from 'react';
-import {AuthContext} from '../../contexts/auth'
+import React, {useContext} from 'react';
 import Theme from '../../../Theme';
 import Background1 from '../../components/Background1';
 import CustomText from '../../components/CustomText';
@@ -11,69 +10,16 @@ import {
   ButtonRecusar,
   ContainerComplain,
   ComplainButton,
-  InfoContainer,S
+  InfoContainer,
 } from './styles';
-import { StudentContext } from '../../contexts/student';
+import {StudentContext} from '../../contexts/student';
+import {ClassroomContext} from '../../contexts/classroom';
 
 export default function PendingClassConfirmation({route, navigation}) {
   const {item} = route.params;
-  
-  const {Host} = useContext(AuthContext);
-  const {getStudent2} = useContext(StudentContext)
-
-  const getStudent = async () => {
-    const fetchResponse = await fetch(
-      Host+'/api/student/' + item.student,
-    );
-    try {
-      const data = await fetchResponse.json();
-      setStudent(data.data.student);
-      return data;
-    } catch (error) {
-      return error;
-    }
-  };
-
-  const [student, setStudent] = useState(getStudent);
+  const {getStudent, student} = useContext(StudentContext);
+  const {updateStatusClasses} = useContext(ClassroomContext);
   const params = student.id;
-
-  const getUser = async () => {
-    const fetchResponse = await fetch(
-      Host+'/api/user/' + item.student,
-    );
-    try {
-      const data = await fetchResponse.json();
-      setUser(data.data.user);
-      return data;
-    } catch (error) {
-      return error;
-    }
-  };
-
-  const [user, setUser] = useState(getUser);
-
-  const updateStatus = async (id, status) => {
-    const settings = {
-      method: 'PUT',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        status: status,
-      }),
-    };
-    const fetchResponse1 = await fetch(
-      Host+'/api/classroom/status/' + id,
-      settings,
-    );
-    try {
-      const data = await fetchResponse1.json();
-      console.log('Success:', data);
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
 
   return (
     <Theme>
@@ -94,7 +40,7 @@ export default function PendingClassConfirmation({route, navigation}) {
             </ContainerGrande>
             <ContainerGrande>
               <CustomText white>
-                Nome: {user.firstName + ' ' + user.lastName}
+                Nome: {student.User.firstName + ' ' + student.User.lastName}
               </CustomText>
             </ContainerGrande>
             <ContainerGrande>
@@ -113,21 +59,22 @@ export default function PendingClassConfirmation({route, navigation}) {
               <CustomText white>Detalhe:{student.details}</CustomText>
             </ContainerGrande>
             <ContainerComplain>
-              <ComplainButton onPress={async()=>{
-                await getStudent2(student.id)
-                navigation.navigate('FeedbackTeacher', {params})
+              <ComplainButton
+                testID="Reportar"
+                onPress={async () => {
+                  await getStudent(student.id);
+                  navigation.navigate('FeedbackTeacher', {params});
                 }}>
-                <CustomText white>
-                  Reportar
-                </CustomText>
+                <CustomText white>Reportar</CustomText>
               </ComplainButton>
-            </ContainerComplain>  
+            </ContainerComplain>
           </InfoContainer>
         </Container>
         <ContainerButton>
           <ButtonConfirmar
+            testID="Aceitar"
             onPress={() => {
-              updateStatus(item.id, 1);
+              updateStatusClasses(item.id, 1);
               navigation.navigate('PendingClass');
             }}>
             <CustomText white bigSmall>
@@ -135,8 +82,9 @@ export default function PendingClassConfirmation({route, navigation}) {
             </CustomText>
           </ButtonConfirmar>
           <ButtonRecusar
-            onPress={() => {
-              updateStatus(item.id, -1);
+            testID="Recusar"
+            onPress={async () => {
+              await updateStatusClasses(item.id, -1);
               navigation.navigate('PendingClass');
             }}>
             <CustomText white bigSmall>

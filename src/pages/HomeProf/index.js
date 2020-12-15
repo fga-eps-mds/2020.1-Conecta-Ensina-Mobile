@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import Theme, {theme} from '../../../Theme';
 import SquareButton from '../../components/SquareButton';
 import Background1 from '../../components/Background1';
@@ -10,19 +10,24 @@ import {
   Icon,
   ListFuncoes,
 } from './styles';
-import { ClassroomContext } from '../../contexts/classroom';
-
-const Item = ({item, onPress, style}) => (
-  <SquareButton data={item} onPress={onPress} style={[style]} />
-);
+import {ClassroomContext} from '../../contexts/classroom';
+import {StudentContext} from '../../contexts/student';
+import {HOST} from '@env';
 
 export default function HomeProf({navigation}) {
-  const {readClass} = useContext(ClassroomContext)
+  const {getStudent} = useContext(StudentContext);
+  const {
+    readClass,
+    loadStatusClassesStudents,
+    classroom,
+    getClassroom,
+  } = useContext(ClassroomContext);
   const [funcoes] = useState([
     {
-      id: '101', 
-      name: 'Aulas Marcadas', 
-      img: require('../../assets/books.png')},
+      id: '101',
+      name: 'Aulas Marcadas',
+      img: require('../../assets/books.png'),
+    },
     {
       id: '102',
       name: 'Aulas Pendentes',
@@ -35,31 +40,6 @@ export default function HomeProf({navigation}) {
     },
   ]);
 
-  const renderItem = ({item}) => {
-    var nextScreen;
-
-    if (item.id === '101') {
-      nextScreen = 'TeacherClassDetails';
-    } else if (item.id === '102') {
-      nextScreen = 'PendingClass';
-    } else if (item.id === '103') {
-      nextScreen = 'CompletedClass';
-    } else {
-      nextScreen = 'HomeProf';
-    }
-
-    return (
-      <Item
-        item={item}
-        onPress={async () => {
-          await readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312')
-          navigation.navigate(nextScreen)
-        }}
-        style={{backgroundColor: theme.colors.cinzaClaro}}
-      />
-    );
-  };
-
   return (
     <Theme>
       <Background1 navigation={navigation} page={'TeacherProfile2'}>
@@ -67,9 +47,41 @@ export default function HomeProf({navigation}) {
           horizontal
           data={funcoes}
           keyExtractor={(item) => item.id}
-          renderItem={renderItem}
+          renderItem={({item}) => {
+            var nextScreen;
+
+            if (item.id === '101') {
+              nextScreen = 'ShowClass';
+            } else if (item.id === '102') {
+              nextScreen = 'PendingClass';
+            } else if (item.id === '103') {
+              nextScreen = 'CompletedClass';
+            }
+
+            return (
+              <SquareButton
+                data={item}
+                onPress={async () => {
+                  await readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
+                  if (nextScreen === 'ShowClass') {
+                    await getClassroom(1);
+                  }
+                  if (nextScreen === 'CompletedClass') {
+                    await loadStatusClassesStudents(4);
+                  }
+                  if (nextScreen === 'PendingClass') {
+                    await loadStatusClassesStudents(1);
+                  }
+                  navigation.navigate(nextScreen);
+                }}
+                style={{backgroundColor: theme.colors.cinzaClaro}}
+              />
+            );
+          }}
         />
-        <ContainerAula>
+        <ContainerAula
+          testID="button"
+          onPress={() => navigation.navigate('ConfirmedClass')}>
           <ContainerHorizontal>
             <Icon source={require('../../assets/books.png')} />
             <CustomText white bigSmall>

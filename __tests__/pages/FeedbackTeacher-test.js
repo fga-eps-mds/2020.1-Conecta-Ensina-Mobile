@@ -14,7 +14,7 @@ describe('Testing FeedbackTeacher', () => {
     },
   };
   const student = {
-    user: {
+    User: {
       id: '',
     },
     student: {

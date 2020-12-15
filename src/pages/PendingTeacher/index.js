@@ -4,14 +4,12 @@ import SquareButton from '../../components/ContainerTeacher';
 import {AdmContext} from '../../contexts/admin';
 import Background4 from '../../components/Background4';
 import {ListMaterias, Container} from './styles';
-import {get} from 'react-native/Libraries/Utilities/PixelRatio';
 
 export default function PendingTeacher({navigation}) {
-  const {students, getProfessoUser} = useContext(AdmContext);
+  const {pendingUsers, students, getProfessoUser} = useContext(AdmContext);
 
-  function handleSubmit({item}) {
-    getProfessoUser(item.id);
-    console.log(item.id);
+  async function handleSubmit({item}) {
+    await getProfessoUser(item.id);
     navigation.navigate('TeacherConfirmation', {item});
   }
 
@@ -19,17 +17,23 @@ export default function PendingTeacher({navigation}) {
     <Theme>
       <Background4>
         <Container>
-          <ListMaterias
-            numColumns={2}
-            data={students}
-            keyExtractor={(item) => item.id}
-            renderItem={({item}) => (
-              <SquareButton
-                data={item}
-                onPressProf={() => handleSubmit({item})}
-              />
-            )}
-          />
+          {students && pendingUsers && (
+            <ListMaterias
+              numColumns={2}
+              data={pendingUsers}
+              keyExtractor={(item) => item.id}
+              renderItem={({item}) => {
+                if (students !== null) {
+                  return (
+                    <SquareButton
+                      data={students.Student.User}
+                      onPressProf={() => handleSubmit({item})}
+                    />
+                  );
+                }
+              }}
+            />
+          )}
         </Container>
       </Background4>
     </Theme>

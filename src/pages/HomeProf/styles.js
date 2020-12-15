@@ -16,15 +16,7 @@ export const ButtonMarcarAula = styled(ButtonGeral)`
   flex-direction: row;
 `;
 
-export const ButtonAulaUrgente = styled(ButtonGeral)`
-  background-color: ${(props) => props.theme.colors.vermelho};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-`;
-
-export const ContainerAula = styled.View`
+export const ContainerAula = styled.TouchableOpacity`
   background-color: ${(props) => props.theme.colors.vermelho};
   width: 78%;
   height: 33%;

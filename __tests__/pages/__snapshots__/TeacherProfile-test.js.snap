@@ -283,9 +283,7 @@ exports[`Testing teacher profile page Should renders page 1`] = `
             ]
           }
           white={true}
-        >
-          Invalid Grade
-        </Text>
+        />
       </View>
       <View
         marginBot={

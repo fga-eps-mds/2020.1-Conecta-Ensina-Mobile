@@ -3,16 +3,33 @@ import {render, fireEvent} from '@testing-library/react-native';
 import TeacherProfile from '../../src/pages/TeacherProfile';
 import {ClassroomContext} from '../../src/contexts/classroom';
 import {StudentContext} from '../../src/contexts/student';
+import {TeacherContext} from '../../src/contexts/teacher';
 
 jest.mock('../../src/contexts/classroom.js');
 
 describe('Testing teacher profile page', () => {
   const createClass = jest.fn();
   const readClass = jest.fn();
+  const getStudent = jest.fn();
   const navigation = {
     navigate: jest.fn(),
   };
-  const getStudent2 = jest.fn();
+
+  const teacher = {
+    institution: '',
+    description: '',
+    degree: '',
+    graduation_area: '',
+    video: '',
+    Student: {
+      User: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        cellphone: '',
+      },
+    },
+  };
   const route = {
     params: {
       selectedId: ' ',
@@ -25,9 +42,13 @@ describe('Testing teacher profile page', () => {
   });
   test("Should press 'Continue' button", async () => {
     const {getByTestId} = render(
-      <ClassroomContext.Provider value={{createClass, readClass}}>
-        <TeacherProfile navigation={navigation} route={route} />
-      </ClassroomContext.Provider>,
+      <StudentContext.Provider value={{getStudent}}>
+        <TeacherContext.Provider value={{teacher}}>
+          <ClassroomContext.Provider value={{createClass, readClass}}>
+            <TeacherProfile navigation={navigation} route={route} />
+          </ClassroomContext.Provider>
+        </TeacherContext.Provider>
+      </StudentContext.Provider>,
     );
     const button = getByTestId('ContinueButton');
 
@@ -35,7 +56,7 @@ describe('Testing teacher profile page', () => {
   });
   test("Should press 'Complain Button'", async () => {
     const {getByTestId} = render(
-      <StudentContext.Provider value={{getStudent2}}>
+      <StudentContext.Provider value={{getStudent}}>
         <ClassroomContext.Provider value={{createClass}}>
           <TeacherProfile navigation={navigation} route={route} />
         </ClassroomContext.Provider>

@@ -6,7 +6,6 @@ import RedContainerText from '../../components/RedContainerText';
 import CustomTextContainer from '../../components/CustomTextContainer';
 import CustomText from '../../components/CustomText';
 import {ClassroomContext} from '../../contexts/classroom';
-import {UserContext} from '../../contexts/user';
 import {StudentContext} from '../../contexts/student';
 import gradeResolver from '../../services/gradeResolver';
 import {
@@ -27,23 +26,47 @@ import {
   TimerButton,
   ContainerColumnButton,
 } from './styles';
+import {AuthContext} from '../../contexts/auth';
 
-export default function ClassroomDetails({navigation}) {
-  const {classroom} = useContext(ClassroomContext);
-  const {student, getStudent} = useContext(StudentContext);
-  const {user, getUser} = useContext(UserContext);
-  const [start, setStart] = useState(false);
-  const [run, setRun] = useState(true);
+export default function ClassroomDetails({navigation, route}) {
+  const {item} = route.params;
+
+  const {
+    updateStatusClassroom,
+    setStatusClass,
+    classroom,
+    readClass,
+  } = useContext(ClassroomContext);
+
+  const {user} = useContext(AuthContext);
+  const {student} = useContext(StudentContext);
+
+  const [start, setStart] = useState(!classroom);
+  const [run] = useState(true);
+  const [press, setPress] = useState(false);
+  const [press2, setPress2] = useState(false);
 
   useEffect(() => {
-    async function readUser() {
-      await getUser(classroom.teacher);
-      await getStudent(classroom.teacher);
+    async function classRead() {
+      await readClass(item.id);
+
+      if (classroom.status === 3) {
+        setStart(true);
+      }
+
+      if (classroom.status === 5 && press2) {
+        setStart(false);
+        setPress2(false);
+        if (user.role === 3) {
+          navigation.navigate('TeacherAvaliation');
+        } else if (user.role === 2) {
+          navigation.navigate('StudentAvaliation');
+        }
+      }
     }
 
-    readUser();
-    //readClass('f00c1ee9-078b-4b61-8e3f-a23d68da4312');
-  }, []);
+    classRead();
+  }, [classroom]);
 
   return (
     <Theme>
@@ -56,7 +79,8 @@ export default function ClassroomDetails({navigation}) {
             </UserContainer>
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
-                {user && user.firstName + ' ' + user.lastName}
+                {student &&
+                  student.User.firstName + ' ' + student.User.lastName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '2%'}}>
                 {student && gradeResolver(student.grade)}
@@ -76,7 +100,7 @@ export default function ClassroomDetails({navigation}) {
                   Disciplina
                 </CustomTextContainer>
                 <RedContainerText medium>
-                  {classroom && classroom.subject}
+                  {item && item.subject}
                 </RedContainerText>
               </ContainerTextBox>
               <ContainerTextBox>
@@ -100,7 +124,7 @@ export default function ClassroomDetails({navigation}) {
                   Duração
                 </CustomTextContainer>
                 <RedContainerText medium>
-                  {classroom && classroom.duration + ' Hora'}
+                  {item && item.duration + ' Hora'}
                 </RedContainerText>
               </ContainerTextBox>
               <ContainerTextBox>
@@ -130,7 +154,7 @@ export default function ClassroomDetails({navigation}) {
                     <CountDown
                       testID="countdown"
                       running={run}
-                      until={60 * 60 * classroom.duration}
+                      until={60 * 60 * item.duration}
                       size={15}
                       onFinish={() => alert('Aula Finalizada')}
                       digitStyle={{backgroundColor: theme.colors.fundoAzul}}
@@ -141,12 +165,12 @@ export default function ClassroomDetails({navigation}) {
                   </TimerButton>
                   <FinishButton
                     testID="finishButton"
-                    onPress={() => {
-                      //setRun(false);
-                      //alert('Aula Finalizada');
-                      navigation.navigate('FeedbackTeacher', {classroom});
-                      console.log('pressionado');
-                    }}>
+                    onPress={async () => {
+                      await setStatusClass(item);
+                      await updateStatusClassroom(item.id);
+                      setPress2(true);
+                    }}
+                    disabled={press2}>
                     <CustomText white medium>
                       Terminar Aula
                     </CustomText>
@@ -163,24 +187,21 @@ export default function ClassroomDetails({navigation}) {
                   Endereço
                 </CustomTextContainer>
                 <RedContainerText>
-                  {classroom &&
-                    classroom.address.logradouro +
-                      ' n°: ' +
-                      classroom.number +
-                      ', \n' +
-                      classroom.address.bairro +
-                      ' - ' +
-                      classroom.address.uf}
+                  {item && item.number + ', \n'}
                 </RedContainerText>
                 <ButtonContainer>
-                  <ChatButton>
+                  <ChatButton onPress={ () => navigation.navigate('Chat')}>
                     <CustomText white bigSmall>
                       Chat
                     </CustomText>
                   </ChatButton>
                   <StartButton
                     testID="StartButton"
-                    onPress={() => setStart(true)}>
+                    onPress={async () => {
+                      await updateStatusClassroom(item.id);
+                      setPress(true);
+                    }}
+                    disabled={press}>
                     <CustomText white bigSmall>
                       Iniciar
                     </CustomText>

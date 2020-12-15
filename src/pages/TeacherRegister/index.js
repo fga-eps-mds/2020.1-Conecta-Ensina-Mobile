@@ -1,9 +1,11 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
+import CheckBox from '@react-native-community/checkbox';
 import Theme from '../../../Theme';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import {TextInputMask} from 'react-native-masked-text';
 import {AuthContext} from '../../contexts/auth';
+import {SubjectContext} from '../../contexts/subject';
 
 import {
   UserContatiner,
@@ -12,6 +14,7 @@ import {
   ButtonRegistrar,
   ContainerRowFlex,
   Container,
+  ListSubjects,
 } from './styles';
 
 import Background3 from '../../components/Background3';
@@ -22,9 +25,8 @@ import GeneralPicker from '../../components/GeneralPicker';
 import {FieldContainer} from '../../components/FieldContainer/styles';
 import PasswordInput from '../../components/PasswordInput';
 
-export default function TeacherRegister({navigation}) {
+export default function TeacherRegister({navigation, route}) {
   const {registerProf} = useContext(AuthContext);
-
   let initials = {
     name: '',
     surname: '',
@@ -47,6 +49,7 @@ export default function TeacherRegister({navigation}) {
     bank: '',
     agency: '',
     account: '',
+    subjects: route.params.buttons,
   };
 
   let Schema = yup.object().shape({
@@ -165,11 +168,11 @@ export default function TeacherRegister({navigation}) {
                     {errors.email}
                   </CustomText>
                 )}
-                <PasswordInput>
+                <PasswordInput
                   value={values.password}
                   onChangeText={handleChange('password')}
-                </PasswordInput>
-                {errors.password && (
+                />
+                {errors.password && touched.password && (
                   <CustomText black small>
                     {errors.password}
                   </CustomText>
@@ -195,6 +198,7 @@ export default function TeacherRegister({navigation}) {
                     }}
                     placeholder="Data de nascimento"
                     placeholderTextColor="#F6F6F6"
+                    // eslint-disable-next-line react-native/no-inline-styles
                     style={{
                       color: '#FFFFFF',
                       fontSize: 14,
@@ -330,6 +334,7 @@ export default function TeacherRegister({navigation}) {
                     {errors.degree}
                   </CustomText>
                 )}
+
                 <RegField
                   placeholder="Banco"
                   autoCapitalize="none"
@@ -347,7 +352,7 @@ export default function TeacherRegister({navigation}) {
                   value={values.agency}
                   onChangeText={handleChange('agency')}
                 />
-                {errors.agecy && (
+                {errors.agency && (
                   <CustomText black small>
                     {errors.agency}
                   </CustomText>

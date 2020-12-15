@@ -2,86 +2,147 @@ import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
 import ClassroomDetails from '../../src/pages/ClassroomDetails';
 import {ClassroomContext} from '../../src/contexts/classroom';
-import {StudentContext} from '../../src/contexts/student';
-import {UserContext} from '../../src/contexts/user';
-import CountDown from 'react-native-countdown-component';
+import {AuthContext} from '../../src/contexts/auth';
 
 describe('Testing Classroom Details', () => {
   const navigation = {
     navigate: jest.fn(),
   };
-
-  let classroom = {
-    details: '',
-    address: {
-      logradouro: '',
-      bairro: '',
-      uf: '',
+  const route = {
+    params: {
+      item: '',
     },
-    number: 1231,
   };
-  const getUser = jest.fn();
 
-  const getStudent = jest.fn();
+  const updateStatusClassroom = jest.fn();
 
-  test('Should matches snapshot page', () => {
-    const tree = render(<ClassroomDetails navigation={navigation} />).toJSON();
+  test('Should renders first snapshot page', () => {
+    const user = {
+      role: 2,
+    };
+    const tree = render(
+      <AuthContext.Provider value={{user}}>
+        <ClassroomDetails navigation={navigation} route={route} />
+      </AuthContext.Provider>,
+    ).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
-  test('Should press start button', () => {
+  test('Should renders snapshot page for status = 2', () => {
+    const classroom = {
+      details: '',
+      address: {
+        logradouro: '',
+        bairro: '',
+        uf: '',
+      },
+      number: 1231,
+      status: 2,
+    };
+    const user = {
+      role: 2,
+    };
+    const tree = render(
+      <AuthContext.Provider value={{user}}>
+        <ClassroomContext.Provider value={{classroom, updateStatusClassroom}}>
+          <ClassroomDetails navigation={navigation} route={route} />
+        </ClassroomContext.Provider>
+      </AuthContext.Provider>,
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+  test('Should renders snapshot page for status = 3', () => {
+    const classroom = {
+      details: '',
+      address: {
+        logradouro: '',
+        bairro: '',
+        uf: '',
+      },
+      number: 1231,
+      status: 3,
+    };
+    const user = {
+      role: 2,
+    };
+    const tree = render(
+      <AuthContext.Provider value={{user}}>
+        <ClassroomContext.Provider value={{classroom, updateStatusClassroom}}>
+          <ClassroomDetails navigation={navigation} route={route} />
+        </ClassroomContext.Provider>
+      </AuthContext.Provider>,
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  test('Should press start button and start classroom', async () => {
+    const classroom = {
+      details: '',
+      address: {
+        logradouro: '',
+        bairro: '',
+        uf: '',
+      },
+      number: 1231,
+      status: 3,
+    };
+    const user = {
+      role: 2,
+    };
     const {getByTestId} = render(
-      <ClassroomContext.Provider value={{classroom}}>
-        <ClassroomDetails />
-      </ClassroomContext.Provider>,
+      <AuthContext.Provider value={{user}}>
+        <ClassroomContext.Provider value={{classroom, updateStatusClassroom}}>
+          <ClassroomDetails navigation={navigation} route={route} />
+        </ClassroomContext.Provider>
+      </AuthContext.Provider>,
     );
 
     const button = getByTestId('StartButton');
-
-    fireEvent.press(button);
+    await fireEvent.press(button);
   });
 
-  test('Should test contexts functions', async () => {
-    render(
-      <StudentContext.Provider value={{getStudent}}>
-        <UserContext.Provider value={{getUser}}>
-          <ClassroomContext.Provider value={{classroom}}>
-            <ClassroomDetails />
-          </ClassroomContext.Provider>
-        </UserContext.Provider>
-      </StudentContext.Provider>,
+  test('Should press finish button and start classroom', () => {
+    const user = {
+      role: 2,
+    };
+    const {getByTestId} = render(
+      <AuthContext.Provider value={{user}}>
+        <ClassroomContext.Provider value={{updateStatusClassroom}}>
+          <ClassroomDetails navigation={navigation} route={route} />
+        </ClassroomContext.Provider>
+      </AuthContext.Provider>,
     );
 
-    await expect(getUser).toHaveBeenCalled();
-    await expect(getStudent).toHaveBeenCalled();
+    const FinishButton = getByTestId('finishButton');
+    fireEvent.press(FinishButton);
   });
 
   test('Should tests timer', async () => {
-    const {getByTestId, UNSAFE_getByType} = render(
-      <ClassroomContext.Provider value={{classroom}}>
-        <ClassroomDetails />
-      </ClassroomContext.Provider>,
-    );
-
-    const button = getByTestId('StartButton');
-    await fireEvent.press(button);
-
-    const timer = UNSAFE_getByType(CountDown);
-
-    expect(timer.props.onFinish).toBeFunction();
-  });
-  test('Should press button finish', async () => {
+    const classroom = {
+      details: '',
+      address: {
+        logradouro: '',
+        bairro: '',
+        uf: '',
+      },
+      number: 1231,
+      status: 3,
+    };
+    const user = {
+      role: 2,
+    };
     const {getByTestId} = render(
-      <ClassroomContext.Provider value={{classroom}}>
-        <ClassroomDetails navigation={navigation} />
-      </ClassroomContext.Provider>,
+      <AuthContext.Provider value={{user}}>
+        <ClassroomContext.Provider value={{classroom, updateStatusClassroom}}>
+          <ClassroomDetails navigation={navigation} route={route} />
+        </ClassroomContext.Provider>
+      </AuthContext.Provider>,
     );
 
     const button = getByTestId('StartButton');
     await fireEvent.press(button);
-
-    const finish = getByTestId('finishButton');
-    await fireEvent.press(finish);
   });
 });
