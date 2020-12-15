@@ -2,7 +2,7 @@ name: Generate APK
 
 on:
   push:
-    branches: [feature/112-continuous-delivey]
+    branches: [master]
 jobs:
   build:
     name: CI Build
