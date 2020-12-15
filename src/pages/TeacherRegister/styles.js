@@ -55,3 +55,7 @@ export const DateContainer = styled.View`
   align-items: center;
   margin-top: 5%;
 `;
+export const ListSubjects = styled.FlatList`
+  align-self: center;
+  flex: 6;
+`;

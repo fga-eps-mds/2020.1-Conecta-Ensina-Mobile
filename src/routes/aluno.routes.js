@@ -11,9 +11,9 @@ import ConfirmedClass from '../pages/ConfirmedClass';
 import ShowClass from '../pages/ShowClass';
 import ClassroomDetails from '../pages/ClassroomDetails';
 import FeedbackTeacher from '../pages/FeedbackTeacher';
+import Chat from '../pages/Chat';
 import TeacherAvaliation from '../pages/TeacherAvaliation';
 import StudentAvaliation from '../pages/StudentAvaliation';
-
 
 const AlunoStack = createStackNavigator();
 
@@ -73,6 +73,11 @@ function AlunoRoutes() {
       <AlunoStack.Screen
         name="FeedbackTeacher"
         component={FeedbackTeacher}
+        options={{headerShown: false}}
+      />
+      <AlunoStack.Screen
+        name="Chat"
+        component={Chat}
         options={{headerShown: false}}
       />
       <AlunoStack.Screen

@@ -27,11 +27,13 @@ import {
   TimerButton,
   ContainerColumnButton,
 } from './styles';
+import {chatContext} from '../../contexts/chat';
 
 export default function TeacherClassDetails({navigation}) {
   const {student, getStudent} = useContext(StudentContext);
   const {classroom, readClass, geoCode} = useContext(ClassroomContext);
   const {user} = useContext(UserContext);
+  const {readChat} = useContext(chatContext);
   const [start, setStart] = useState(false);
   const [run, setRun] = useState(true);
 
@@ -47,10 +49,10 @@ export default function TeacherClassDetails({navigation}) {
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
                 {student &&
-                  student.user.firstName + ' ' + student.user.lastName}
+                  student.User.firstName + ' ' + student.User.lastName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '2%'}}>
-                {student && gradeResolver(student.student.grade)}
+                {student && gradeResolver(student.grade)}
               </CustomTextContainer>
             </ContainerTextBlue>
           </ContainerB>
@@ -153,8 +155,8 @@ export default function TeacherClassDetails({navigation}) {
                 </CustomTextContainer>
                 <RedContainerText>
                   {classroom &&
-                    classroom.address.logradouro +
-                      ' n°: ' +
+                    //classroom.address.logradouro +
+                    ' n°: ' +
                       classroom.number +
                       ', \n' +
                       classroom.address.bairro +
@@ -162,7 +164,11 @@ export default function TeacherClassDetails({navigation}) {
                       classroom.address.uf}
                 </RedContainerText>
                 <ButtonContainer>
-                  <ChatButton>
+                  <ChatButton
+                    onPress={() => {
+                      readChat();
+                      navigation.navigate('Chat');
+                    }}>
                     <CustomText white bigSmall>
                       Chat
                     </CustomText>

@@ -10,17 +10,16 @@ describe('Testing Pending Class Page', () => {
   };
 
   const student = {
-    student: {
-      cep: '',
-      institution: '',
-      grade: '',
-      special: '',
-      description: '',
-      details: '',
-    },
-    user: {
+    institution: '',
+    description: '',
+    degree: '',
+    graduation_area: '',
+    video: '',
+    User: {
       firstName: '',
       lastName: '',
+      email: '',
+      cellphone: '',
     },
   };
   const getStudent = jest.fn();

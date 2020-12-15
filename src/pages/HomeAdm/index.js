@@ -24,29 +24,23 @@ export default function HomeAdm({navigation}) {
 
   const {signOut} = useContext(AuthContext);
   const {
+    pendingUsers,
+    reportedUsers,
     getTeacherList,
     getReportedUsers,
     getProfessoUser,
-    students,
   } = useContext(AdmContext);
 
-  useEffect(() => {
-    async function renderTeachersUsers() {
-      await getProfessoUser(students[0].id);
-    }
-    if (students !== null) {
-      renderTeachersUsers();
-    }
-  }, [students]);
+  async function handlePending() {
+    await getTeacherList();
+    await getProfessoUser(pendingUsers[0].id);
+    navigation.navigate('PendingTeacher');
+  }
 
-  async function handleProf({item}) {
-    if (item.id === '101') {
-      await getTeacherList();
-      navigation.navigate('PendingTeacher');
-    } else if (item.id === '171') {
-      await getReportedUsers();
-      navigation.navigate('ReportedUsers');
-    }
+  async function handleReported() {
+    await getReportedUsers();
+    await getProfessoUser(reportedUsers[0].id);
+    navigation.navigate('ReportedUsers');
   }
 
   return (
@@ -59,7 +53,13 @@ export default function HomeAdm({navigation}) {
           renderItem={({item}) => (
             <SquareButton
               data={item}
-              onPress={() => handleProf({item})}
+              onPress={async () => {
+                if (item.id === '101') {
+                  await handlePending();
+                } else if (item.id === '171') {
+                  await handleReported();
+                }
+              }}
               style={{backgroundColor: theme.colors.cinzaClaro}}
             />
           )}

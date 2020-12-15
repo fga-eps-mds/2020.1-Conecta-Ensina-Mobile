@@ -16,17 +16,18 @@ describe('Testing teacher profile page', () => {
   };
 
   const teacher = {
-    id: '',
-    user: {
-      firstName: '',
-      lastName: '',
-    },
-    teacher: {
-      graduation_area: '',
-    },
-    student: {
-      grade: '',
-      institution: '',
+    institution: '',
+    description: '',
+    degree: '',
+    graduation_area: '',
+    video: '',
+    Student: {
+      User: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        cellphone: '',
+      },
     },
   };
   const route = {

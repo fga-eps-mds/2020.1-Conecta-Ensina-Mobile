@@ -163,7 +163,6 @@ Array [
                 white={true}
               >
                 Distância: 
-                
               </Text>
             </View>
             <View
@@ -322,7 +321,6 @@ Array [
                 white={true}
               >
                 Série: 
-                
               </Text>
             </View>
             <View
@@ -354,7 +352,6 @@ Array [
                 white={true}
               >
                 Especial: 
-                
               </Text>
             </View>
             <View
@@ -418,7 +415,6 @@ Array [
                 white={true}
               >
                 Detalhe:
-                
               </Text>
             </View>
             <View

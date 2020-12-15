@@ -129,6 +129,7 @@ export async function readClass(Host, id) {
   try {
     const fetchResponse = await fetch(`${Host}/api/classroom/${id}`);
     const data = await fetchResponse.json();
+    
     return data.data.classroom;
   } catch (error) {
     return error;

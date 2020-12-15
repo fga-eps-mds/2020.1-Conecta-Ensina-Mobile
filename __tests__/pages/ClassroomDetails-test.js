@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, fireEvent, act} from '@testing-library/react-native';
+import {render, fireEvent} from '@testing-library/react-native';
 import ClassroomDetails from '../../src/pages/ClassroomDetails';
 import {ClassroomContext} from '../../src/contexts/classroom';
 import {AuthContext} from '../../src/contexts/auth';

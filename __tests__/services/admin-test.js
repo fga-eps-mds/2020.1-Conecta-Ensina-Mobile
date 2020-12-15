@@ -78,7 +78,7 @@ describe('Testing Admin service', () => {
 
     const data = await getProfessoUser('http://10.0.0.103:3333', 1);
 
-    expect(data).toEqual({teacher: {firstName: 'José'}});
+    expect(data).toEqual({firstName: 'José'});
     expect(fetch).toHaveBeenCalledTimes(1);
   });
 

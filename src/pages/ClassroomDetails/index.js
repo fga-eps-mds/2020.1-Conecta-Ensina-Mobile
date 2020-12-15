@@ -190,7 +190,7 @@ export default function ClassroomDetails({navigation, route}) {
                   {item && item.number + ', \n'}
                 </RedContainerText>
                 <ButtonContainer>
-                  <ChatButton>
+                  <ChatButton onPress={ () => navigation.navigate('Chat')}>
                     <CustomText white bigSmall>
                       Chat
                     </CustomText>

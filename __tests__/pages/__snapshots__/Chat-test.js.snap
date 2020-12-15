@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Chat page should match snapshot page 1`] = `[Function]`;
+
+exports[`Testing Chat page should view all the chat message 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#184E79",
+          "height": 95,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 18,
+          },
+        ]
+      }
+    />
+  </View>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "create_by": "teste",
+          "id": "teste_one_id",
+        },
+        Object {
+          "create_by": "teste_two",
+          "id": "teste_two_id",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Array [
+        Object {},
+      ]
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "alignSelf": "flex-end",
+                "backgroundColor": "#297fb8",
+                "borderRadius": 20,
+                "justifyContent": "center",
+                "marginBottom": 10,
+                "minHeight": 40,
+                "minWidth": 150,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "white",
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "alignSelf": "flex-start",
+                "backgroundColor": "#7ed957",
+                "borderRadius": 20,
+                "justifyContent": "center",
+                "marginBottom": 10,
+                "minHeight": 40,
+                "minWidth": 150,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "white",
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+          "marginBottom": "10%",
+        },
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      onChangeText={[Function]}
+      rejectResponderTermination={true}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#184E79",
+            "borderRadius": 20,
+            "color": "white",
+            "height": 40,
+            "marginLeft": 12,
+            "width": 240,
+          },
+        ]
+      }
+      testID="textContainer"
+      underlineColorAndroid="transparent"
+      value=""
+    />
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#184E79",
+          "borderRadius": 5,
+          "height": 40,
+          "justifyContent": "center",
+          "marginLeft": 35,
+          "opacity": 1,
+          "width": 75,
+        }
+      }
+      testID="submitButton"
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+            },
+          ]
+        }
+      >
+        Enviar
+      </Text>
+    </View>
+  </View>
+</View>
+`;

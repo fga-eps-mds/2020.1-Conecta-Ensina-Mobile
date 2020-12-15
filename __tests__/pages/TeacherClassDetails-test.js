@@ -11,12 +11,16 @@ describe('Testing TeacherClassDetails page', () => {
     navigate: jest.fn(),
   };
   const student = {
-    user: {
+    institution: '',
+    description: '',
+    degree: '',
+    graduation_area: '',
+    video: '',
+    User: {
       firstName: '',
       lastName: '',
-    },
-    student: {
-      grade: '',
+      email: '',
+      cellphone: '',
     },
   };
   const classroom = {

@@ -1,9 +1,11 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
+import CheckBox from '@react-native-community/checkbox';
 import Theme from '../../../Theme';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import {TextInputMask} from 'react-native-masked-text';
 import {AuthContext} from '../../contexts/auth';
+import {SubjectContext} from '../../contexts/subject';
 
 import {
   UserContatiner,
@@ -12,6 +14,7 @@ import {
   ButtonRegistrar,
   ContainerRowFlex,
   Container,
+  ListSubjects,
 } from './styles';
 
 import Background3 from '../../components/Background3';
@@ -195,6 +198,7 @@ export default function TeacherRegister({navigation, route}) {
                     }}
                     placeholder="Data de nascimento"
                     placeholderTextColor="#F6F6F6"
+                    // eslint-disable-next-line react-native/no-inline-styles
                     style={{
                       color: '#FFFFFF',
                       fontSize: 14,
@@ -330,6 +334,7 @@ export default function TeacherRegister({navigation, route}) {
                     {errors.degree}
                   </CustomText>
                 )}
+
                 <RegField
                   placeholder="Banco"
                   autoCapitalize="none"

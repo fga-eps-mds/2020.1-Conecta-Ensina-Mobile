@@ -13,35 +13,60 @@ describe('Testing Teacher Confirmation', () => {
   const navigation = {
     navigate: jest.fn(),
   };
-  const usersAdmin = {
-    user: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      cellphone: '',
-    },
-    teacher: {
+  const pendingUsers = [
+    {
+      institution: '',
       description: '',
       degree: '',
       graduation_area: '',
       video: '',
-    },
-    student: {
-      institution: '',
-    },
-  };
-  const students = [
-    {
-      id: '101',
-    },
-    {
-      id: '102',
+      Student: {
+        User: {
+          firstName: '',
+          lastName: '',
+          email: '',
+          cellphone: '',
+        },
+      },
     },
   ];
+  const reportedUsers = [
+    {
+      institution: '',
+      description: '',
+      degree: '',
+      graduation_area: '',
+      video: '',
+      Student: {
+        User: {
+          firstName: '',
+          lastName: '',
+          email: '',
+          cellphone: '',
+        },
+      },
+    },
+  ];
+  const students = {
+    institution: '',
+    description: '',
+    degree: '',
+    graduation_area: '',
+    video: '',
+    Student: {
+      User: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        cellphone: '',
+      },
+    },
+  };
 
   test('Should matches snapshot', () => {
     const tree = render(
-      <AdmContext.Provider value={{students, usersAdmin, statusUpdate}}>
+      <AdmContext.Provider
+        value={{students, reportedUsers, pendingUsers, statusUpdate}}>
         <TeacherConfirmation navigation={navigation} route={route} />
       </AdmContext.Provider>,
     ).toJSON();
@@ -51,7 +76,8 @@ describe('Testing Teacher Confirmation', () => {
 
   test('Should press Aceitar button', () => {
     const {getByTestId} = render(
-      <AdmContext.Provider value={{students, usersAdmin, statusUpdate}}>
+      <AdmContext.Provider
+        value={{students, reportedUsers, pendingUsers, statusUpdate}}>
         <TeacherConfirmation navigation={navigation} route={route} />
       </AdmContext.Provider>,
     );
@@ -64,7 +90,8 @@ describe('Testing Teacher Confirmation', () => {
 
   test('Should press Recusar button', () => {
     const {getByTestId} = render(
-      <AdmContext.Provider value={{students, usersAdmin, statusUpdate}}>
+      <AdmContext.Provider
+        value={{students, reportedUsers, pendingUsers, statusUpdate}}>
         <TeacherConfirmation navigation={navigation} route={route} />
       </AdmContext.Provider>,
     );

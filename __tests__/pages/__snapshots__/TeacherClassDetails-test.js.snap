@@ -762,7 +762,7 @@ exports[`Testing TeacherClassDetails page Should renders page when timer is out 
         >
           <View
             accessible={true}
-            focusable={false}
+            focusable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1659,7 +1659,7 @@ exports[`Testing TeacherClassDetails page Should renders page when timer is up 1
         >
           <View
             accessible={true}
-            focusable={false}
+            focusable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}

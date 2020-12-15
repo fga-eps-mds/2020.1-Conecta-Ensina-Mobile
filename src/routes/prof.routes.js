@@ -13,6 +13,7 @@ import ClassroomDetails from '../pages/ClassroomDetails';
 import TeacherClassDetails from '../pages/TeacherClassDetails';
 import StudentAvaliation from '../pages/StudentAvaliation';
 import FeedbackTeacher from '../pages/FeedbackTeacher';
+import Chat from '../pages/Chat';
 import Maps from '../pages/Maps';
 //import FeedbackStudent from '../pages/FeedbackStudent';
 
@@ -80,6 +81,11 @@ function ProfRoutes() {
       <ProfStack.Screen
         name="FeedbackTeacher"
         component={FeedbackTeacher}
+        options={{headerShown: false}}
+      />
+      <ProfStack.Screen
+        name="Chat"
+        component={Chat}
         options={{headerShown: false}}
       />
       <ProfStack.Screen

@@ -2,27 +2,65 @@ import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
 import {AdmContext} from '../../src/contexts/admin';
 import PendingTeacher from '../../src/pages/PendingTeacher';
-import SquareButton from '../../src/components/ContainerTeacher';
 
 describe('Testing Pending Teacher', () => {
   const getProfessoUser = jest.fn();
   const navigation = {
     navigate: jest.fn(),
   };
-  const usersAdmin = {
-    user: '',
-  };
-  const students = [
+  const pendingUsers = [
     {
-      id: '101',
-    },
-    {
-      id: '102',
+      institution: '',
+      description: '',
+      degree: '',
+      graduation_area: '',
+      video: '',
+      Student: {
+        User: {
+          firstName: '',
+          lastName: '',
+          email: '',
+          cellphone: '',
+        },
+      },
     },
   ];
+  const reportedUsers = [
+    {
+      institution: '',
+      description: '',
+      degree: '',
+      graduation_area: '',
+      video: '',
+      Student: {
+        User: {
+          firstName: '',
+          lastName: '',
+          email: '',
+          cellphone: '',
+        },
+      },
+    },
+  ];
+  const students = {
+    institution: '',
+    description: '',
+    degree: '',
+    graduation_area: '',
+    video: '',
+    Student: {
+      User: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        cellphone: '',
+      },
+    },
+  };
   test('Should matches snapshot', () => {
     const tree = render(
-      <AdmContext.Provider value={{students, usersAdmin, getProfessoUser}}>
+      <AdmContext.Provider
+        value={{students, reportedUsers, pendingUsers, getProfessoUser}}>
         <PendingTeacher navigation={navigation} />
       </AdmContext.Provider>,
     ).toJSON();
@@ -31,7 +69,8 @@ describe('Testing Pending Teacher', () => {
   });
   test('Should press square buttons', () => {
     const {getAllByTestId, debug} = render(
-      <AdmContext.Provider value={{students, usersAdmin, getProfessoUser}}>
+      <AdmContext.Provider
+        value={{students, reportedUsers, pendingUsers, getProfessoUser}}>
         <PendingTeacher navigation={navigation} />
       </AdmContext.Provider>,
     );

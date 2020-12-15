@@ -42,13 +42,11 @@ export default function ConfirmedClassDetails({navigation}) {
             </UserContainer>
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
-                {student.user &&
-                  student.user.firstName + ' ' + student.user.lastName}
+                {student.User &&
+                  student.User.firstName + ' ' + student.User.lastName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '2%'}}>
-                {student &&
-                  student.student &&
-                  gradeResolver(student.student.grade)}
+                {student && gradeResolver(student.grade)}
               </CustomTextContainer>
             </ContainerTextBlue>
           </ContainerB>

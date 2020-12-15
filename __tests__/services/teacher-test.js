@@ -18,7 +18,7 @@ describe('Testing Teacher services', () => {
 
     const data = await getTeacher('http://10.0.0.103:3333');
 
-    expect(data).toEqual({teacher: 'José'});
+    expect(data).toEqual('José');
     expect(fetch).toHaveBeenCalledTimes(1);
   });
 });

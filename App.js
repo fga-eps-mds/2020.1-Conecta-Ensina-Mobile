@@ -12,6 +12,7 @@ import UserProvider from './src/contexts/user';
 import StudentProvider from './src/contexts/student';
 import RateProvider from './src/contexts/rate';
 import ComplainProvider from './src/contexts/complain';
+import ChatProvider from './src/contexts/chat';
 
 export default function App() {
   return (
@@ -24,11 +25,13 @@ export default function App() {
                 <TeacherProvider>
                   <StudentProvider>
                     <ClassroomProvider>
-                      <ComplainProvider>
-                        <RateProvider>
-                          <Routes />
-                        </RateProvider>
-                      </ComplainProvider>
+                      <ChatProvider>
+                        <ComplainProvider>
+                          <RateProvider>
+                            <Routes />
+                          </RateProvider>
+                        </ComplainProvider>
+                      </ChatProvider>
                     </ClassroomProvider>
                   </StudentProvider>
                 </TeacherProvider>

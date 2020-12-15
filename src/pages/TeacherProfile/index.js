@@ -40,7 +40,8 @@ export default function TeacherProfile({navigation, route}) {
               <Icon source={require('../../assets/user_blue.png')} />
             </UserContatiner>
             <CustomTextContainer white smallMedium marginTop={{value: '14%'}}>
-              {teacher && `${teacher.user.firstName} ${teacher.user.lastName}`}
+              {teacher &&
+                `${teacher.Student.User.firstName} ${teacher.Student.User.lastName}`}
             </CustomTextContainer>
           </ContainerB>
         }
@@ -54,7 +55,7 @@ export default function TeacherProfile({navigation, route}) {
               Disciplina
             </CustomTextContainer>
             <RedContainerText medium>
-              {teacher && teacher.teacher.graduation_area}
+              {teacher && teacher.graduation_area}
             </RedContainerText>
             <CustomTextContainer
               black
@@ -64,7 +65,7 @@ export default function TeacherProfile({navigation, route}) {
               Formação
             </CustomTextContainer>
             <RedContainerText medium>
-              {teacher && gradeResolver(teacher.student.grade)}
+              {teacher && gradeResolver(teacher.Student.grade)}
             </RedContainerText>
             <CustomTextContainer
               black
@@ -74,7 +75,7 @@ export default function TeacherProfile({navigation, route}) {
               Universidade
             </CustomTextContainer>
             <RedContainerText medium>
-              {teacher && teacher.student.institution}
+              {teacher && teacher.Student.institution}
             </RedContainerText>
             <CustomTextContainer
               black
@@ -101,7 +102,7 @@ export default function TeacherProfile({navigation, route}) {
               <ContinueContainer
                 testID="ContinueButton"
                 onPress={async () => {
-                  await createClass(teacher.teacher.id);
+                  await createClass(teacher.id);
                   navigation.navigate('Home');
                 }}
               />
