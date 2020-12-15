@@ -30,7 +30,7 @@ export default function PendingClassConfirmation({route, navigation}) {
               <CustomText white> Data: {item.dtclass}</CustomText>
             </ContainerGrande>
             <ContainerGrande>
-              <CustomText white>Distância: {student.student.cep}</CustomText>
+              <CustomText white>Distância: {student.cep}</CustomText>
             </ContainerGrande>
             <ContainerGrande>
               <CustomText white>Duração: {item.duration}</CustomText>
@@ -40,33 +40,29 @@ export default function PendingClassConfirmation({route, navigation}) {
             </ContainerGrande>
             <ContainerGrande>
               <CustomText white>
-                Nome: {student.user.firstName + ' ' + student.user.lastName}
+                Nome: {student.User.firstName + ' ' + student.User.lastName}
               </CustomText>
             </ContainerGrande>
             <ContainerGrande>
-              <CustomText white>
-                Instituição: {student.student.institution}
-              </CustomText>
+              <CustomText white>Instituição: {student.institution}</CustomText>
             </ContainerGrande>
             <ContainerGrande>
-              <CustomText white>Série: {student.student.grade}</CustomText>
+              <CustomText white>Série: {student.grade}</CustomText>
             </ContainerGrande>
             <ContainerGrande>
-              <CustomText white>Especial: {student.student.special}</CustomText>
+              <CustomText white>Especial: {student.special}</CustomText>
             </ContainerGrande>
             <ContainerGrande>
-              <CustomText white>
-                Descrição: {student.student.description}
-              </CustomText>
+              <CustomText white>Descrição: {student.description}</CustomText>
             </ContainerGrande>
             <ContainerGrande>
-              <CustomText white>Detalhe:{student.student.details}</CustomText>
+              <CustomText white>Detalhe:{student.details}</CustomText>
             </ContainerGrande>
             <ContainerComplain>
               <ComplainButton
                 testID="Reportar"
                 onPress={async () => {
-                  await getStudent(student.student.id);
+                  await getStudent(student.id);
                   navigation.navigate('FeedbackTeacher', {params});
                 }}>
                 <CustomText white>Reportar</CustomText>

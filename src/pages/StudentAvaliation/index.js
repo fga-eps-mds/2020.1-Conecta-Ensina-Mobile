@@ -33,13 +33,10 @@ export default function StudentAvaliation({props, navigation}) {
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
                 {student &&
-                  student.user &&
-                  student.user.firstName + ' ' + student.user.lastName}
+                  student.User.firstName + ' ' + student.User.lastName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '2%'}}>
-                {student &&
-                  student.student &&
-                  gradeResolver(student.student.grade)}
+                {student && gradeResolver(student.grade)}
               </CustomTextContainer>
             </ContainerTextBlue>
           </ContainerB>

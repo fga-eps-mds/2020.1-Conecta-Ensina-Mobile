@@ -8,12 +8,9 @@ import {AuthContext} from '../../contexts/auth';
 
 export default function TeacherConfirmation({route, navigation}) {
   const {item} = route.params;
-  const {usersAdmin, statusUpdate} = useContext(AdmContext);
-
-  const handleSubmit = async () => {
-    await statusUpdate(item.id);
-    navigation.navigate('HomeAdm');
-  };
+  const {pendingUsers, reportedUsers, students, statusUpdate} = useContext(
+    AdmContext,
+  );
 
   return (
     <Theme>
@@ -21,55 +18,65 @@ export default function TeacherConfirmation({route, navigation}) {
         <Container>
           <ContainerGrande>
             <CustomText white>
-              {usersAdmin && usersAdmin.user.firstName}
+              {students && students.Student.User.firstName}
             </CustomText>
           </ContainerGrande>
           <ContainerGrande>
             <CustomText white>
-              {usersAdmin && usersAdmin.user.lastName}
-            </CustomText>
-          </ContainerGrande>
-          <ContainerGrande>
-            <CustomText white>{usersAdmin && usersAdmin.user.email}</CustomText>
-          </ContainerGrande>
-          <ContainerGrande>
-            <CustomText white>
-              {usersAdmin && usersAdmin.user.cellphone}
+              {students && students.Student.User.lastName}
             </CustomText>
           </ContainerGrande>
           <ContainerGrande>
             <CustomText white>
-              {usersAdmin && usersAdmin.teacher.description}
-            </CustomText>
-          </ContainerGrande>
-          <ContainerGrande>
-            <CustomText white>{usersAdmin.student.institution}</CustomText>
-          </ContainerGrande>
-          <ContainerGrande>
-            <CustomText white>
-              {usersAdmin && usersAdmin.teacher.degree}
+              {students && students.Student.User.email}
             </CustomText>
           </ContainerGrande>
           <ContainerGrande>
             <CustomText white>
-              {usersAdmin && usersAdmin.teacher.graduation_area}
+              {students && students.Student.User.cellphone}
             </CustomText>
           </ContainerGrande>
           <ContainerGrande>
+            <CustomText white>{students && students.description}</CustomText>
+          </ContainerGrande>
+          <ContainerGrande>
+            <CustomText white>{students.Student.institution}</CustomText>
+          </ContainerGrande>
+          <ContainerGrande>
+            <CustomText white>{students && students.degree}</CustomText>
+          </ContainerGrande>
+          <ContainerGrande>
             <CustomText white>
-              {usersAdmin && usersAdmin.teacher.video}
+              {students && students.graduation_area}
             </CustomText>
+          </ContainerGrande>
+          <ContainerGrande>
+            <CustomText white>{students && students.video}</CustomText>
           </ContainerGrande>
         </Container>
         <ContainerButton>
-          <Button testID="Aceitar" onPress={handleSubmit}>
+          <Button
+            testID="Aceitar"
+            onPress={async () => {
+              if (pendingUsers !== null) {
+                await statusUpdate(item.id, 1);
+              } else {
+                await statusUpdate(item.id, 2);
+              }
+              navigation.navigate('HomeAdm');
+            }}>
             <CustomText white bigSmall>
               Aceitar
             </CustomText>
           </Button>
           <Button
             testID="Recusar"
-            onPress={() => navigation.navigate('PendingTeacher')}>
+            onPress={async () => {
+              if (reportedUsers !== null) {
+                await statusUpdate(item.id, 1);
+              }
+              navigation.navigate('HomeAdm');
+            }}>
             <CustomText white bigSmall>
               Recusar
             </CustomText>

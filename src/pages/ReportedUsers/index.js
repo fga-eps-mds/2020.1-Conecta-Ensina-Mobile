@@ -6,7 +6,7 @@ import Background4 from '../../components/Background4';
 import {ListMaterias, Container} from './styles';
 
 export default function ReportedUsers({navigation}) {
-  const {usersAdmin, students, getProfessoUser} = useContext(AdmContext);
+  const {reportedUsers, students, getProfessoUser} = useContext(AdmContext);
 
   async function handleSubmit({item}) {
     await getProfessoUser(item.id);
@@ -20,13 +20,13 @@ export default function ReportedUsers({navigation}) {
         <Container>
           <ListMaterias
             numColumns={2}
-            data={students}
+            data={reportedUsers}
             keyExtractor={(item) => item.id}
             renderItem={({item}) => {
-              if (usersAdmin) {
+              if (students) {
                 return (
                   <SquareButton
-                    data={usersAdmin.user}
+                    data={students.Student.User}
                     onPressProf={() => handleSubmit({item})}
                   />
                 );

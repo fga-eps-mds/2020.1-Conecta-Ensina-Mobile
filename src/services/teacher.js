@@ -11,12 +11,12 @@ export async function getAllTeachers(Host, subject) {
   }
 }
 export async function getTeacher(Host, id) {
-  const response = await fetch(`${Host}/api/teacher/${id}`);
   try {
+    const response = await fetch(`${Host}/api/teacher/${id}`);
     const data = await response.json();
-    console.log(data.data);
+    console.log(data.data.teacher);
     //setSubjects(data.data.subject);
-    return data.data;
+    return data.data.teacher;
   } catch (error) {
     return error;
   }

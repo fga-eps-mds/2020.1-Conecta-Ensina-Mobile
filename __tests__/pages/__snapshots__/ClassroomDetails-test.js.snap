@@ -1706,7 +1706,7 @@ exports[`Testing Classroom Details Should renders snapshot page for status = 2 1
         >
           <View
             accessible={true}
-            focusable={false}
+            focusable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}

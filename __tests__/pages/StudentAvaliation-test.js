@@ -8,10 +8,8 @@ jest.mock('../../src/services/gradeResolver');
 
 describe('Testing StudentAvaliation', () => {
   const student = {
-    student: {
-      grade: '',
-    },
-    user: {
+    grade: '',
+    User: {
       firstName: '',
       lastName: '',
     },

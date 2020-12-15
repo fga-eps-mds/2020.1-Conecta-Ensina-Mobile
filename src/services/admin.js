@@ -2,10 +2,10 @@ export async function getTeacherList(Host) {
   try {
     const fetchResponse = await fetch(`${Host}/api/student/status/0`);
     const data = await fetchResponse.json();
-    if (data.message !== 'Nenhum professor pendente') {
-      return data.data.student;
-    } else {
+    if (data.message === 'Nenhum professor pendente') {
       return null;
+    } else {
+      return data.data.student;
     }
   } catch (error) {
     return error;
@@ -16,10 +16,10 @@ export async function getReportedUsers(Host) {
   try {
     const fetchResponse = await fetch(`${Host}/api/student/status/2`);
     const data = await fetchResponse.json();
-    if (data.message !== 'Nenhum professor pendente') {
-      return data.data.student;
-    } else {
+    if (data.message === 'Nenhum professor pendente') {
       return null;
+    } else {
+      return data.data.student;
     }
   } catch (error) {
     return error;
@@ -28,15 +28,17 @@ export async function getReportedUsers(Host) {
 
 export async function getProfessoUser(Host, id) {
   try {
+    console.log(id);
     const response = await fetch(`${Host}/api/teacher/${id}`);
     const data = await response.json();
-    return data.data;
+    console.log(data);
+    return data.data.teacher;
   } catch (error) {
     return error;
   }
 }
 
-export async function statusUpdate(Host, user, id) {
+export async function statusUpdate(Host, user, id, status) {
   const settings = {
     method: 'PUT',
     headers: {
@@ -44,7 +46,7 @@ export async function statusUpdate(Host, user, id) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      status: 1,
+      status: status,
       agentRole: user.role,
     }),
   };

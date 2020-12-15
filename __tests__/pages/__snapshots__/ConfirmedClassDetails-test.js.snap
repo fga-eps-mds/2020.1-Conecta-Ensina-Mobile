@@ -138,9 +138,7 @@ exports[`Testing ConfirmedClassDetais page Should render page 1`] = `
               ]
             }
             white={true}
-          >
-            first last
-          </Text>
+          />
         </View>
         <View
           marginTop={

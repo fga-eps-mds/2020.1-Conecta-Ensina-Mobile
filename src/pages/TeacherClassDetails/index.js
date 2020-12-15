@@ -27,7 +27,7 @@ import {
   TimerButton,
   ContainerColumnButton,
 } from './styles';
-import { chatContext } from '../../contexts/chat';
+import {chatContext} from '../../contexts/chat';
 
 export default function TeacherClassDetails({navigation}) {
   const {student, getStudent} = useContext(StudentContext);
@@ -49,10 +49,10 @@ export default function TeacherClassDetails({navigation}) {
             <ContainerTextBlue>
               <CustomTextContainer white bigMedium marginTop={{value: '2%'}}>
                 {student &&
-                  student.user.firstName + ' ' + student.user.lastName}
+                  student.User.firstName + ' ' + student.User.lastName}
               </CustomTextContainer>
               <CustomTextContainer white smallMedium marginTop={{value: '2%'}}>
-                {student && gradeResolver(student.student.grade)}
+                {student && gradeResolver(student.grade)}
               </CustomTextContainer>
             </ContainerTextBlue>
           </ContainerB>
@@ -156,7 +156,7 @@ export default function TeacherClassDetails({navigation}) {
                 <RedContainerText>
                   {classroom &&
                     //classroom.address.logradouro +
-                      ' n°: ' +
+                    ' n°: ' +
                       classroom.number +
                       ', \n' +
                       classroom.address.bairro +
@@ -164,9 +164,10 @@ export default function TeacherClassDetails({navigation}) {
                       classroom.address.uf}
                 </RedContainerText>
                 <ButtonContainer>
-                  <ChatButton onPress={()=>{
-                    readChat()
-                    navigation.navigate('Chat')
+                  <ChatButton
+                    onPress={() => {
+                      readChat();
+                      navigation.navigate('Chat');
                     }}>
                     <CustomText white bigSmall>
                       Chat

@@ -9,7 +9,55 @@ describe('Testing HomeAdm Page', () => {
   const navigation = {
     navigate: jest.fn(),
   };
-  const students = [{id: ''}];
+  const pendingUsers = [
+    {
+      institution: '',
+      description: '',
+      degree: '',
+      graduation_area: '',
+      video: '',
+      Student: {
+        User: {
+          firstName: '',
+          lastName: '',
+          email: '',
+          cellphone: '',
+        },
+      },
+    },
+  ];
+  const reportedUsers = [
+    {
+      institution: '',
+      description: '',
+      degree: '',
+      graduation_area: '',
+      video: '',
+      Student: {
+        User: {
+          firstName: '',
+          lastName: '',
+          email: '',
+          cellphone: '',
+        },
+      },
+    },
+  ];
+  const students = {
+    institution: '',
+    description: '',
+    degree: '',
+    graduation_area: '',
+    video: '',
+    Student: {
+      User: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        cellphone: '',
+      },
+    },
+  };
   const getTeacherList = jest.fn();
   const getReportedUsers = jest.fn();
   const getProfessoUser = jest.fn();
@@ -20,6 +68,8 @@ describe('Testing HomeAdm Page', () => {
         <AdmContext.Provider
           value={{
             students,
+            reportedUsers,
+            pendingUsers,
             getTeacherList,
             getProfessoUser,
             getReportedUsers,
@@ -37,6 +87,8 @@ describe('Testing HomeAdm Page', () => {
         <AdmContext.Provider
           value={{
             students,
+            reportedUsers,
+            pendingUsers,
             getTeacherList,
             getProfessoUser,
             getReportedUsers,
@@ -57,6 +109,8 @@ describe('Testing HomeAdm Page', () => {
         <AdmContext.Provider
           value={{
             students,
+            reportedUsers,
+            pendingUsers,
             getTeacherList,
             getProfessoUser,
             getReportedUsers,

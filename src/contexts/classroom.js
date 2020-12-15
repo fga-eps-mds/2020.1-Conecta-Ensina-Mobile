@@ -27,13 +27,12 @@ export default function ClassroomProvider({children}) {
     }
   }
   async function createClass(teacher) {
-    //console.log('Esse aqui é o professor: ' + teacher);
     const student = await Student.getStudent(Host, user.id);
     const response = await Class.createClass(
       user,
       teacher,
       filter,
-      student.student,
+      student,
       Host,
     );
   }

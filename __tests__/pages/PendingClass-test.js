@@ -8,6 +8,19 @@ describe('Testing Pending Class Page', () => {
   const navigation = {
     navigate: jest.fn(),
   };
+  const student = {
+    institution: '',
+    description: '',
+    degree: '',
+    graduation_area: '',
+    video: '',
+    User: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      cellphone: '',
+    },
+  };
   const getStudent = jest.fn();
   const getClass = jest.fn();
   const classes = [
@@ -23,7 +36,7 @@ describe('Testing Pending Class Page', () => {
   ];
   test('Should renders page', () => {
     const tree = render(
-      <StudentContext.Provider value={{getStudent}}>
+      <StudentContext.Provider value={{student, getStudent}}>
         <ClassroomContext.Provider value={{getClass, classes}}>
           <PendingClass navigation={navigation} />
           ).toJSON();
@@ -35,7 +48,7 @@ describe('Testing Pending Class Page', () => {
   });
   test("Should press 'Ver Mais' button ", async () => {
     const {getByTestId} = render(
-      <StudentContext.Provider value={{getStudent}}>
+      <StudentContext.Provider value={{student, getStudent}}>
         <ClassroomContext.Provider value={{getClass, classes}}>
           <PendingClass navigation={navigation} />
         </ClassroomContext.Provider>

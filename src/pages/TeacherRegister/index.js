@@ -334,13 +334,6 @@ export default function TeacherRegister({navigation, route}) {
                     {errors.degree}
                   </CustomText>
                 )}
-                <ListSubjects
-                  data={subject}
-                  keyExtractor={(item) => item.id}
-                  renderItem={({item}) => {
-                    return <CheckBox data={item} />;
-                  }}
-                />
 
                 <RegField
                   placeholder="Banco"
