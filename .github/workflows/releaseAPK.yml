@@ -11,7 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install Modules
-        run: npm ci
+        run: |
+          npm install 
+          npm ci
       - uses: actions/checkout@v2
       - name: Build container
         env:
