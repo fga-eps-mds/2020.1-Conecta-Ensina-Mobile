@@ -26,7 +26,7 @@ export default function PendingTeacher({navigation}) {
                 if (students !== null) {
                   return (
                     <SquareButton
-                      data={students.Student.User}
+                      data={students.User}
                       onPressProf={() => handleSubmit({item})}
                     />
                   );

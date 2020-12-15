@@ -148,10 +148,10 @@ export default function StudentRegister({navigation}) {
                     {errors.email}
                   </CustomText>
                 )}
-                <PasswordInput>
+                <PasswordInput
                   value={values.password}
                   onChangeText={handleChange('password')}
-                </PasswordInput>
+                />
 
                 {errors.password && (
                   <CustomText black small>

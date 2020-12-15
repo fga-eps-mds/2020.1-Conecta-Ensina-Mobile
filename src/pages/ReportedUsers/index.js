@@ -8,6 +8,8 @@ import {ListMaterias, Container} from './styles';
 export default function ReportedUsers({navigation}) {
   const {reportedUsers, students, getProfessoUser} = useContext(AdmContext);
 
+  console.log(students)
+
   async function handleSubmit({item}) {
     await getProfessoUser(item.id);
     console.log(item.id);
@@ -26,7 +28,7 @@ export default function ReportedUsers({navigation}) {
               if (students) {
                 return (
                   <SquareButton
-                    data={students.Student.User}
+                    data={students.User}
                     onPressProf={() => handleSubmit({item})}
                   />
                 );
