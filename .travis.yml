@@ -27,4 +27,3 @@ jobs:
         # run tests
         - yarn test -u
         - yarn test --coverage
-        - ./node_modules/.bin/codecov -t ${CODECOV_MOBILE_TOKEN}
