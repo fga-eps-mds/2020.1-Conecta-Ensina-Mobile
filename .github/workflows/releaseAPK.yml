@@ -2,7 +2,7 @@ name: Generate APK
 
 on:
   push:
-    branches: [fix/master]
+    branches: [master]
 jobs:
   build:
     name: CI Build
