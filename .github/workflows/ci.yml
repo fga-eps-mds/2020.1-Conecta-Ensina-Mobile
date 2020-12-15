@@ -1,0 +1,22 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Tests
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: yarn install
+    - run: yarn test --coverage
+    - run: ./node_modules/.bin/codecov -t  ${{ secrets.CODECOV_MOBILE_TOKEN }}

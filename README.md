@@ -2,13 +2,15 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/fga-eps-mds/2020.1-Conecta-Ensina-Mobile.svg)](http://isitmaintained.com/project/fga-eps-mds/2020.1-Conecta-Ensina-Mobile "Percentage of issues still open")
 
 [![codecov](https://codecov.io/gh/fga-eps-mds/2020.1-Conecta-Ensina-Mobile/branch/master/graph/badge.svg)](https://codecov.io/gh/fga-eps-mds/2020.1-Conecta-Ensina-Mobile)
 
 ![travis](https://travis-ci.com/fga-eps-mds/2020.1-Conecta-Ensina-Mobile.svg?branch=master)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/1f978234241b543cce95/maintainability)](https://codeclimate.com/github/fga-eps-mds/2020.1-Conecta-Ensina-Mobile/maintainability)
+
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=fga-eps-mds_2020.1-Conecta-Ensina-Mobile)
+
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=fga-eps-mds_2020.1-Conecta-Ensina-Mobile&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=fga-eps-mds_2020.1-Conecta-Ensina-Mobile) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=fga-eps-mds_2020.1-Conecta-Ensina-Mobile&metric=bugs)](https://sonarcloud.io/dashboard?id=fga-eps-mds_2020.1-Conecta-Ensina-Mobile) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=fga-eps-mds_2020.1-Conecta-Ensina-Mobile&metric=code_smells)](https://sonarcloud.io/dashboard?id=fga-eps-mds_2020.1-Conecta-Ensina-Mobile) [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=fga-eps-mds_2020.1-Conecta-Ensina-Mobile&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=fga-eps-mds_2020.1-Conecta-Ensina-Mobile) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=fga-eps-mds_2020.1-Conecta-Ensina-Mobile&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=fga-eps-mds_2020.1-Conecta-Ensina-Mobile) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=fga-eps-mds_2020.1-Conecta-Ensina-Mobile&metric=security_rating)](https://sonarcloud.io/dashboard?id=fga-eps-mds_2020.1-Conecta-Ensina-Mobile) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=fga-eps-mds_2020.1-Conecta-Ensina-Mobile&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=fga-eps-mds_2020.1-Conecta-Ensina-Mobile)
 
 ## Dependências
 
