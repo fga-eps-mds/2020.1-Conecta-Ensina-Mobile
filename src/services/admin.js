@@ -29,10 +29,10 @@ export async function getReportedUsers(Host) {
 export async function getProfessoUser(Host, id) {
   try {
     console.log(id);
-    const response = await fetch(`${Host}/api/teacher/${id}`);
+    const response = await fetch(`${Host}/api/student/${id}`);
     const data = await response.json();
     console.log(data);
-    return data.data.teacher;
+    return data.data.student;
   } catch (error) {
     return error;
   }

@@ -73,7 +73,7 @@ describe('Testing Admin service', () => {
 
   test('Should getProfessorUser works', async () => {
     fetch.mockResponseOnce(
-      JSON.stringify({data: {teacher: {firstName: 'José'}}}),
+      JSON.stringify({data: {student: {firstName: 'José'}}}),
     );
 
     const data = await getProfessoUser('http://10.0.0.103:3333', 1);

@@ -18,29 +18,29 @@ export default function TeacherConfirmation({route, navigation}) {
         <Container>
           <ContainerGrande>
             <CustomText white>
-              {students && students.Student.User.firstName}
+              {students && students.User.firstName}
             </CustomText>
           </ContainerGrande>
           <ContainerGrande>
             <CustomText white>
-              {students && students.Student.User.lastName}
+              {students && students.User.lastName}
             </CustomText>
           </ContainerGrande>
           <ContainerGrande>
             <CustomText white>
-              {students && students.Student.User.email}
+              {students && students.User.email}
             </CustomText>
           </ContainerGrande>
           <ContainerGrande>
             <CustomText white>
-              {students && students.Student.User.cellphone}
+              {students && students.User.cellphone}
             </CustomText>
           </ContainerGrande>
           <ContainerGrande>
             <CustomText white>{students && students.description}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
-            <CustomText white>{students.Student.institution}</CustomText>
+            <CustomText white>{students.institution}</CustomText>
           </ContainerGrande>
           <ContainerGrande>
             <CustomText white>{students && students.degree}</CustomText>

@@ -70,13 +70,11 @@ exports[`Testing ReportedUsers Should matches snapshot 1`] = `
         data={
           Array [
             Object {
-              "Student": Object {
-                "User": Object {
-                  "cellphone": "",
-                  "email": "",
-                  "firstName": "",
-                  "lastName": "",
-                },
+              "User": Object {
+                "cellphone": "",
+                "email": "",
+                "firstName": "",
+                "lastName": "",
               },
               "degree": "",
               "description": "",
