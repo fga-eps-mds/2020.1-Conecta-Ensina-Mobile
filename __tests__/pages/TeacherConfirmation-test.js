@@ -20,14 +20,12 @@ describe('Testing Teacher Confirmation', () => {
       degree: '',
       graduation_area: '',
       video: '',
-      Student: {
         User: {
           firstName: '',
           lastName: '',
           email: '',
           cellphone: '',
         },
-      },
     },
   ];
   const reportedUsers = [
@@ -37,7 +35,6 @@ describe('Testing Teacher Confirmation', () => {
       degree: '',
       graduation_area: '',
       video: '',
-      Student: {
         User: {
           firstName: '',
           lastName: '',
@@ -45,7 +42,6 @@ describe('Testing Teacher Confirmation', () => {
           cellphone: '',
         },
       },
-    },
   ];
   const students = {
     institution: '',
@@ -53,14 +49,12 @@ describe('Testing Teacher Confirmation', () => {
     degree: '',
     graduation_area: '',
     video: '',
-    Student: {
       User: {
         firstName: '',
         lastName: '',
         email: '',
         cellphone: '',
       },
-    },
   };
 
   test('Should matches snapshot', () => {

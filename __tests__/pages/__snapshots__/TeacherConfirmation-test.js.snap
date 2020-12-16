@@ -277,7 +277,9 @@ exports[`Testing Teacher Confirmation Should matches snapshot 1`] = `
               ]
             }
             white={true}
-          />
+          >
+            
+          </Text>
         </View>
         <View
           style={

@@ -15,14 +15,12 @@ describe('Testing Pending Teacher', () => {
       degree: '',
       graduation_area: '',
       video: '',
-      Student: {
         User: {
           firstName: '',
           lastName: '',
           email: '',
           cellphone: '',
         },
-      },
     },
   ];
   const reportedUsers = [
@@ -32,14 +30,12 @@ describe('Testing Pending Teacher', () => {
       degree: '',
       graduation_area: '',
       video: '',
-      Student: {
         User: {
           firstName: '',
           lastName: '',
           email: '',
           cellphone: '',
         },
-      },
     },
   ];
   const students = {
@@ -48,14 +44,12 @@ describe('Testing Pending Teacher', () => {
     degree: '',
     graduation_area: '',
     video: '',
-    Student: {
       User: {
         firstName: '',
         lastName: '',
         email: '',
         cellphone: '',
       },
-    },
   };
   test('Should matches snapshot', () => {
     const tree = render(

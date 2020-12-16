@@ -15,7 +15,6 @@ describe('Testing ReportedUsers', () => {
       degree: '',
       graduation_area: '',
       video: '',
-      Student: {
         User: {
           firstName: '',
           lastName: '',
@@ -23,7 +22,6 @@ describe('Testing ReportedUsers', () => {
           cellphone: '',
         },
       },
-    },
   ];
   const reportedUsers = [
     {
@@ -32,14 +30,12 @@ describe('Testing ReportedUsers', () => {
       degree: '',
       graduation_area: '',
       video: '',
-      Student: {
         User: {
           firstName: '',
           lastName: '',
           email: '',
           cellphone: '',
         },
-      },
     },
   ];
   const students = {
@@ -48,14 +44,12 @@ describe('Testing ReportedUsers', () => {
     degree: '',
     graduation_area: '',
     video: '',
-    Student: {
       User: {
         firstName: '',
         lastName: '',
         email: '',
         cellphone: '',
       },
-    },
   };
   test('Should matches snapshot', () => {
     const tree = render(
